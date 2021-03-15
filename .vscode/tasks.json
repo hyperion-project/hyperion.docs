@@ -1,0 +1,32 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "yarn docs:dev",
+            "type": "shell",
+            "command": "yarn",
+            "args": ["docs:dev"],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": [],
+            "detail": "vuepress build content"
+        },
+        {
+            "label": "yarn docs:build",
+            "type": "shell",
+            "command": "yarn",
+            "args": ["docs:build"],
+            "group": {
+                "kind": "test",
+                "isDefault": true
+            },
+            "problemMatcher": [],
+            "detail": "vuepress build content"
+        }
+
+    ]
+}
