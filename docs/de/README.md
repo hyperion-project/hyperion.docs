@@ -3,8 +3,8 @@ sidebar: false
 ---
 
 <p style="text-align:center">
-	<img :src="$withBase('/hyperion-logo.png')" alt="Hyperion Logo"><br>
-	Willkommen in der bunten Welt von Hyperion. Bitte wähle aus, welche Dokumentation du einsehen möchtest.
+  <HyperionLogo /><br>
+  Willkommen in der bunten Welt von Hyperion. Bitte wähle aus, welche Dokumentation du einsehen möchtest.
 </p>
 
 <div class="flex flex-center no-decoration">

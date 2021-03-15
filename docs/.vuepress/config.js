@@ -40,24 +40,31 @@ module.exports = {
     ['meta', { name: 'msapplication-TileImage', content: '/icons/ms-icon-144x144.png' }], // probably invert
     ['meta', { name: 'msapplication-TileColor', content: '#2b81a0' }] // might not match with icon
   ],
-  dest: './dist',
+  dest: "./dist",
   title: "Hyperion",
   // removing this sections disables lang selector. But everything else works. Featue Request to merge with themeConfig.locales?
   locales: {
-    '/': {
+    "/": {
       lang: 'en-US',
       // Description of page does not work inside themeConfig
       description: 'Hyperion Ambient Light documentation'
     },
-    '/de/': {
+    "/de/": {
       lang: 'de-DE',
       description: 'Hyperion Ambient Light Dokumentation'
     }
   },
   themeConfig: {
+    /*  algolia: {
+          apiKey: '<API_KEY>',
+          indexName: '<INDEX_NAME>'
+        },
+
+    */
     sidebarDepth: 3,
     smoothScroll: true,
     logo: '/hyperion-logo.png',
+    darkLogo: '/hyperion-logo-dark.png',
     searchPlaceholder: 'Search...',
     locales: {
       '/': {
@@ -182,40 +189,40 @@ module.exports = {
 }
 
 function getUserSidebar (groupA, groupB, Language) {
-	if (Language === 'EN') {
-		return [
-		  {
-		    title: groupA,
-		    collapsable: false,
-		    children: [
-		      '',
-		      'Installation',
-		      'Configuration',
-		      'LedDevices',
-		      'HyperBian',
-		    ]
-		  },
-		  {
-		    title: groupB,
-		    collapsable: false,
-		    children: [
-		      'advanced/Advanced',
-		      'advanced/Support',
-		    ]
-		  }
-		]
-	} else if (Language === 'DE') {
-		return [
-		  {
-		    title: groupA,
-		    collapsable: false,
-		    children: [
-		      '',
-		      'Installation'
-		    ]
-		  }
-		]
-	}
+  if (Language === 'EN') {
+    return [
+      {
+        title: groupA,
+        collapsable: false,
+        children: [
+          '',
+          'Installation',
+          'Configuration',
+          'LedDevices',
+          'HyperBian',
+        ]
+      },
+      {
+        title: groupB,
+        collapsable: false,
+        children: [
+          'advanced/Advanced',
+          'advanced/Support',
+        ]
+      }
+    ]
+  } else if (Language === 'DE') {
+    return [
+      {
+        title: groupA,
+        collapsable: false,
+        children: [
+          '',
+          'Installation'
+        ]
+      }
+    ]
+  }
 }
 
 function getEffectsSidebar (groupA, groupB) {
