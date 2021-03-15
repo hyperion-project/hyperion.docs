@@ -9,11 +9,10 @@ export default {
         logo: '/hyperion-logo.png'
       };
     },
-    beforeMount() {
-      this.logo =
-        window.localStorage.getItem('vuepress-isDark') === 'yes'
-          ? this.$site.themeConfig.darkLogo
-          : this.$site.themeConfig.logo;
+    mounted() {
+      if(window.localStorage.getItem('vuepress-isDark') !== null) {
+        this.logo = this.$site.themeConfig.darkLogo;
+      }
     },
     created() {
       this.$root.$on('dark-mode', (isDark) =>
