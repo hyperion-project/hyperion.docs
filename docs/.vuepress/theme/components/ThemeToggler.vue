@@ -38,8 +38,12 @@
     methods: {
       toggle() {
         this.isDark = !this.isDark;
+        if (this.isDark) {
+          window.localStorage.setItem('vuepress-isDark', 'yes');
+        } else {
+          window.localstorage.removeItem('vuepress-isDark');
+        }
         this.$root.$emit('dark-mode', this.isDark);
-        window.localStorage.setItem('vuepress-isDark', this.isDark ? 'yes' : '');
         document.getElementsByTagName('html')[0].classList[this.isDark ? 'add' : 'remove']('dark');
       }
     }
