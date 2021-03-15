@@ -27,7 +27,7 @@ self.addEventListener('message', (event) => {
 self.__precacheManifest = [
   {
     "url": "404.html",
-    "revision": "410bfdfbbf94f1d33325da70862feceb"
+    "revision": "1b3d63cbeff3bd1662ab759695aa1d45"
   },
   {
     "url": "assets/css/0.styles.da2f1f5f.css",
@@ -174,104 +174,104 @@ self.__precacheManifest = [
     "revision": "7516e1f4af32358b32f8be9659e1dab5"
   },
   {
-    "url": "assets/js/app.e47f24d6.js",
-    "revision": "536ffec1b6af132139490f933ac15d05"
+    "url": "assets/js/app.ba2570d7.js",
+    "revision": "f802a5f2210bc68cf2c33627f8a15f79"
   },
   {
     "url": "de/index.html",
-    "revision": "e8f44aa3dc0a4fc89d737d04d4b585fe"
+    "revision": "a06beeedf7bb034082a421bcb5ce2507"
   },
   {
     "url": "de/user/index.html",
-    "revision": "c282ff35eec98135210ec121cfb5b722"
+    "revision": "6f0bc2ba2000f25b0589027a4339f14b"
   },
   {
     "url": "de/user/Installation.html",
-    "revision": "d6b56e737b1104131e8ff7fa74b1d33c"
+    "revision": "8f99c0c1df6103170d5f4faf74a628ce"
   },
   {
     "url": "en/addons/API.html",
-    "revision": "d8d87f204bd8ce418356ad3d74ee5358"
+    "revision": "71dee72298fc1d7b5930b7db921d8855"
   },
   {
     "url": "en/addons/index.html",
-    "revision": "92bcb535f71d0ebd43340b132c7452ef"
+    "revision": "87e4407c5c300603b6e70b8b8acc5188"
   },
   {
     "url": "en/addons/OurFirstAddon.html",
-    "revision": "4c2ab3f1e30c085afe0b20fd8c8310bc"
+    "revision": "8ada28c49bf633b83cab6587ece4f77e"
   },
   {
     "url": "en/api/Detect.html",
-    "revision": "d24e40dad779362e94a1daaace4c24cc"
+    "revision": "cf5903a7f51941df396522358e5f46e0"
   },
   {
     "url": "en/api/Guidelines.html",
-    "revision": "11fd0d4459102ea10ce3f7f68a8f72c7"
+    "revision": "269edf2fcb3350749c148a40c64ed7ba"
   },
   {
     "url": "en/api/Ui.html",
-    "revision": "866cb972e2571e00d395b523000a62bd"
+    "revision": "c80c8ac31491c948205d01072c1a97c6"
   },
   {
     "url": "en/effects/API.html",
-    "revision": "b5a8d668a10f8099568d458506758cc8"
+    "revision": "45d6fb75781b809bbab232c0a745e437"
   },
   {
     "url": "en/effects/index.html",
-    "revision": "472ee25c8e521134a68bd2caa8488f77"
+    "revision": "1a2e4b2be95627345b9cabb849e6bd4e"
   },
   {
     "url": "en/effects/OurFirstEffect.html",
-    "revision": "232634597182d5c90b7deb166e87d874"
+    "revision": "2941166e5269d5fb79a71ea9273e81c0"
   },
   {
     "url": "en/json/Authorization.html",
-    "revision": "b017753e14953322151df490a1bd2bf9"
+    "revision": "5a5c44868ac72bf25afef3202368e3c9"
   },
   {
     "url": "en/json/Control.html",
-    "revision": "71e5127422adeb11c335a0e55448d099"
+    "revision": "ab54938bfa4dc8cf4556ed427e95e088"
   },
   {
     "url": "en/json/index.html",
-    "revision": "55dbe077750657fad3667e7a517ec6eb"
+    "revision": "27333752dc58a23f6f9ec9e15a316e6b"
   },
   {
     "url": "en/json/ServerInfo.html",
-    "revision": "6dd5653290c662611d494e291b218978"
+    "revision": "4394dda49774d51b4088a5f09077c9dd"
   },
   {
     "url": "en/json/Subscribe.html",
-    "revision": "860f7de9f217e4a32b8288dd248a7557"
+    "revision": "62eb9b79e90ab471ec093e2b6e5e1417"
   },
   {
     "url": "en/user/advanced/Advanced.html",
-    "revision": "0b543f6ad9b40f1f6160d2712ead1558"
+    "revision": "7308c9d63a0fe9cd69e06fc683e31346"
   },
   {
     "url": "en/user/advanced/Support.html",
-    "revision": "ba85ff0c63aa44706df49ce9d2d04c5c"
+    "revision": "976861ac800cd2b20276a8f16be7973e"
   },
   {
     "url": "en/user/Configuration.html",
-    "revision": "e79097f9bf95b58c7e9f75aa874364c1"
+    "revision": "ea74f074fdc9879e1a0e671677c16ea1"
   },
   {
     "url": "en/user/HyperBian.html",
-    "revision": "21e208c12f2a397e894847b0592b0ea5"
+    "revision": "cac2cd05b2ac8b7b0ade7a3f0021225d"
   },
   {
     "url": "en/user/index.html",
-    "revision": "184fca483be3291f48570978846737df"
+    "revision": "1976befea929df93abe4c912084af410"
   },
   {
     "url": "en/user/Installation.html",
-    "revision": "92343c3c68641cb92de79eb0ab65a9d7"
+    "revision": "32745ceb7e1cef1735b980724c6b9384"
   },
   {
     "url": "en/user/LedDevices.html",
-    "revision": "12d2d0b065268d86566004ccd26e9318"
+    "revision": "500e8265e100c7b22f913e63fb17b2e0"
   },
   {
     "url": "hyperion-logo.png",
@@ -455,7 +455,7 @@ self.__precacheManifest = [
   },
   {
     "url": "index.html",
-    "revision": "9d54b660b2a931dee215ef7bee9fe73b"
+    "revision": "563885cd938cd9c7c31f867dc67b7eac"
   }
 ].concat(self.__precacheManifest || []);
 workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
