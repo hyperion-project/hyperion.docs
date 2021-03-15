@@ -1,5 +1,5 @@
 ## Documentation
-This repository contains the Hyperion documentation build files. It's written in Markdown with [VuePress](https://vuepress.vuejs.org/) as static site generator.
+This repository contains the [Hyperion](https://github.com/hyperion-project/hyperion.ng) documentation build files. It's written in Markdown with [VuePress](https://vuepress.vuejs.org/) as static site generator.
 
 ### Development
 To edit or translate the documentation, it's not necessarily required to follow these steps (As we use Markdown). But if you want to check the results, please do so.
