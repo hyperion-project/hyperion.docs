@@ -1,3 +1,5 @@
+[![Documentation CI Build](https://github.com/hyperion-project/hyperion.docs/actions/workflows/push.yml/badge.svg?event=push)](https://github.com/hyperion-project/hyperion.docs/actions/workflows/push.yml)
+
 ## Documentation
 This repository contains the [Hyperion](https://github.com/hyperion-project/hyperion.ng) documentation build files. It's written in Markdown with [VuePress](https://vuepress.vuejs.org/) as static site generator.
 
