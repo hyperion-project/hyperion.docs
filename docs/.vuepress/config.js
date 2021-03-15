@@ -64,7 +64,7 @@ module.exports = {
         // text for the language dropdown
         selectText: 'Languages',
         // label for this locale in the language dropdown
-        label: 'English 🇺🇸 🇬🇧',
+        label: 'English',
         // Aria Label for locale in the dropdown
         ariaLabel: 'Languages',
         // text for last updated
@@ -96,7 +96,7 @@ module.exports = {
       },
       '/de/': {
         selectText: 'Sprachen',
-        label: 'Deutsch 🇩🇪',
+        label: 'Deutsch',
         lastUpdated: 'Zuletzt Aktualisiert',
         editLinkText: 'Editiere diese Seite auf Github',
         serviceWorker: {
