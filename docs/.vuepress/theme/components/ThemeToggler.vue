@@ -29,8 +29,8 @@
     },
 
     mounted() {
-      this.isDark = window.localStorage.getItem('vuepress-isDark') || false;
-      if(this.isDark) {
+      this.isDark = window.localStorage.getItem('hyperion_dark') === 'on';
+      if (this.isDark) {
         document.getElementsByTagName('html')[0].classList.add('dark');
       }
     },
@@ -38,11 +38,7 @@
     methods: {
       toggle() {
         this.isDark = !this.isDark;
-        if (this.isDark) {
-          window.localStorage.setItem('vuepress-isDark', 'yes');
-        } else {
-          window.localstorage.removeItem('vuepress-isDark');
-        }
+        window.localStorage.setItem('hyperion_dark', this.isDark ? 'on' : 'off');
         this.$root.$emit('dark-mode', this.isDark);
         document.getElementsByTagName('html')[0].classList[this.isDark ? 'add' : 'remove']('dark');
       }
@@ -52,7 +48,7 @@
 
 <style scoped>
   div {
-    margin-left: 1.5rem;
+    margin-right: 1.5rem;
     padding-top: 5px;
   }
   a {

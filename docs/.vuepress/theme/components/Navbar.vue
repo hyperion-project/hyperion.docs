@@ -10,11 +10,11 @@
           {{ $siteTitle }}
       </span>
     </router-link>
+    <NavLinks class="can-hide"/>
     <div class="links" :style="{'max-width': linksWrapMaxWidth + 'px'}">
-      <AlgoliaSearchBox v-if="isAlgoliaSearch" :options="algolia"/>
-      <SearchBox v-else-if="$site.themeConfig.search !== false"/>
-      <NavLinks class="can-hide"/>
       <ThemeToggler/>
+      <AlgoliaSearchBox v-if="isAlgoliaSearch" :options="algolia"/>
+      <SearchBox />
     </div>
   </header>
 </template>

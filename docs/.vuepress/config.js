@@ -87,7 +87,7 @@ module.exports = {
         },
         // The top navbar
         nav: [
-          { text: 'Home', link: '/' },
+          // { text: 'Home', link: '/' },
           { text: 'User', link: '/en/user/' },
           { text: 'Effects', link: '/en/effects/' },
           { text: 'Json API', link: '/en/json/' }
@@ -113,7 +113,7 @@ module.exports = {
           }
         },
         nav: [
-          { text: 'Startseite', link: '/de/' },
+          // { text: 'Startseite', link: '/de/' },
           { text: 'Benutzer', link: '/de/user/' }
           //{ text: 'Effects', link: '/en/effects/' },
           //{ text: 'Json API', link: '/en/json/' }
@@ -128,11 +128,6 @@ module.exports = {
 				}
       }
     },
-    // Assumes GitHub. Can also be a full GitLab url.
-    repo: 'hyperion-project/hyperion.docs',
-    // Customising the header label
-    // Defaults to "GitHub"/"GitLab"/"Bitbucket" depending on `themeConfig.repo`
-    repoLabel: 'GitHub',
     // Optional options for generating "Edit this page" link
     // if your docs are in a different repo from your main project:
     docsRepo: 'hyperion-project/hyperion.docs',

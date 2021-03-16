@@ -10,7 +10,8 @@ export default {
       };
     },
     mounted() {
-      if(window.localStorage.getItem('vuepress-isDark') !== null) {
+      let isDark = window.localStorage.getItem('hyperion_dark') === 'on';
+      if (isDark) {
         this.logo = this.$site.themeConfig.darkLogo;
       }
     },
