@@ -213,7 +213,8 @@ function getUserSidebar (groupA, groupB, Language) {
         collapsable: false,
         children: [
           '',
-          'Installation'
+          'Installation',
+          'Konfiguration',
         ]
       }
     ]

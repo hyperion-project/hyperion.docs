@@ -1,4 +1,4 @@
-# Hyperion installieren
+# Installieren
 Für die Installation von Hyperion werden für zahlreiche Plattformen Installationpakete oder zip-archivierte Dateien angeboten.
 
 ## Voraussetzungen
