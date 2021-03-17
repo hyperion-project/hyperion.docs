@@ -18,7 +18,6 @@
     mounted() {
       this.isDark = window.localStorage.getItem('vuepress-isDark') || false;
     },
-    computed: {},
     created() {
       this.$root.$on('dark-mode', (isDark) => this.isDark = isDark);
     }

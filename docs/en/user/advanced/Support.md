@@ -2,11 +2,8 @@
 In case you need support or you found a bug it's all about informations that you need to deliver. 
 
 ## Usual request
-For this purpose and to save a lot of time we included a report creation and upload function into the web configuration.
-So visit your web configuration and click on System -> Log. Now you click on the button "Upload report for support request".
-> Image of report tool
-
-If everything has gone well, you will notice a Link below the button. Add this link to your support request at our [Hyperion Project Forum](https://forum.hyperion-project.org).
+To provide a log, please go to System -> Log in the WebUI and copy the log. Then create a paste at [Pastebin.com](https://pastebin.com) with the copied log.
+Once you have the Pastebin link, please open a issue on [Github](https://github.com/hyperion-project/hyperion.ng/issues/new/choose), fill out the template and provide the Pastebin link.
 
 ## Segmentation faults
 Debugging segmentation faults requires a bunch of work, if we don't own your hardware (idr one of these plenty ARM systems) or can't reconstruct the segmentation fault we need a backtrace log from you. In order to create one, follow these steps.
@@ -65,12 +62,3 @@ Debugging segmentation faults requires a bunch of work, if we don't own your har
   #18 0x00000000005d9279 in main (argc=1, argv=0x7fffffffde08)
       at /home/hyperion/Dokumente/hyperion.ngBeta/src/hyperiond/main.cpp:337
 ```
-
-## Report Privacy Policy
-Hyperion gathers the following informations and uploads them to our server.
-  * System informations (OS, Version, Kernel, Arch) Hyperion runs on.
-  * Current state (active components, active priorities, webconfig settings)
-  * Browser and OS
-  * Configuration file content
-  * Log (if available)
-No additional data is acquired. We use this informations just for support requests.

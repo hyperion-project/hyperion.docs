@@ -63,8 +63,10 @@ module.exports = {
     */
     sidebarDepth: 3,
     smoothScroll: true,
-    logo: '/hyperion-logo.png',
-    darkLogo: '/hyperion-logo-dark.png',
+    logoLight: '/hyperion_logo_light.png',
+    logoDark: '/hyperion_logo_dark.png',
+    notFoundLight: '/not_found_light.png',
+    notFoundDark: '/not_found_dark.png',
     searchPlaceholder: 'Search...',
     locales: {
       '/': {

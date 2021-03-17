@@ -14,5 +14,5 @@ sidebar: false
 </div>
 
 ::: warning Unvollständig
-Leider ist die Dokumentation in der ausgewählten Sprache nicht vollständig verfügbar. Wenn du mithelfen möchtest dies zu ändern, geht es [hier weiter](https://github.com/hyperion-project/hyperion.ng/blob/master/docs/README.md).
+Leider ist die Dokumentation in der ausgewählten Sprache nicht vollständig verfügbar. Wenn du mithelfen möchtest dies zu ändern, geht es [hier weiter](https://github.com/hyperion-project/hyperion.docs).
 :::
