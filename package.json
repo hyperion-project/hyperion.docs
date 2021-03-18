@@ -12,17 +12,16 @@
     "docs:serve": "vuepress serve docs --build --open"
   },
   "dependencies": {
-    "vuepress": "^1.4.1",
-    "vuepress-plugin-medium-zoom": "^1.1.8",
-    "vuepress-plugin-redirect": "^1.2.3"
+    "vue-tabs-component": "^1.5.0",
+    "vuepress": "^1.8.2",
+    "vuepress-plugin-medium-zoom": "^1.1.9",
+    "vuepress-plugin-redirect": "^1.2.5",
+    "vuepress-plugin-tabs": "^0.3.0"
   },
   "devDependencies": {
-    "@vuepress/plugin-back-to-top": "^1.4.1",
-    "@vuepress/plugin-pwa": "^1.4.1",
-    "babel-eslint": "^10.1.0",
-    "eslint": "^6.8.0",
-    "eslint-plugin-vue": "^6.2.2",
-    "vuepress-plugin-serve": "^2.0.2"
+    "@vuepress/plugin-back-to-top": "^1.8.2",
+    "@vuepress/plugin-pwa": "^1.8.2",
+    "vuepress-plugin-serve": "^2.0.4"
   },
   "engines": {
     "node": ">= 10.16.0",

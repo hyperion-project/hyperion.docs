@@ -181,6 +181,10 @@ module.exports = {
     ],
     [
       'vuepress-plugin-serve'
+    ],
+    // https://github.com/pskordilakis/vuepress-plugin-tabs
+    [
+      'tabs'
     ]
   ]
 }

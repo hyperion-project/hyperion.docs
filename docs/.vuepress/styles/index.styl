@@ -1,3 +1,5 @@
+@require '~vuepress-plugin-tabs/dist/themes/default.styl'
+
 // global css as stylus
 .text-center 
   text-align center
@@ -49,6 +51,35 @@
 
 .sidebar .dropdown-wrapper .dropdown-title {
     pointer-events: auto;
+}
+
+.tabs-component-tabs {
+  border-radius: 0
+}
+
+.tabs-component-tab {
+  border-radius: 0
+  border-color: transparent
+  border-bottom-color: #ddd
+}
+
+.tabs-component-tab-a {
+  padding: 0.5rem 1rem; 
+}
+
+.tabs-component-panels {
+  border-left: 0
+  border-right: 0
+  border-bottom: 0
+  box-shadow: none
+  padding: 0
+}
+
+@media (min-width: ($MQMobile + 1px)) {
+  .tabs-component-tab.is-active {
+    border: solid 1px #ddd
+    border-bottom: solid 1px #fff
+  }
 }
 
 // Dark mode
@@ -177,3 +208,9 @@ html.dark
 
   .card
     background-color: #005179
+
+  .tabs-component-tab
+    background-color: $darkPrimaryBg
+
+  .tabs-component-panels
+    background-color: $darkPrimaryBg

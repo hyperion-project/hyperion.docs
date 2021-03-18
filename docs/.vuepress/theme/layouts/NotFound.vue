@@ -38,12 +38,13 @@
 
 <style scoped>
   .not-found {
-  display: flex;
-  justify-content: center;
+    display: flex;
+    justify-content: center;
   }
 
   .not-found img {
-  width: 40%;
-  height: auto;
+    width: 60%;
+    height: auto;
+    object-fit:cover;
   }
 </style>
