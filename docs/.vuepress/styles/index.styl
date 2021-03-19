@@ -35,7 +35,7 @@
 
 // hide Hyperion TITLE
 .site-name
-    display none !important
+  display none !important
 
 .no-mp 
   margin 0 !important
@@ -43,16 +43,19 @@
 
 // ImageWrap component
 .img-margin 
-	margin 10px 5px
-	p 
-		margin 0
+  margin 10px 5px
+  p 
+  margin 0
+
 .img-shadow
   box-shadow 1px 1px 5px 0 rgba(0,0,0,0.4)
 
+// Fix mobile language select
 .sidebar .dropdown-wrapper .dropdown-title {
     pointer-events: auto;
 }
 
+// LED Device Tabs (Mobile)
 .tabs-component-tabs {
   border-radius: 0
 }
@@ -75,11 +78,23 @@
   padding: 0
 }
 
+// LED Device Tabs (Desktop)
 @media (min-width: ($MQMobile + 1px)) {
   .tabs-component-tab.is-active {
     border: solid 1px #ddd
     border-bottom: solid 1px #fff
   }
+}
+
+// Not found (404)
+.not-found {
+  display: flex;
+  justify-content: center;
+}
+
+.not-found img {
+  width: 60% !important;
+  object-fit: cover !important;
 }
 
 // Dark mode
@@ -96,14 +111,28 @@ html.dark
   a
     color: $accentColorDark
 
+  div[class*="language-"]
+    background-color: #32607a
+
   .content__default
     code
-      color: $accentColorDark
-      background-color: $darkSecondaryBg
+      color: #ffffff
+      background-color: #32607a
     a code
-      color: $accentColorDark
+      color: #f4c988
     pre > code
-      color: $darkTextColor
+      color: #ffffff
+
+  .token.punctuation, .token.string
+    color: #ffffff !important
+  .token.property
+    color: #f4c988 !important
+  .token.boolean
+    color: #f2d915 !important
+  .token.number
+    color: #2df215 !important
+  .token.comment
+    color: #adadad !important
 
   .custom-block
     p:not(.custom-block-title)
@@ -112,7 +141,7 @@ html.dark
   tr
     border-top-color: $darkBorderColor
     &:nth-child(2n)
-      background-color: $darkSecondaryBg
+      background-color: #32607a
 
   th, td
     border-color: $darkBorderColor
@@ -150,10 +179,10 @@ html.dark
 
   .navbar
     color: $darkTextColor
-    background-color: darken($darkPrimaryBg, 30%)
+    background-color: $darkNavbarBg
     border-bottom-color: $darkBorderColor
     .links
-      background-color: darken($darkPrimaryBg, 30%)
+      background-color: $darkNavbarBg
     .site-name
       color: $darkTextColor
 
@@ -187,27 +216,27 @@ html.dark
 
   .custom-block
     &.tip
-      color: lighten($tipGreen, 50%)
-      background-color: alpha($tipGreen, 0.25)
+      border-color: $tipGreen
+      background-color: $darkTipBg
       .custom-block-title
-        color: lighten($tipGreen, 20%)
+        color: $tipGreen
     &.warning
-      color: lighten($warningYellow, 40%)
-      background-color: alpha($warningYellow, 0.25)
+      border-color: $warningYellow
+      background-color: $darkTipBg
       .custom-block-title
-        color: darken($warningYellow, 20%)
-      a
-        color: darken($warningYellow, 10%)
+        color: $warningYellow
+      ul li
+        color: $darkTextColor
     &.danger
-      color: lighten($dangerRed, 50%)
-      background-color: alpha($dangerRed, 0.25)
+      border-color: $dangerRed
+      background-color: $darkTipBg
       .custom-block-title
-        color: lighten($dangerRed, 30%)
-      a
-        color: lighten($dangerRed, 20%)
+        color: $dangerRed
 
   .card
     background-color: #005179
+    &:hover
+      background-color: #09679e
 
   .tabs-component-tab
     background-color: $darkPrimaryBg

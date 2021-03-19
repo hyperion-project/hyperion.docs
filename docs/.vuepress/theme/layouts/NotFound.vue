@@ -35,16 +35,3 @@
     }
 };
 </script>
-
-<style scoped>
-  .not-found {
-    display: flex;
-    justify-content: center;
-  }
-
-  .not-found img {
-    width: 60%;
-    height: auto;
-    object-fit:cover;
-  }
-</style>

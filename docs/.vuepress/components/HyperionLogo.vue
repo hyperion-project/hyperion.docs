@@ -10,18 +10,18 @@ export default {
       };
     },
     mounted() {
-      let isDark = window.localStorage.getItem('hyperion_dark') === 'on';
-      if (isDark) {
-        this.logo = this.$site.themeConfig.logoDark;
-      } else {
+      let isLight = window.localStorage.getItem('hyperion_light') === 'on';
+      if (isLight) {
         this.logo = this.$site.themeConfig.logoLight;
+      } else {
+        this.logo = this.$site.themeConfig.logoDark;
       }
     },
     created() {
-      this.$root.$on('dark-mode', (isDark) =>
-        this.logo = isDark === true
-          ? this.$site.themeConfig.logoDark
-          : this.$site.themeConfig.logoLight);
+      this.$root.$on('light-mode', (isLight) =>
+        this.logo = isLight === true
+          ? this.$site.themeConfig.logoLight
+          : this.$site.themeConfig.logoDark);
     }
 };
 </script>

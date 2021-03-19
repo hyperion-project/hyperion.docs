@@ -130,6 +130,11 @@ module.exports = {
 				}
       }
     },
+    // Assumes GitHub. Can also be a full GitLab url.
+    repo: 'https://hyperion-project.org/forum/',
+    // Customising the header label
+    // Defaults to "GitHub"/"GitLab"/"Bitbucket" depending on `themeConfig.repo`
+    repoLabel: 'Forum',
     // Optional options for generating "Edit this page" link
     // if your docs are in a different repo from your main project:
     docsRepo: 'hyperion-project/hyperion.docs',

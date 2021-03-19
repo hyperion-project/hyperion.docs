@@ -1,7 +1,11 @@
 <template>
   <div class="theme-toggler">
     <a @click="toggle">
-      <svg v-if="isDark" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-sun">
+      <svg v-if="isLight" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-moon">
+        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+      </svg>
+
+      <svg v-else xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-sun">
         <circle cx="12" cy="12" r="5"></circle>
         <line x1="12" y1="1" x2="12" y2="3"></line>
         <line x1="12" y1="21" x2="12" y2="23"></line>
@@ -13,9 +17,7 @@
         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
       </svg>
 
-      <svg v-else xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-moon">
-        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-      </svg>
+
     </a>
   </div>
 </template>
@@ -24,23 +26,23 @@
   export default {
     data() {
       return {
-        isDark: false
+        isLight: false
       };
     },
 
     mounted() {
-      this.isDark = window.localStorage.getItem('hyperion_dark') === 'on';
-      if (this.isDark) {
+      this.isLight = window.localStorage.getItem('hyperion_light') === 'on';
+      if (!this.isLight) {
         document.getElementsByTagName('html')[0].classList.add('dark');
       }
     },
 
     methods: {
       toggle() {
-        this.isDark = !this.isDark;
-        window.localStorage.setItem('hyperion_dark', this.isDark ? 'on' : 'off');
-        this.$root.$emit('dark-mode', this.isDark);
-        document.getElementsByTagName('html')[0].classList[this.isDark ? 'add' : 'remove']('dark');
+        this.isLight = !this.isLight;
+        window.localStorage.setItem('hyperion_light', this.isLight ? 'on' : 'off');
+        this.$root.$emit('light-mode', this.isLight);
+        document.getElementsByTagName('html')[0].classList[this.isLight ? 'remove' : 'add']('dark');
       }
     }
   }

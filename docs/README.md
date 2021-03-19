@@ -13,6 +13,6 @@ sidebar: false
   <MainSection title="JSON API" text="Learn how to interact with the API" to="/en/json" />
 </div>
 
-::: tip
+::: tip Tip:
 You can select another translation at the top.
 :::
