@@ -1,0 +1,4 @@
+{
+	"name": "Hyperion Docs",
+	"forwardPorts": [8080]
+}

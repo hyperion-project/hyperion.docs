@@ -4,27 +4,17 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "label": "yarn docs:dev",
+            "label": "dev",
             "type": "shell",
             "command": "yarn",
             "args": ["docs:dev"],
-            "group": {
-                "kind": "build",
-                "isDefault": true
-            },
-            "problemMatcher": [],
-            "detail": "vuepress build content"
+            "detail": "vuepress dev content"
         },
         {
-            "label": "yarn docs:build",
+            "label": "build",
             "type": "shell",
             "command": "yarn",
             "args": ["docs:build"],
-            "group": {
-                "kind": "test",
-                "isDefault": true
-            },
-            "problemMatcher": [],
             "detail": "vuepress build content"
         }
 
