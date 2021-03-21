@@ -33,7 +33,7 @@
 
 // hide Hyperion TITLE
 .site-name
-    display none !important
+  display none !important
 
 .no-mp 
   margin 0 !important
@@ -41,12 +41,188 @@
 
 // ImageWrap component
 .img-margin 
-	margin 10px 5px
-	p 
-		margin 0
+  margin 10px 5px
+  p 
+  margin 0
+
 .img-shadow
   box-shadow 1px 1px 5px 0 rgba(0,0,0,0.4)
 
-.sidebar .dropdown-wrapper .dropdown-title {
-    pointer-events: auto;
+// Fix mobile language select
+.sidebar
+  .dropdown-wrapper .dropdown-title 
+    pointer-events: auto
+  .sidebar-group.is-sub-group > .sidebar-heading:not(.clickable)
+    opacity: 1 !important
+    cursor: pointer
+
+// Not found (404)
+.not-found {
+  display: flex;
+  justify-content: center;
 }
+
+.not-found img {
+  width: 60% !important;
+  object-fit: cover !important;
+}
+
+// Fix for Search Bar overlap Logo
+@media (max-width: $MQMobile)
+  .links
+    padding-left: 0 !important
+
+// Dark mode
+html.dark
+  background-color: $darkPrimaryBg
+
+  body
+    color: $darkTextColor !important
+    background-color: $darkPrimaryBg
+
+  hr
+    border-top-color: $darkBorderColor
+
+  a
+    color: $accentColorDark
+
+  div[class*="language-"]
+    background-color: #32607a
+
+  .content__default
+    code
+      color: #ffffff
+      background-color: #32607a
+    a code
+      color: #f4c988
+    pre > code
+      color: #ffffff
+
+  .token.punctuation, .token.string
+    color: #ffffff !important
+  .token.property
+    color: #f4c988 !important
+  .token.boolean
+    color: #f2d915 !important
+  .token.number
+    color: #2df215 !important
+  .token.comment
+    color: #adadad !important
+
+  .custom-block
+    p:not(.custom-block-title)
+      color: $darkTextColor
+
+  tr
+    border-top-color: $darkBorderColor
+    &:nth-child(2n)
+      background-color: #32607a
+
+  th, td
+    border-color: $darkBorderColor
+
+  .page-edit
+    .edit-link a, .last-updated .prefix
+      color: $accentColorDark
+
+  .sidebar
+    background-color: $darkPrimaryBg
+    border-right-color: $darkBorderColor
+    .sidebar-heading
+      color: inherit
+    .nav-links
+      border-bottom-color: $darkBorderColor
+
+  a.sidebar-link
+    color: $darkAltTextColor
+    &:hover, &.active
+      color: $accentColorDark
+      border-left-color: $accentColorDark
+
+  .sidebar-group.is-sub-group > .sidebar-heading:not(.clickable)
+    color: $darkAltTextColor
+    &:hover, &.active
+      color: $accentColorDark
+      border-left-color: $accentColorDark
+
+  .dropdown-wrapper .nav-dropdown
+    background-color: $darkPrimaryBg
+    border-color: $darkBorderColor
+    h4
+      border-top-color: $darkBorderColor
+    a
+      &:hover, &.router-link-active
+        color: $accentColorDark
+
+  .dropdown-wrapper
+    .dropdown-title, .mobile-dropdown-title
+      color: $darkTextColor
+
+  .navbar
+    color: $darkTextColor
+    background-color: $darkNavbarBg
+    border-bottom-color: $darkBorderColor
+    .links
+      background-color: $darkNavbarBg
+    .site-name
+      color: $darkTextColor
+
+  .nav-links a
+    color: $darkTextColor
+    &:hover, &.router-link-active
+      color: $darkTextColor
+      border-bottom-color $accentColorDark
+
+  .search-box
+    input, .suggestions
+      background-color: $darkSecondaryBg;
+      border-color: $darkBorderColor;
+    input
+      color: $darkTextColor;
+      &:focus
+        border-color: alpha($accentColorDark, 0.75);
+    .suggestion
+      &.focused
+        background-color: $darkPrimaryBg;
+        a
+          color: $accentColorDark;
+      a
+        color: $darkAltTextColor;
+
+  .page-nav .inner
+    border-top-color: $darkBorderColor
+
+  .sw-update-popup
+    background-color: $darkPrimaryBg
+
+  .custom-block
+    a
+      color: $accentColorDark
+    &.tip
+      border-color: $tipGreen
+      background-color: $darkTipBg
+      .custom-block-title
+        color: $tipGreen
+    &.warning
+      border-color: $warningYellow
+      background-color: $darkTipBg
+      .custom-block-title
+        color: $warningYellow
+      ul li
+        color: $darkTextColor
+    &.danger
+      border-color: $dangerRed
+      background-color: $darkTipBg
+      .custom-block-title
+        color: $dangerRed
+
+  .card
+    background-color: #005179
+    &:hover
+      background-color: #09679e
+
+  .tabs-component-tab
+    background-color: $darkPrimaryBg
+
+  .tabs-component-panels
+    background-color: $darkPrimaryBg

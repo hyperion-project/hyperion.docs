@@ -40,24 +40,33 @@ module.exports = {
     ['meta', { name: 'msapplication-TileImage', content: '/icons/ms-icon-144x144.png' }], // probably invert
     ['meta', { name: 'msapplication-TileColor', content: '#2b81a0' }] // might not match with icon
   ],
-  dest: './dist',
+  dest: "./dist",
   title: "Hyperion",
   // removing this sections disables lang selector. But everything else works. Featue Request to merge with themeConfig.locales?
   locales: {
-    '/': {
+    "/": {
       lang: 'en-US',
       // Description of page does not work inside themeConfig
       description: 'Hyperion Ambient Light documentation'
     },
-    '/de/': {
+    "/de/": {
       lang: 'de-DE',
       description: 'Hyperion Ambient Light Dokumentation'
     }
   },
   themeConfig: {
+    /*  algolia: {
+          apiKey: '<API_KEY>',
+          indexName: '<INDEX_NAME>'
+        },
+
+    */
     sidebarDepth: 3,
     smoothScroll: true,
-    logo: '/hyperion-logo.png',
+    logoLight: '/hyperion_logo_light.png',
+    logoDark: '/hyperion_logo_dark.png',
+    notFoundLight: '/not_found_light.png',
+    notFoundDark: '/not_found_dark.png',
     searchPlaceholder: 'Search...',
     locales: {
       '/': {
@@ -80,7 +89,7 @@ module.exports = {
         },
         // The top navbar
         nav: [
-          { text: 'Home', link: '/' },
+          // { text: 'Home', link: '/' },
           { text: 'User', link: '/en/user/' },
           { text: 'Effects', link: '/en/effects/' },
           { text: 'Json API', link: '/en/json/' }
@@ -106,7 +115,7 @@ module.exports = {
           }
         },
         nav: [
-          { text: 'Startseite', link: '/de/' },
+          // { text: 'Startseite', link: '/de/' },
           { text: 'Benutzer', link: '/de/user/' }
           //{ text: 'Effects', link: '/en/effects/' },
           //{ text: 'Json API', link: '/en/json/' }
@@ -122,10 +131,10 @@ module.exports = {
       }
     },
     // Assumes GitHub. Can also be a full GitLab url.
-    repo: 'hyperion-project/hyperion.docs',
+    repo: 'https://hyperion-project.org/forum/',
     // Customising the header label
     // Defaults to "GitHub"/"GitLab"/"Bitbucket" depending on `themeConfig.repo`
-    repoLabel: 'GitHub',
+    repoLabel: 'Forum',
     // Optional options for generating "Edit this page" link
     // if your docs are in a different repo from your main project:
     docsRepo: 'hyperion-project/hyperion.docs',
@@ -177,45 +186,116 @@ module.exports = {
     ],
     [
       'vuepress-plugin-serve'
+    ],
+    // https://github.com/pskordilakis/vuepress-plugin-tabs
+    [
+      'tabs'
     ]
   ]
 }
 
 function getUserSidebar (groupA, groupB, Language) {
-	if (Language === 'EN') {
-		return [
-		  {
-		    title: groupA,
-		    collapsable: false,
-		    children: [
-		      '',
-		      'Installation',
-		      'Configuration',
-		      'LedDevices',
-		      'HyperBian',
-		    ]
-		  },
-		  {
-		    title: groupB,
-		    collapsable: false,
-		    children: [
-		      'advanced/Advanced',
-		      'advanced/Support',
-		    ]
-		  }
-		]
-	} else if (Language === 'DE') {
-		return [
-		  {
-		    title: groupA,
-		    collapsable: false,
-		    children: [
-		      '',
-		      'Installation'
-		    ]
-		  }
-		]
-	}
+  if (Language === 'EN') {
+    return [
+      {
+        title: groupA,
+        collapsable: false,
+        children: [
+          '',
+          'Installation',
+          'Configuration',
+          {
+            title: 'LED Hardware',
+            collapsable: true,
+            children: [
+              'leddevices/',
+              {
+                title: 'SPI',
+                collapsable: true,
+                children: [
+                  'leddevices/spi/apa102',
+                  'leddevices/spi/apa104',
+                  'leddevices/spi/lpd6803',
+                  'leddevices/spi/lpd8806',
+                  'leddevices/spi/p9813',
+                  'leddevices/spi/sk6812',
+                  'leddevices/spi/sk6822',
+                  'leddevices/spi/sk9822',
+                  'leddevices/spi/ws2801',
+                  'leddevices/spi/ws2812'
+                ]
+              },
+              {
+                title: 'GPIO',
+                collapsable: true,
+                children: [
+                  'leddevices/gpio/piblaster'
+                ]
+              },
+              {
+                title: 'USB/Serial',
+                collapsable: true,
+                children: [
+                  'leddevices/usb/adalight',
+                  'leddevices/usb/atmo',
+                  'leddevices/usb/dmx',
+                  'leddevices/usb/hyperion-usbasp',
+                  'leddevices/usb/karate',
+                  'leddevices/usb/lightpack',
+                  'leddevices/usb/multilightpack',
+                  'leddevices/usb/paintpack',
+                  'leddevices/usb/rawhid',
+                  'leddevices/usb/sedu',
+                  'leddevices/usb/tpm2',
+                ]
+              },
+              {
+                title: 'Network',
+                collapsable: true,
+                children: [
+                  'leddevices/network/atmoorb',
+                  'leddevices/network/cololight',
+                  'leddevices/network/fadecandy',
+                  'leddevices/network/nanoleaf',
+                  'leddevices/network/philipshue',
+                  'leddevices/network/tinkerforge',
+                  'leddevices/network/tpm2net',
+                  'leddevices/network/udpartnet',
+                  'leddevices/network/udpe131',
+                  'leddevices/network/udph801',
+                  'leddevices/network/udpraw',
+                  'leddevices/network/wled',
+                  'leddevices/network/yeelight'
+                ]
+              },
+              ['leddevices/debug', 'Debug']
+            ]
+          },
+          'HyperBian',
+        ]
+      },
+      {
+        title: groupB,
+        collapsable: false,
+        children: [
+          'advanced/Advanced',
+          'advanced/Support',
+        ]
+      }
+    ]
+  } else if (Language === 'DE') {
+    return [
+      {
+        title: groupA,
+        collapsable: false,
+        children: [
+          '',
+          'Installation',
+          'Konfiguration',
+        ]
+      }
+    ]
+  }
 }
 
 function getEffectsSidebar (groupA, groupB) {

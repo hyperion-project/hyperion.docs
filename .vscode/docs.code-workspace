@@ -1,0 +1,36 @@
+{
+  "folders": [
+    {
+      "path": "../"
+    }
+  ],
+  "settings": {
+    "npm.packageManager": "yarn",
+    "eslint.packageManager": "yarn",
+    "search.exclude": {
+      "**/node_modules": true,
+      "**/dist": true,
+      "**/public": true,
+      "**/.cache": true,
+      "**/.yarn": true,
+      "**/*.snap": true,
+      "**/*.svg": true
+    },
+    "files.associations": {
+      "*.md": "markdown"
+    },
+    "javascript.validate.enable": true,
+    "eslint.validate": [
+      "javascript",
+      "javascriptreact"
+    ]
+  },
+  "extensions": {
+    "recommendations": [
+      "dbaeumer.vscode-eslint",
+      "editorconfig.editorconfig",
+      "sysoev.language-stylus",
+      "jcbuisson.vue"
+    ]
+  }
+}

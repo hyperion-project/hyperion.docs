@@ -1,65 +1,6 @@
----
-sidebarDepth: 2
----
+# Philips Hue
 
-# LED Hardware
-Hyperion supports a lot of different controllers and led chips. Also network communication is possible, therefore we also support Philips Hue, AtmoOrb and more.
-
-## General Settings
-Applicable for all led hardware implementations \
-  * RGB byte order: If you want to check this value, use the wizard.
-  * Refresh time: If no source is active and the led hardware component is enabled, this will update by the given interval time the led hardware with black color.
-
-## Specific Settings
-Each LED hardware has specific settings which are explained here
-
-### SPI
-Are 4 wire leds which can be powered via SPI of a Raspberry Pi or an Arduino (which is USB connected to your computer/HTPC/Pi)
-
-#### apa102
-APA 102. These LEDs are known for a good color spectrum (converting a data signal to the wanted color).
-
-#### ws2801
-The color spectrum of these leds is bad.
-
-#### lpd6803
-#### lpd8806
-#### p9813
-#### sk6812spi
-The SK6812 are **3** wire leds, you could also drive them via spi.
-
-#### sk6822spi
-The SK6822 are **3** wire leds, you could also drive them via spi.
-
-#### sk9822
-The SK9822 are **4** wire leds compatible to APA 102 with addition of global brightness control.
-
-#### ws2812spi
-The WS2812 are **3** wire leds, you could also drive them via spi.
-
-### USB
-Plug and play. The following controllers are supported.
-
-#### adalight
-Most used because it's cheap and easy! An Arduino powered by an adalight sketch. We provide a modified version of it. Checkout TUTORIAL
-
-#### atmo
-
-#### dmx
-#### file
-#### hyperionusbasp
-#### lightpack
-#### multilightpack
-#### paintpack
-#### rawhid
-#### sedu
-#### tpm2
-
-### Network
-Hue bridges, nodeMCU, AtmoOrbs, [WLED](https://github.com/Aircoookie/WLED) everything that is reachable over network.
-
-#### philipshue
-The well known [Philips Hue Bridge + Bulbs](https://www.amazon.com/s/ref=nb_sb_noss?url=search-alias%3Daps&field-keywords=philips+hue+starter+set&rh=i%3Aaps%2Ck%3Aphilips+hue+starter+set&tag=hyperionpro05-20) is supported. How to configure them with Hyperion? Checkout: Web configuration
+The well known [Philips Hue Bridge + Bulbs](https://www.philips-hue.com/en-xx/) is supported. How to configure them with Hyperion? Checkout: Web configuration
 
 #### Entertainment API
 
@@ -146,22 +87,3 @@ Hyperion cannot be held liable for any foreseeable, or unforeseeable, negative o
   * If the brightness is to low for you and Hyperion is already at 100% you can higher the brightness factor at the web configuration -> LED hardware
   * Brightness compensation influences the brightness across different color (Adjust at the color section)
   * To enable/disable the bridge control from Hyperion, disable Hyperion or just the led hardware component. The previous lamp state will be recovered
-
-#### WLED
-WLED is connected to Hyperion by selecting the "Controller type" als WLED and entering the IP-Adress of your WLED instance in the Hyperion UI.\
-Hyperion uses the brightness setting set in WLED. E.g. if you set the brightness in WLED to 10% the LEDs will light up to a maximum of 10%. If you would like Hyperion to override the brightness setting of WLED and use the maximum brightness you can do so by going to the WLED configuration -> Sync. Settings and enabling "Force max brightness".
-#### atmoorb
-#### tpm2net
-#### udpe131
-#### udph801
-#### udpraw
-#### tinkerforge
-#### fadecandy
-
-### Raspberry Pi
-Just for the Raspberry Pi!
-#### ws281x
-Driving all kinds of WS281X stripes. Due to mixed feedback we recommend adalight or Raspberry Pi SPI.
-#### piblaster
-[PiBlaster on Github](https://github.com/sarfata/pi-blaster)
-

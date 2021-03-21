@@ -127,7 +127,7 @@ hyperiond --desktop
 ```
 
 ::: tip
-If a path name contains spaces, surround it with `“`.
+If a path name contains spaces, surround it with `“` . \
 `hyperiond --userdata "/temp/another Dir"`
 :::
 
