@@ -12,11 +12,9 @@
     "docs:serve": "vuepress serve docs --build --open"
   },
   "dependencies": {
-    "vue-tabs-component": "^1.5.0",
     "vuepress": "^1.8.2",
     "vuepress-plugin-medium-zoom": "^1.1.9",
-    "vuepress-plugin-redirect": "^1.2.5",
-    "vuepress-plugin-tabs": "^0.3.0"
+    "vuepress-plugin-redirect": "^1.2.5"
   },
   "devDependencies": {
     "@vuepress/plugin-back-to-top": "^1.8.2",

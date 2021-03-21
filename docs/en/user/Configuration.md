@@ -27,7 +27,7 @@ Open the web configuration by typing the IP address of your device and the port 
   * The **Component status** shows always the latest state (enabled/disabled) of the components
 
 ::: tip Hashtag navigation
-The web configuration supports hashtags for sitenames, so you could directly open a specific page by calling the hashtag. **Example:**`http://192.168.0.20:8090/#remote` - will open the remote control page.
+The web configuration supports hashtags for sitenames, so you could directly open a specific page by calling the hashtag. **Example:** `http://192.168.0.20:8090/#remote` - will open the remote control page.
 :::
 
 ### Configuration

@@ -1,72 +1,5 @@
----
-sidebarDepth: 1
----
+# Philips Hue
 
-# LED Hardware
-Hyperion supports a lot of different controllers and led chips. Also network communication is possible, therefore we also support Philips Hue, WLED and more.
-
-## General Settings
-The RGB byte order is applicable for all led hardware implementations. If you want to check this value, use the wizard.
-
-## Specific Settings
-Each LED hardware has specific settings which are explained here.
-
-::::: tabs :options="{ useUrlFragment: false }"
-
-:::: tab "RPi SPI"
-
-#### apa102
-APA 102. These LEDs are known for a good color spectrum (converting a data signal to the wanted color).
-
-#### apa104
-#### lpd6803
-#### lpd8806
-#### p9813
-
-#### sk6812spi
-The SK6812 are **3** wire leds, you could also drive them via spi.
-
-#### sk6822spi
-The SK6822 are **3** wire leds, you could also drive them via spi.
-
-#### sk9822
-The SK9822 are **4** wire leds compatible to APA 102 with addition of global brightness control.
-
-#### ws2801
-The color spectrum of these leds is bad.
-
-#### ws2812spi
-The WS2812 are **3** wire leds, you could also drive them via spi.
-::::
-
-:::: tab "RPi GPIO"
-#### piblaster
-[PiBlaster on Github](https://github.com/sarfata/pi-blaster)
-::::
-
-:::: tab USB/Serial
-#### adalight
-Most used because it's cheap and easy! An Arduino powered by an adalight sketch. We provide a modified version of it. Checkout TUTORIAL
-
-#### atmo
-#### dmx
-#### hyperionusbasp
-#### karate
-#### lightpack
-#### multilightpack
-#### paintpack
-#### rawhid
-#### sedu
-#### tpm2
-::::
-
-:::: tab Network
-#### atmoorb
-#### cololight
-#### fadecandy
-#### nanoleaf
-
-#### philipshue
 The well known [Philips Hue Bridge + Bulbs](https://www.philips-hue.com/en-xx/) is supported. How to configure them with Hyperion? Checkout: Web configuration
 
 #### Entertainment API
@@ -154,23 +87,3 @@ Hyperion cannot be held liable for any foreseeable, or unforeseeable, negative o
   * If the brightness is to low for you and Hyperion is already at 100% you can higher the brightness factor at the web configuration -> LED hardware
   * Brightness compensation influences the brightness across different color (Adjust at the color section)
   * To enable/disable the bridge control from Hyperion, disable Hyperion or just the led hardware component. The previous lamp state will be recovered
-
-#### tinkerforge
-#### tpm2net
-#### udpartnet
-#### udpe131
-#### udph801
-#### udpraw
-
-#### WLED
-WLED is connected to Hyperion by selecting the "Controller type" als WLED and entering the IP-Adress of your WLED instance in the Hyperion UI.\
-Hyperion uses the brightness setting set in WLED. E.g. if you set the brightness in WLED to 10% the LEDs will light up to a maximum of 10%. If you would like Hyperion to override the brightness setting of WLED and use the maximum brightness you can do so by going to the WLED configuration -> Sync. Settings and enabling "Force max brightness".
-
-#### yeelight
-::::
-
-:::: tab Debug
-#### file
-::::
-
-:::::

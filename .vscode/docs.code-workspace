@@ -28,7 +28,9 @@
   "extensions": {
     "recommendations": [
       "dbaeumer.vscode-eslint",
-      "editorconfig.editorconfig"
+      "editorconfig.editorconfig",
+      "sysoev.language-stylus",
+      "jcbuisson.vue"
     ]
   }
 }

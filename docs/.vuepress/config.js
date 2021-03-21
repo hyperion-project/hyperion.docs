@@ -204,7 +204,73 @@ function getUserSidebar (groupA, groupB, Language) {
           '',
           'Installation',
           'Configuration',
-          'LedDevices',
+          {
+            title: 'LED Hardware',
+            collapsable: true,
+            children: [
+              'leddevices/',
+              {
+                title: 'SPI',
+                collapsable: true,
+                children: [
+                  'leddevices/spi/apa102',
+                  'leddevices/spi/apa104',
+                  'leddevices/spi/lpd6803',
+                  'leddevices/spi/lpd8806',
+                  'leddevices/spi/p9813',
+                  'leddevices/spi/sk6812',
+                  'leddevices/spi/sk6822',
+                  'leddevices/spi/sk9822',
+                  'leddevices/spi/ws2801',
+                  'leddevices/spi/ws2812'
+                ]
+              },
+              {
+                title: 'GPIO',
+                collapsable: true,
+                children: [
+                  'leddevices/gpio/piblaster'
+                ]
+              },
+              {
+                title: 'USB/Serial',
+                collapsable: true,
+                children: [
+                  'leddevices/usb/adalight',
+                  'leddevices/usb/atmo',
+                  'leddevices/usb/dmx',
+                  'leddevices/usb/hyperion-usbasp',
+                  'leddevices/usb/karate',
+                  'leddevices/usb/lightpack',
+                  'leddevices/usb/multilightpack',
+                  'leddevices/usb/paintpack',
+                  'leddevices/usb/rawhid',
+                  'leddevices/usb/sedu',
+                  'leddevices/usb/tpm2',
+                ]
+              },
+              {
+                title: 'Network',
+                collapsable: true,
+                children: [
+                  'leddevices/network/atmoorb',
+                  'leddevices/network/cololight',
+                  'leddevices/network/fadecandy',
+                  'leddevices/network/nanoleaf',
+                  'leddevices/network/philipshue',
+                  'leddevices/network/tinkerforge',
+                  'leddevices/network/tpm2net',
+                  'leddevices/network/udpartnet',
+                  'leddevices/network/udpe131',
+                  'leddevices/network/udph801',
+                  'leddevices/network/udpraw',
+                  'leddevices/network/wled',
+                  'leddevices/network/yeelight'
+                ]
+              },
+              ['leddevices/debug', 'Debug']
+            ]
+          },
           'HyperBian',
         ]
       },

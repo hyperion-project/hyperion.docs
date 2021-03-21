@@ -1,5 +1,3 @@
-@require '~vuepress-plugin-tabs/dist/themes/default.styl'
-
 // global css as stylus
 .text-center 
   text-align center
@@ -51,40 +49,12 @@
   box-shadow 1px 1px 5px 0 rgba(0,0,0,0.4)
 
 // Fix mobile language select
-.sidebar .dropdown-wrapper .dropdown-title {
-    pointer-events: auto;
-}
-
-// LED Device Tabs (Mobile)
-.tabs-component-tabs {
-  border-radius: 0
-}
-
-.tabs-component-tab {
-  border-radius: 0
-  border-color: transparent
-  border-bottom-color: #ddd
-}
-
-.tabs-component-tab-a {
-  padding: 0.5rem 1rem; 
-}
-
-.tabs-component-panels {
-  border-left: 0
-  border-right: 0
-  border-bottom: 0
-  box-shadow: none
-  padding: 0
-}
-
-// LED Device Tabs (Desktop)
-@media (min-width: ($MQMobile + 1px)) {
-  .tabs-component-tab.is-active {
-    border: solid 1px #ddd
-    border-bottom: solid 1px #fff
-  }
-}
+.sidebar
+  .dropdown-wrapper .dropdown-title 
+    pointer-events: auto
+  .sidebar-group.is-sub-group > .sidebar-heading:not(.clickable)
+    opacity: 1 !important
+    cursor: pointer
 
 // Not found (404)
 .not-found {
@@ -157,7 +127,14 @@ html.dark
       color: inherit
     .nav-links
       border-bottom-color: $darkBorderColor
+
   a.sidebar-link
+    color: $darkAltTextColor
+    &:hover, &.active
+      color: $accentColorDark
+      border-left-color: $accentColorDark
+
+  .sidebar-group.is-sub-group > .sidebar-heading:not(.clickable)
     color: $darkAltTextColor
     &:hover, &.active
       color: $accentColorDark
@@ -171,7 +148,6 @@ html.dark
     a
       &:hover, &.router-link-active
         color: $accentColorDark
-
 
   .dropdown-wrapper
     .dropdown-title, .mobile-dropdown-title
@@ -215,6 +191,8 @@ html.dark
     background-color: $darkPrimaryBg
 
   .custom-block
+    a
+      color: $accentColorDark
     &.tip
       border-color: $tipGreen
       background-color: $darkTipBg
