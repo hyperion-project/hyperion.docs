@@ -23,3 +23,24 @@
     }
   }
 </script>
+
+<style>
+#app, .navbar, .sidebar, .links,
+.home-link img,
+div[class*=language-],
+.content code,
+.language-text code,
+.tabs-component-panels, .tabs-component-tabs li,
+.tabs-component-panels,
+.content__default code,
+a.nav-link.router-link-active,
+.dropdown-wrapper .dropdown-title,
+.dropdown-wrapper .mobile-dropdown-title,
+.search-box input,
+ul.nav-dropdown,
+tr:nth-child(2n),
+blockquote,
+blockquote, blockquote p {
+  transition: all .3s ease;
+}
+</style>
