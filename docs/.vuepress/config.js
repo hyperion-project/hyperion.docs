@@ -186,10 +186,6 @@ module.exports = {
     ],
     [
       'vuepress-plugin-serve'
-    ],
-    // https://github.com/pskordilakis/vuepress-plugin-tabs
-    [
-      'tabs'
     ]
   ]
 }
@@ -268,7 +264,13 @@ function getUserSidebar (groupA, groupB, Language) {
                   'leddevices/network/yeelight'
                 ]
               },
-              ['leddevices/debug', 'Debug']
+              {
+                title: 'Others',
+                collapsable: true,
+                children: [
+                  'leddevices/others/debug'
+                ]
+              }
             ]
           },
           'HyperBian',
