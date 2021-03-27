@@ -294,6 +294,7 @@ function getUserSidebar (groupA, groupB, Language) {
           '',
           'Installation',
           'Konfiguration',
+          'HyperBian'
         ]
       }
     ]

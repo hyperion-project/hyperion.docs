@@ -6,19 +6,32 @@
     "configurations":
     [
         {
+            "name": "Launch Dev Server",
             "type": "node",
             "request": "launch",
-            "name": "Launch Server",
             "runtimeExecutable": "yarn",
             "cwd": "${workspaceFolder}",
             "runtimeArgs": ["docs:dev"],
             "port": 8080,
-            "console": "internalConsole",
+            "console": "integratedTerminal",
             "resolveSourceMapLocations":
             [
                 "${workspaceFolder}/**",
                 "!**/node_modules/**"
             ]
-        }
+        },
+        {
+            "name": "Build Docs",
+            "type": "node",
+            "request": "launch",
+            "runtimeExecutable": "yarn",
+            "cwd": "${workspaceFolder}",
+            "console": "integratedTerminal",
+            "resolveSourceMapLocations":
+            [
+              "${workspaceFolder}/**",
+              "!**/node_modules/**"
+            ]
+          }
     ]
 }
