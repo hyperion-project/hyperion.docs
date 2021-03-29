@@ -12,14 +12,18 @@ class LightMode {
 	}
 
   init() {
-    this._light = window.localStorage.getItem('hyperion_light') === 'on';
-    document.getElementsByTagName('html')[0].classList[this._light ? 'remove' : 'add']('dark');
+    if (typeof window !== "undefined") {
+      this._light = window.localStorage.getItem('hyperion_light') === 'on';
+      document.getElementsByTagName('html')[0].classList[this._light ? 'remove' : 'add']('dark');
+    };
   }
 
   toggle() {
     this._light = !this._light;
-    window.localStorage.setItem('hyperion_light', this._light ? 'on' : 'off');
-    document.getElementsByTagName('html')[0].classList[this._light ? 'remove' : 'add']('dark');
+    if (typeof window !== "undefined") {
+      window.localStorage.setItem('hyperion_light', this._light ? 'on' : 'off');
+      document.getElementsByTagName('html')[0].classList[this._light ? 'remove' : 'add']('dark');
+    };
     event.$emit("light-mode", this._light);
   }
 
