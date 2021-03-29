@@ -27,6 +27,7 @@
 <style>
 #app, .navbar, .sidebar, .links,
 .home-link img,
+img[class*=logo],
 div[class*=language-],
 .content code,
 .language-text code,
@@ -41,6 +42,8 @@ ul.nav-dropdown,
 tr:nth-child(2n),
 blockquote,
 blockquote, blockquote p {
+  -webkit-transition: all .3s ease;
+  -moz-transition: all .3s ease;
   transition: all .3s ease;
 }
 </style>

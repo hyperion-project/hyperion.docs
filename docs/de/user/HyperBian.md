@@ -27,26 +27,26 @@ Wenn du deinen Raspberry Pi über WLAN betreiben möchtest, kannst du die WLAN-S
 Öffne über den Datei-Explorer die SD-Karte/SSD/HDD/USB-Stick etc mit dem Namen "**boot**".
 
  - Erstelle eine neue Textdatei
-<ImageWrap src="/images/en/user_hyperbian_wpa_suppli1.jpg" alt="Neue Textdatei" />
+<ImageWrap src="/images/de/user_hyperbian_new_text_file.png" alt="Neue Textdatei" />
 
 - Benenne sie in "wpa_supplicant.conf" um
-<ImageWrap src="/images/en/user_hyperbian_wpa_suppli2.jpg" alt="Umbenannt in wpa_supplicant.conf"/>
+<ImageWrap src="/images/de/user_hyperbian_rename_to_wpa_supplicant.png" alt="Umbenannt in wpa_supplicant.conf"/>
 
 - Füge deine WLAN-SSID und das Passwort hinzu. Ersetzen **SSID** und **PASSWORT** durch deine Werte.
 
 ```
 ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
 update_config=1
-country=GB
+country=DE
 
-  network={
-    ssid="SSID"
-    psk="PASSWORT"
-    key_mgmt=WPA-PSK
-  }
+network={
+   ssid="SSID"
+   psk="PASSWORT"
+   key_mgmt=WPA-PSK
+}
 ```
 
-<ImageWrap src="/images/en/user_hyperbian_wpa_suppli3.jpg" alt="Deine WLAN Konfiguration"/>
+<ImageWrap src="/images/de/user_hyperbian_wpa_supplicant_content.png" alt="Deine WLAN Konfiguration"/>
  - Nur noch abspeichern! Wenn du die SD-Karte/SSD/HDD/USB-Stick etc. anschließt ist alles fertig vorkonfiguriert.
 
 ### SSH
@@ -57,4 +57,4 @@ Zum aktivieren von SSH, öffne über den Datei-Explorer die SD-Karte/SSD/HDD/USB
  - Benutzername: pi
  - Passwort: raspberry
 
-<ImageWrap src="/images/en/user_hyperbian_ssh.jpg" alt="SSH aktivieren"/>
+<ImageWrap src="/images/de/user_hyperbian_ssh_file.png" alt="SSH aktivieren"/>

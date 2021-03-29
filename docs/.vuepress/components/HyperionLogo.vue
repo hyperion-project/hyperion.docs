@@ -1,27 +1,19 @@
 <template>
-  <img :src="$withBase(logo)" alt="Hyperion Logo" class="logo">
+  <img v-if="lightMode._light" :src="$withBase(this.$site.themeConfig.logoLight)" class="logo">
+  <img v-else :src="$withBase(this.$site.themeConfig.logoDark)" class="logo">
 </template>
 
 <script>
-export default {
-    data() {
-      return {
-        logo: ''
-      };
-    },
-    mounted() {
-      let isLight = window.localStorage.getItem('hyperion_light') === 'on';
-      if (isLight) {
-        this.logo = this.$site.themeConfig.logoLight;
-      } else {
-        this.logo = this.$site.themeConfig.logoDark;
-      }
-    },
+  import LightMode from '../theme/util/light-mode';
+
+  export default {
+    data: () => ({
+      lightMode: null
+    }),
+
     created() {
-      this.$root.$on('light-mode', (isLight) =>
-        this.logo = isLight === true
-          ? this.$site.themeConfig.logoLight
-          : this.$site.themeConfig.logoDark);
+      this.lightMode = new LightMode();
+      this.lightMode.init();
     }
-};
+  }
 </script>
