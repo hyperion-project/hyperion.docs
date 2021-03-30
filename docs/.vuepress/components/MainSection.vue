@@ -5,9 +5,9 @@
     @click="goTo($withBase(to))"
   >
     <div style="width:100%; margin-top:1rem;">
-      <account-edit-icon v-if="icon === 'user'" :size="72" />
-      <auto-fix-icon v-else-if="icon === 'effects'" :size="72" />
-      <code-json-icon v-else-if="icon === 'json'" :size="72" />
+      <account-edit-icon v-if="icon === 'user'" :size="62" />
+      <auto-fix-icon v-else-if="icon === 'effects'" :size="62" />
+      <code-json-icon v-else-if="icon === 'json'" :size="62" />
     </div>
 
     <div style="width:100%">
