@@ -4,7 +4,7 @@
     style="width:200px; height:180px; margin:10px; padding:5px 10px"
     @click="goTo($withBase(to))"
   >
-    <div style="width:100%;margin-top:0.5rem;">
+    <div style="width:100%; margin-top:1rem;">
       <account-edit-icon v-if="icon === 'user'" :size="72" />
       <auto-fix-icon v-else-if="icon === 'effects'" :size="72" />
       <code-json-icon v-else-if="icon === 'json'" :size="72" />
@@ -63,5 +63,10 @@
   h3 {
       margin-top: 0;
       margin-bottom: 0;
+  }
+
+  div.sub-text.flex.flex-center p {
+    margin-top: 0;
+    margin-bottom: 0;
   }
 </style>
