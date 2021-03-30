@@ -46,7 +46,7 @@
 <style scoped>
   div {
     margin-right: 1rem;
-    padding-top: 6px;
+    padding-top: 7px;
   }
   a {
     cursor: pointer;

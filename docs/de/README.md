@@ -8,9 +8,9 @@ sidebar: false
 </p>
 
 <div class="flex flex-center no-decoration">
-  <MainSection title="Benutzer" text="Installation, Konfiguration und erweiterte Informationen" to="/de/user"/>
-  <MainSection title="Effekte" text="Lerne wie man Effekte entwickelt" to="/de/effects" disabled />
-  <MainSection title="JSON API" text="Lerne wie du mit der API interagieren kannst" to="/de/json" disabled />
+  <MainSection title="Benutzer" text="Installation, Konfiguration und erweiterte Informationen" to="user" icon="user" />
+  <MainSection title="Effekte" text="Lerne wie man Effekte entwickelt" to="effects" icon="effects" disabled />
+  <MainSection title="JSON API" text="Lerne wie du mit der API interagieren kannst" to="json" icon="json" disabled />
 </div>
 
 ::: warning Unvollständig

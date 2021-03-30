@@ -8,9 +8,9 @@ sidebar: false
 </p>
 
 <div class="flex flex-center no-decoration">
-  <MainSection title="User" text="Installation, configuration and advanced informations" to="/en/user" />
-  <MainSection title="Effects" text="Learn how to create an effect" to="/en/effects" />
-  <MainSection title="JSON API" text="Learn how to interact with the API" to="/en/json" />
+  <MainSection title="User" text="Installation, configuration and advanced informations" to="/en/user" icon="user" />
+  <MainSection title="Effects" text="Learn how to create an effect" to="/en/effects" icon="effects" />
+  <MainSection title="JSON API" text="Learn how to interact with the API" to="/en/json" icon="json" />
 </div>
 
 ::: tip Tip:

@@ -98,5 +98,5 @@
 <style lang="stylus">
   .nav-links
     .nav-item
-      padding-top 6px
+      padding-top 7px
 </style>
