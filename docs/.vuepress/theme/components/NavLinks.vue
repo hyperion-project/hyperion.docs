@@ -58,13 +58,13 @@
 
     methods: {
       onResize () {
-        this.isMobile = window.innerWidth < 720
+        this.isMobile = window.innerWidth < 720;
+        this.lightMode.init();
       }
     },
 
     created() {
       this.lightMode = new LightMode();
-      this.lightMode.init();
     },
   
     computed: {

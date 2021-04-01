@@ -1,8 +1,8 @@
 // global css as stylus
-.text-center 
+.text-center
   text-align center
 
-.sub-text 
+.sub-text
   color rgb(94, 94, 94)
   font-size 90%
 
@@ -24,6 +24,15 @@
 
 .no-decoration
   text-decoration none
+
+.card 
+  background-color:#2b819a
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2)
+  transition: 0.3s
+
+.card:hover 
+  background-color:#007496
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.4)
 
 .main-section-disabled
   background-color  grey !important
@@ -47,6 +56,13 @@
 
 .img-shadow
   box-shadow 1px 1px 5px 0 rgba(0,0,0,0.4)
+
+.theme-toggler
+  margin-right: 1rem !important
+  padding-top: 7px !important
+  a
+    cursor: pointer !important
+    color: inherit !important
 
 // Fix mobile language select
 .sidebar
@@ -226,3 +242,9 @@ html.dark
 
   .tabs-component-panels
     background-color: $darkPrimaryBg
+
+  .main-section-disabled
+    background-color: #0c171d
+    color #565656 !important
+    .sub-text
+      color #565656 !important

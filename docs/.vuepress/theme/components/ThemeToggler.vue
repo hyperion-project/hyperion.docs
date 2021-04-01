@@ -28,6 +28,7 @@
     mounted() {
       this.onResize();
       window.addEventListener('resize', this.onResize, { passive: true });
+      this.lightMode.init();
     },
 
     methods: {
@@ -38,18 +39,6 @@
 
     created() {
       this.lightMode = new LightMode();
-      this.lightMode.init();
     }
   }
 </script>
-
-<style scoped>
-  div {
-    margin-right: 1rem;
-    padding-top: 7px;
-  }
-  a {
-    cursor: pointer;
-    color: inherit;
-  }
-</style>

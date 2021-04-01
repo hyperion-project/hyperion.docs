@@ -11,9 +11,12 @@
       lightMode: null
     }),
 
+    mounted() {
+      this.lightMode.init();
+    },
+
     created() {
       this.lightMode = new LightMode();
-      this.lightMode.init();
     }
   }
 </script>
