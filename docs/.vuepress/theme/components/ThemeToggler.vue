@@ -1,32 +1,22 @@
 <template>
-  <div class="theme-toggler" v-if="!isMobile">
-    <a @click="toggle">
-
-      <svg v-if="isLight" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-moon">
-        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-      </svg>
-
-      <svg v-else xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-sun">
-        <circle cx="12" cy="12" r="5"></circle>
-        <line x1="12" y1="1" x2="12" y2="3"></line>
-        <line x1="12" y1="21" x2="12" y2="23"></line>
-        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-        <line x1="1" y1="12" x2="3" y2="12"></line>
-        <line x1="21" y1="12" x2="23" y2="12"></line>
-        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-      </svg>
-
+  <div v-if="!isMobile" class="theme-toggler" aria-label="Switch theme between light and dark">
+    <a @click="lightMode.toggle()">
+      <weather-night-icon v-if="lightMode._light" />
+      <white-balance-sunny-icon v-else />
     </a>
   </div>
 </template>
 
 <script>
+  import WhiteBalanceSunnyIcon from "vue-material-design-icons/WhiteBalanceSunny.vue";
+  import WeatherNightIcon from "vue-material-design-icons/WeatherNight.vue";
+  import LightMode from '../util/light-mode';
+
   export default {
+    components: { WhiteBalanceSunnyIcon, WeatherNightIcon },
     data: () => ({
-      isMobile: false,
-      isLight: false
+      lightMode: null,
+      isMobile: false
     }),
 
     beforeDestroy () {
@@ -38,35 +28,17 @@
     mounted() {
       this.onResize();
       window.addEventListener('resize', this.onResize, { passive: true });
-      this.isLight = window.localStorage.getItem('hyperion_light') === 'on';
-      if (!this.isLight) {
-        document.getElementsByTagName('html')[0].classList.add('dark');
-      }
+      this.lightMode.init();
     },
 
     methods: {
-      toggle() {
-        this.isLight = !this.isLight;
-        window.localStorage.setItem('hyperion_light', this.isLight ? 'on' : 'off');
-        this.$root.$emit('light-mode', this.isLight);
-        document.getElementsByTagName('html')[0].classList[this.isLight ? 'remove' : 'add']('dark');
-      },
-
       onResize () {
         this.isMobile = window.innerWidth < 720
       }
+    },
+
+    created() {
+      this.lightMode = new LightMode();
     }
   }
 </script>
-
-<style scoped>
-  div {
-    margin-right: 1.5rem;
-    padding-top: 6px;
-  }
-  a {
-    cursor: pointer;
-    color: inherit;
-  }
-</style>
-

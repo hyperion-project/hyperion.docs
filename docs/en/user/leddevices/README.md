@@ -62,7 +62,7 @@ Everything that is reachable over network.
 * [WLED](/en/user/leddevices/network/wled)
 * [Yeelight](/en/user/leddevices/network/yeelight)
 
-### Debug
-Only suitable for experts.
+### Others
+All other devices that do not fit into any categories.
 
 * [File](/en/user/leddevices/debug)

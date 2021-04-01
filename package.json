@@ -7,11 +7,12 @@
   "private": true,
   "licence": "MIT",
   "scripts": {
-    "docs:dev": "vuepress dev docs",
+    "docs:dev": "vuepress dev docs --no-cache",
     "docs:build": "vuepress build docs",
     "docs:serve": "vuepress serve docs --build --open"
   },
   "dependencies": {
+    "vue-material-design-icons": "^4.11.0",
     "vuepress": "^1.8.2",
     "vuepress-plugin-medium-zoom": "^1.1.9",
     "vuepress-plugin-redirect": "^1.2.5"

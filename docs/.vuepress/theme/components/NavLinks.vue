@@ -1,72 +1,48 @@
 <template>
-  <nav
-    v-if="userLinks.length || repoLink"
-    class="nav-links"
-  >
+  <nav v-if="userLinks.length || repoLink" class="nav-links">
     <!-- user links -->
-    <div
-      v-for="item in userLinks"
-      :key="item.link"
-      class="nav-item"
-    >
-      <DropdownLink
-        v-if="item.type === 'links'"
-        :item="item"
-      />
-      <NavLink
-        v-else
-        :item="item"
-      />
+    <div v-for="item in userLinks" :key="item.link" class="nav-item">
+      <DropdownLink v-if="item.type === 'links'" :item="item" />
+      <NavLink v-else :item="item" />
     </div>
 
     <!-- repo link -->
-    <a
-      v-if="repoLink"
-      :href="repoLink"
-      class="repo-link"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
+    <a v-if="repoLink" :href="repoLink" class="repo-link" target="_blank" rel="noopener noreferrer">
       {{ repoLabel }}
       <OutboundLink />
     </a>
 
-    <!-- Dark Mode -->
-    <a
-      v-if="isMobile"
-      @click="toggle"
-      class="repo-link"
-      :title="repoLabel"
-      :aria-label="repoLabel"
-    >
-      <svg v-if="isLight" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-moon">
-        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-      </svg>
-
-      <svg v-else xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-sun">
-        <circle cx="12" cy="12" r="5"></circle>
-        <line x1="12" y1="1" x2="12" y2="3"></line>
-        <line x1="12" y1="21" x2="12" y2="23"></line>
-        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-        <line x1="1" y1="12" x2="3" y2="12"></line>
-        <line x1="21" y1="12" x2="23" y2="12"></line>
-        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-      </svg>
+    <!-- Dark Mode only on mobile device -->
+    <a v-if="isMobile" @click="lightMode.toggle()" class="repo-link" :title="repoLabel" :aria-label="repoLabel">
+      <weather-night-icon v-if="lightMode._light" />
+      <white-balance-sunny-icon v-else />
     </a>
+
+    <!-- Language Icon only on mobile device -->
+    <div v-if="isMobile" class="nav-links">
+      <div v-for="item in languages" :key="item.link" class="nav-item">
+        <DropdownLink :item="item" />
+      </div>
+    </div>
+
+
   </nav>
 </template>
 
 <script>
-  import ParentNavLinks from '@parent-theme/components/NavLinks.vue'
-  import ThemeToggler from './ThemeToggler';
+  import ParentNavLinks from '@parent-theme/components/NavLinks.vue';
+  import WhiteBalanceSunnyIcon from "vue-material-design-icons/WhiteBalanceSunny.vue";
+  import WeatherNightIcon from "vue-material-design-icons/WeatherNight.vue";
+  import DropdownLink from '@theme/components/DropdownLink.vue';
+  import { resolveNavLinkItem } from '@vuepress/theme-default/util';
+  import LightMode from '../util/light-mode';
+
   export default {
     extends: ParentNavLinks,
-    components: { ThemeToggler },
+    components: { WhiteBalanceSunnyIcon, WeatherNightIcon },
     data: () => ({
-      isMobile: false,
-      isLight: false
+      lightMode: null,
+      isMobile: false
     }),
 
     beforeDestroy () {
@@ -78,24 +54,60 @@
     mounted() {
       this.onResize();
       window.addEventListener('resize', this.onResize, { passive: true });
-      this.isLight = window.localStorage.getItem('hyperion_light') === 'on';
     },
 
     methods: {
-      toggle() {
-        this.isLight = !this.isLight;
-        window.localStorage.setItem('hyperion_light', this.isLight ? 'on' : 'off');
-        this.$root.$emit('light-mode', this.isLight);
-        document.getElementsByTagName('html')[0].classList[this.isLight ? 'remove' : 'add']('dark');
-      },
-
       onResize () {
-        this.isMobile = window.innerWidth < 720
+        this.isMobile = window.innerWidth < 720;
+        this.lightMode.init();
       }
     },
 
     created() {
-      this.$root.$on('light-mode', (isLight) => this.isLight = isLight);
+      this.lightMode = new LightMode();
+    },
+  
+    computed: {
+      nav () {
+        return this.$themeLocaleConfig.nav || this.$site.themeConfig.nav || []
+      },
+
+      lang () {
+        const { locales } = this.$site
+        if (locales && Object.keys(locales).length > 1) {
+          const currentLink = this.$page.path
+          const routes = this.$router.options.routes
+          const themeLocales = this.$site.themeConfig.locales || {}
+          const languageDropdown = {
+            items: Object.keys(locales).map(path => {
+              const locale = locales[path]
+              const text = themeLocales[path] && themeLocales[path].label || locale.lang
+              let link
+              // Stay on the current page
+              if (locale.lang === this.$lang) {
+                link = currentLink
+              } else {
+                // Try to stay on the same page
+                link = currentLink.replace(this.$localeConfig.path, path)
+                // fallback to homepage
+                if (!routes.some(route => route.path === link)) {
+                  link = path
+                }
+              }
+              return { text, link }
+            })
+          }
+          return [languageDropdown]
+        }
+      },
+
+      languages () {
+        return (this.lang || []).map(link => {
+          return Object.assign(resolveNavLinkItem(link), {
+            items: (link.items || []).map(resolveNavLinkItem)
+          })
+        })
+      }
     }
   }
 </script>

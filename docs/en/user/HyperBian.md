@@ -21,10 +21,6 @@ Is a ready to use image for your Raspberry Pi. Based on the original Raspberry P
   * In case your Raspberry Pi has WLAN or you want to use a WLAN stick, you could pre-configure the WLAN SSID and password before you plugin the SD in your Pi. See [HyperBian WLAN](#hyperbian-wlan)
   * Optional: Enable SSH [HyperBian SSH](#HyperBian-SSH)
 
-::: tip
-As a image is already outdated the moment you create it. We update it once a week with latest sources from the Raspberry Pi Foundation. Or upon a new Hyperion release. 
-:::
-
 ### HyperBian WLAN
 In case you want to use WLAN with your Raspberry Pi, you can include the WLAN SSID and password after you burned the HyperBian-XXXX.img to your SD card for auto configuration on first boot.
 Open the SD card with a file explorer. It's called "boot".
