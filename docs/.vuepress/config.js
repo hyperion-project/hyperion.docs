@@ -100,7 +100,7 @@ module.exports = {
           '/en/effects/': getEffectsSidebar('Effects', 'Effects UI'),
           '/en/json/': getJsonSidebar('JSON', 'Misc'),
           '/en/api/': getApiSidebar('Go back to')
-          //   '/en/addons/': getAddonsSidebar('Addons', 'Addons UI')
+          // '/en/addons/': getAddonsSidebar('Addons', 'Addons UI')
         }
       },
       '/de/': {
@@ -116,17 +116,17 @@ module.exports = {
         },
         nav: [
           // { text: 'Startseite', link: '/de/' },
-          { text: 'Benutzer', link: '/de/user/' }
-          //{ text: 'Effects', link: '/en/effects/' },
-          //{ text: 'Json API', link: '/en/json/' }
-          // { text: 'Addons API', link: '/en/addons/' }
+          { text: 'Benutzer', link: '/de/user/' },
+          { text: 'Effects', link: '/de/effects/' },
+          { text: 'Json API', link: '/de/json/' }
+          // { text: 'Addons API', link: '/de/addons/' }
         ],
 				sidebar: {
-        	'/de/user/': getUserSidebar('Allgemein', '', 'DE')
-        // '/de/effects/': getEffectsSidebar('Effekte', 'Effekt UI'),
-        // '/de/json/': getJsonSidebar('JSON', 'Misc'),
-        // '/de/api/': getApiSidebar('Gehe zurück zu')
-        //   '/en/addons/': getAddonsSidebar('Addons', 'Addons UI')
+        	'/de/user/': getUserSidebar('Allgemein', '', 'DE'),
+          '/de/effects/': getEffectsSidebar('Effekte', 'Effekt UI'),
+          '/de/json/': getJsonSidebar('JSON', 'Misc'),
+          '/de/api/': getApiSidebar('Gehe zurück zu')
+          // '/de/addons/': getAddonsSidebar('Addons', 'Addons UI')
 				}
       }
     },
@@ -294,6 +294,79 @@ function getUserSidebar (groupA, groupB, Language) {
           '',
           'Installation',
           'Konfiguration',
+          {
+            title: 'LED Hardware',
+            collapsable: true,
+            children: [
+              'leddevices/',
+              {
+                title: 'SPI',
+                collapsable: true,
+                children: [
+                  'leddevices/spi/apa102',
+                  'leddevices/spi/apa104',
+                  'leddevices/spi/lpd6803',
+                  'leddevices/spi/lpd8806',
+                  'leddevices/spi/p9813',
+                  'leddevices/spi/sk6812',
+                  'leddevices/spi/sk6822',
+                  'leddevices/spi/sk9822',
+                  'leddevices/spi/ws2801',
+                  'leddevices/spi/ws2812'
+                ]
+              },
+              {
+                title: 'GPIO',
+                collapsable: true,
+                children: [
+                  'leddevices/gpio/piblaster'
+                ]
+              },
+              {
+                title: 'USB/Serial',
+                collapsable: true,
+                children: [
+                  'leddevices/usb/adalight',
+                  'leddevices/usb/atmo',
+                  'leddevices/usb/dmx',
+                  'leddevices/usb/hyperion-usbasp',
+                  'leddevices/usb/karate',
+                  'leddevices/usb/lightpack',
+                  'leddevices/usb/multilightpack',
+                  'leddevices/usb/paintpack',
+                  'leddevices/usb/rawhid',
+                  'leddevices/usb/sedu',
+                  'leddevices/usb/tpm2',
+                ]
+              },
+              {
+                title: 'Network',
+                collapsable: true,
+                children: [
+                  'leddevices/network/atmoorb',
+                  'leddevices/network/cololight',
+                  'leddevices/network/fadecandy',
+                  'leddevices/network/nanoleaf',
+                  'leddevices/network/philipshue',
+                  'leddevices/network/tinkerforge',
+                  'leddevices/network/tpm2net',
+                  'leddevices/network/udpartnet',
+                  'leddevices/network/udpe131',
+                  'leddevices/network/udph801',
+                  'leddevices/network/udpraw',
+                  'leddevices/network/wled',
+                  'leddevices/network/yeelight'
+                ]
+              },
+              {
+                title: 'Others',
+                collapsable: true,
+                children: [
+                  'leddevices/others/debug'
+                ]
+              }
+            ]
+          },
           'HyperBian'
         ]
       }
