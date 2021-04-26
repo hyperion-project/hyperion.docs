@@ -1,56 +1,52 @@
-# Detect Hyperion
-Hyperion announces it's services on the network, via ZeroConf and SSDP.
+# Hyperion entdecken
+Hyperion meldet seine Dienste im Netzwerk, über ZeroConf und SSDP.
 
 [[toc]]
 
 ## SSDP
 **S**imple**S**ervice**D**iscovery**P**rotocol
-([SSDP](https://en.wikipedia.org/wiki/Simple_Service_Discovery_Protocol)) is the
-discovery subset of UPnP. The implementation is lighter than ZeroConf as it just needs a
-UDP Socket without any further dependencies.
+([SSDP](https://en.wikipedia.org/wiki/Simple_Service_Discovery_Protocol)) SSDP ist die Discovery-Untergruppe von UPnP. Die Implementierung ist leichter als ZeroConf, da sie nur einen
+UDP-Socket ohne weitere Abhängigkeiten benötigt.
 
 
-### SSDP-Client Library
-Here are some example client libraries for different programming languages (many others available):
+### SSDP-Client-Bibliothek
+Hier sind einige Beispiel-Client-Bibliotheken für verschiedene Programmiersprachen (viele weitere sind verfügbar):
   * [NodeJS](https://github.com/diversario/node-ssdp#usage---client)
   * [Java](https://github.com/resourcepool/ssdp-client#jarpic-client)
 
-### Usage
-With a given SSDP-client library, you can use the following USN / service type:
+### Nutzung
+Mit einer gegebenen SSDP-Client-Bibliothek kann man den folgenden USN- / Diensttyp verwenden:
 
 `urn:hyperion-project.org:device:basic:1`
 
-Some headers from the response will include:
-  * **Location**: The URL of the webserver
-  * **USN**: The unique id for this Hyperion instance, it will remain the same after system restarts or Hyperion updates
-  * **HYPERION-FBS-PORT**: The port of the flatbuffers server
-  * **HYPERION-JSS-PORT**: The port of the JsonServer
-  * **HYPERION-NAME**: The user defined name for this server
+Einige Header der Antwort enthalten:
+  * **Location**: Die URL des Webservers
+  * **USN**: Die eindeutige ID für diese Hyperion-Instanz, sie bleibt auch nach Systemneustarts oder Hyperion-Updates erhalten
+  * **HYPERION-FBS-PORT**: Der Port des Flatbufferservers
+  * **HYPERION-JSS-PORT**: Der Port des JsonServers
+  * **HYPERION-NAME**: Der benutzerdefinierte Name für diesen Server
 
-As the data changes (e.g. network adapter IP address change), new updates will be automatically announced.
+Wenn sich die Werte ändern (z. B. Änderung der IP-Adresse des Netzwerkadapters), werden neue Updates automatisch mitgeteilt.
 
 ## Zeroconf
-Also known as [Apple Bonjour](https://en.wikipedia.org/wiki/Bonjour_(software)) or [Avahi](https://en.wikipedia.org/wiki/Avahi_(software)). Hyperion is detectable through zeroconf.
+Auch bekannt als [Apple Bonjour](https://en.wikipedia.org/wiki/Bonjour_(Software)) oder [Avahi](https://en.wikipedia.org/wiki/Avahi_(Software)). Hyperion ist über zeroconf auffindbar.
 
 **Hyperion publishes the following informations:**
   * **_hyperiond-http._tcp**: Hyperion Webserver (HTTP+Websocket)
   * **_hyperiond-json._tcp**: Hyperion JSON Server (TcpSocket)
-  * **_hyperiond-flatbuf._tcp**: Hyperion Flatbuffers server (Google Flatbuffers)
+  * **_hyperiond-flatbuf._tcp**: Hyperion Flatbuffers Server (Google Flatbuffers)
 
-You get the IP address, hostname, port and the Hyperion instance name (before the @ for
-the full name). As this works realtime you can always have an up to date list of available
-Hyperion servers.
+Man erhält die IP-Adresse, den Hostnamen, den Port und den Namen der Hyperion-Instanz (vor dem @ für den vollständigen Namen). Da dies in Echtzeit funktioniert, kann man immer eine aktuelle Liste der verfügbaren Hyperion-Server erhalten.
 
 ### TXT RECORD
-Each published entry contains at least the following data in the txt field:
-  * **id**: A static unique id to identify an Hyperion instance.
-  * **version**: Hyperion version.
+Jeder veröffentlichte Eintrag enthält mindestens die folgenden Daten im txt-Feld:
+  * **id**: Eine statische, eindeutige ID zur Identifizierung einer Hyperion-Instanz.
+  * **version**: Hyperion Version.
 
 
 ### Test Clients
-There are several clients available for testing like the
-[avahi-browse](http://manpages.ubuntu.com/manpages/bionic/man1/avahi-browse.1.html) a
-commandline tool for Ubuntu/Debian. Example command 
+Es stehen verschiedene Clients zum Testen zur Verfügung, wie z. B. der
+[avahi-browse](http://manpages.ubuntu.com/manpages/bionic/man1/avahi-browse.1.html) ein Kommandozeilen-Tool für Ubuntu/Debian. Beispiel-Befehl 
 ``` bash
 sudo apt-get install avahi-browse && avahi-browse -r _hyperiond-http._tcp
 ```

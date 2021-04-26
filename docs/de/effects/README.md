@@ -1,12 +1,12 @@
-# Effect development
-Hyperion provides a powerful API to write your own effects, along with possible options and user interface to tune them.
+# Effekt-Erstellung
+Hyperion bietet eine leistungsfähige API, um eigene Effekte zu erstellen, zusammen mit den möglichen Optionen und der Benutzeroberfläche, um diese anzupassen.
 
 [[toc]]
 
-## Effect Files 
-An effect has 3 different files.
-|         File          |               language                |                                        Comment                                        |
+## Effekt-Dateien 
+Ein Effekt hat 3 verschiedene Dateien.
+|         Datei          |               Sprache                |                                        Bemerkung                                        |
 | :-------------------: | :-----------------------------------: | :-----------------------------------------------------------------------------------: |
-|     neweffect.py      |   [Python](https://www.python.org)    |                                The heart of the effect                                |
-|    neweffect.json     |      [JSON](http://www.json.org)      |           Contains options for the python file, which makes it configurable           |
-| neweffect.schema.json | [JSON Schema](http://json-schema.org) | Creates the options UI and is used to validate user input. [Read more](/en/api/ui.md) |
+|     neweffect.py      |   [Python](https://www.python.org)    |                                Das Herzstück des Effekts                                |
+|    neweffect.json     |      [JSON](http://www.json.org)      |           Enthält Optionen für die Python-Datei, die dafür sorgen, dass sie konfigurierbar ist.           |
+| neweffect.schema.json | [JSON Schema](http://json-schema.org) | Erzeugt die Bedienoberfläche für die Optionen und wird zur Überprüfung von Benutzereingaben verwendet. [Read more](/de/api/ui.md) |

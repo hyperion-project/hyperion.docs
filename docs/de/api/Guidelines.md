@@ -1,23 +1,23 @@
-# Guidelines
-Improve the user experience with Hyperion by following these guidelines.
+# Leitfaden
+Optimiere die Benutzerfreundlichkeit von Hyperion, indem du diese Hinweise befolgst.
 
 [[toc]]
 
-## Priority Guidelines
-Please adhere to the following priority guidelines to avoid user confusion and ensure
-the best user experience possible:
+## Prioritätsleitfaden
+Bitte beachtet die folgenden Prioritätsleitfaden, um Verwirrung bei den Benutzern zu vermeiden und eine
+die bestmögliche Benutzererfahrung zu gewährleisten:
 
-The user expects that an effect or color should be higher in priority (lower in value)
-than capturing, as colors/effects are usually run intermittently.
+Der Benutzer erwartet, dass ein Effekt oder eine Farbe eine höhere Priorität (einen niedrigeren Wert) haben sollte
+als das Aufnehmen, da Farben/Effekte normalerweise abwechselnd ausgeführt werden.
 
-|          Type           | Priority/Range | Recommended |                  Comment                   |
+|          Typ           | Priorität/Bereich | Empfohlen |                  Bemerkung                   |
 | :---------------------: | :------------: | :---------: | :----------------------------------------: |
-|    Boot Effect/Color    |       0        |      -      |                  Blocked                   |
-|    Web Configuration    |       1        |      -      |                                            |
-|   **Remote Control**    |    **2-99**    |   **50**    |       Set effect/color/single image        |
-|   **Image Streaming**   |  **100-199**   |   **150**   | For image streams (Flatbuffer/Protobuffer) |
+|    Boot Effekt/Farbe    |       0        |      -      |                  Blockiert                   |
+|    Web Konfiguration    |       1        |      -      |                                            |
+|   **Remote Steuerung**    |    **2-99**    |   **50**    |       Effekt/Farbe/Einzelbild einstellen        |
+|   **Bildstreaming**   |  **100-199**   |   **150**   | Für Image-Streams (Flatbuffer/Protobuffer) |
 |        Boblight         |      201       |      -      |                                            |
-|       USB Capture       |      240       |      -      |                                            |
-|    Platform Capture     |      250       |      -      |                                            |
-| Background Effect/Color |      254       |      -      |                                            |
-|        Reserved         |      255       |      -      |                                            |
+|       USB Aufnahme       |      240       |      -      |                                            |
+|    Bildschirm Aufnahme     |      250       |      -      |                                            |
+| Hintergrundeffekt/Farbe |      254       |      -      |                                            |
+|        Reserviert         |      255       |      -      |                                            |
