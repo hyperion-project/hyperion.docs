@@ -1,17 +1,17 @@
-# Graphical User Interface
-We use a JSON schema to create a user-friendly GUI and validate the input to prevent wrong or unwanted data that will be consumed by your python file. Each python file requires a GUI schema.
+# Grafische Benutzeroberfläche
+Wir verwenden ein JSON-Schema, um eine benutzerfreundliche GUI zu erstellen und die Eingaben zu validieren, damit keine falschen oder unerwünschten Daten von einer Python-Datei übernommen werden. Jede Python-Datei benötigt ein GUI-Schema.
 
 ::: tip
-If you have never written JSON syntax, we recommend a short introduction. [Here](https://www.digitalocean.com/community/tutorials/an-introduction-to-json) and/or [Here (technical)](http://www.json.org/)
+Wenn du noch nie JSON-Syntax geschrieben hast, empfehlen wir eine kurze Einführung. [Hie](https://www.digitalocean.com/community/tutorials/an-introduction-to-json) und/oder [hier (fachlich)](http://www.json.org/)
 :::
 
 [[toc]]
 
-## UI elements
-Each UI element has a specific schema. The schema allows you to give the element a label and validate user input by providing for example a minimum and a maximum number for an element of type number. A minimum count of colors, a default value (required!) or even to show/hide an element based on the value of another element.
+## UI-Elemente
+Jedes UI-Element hat ein bestimmtes Schema. Das Schema ermöglicht es dir, dem Element eine Bezeichnung zu geben und die Benutzereingabe zu überprüfen, indem du z. B. eine Mindest- und eine Höchstzahl für ein Element vom Typ Zahl angibst. Eine Mindestanzahl von Farben, einen Standardwert (erforderlich!) oder sogar das Ein-/Ausblenden eines Elements basierend auf dem Wert eines anderen Elements.
 
-### Checkbox
-Show a checkbox.
+### Kontrollkästchen
+Ein Kontrollkästchen anzeigen.
 ``` json
   "swirl_enabled" :{
     "type" : "boolean",
@@ -19,10 +19,10 @@ Show a checkbox.
     "default" : false
   }
 ```
-The option `swirl_enabled` will be of type boolean with title `edt_eff_swirl_enabled` ([Titles will be translated](#translation)). The `default` sets the option to the defined default value, required!.
+Die Option `swirl_enabled` ist vom Typ boolean mit dem Titel `edt_eff_swirl_enabled` ([Titel werden übersetzt](#translation)). Das `default` setzt die Option auf den definierten Standardwert, zwingend erforderlich!
 
 ### String
-An input field which accepts all kind of characters
+Ein Eingabefeld, das alle möglichen Zeichen akzeptiert.
 ``` json
   "swirl_name" :{
     "type" : "string",
@@ -30,14 +30,14 @@ An input field which accepts all kind of characters
     "default" : "A cool placeholder name"
   }
 ```
-The option `swirl_name` will be of type string with title  `edt_eff_swirl_name` ([Titles will be translated](#translation)). The `default` sets the option to the defined default value, required!. \
+Die Option `swirl_name` wird vom Typ String mit dem Titel `edt_eff_swirl_name` ([Titel werden übersetzt](#translation)) sein. Das `default` setzt die Option auf den definierten Standardwert, zwingend erforderlich! \
 **Optional**
-  * Add `"minLength" : 5` to force a minimum length of 5. Be aware that the default value matches
-  * Add `"maxLength" : 9` to force a maximum length of 9. Be aware that the default value matches
-  * Add `"enum" : ["Amazing1","Amazing","Amazing3"]` Renders the input as a select box where the user can choose one of the defined options.
+  * Füge `"minLength" : 5` hinzu, um eine Mindestlänge von 5 zu erzwingen.Achte darauf, dass der Standardwert übereinstimmt.
+  * Füge `"maxLength" : 9` hinzu, um eine maximale Länge von 9 zu erzwingen. Achte darauf, dass der Standardwert übereinstimmt.
+  * Füge `"enum" : ["Amazing1", "Amazing", "Amazing3"]` hinzu, um die Eingabe als Auswahlfeld darzustellen, in dem der Benutzer eine der definierten Optionen auswählen kann.
 
 ### Integer
-An input field for integer
+Ein Eingabefeld für Integer
 ``` json
   "swirl_count" :{
     "type" : "integer",
@@ -45,15 +45,15 @@ An input field for integer
     "default" : 5
   }
 ```
-The option `swirl_count` will be of type integer with title `edt_eff_swirl_count` ([Titles will be translated](#translation)). The `default` sets the option to the defined default value, required!. \
+Die Option `swirl_count` wird vom Typ Integer mit dem Titel `edt_eff_swirl_count` ([Titel werden übersetzt](#translation)) sein. Das `default` setzt die Option auf den definierten Standardwert, zwingend erforderlich! \
 **Optional**
-  * Add `"minimum" : 5` to force a minimum value in case it shouldn't be lower
-  * Add `"maximum" : 9` to force a maximum value in case it shouldn't be higher
-  * Add `"step" : 2,` to define a alternate stepping of value. If not given, defaults to `1`. This doesn't prevent values which are "outside" of the step, it's more a helper if you use up/down keys and higher or smaller steps are wanted. 
+  * Füge `"minimum" : 5` hinzu, um einen Mindestwert zu erzwingen, falls er nicht niedriger sein sollte.
+  * Füge `"maximum" : 9` hinzu, um einen Maximalwert zu erzwingen, falls er nicht höher sein sollte.
+  * Füge`"step" : 2,` hinzu, um eine alternative Werteschrittweite zu definieren. Wenn nicht angegeben, ist der Standardwert `1`. Dies verhindert keine Werte, die "außerhalb" der Stufe liegen, es ist eher eine Hilfe, wenn du Auf/Ab-Tasten verwendest und höhere oder kleinere Stufen gewünscht sind. 
 
 
-### Number
-A input field for numbers (float)
+### Zahlen
+Ein Eingabefeld für Zahlen (Float)
 ``` json
   "swirl_spread" :
   {
@@ -62,14 +62,14 @@ A input field for numbers (float)
     "default" : 7.0
   }
 ```
-The option `swirl_spread` will be of type number (float) with title `edt_eff_swirl_spread` ([Titles will be translated](#translation)). The `default` sets the option to the defined default value, required!. \
+Die Option `swirl_spread` ist vom Typ Zahl (float) mit dem Titel `edt_eff_swirl_spread` ([Titel werden übersetzt](#translation)). Das `default` setzt die Option auf den definierten Standardwert, erforderlich! \
 **Optional**
-  * Add `"minimum" : 5.0` to force a minimum value in case it shouldn't be lower
-  * Add `"maximum" : 9.6` to force a maximum value in case it shouldn't be higher
-  * Add `"step" : 0.1,` to define a alternate stepping of value. If not given, defaults to `1.0`. This doesn't prevent values which are "outside" of the step, it's more a helper if you use up/down keys and higher or smaller steps are wanted. 
+  * Füge `"minimum" : 5.0` hinzu, um einen Mindestwert zu erzwingen, falls er nicht niedriger sein sollte
+  * Füge `"maximum" : 9.6` hinzu, um einen Maximalwert zu erzwingen, falls er nicht höher sein sollte
+  * Füge `"step" : 0.1,` hinzu, um eine alternative Werteschrittweite zu definieren. Wenn nicht angegeben, ist der Standardwert `1.0`. Dies verhindert keine Werte, die "außerhalb" der Stufe liegen, es ist eher eine Hilfe, wenn Sie die Auf-/Ab-Tasten verwenden und höhere oder kleinere Stufen gewünscht sind. 
 
 ### Select
-Create a select element, where you can select one of the `enum` items. Default is required!
+Erzeugt ein Auswahlelement, in dem man einen der `enum`-Einträge auswählen kann. Der Standardwert ist erforderlich!
 ``` json
 	"candles": {
 		"type": "string",
@@ -80,7 +80,7 @@ Create a select element, where you can select one of the `enum` items. Default i
 ```
 
 ### Array
-Creates an array input with the given properties at `items`. You can nest inside all kind of options
+Erzeugt ein Array Eingabefeld mit den angegebenen Eigenschaften unter `items`. Du kannst alle Arten von Optionen darin verschachteln.
 ``` json
   "countries": {
     "type": "array",
@@ -93,14 +93,14 @@ Creates an array input with the given properties at `items`. You can nest inside
     "default":["de","at"]
   }
 ```
-The option `countries` will be of type array (in python it's a python tuple) (shown as array where you can add or remove properties, in this case a string input field with the title `edt_eff_country"`) with the title `edt_eff_swirl_countries` ([Titles will be translated](#translation)). The `default` sets the option to the defined default value. Required! \
+Die Option `countries` ist vom Typ Array.(in Python ist es ein Python-Tupel) (dargestellt als Array, in dem man Eigenschaften hinzufügen oder entfernen kann, in diesem Fall ein String-Eingabefeld mit dem Titel `edt_eff_country"`) mit dem Titel `edt_eff_swirl_countries` ([Die Titel werden übersetzt](#translation)). Das `default` setzt die Option auf den definierten Standardwert. Zwingend Erforderlich! \
 **Optional**
-  * Add `"uniqueItems": true` if you want to make sure that each item is unique
-  * Add `"minItems": 2` to force a minimum items count of the array
-  * Add `"maxItems": 6` to force a maximum items count of the array
+  * Füge `"uniqueItems": true` hinzu, wenn du sicherstellen willst, dass jedes Element einzigartig ist.
+  * Füge `"minItems": 2` hinzu, um eine Mindestanzahl von Elementen im Array zu erzwingen.
+  * Füge `"maxItems": 6`, um eine maximale Anzahl von Elementen für das Array zu erzwingen.
 
 ### Array - Multiselect
-Create a selection where multiple elements from `ènum` can be selected. Default value is not required.
+Erstellt eine Auswahl, bei der mehrere Elemente aus `enum` ausgewählt werden können. Der Standardwert ist nicht erforderlich.
 ``` json
   "countries": {
 		"type": "array",
@@ -115,8 +115,8 @@ Create a selection where multiple elements from `ènum` can be selected. Default
   },
 ```
 
-### Array - Colorpicker RGB
-Creates a RGB colorpicker.
+### Array - RGB Farbauswähler
+Erzeugt einen RGB-Farbauswähler.
 ``` json
   "color" : {
     "type": "array",
@@ -132,10 +132,10 @@ Creates a RGB colorpicker.
     "maxItems": 3
   }
 ```
-The option `color` will be of type array (shown as RGB colorpicker) with the title `edt_eff_color` ([Titles will be translated](#translation)). This colorpicker will be set to initial red.
+Die Option `color` ist vom Typ Array (dargestellt als RGB Farbauswahl) mit dem Titel `edt_eff_color` ([Titel werden übersetzt](#translation)). Dieser Farbwähler wird auf anfängliches Rot gesetzt.
 
-### Array - Colorpicker RGBA
-Creates a RGBA colorpicker. Think twice brefore you provide a RGBA picker, the use case is limited. 
+### Array - Farbauswähler RGBA
+Erzeugt einen RGBA-Farbauswähler. Denkt zweimal nach, bevor ihr einen RGBA-Farbauswähler bereitstellt, der Anwendungsfall ist begrenzt.
 ``` json
   "color" : {
     "type": "array",
@@ -146,13 +146,12 @@ Creates a RGBA colorpicker. Think twice brefore you provide a RGBA picker, the u
     "maxItems": 4
   }
 ```
-The option `color` will be of type array (shown as RGBA colorpicker) with the title `edt_eff_color` ([Titles will be translated](#translation)). This colorpicker will be set to red with 50% alpha initial. Required to add a default color.
+Die Option `color` ist vom Typ Array (dargestellt als RGBA Farbauswähler) mit dem Titel `edt_eff_color` ([Titel werden übersetzt](#translation)). Dieser Farbauswähler wird auf Rot mit 50% Alpha initial gesetzt. Erforderlich, um eine Standardfarbe hinzuzufügen.
+## Mehr Verschönerung
+Um die Benutzeroberfläche besser zu organisieren und zu verschönern, stellen wir eine Reihe von zusätzlichen Schlüsselwörtern zur Verfügung.
 
-## More beautification
-To organize your UI better and make it prettier we provide a set of additional keywords.
-
-### Dependencies
-Hide/Show a specific option based on the value of another option
+### Abhängigkeiten
+Ausblenden/Einblenden einer bestimmten Option basierend auf dem Wert einer anderen Option
 ``` json{12}
   "enable-second": {
     "type": "boolean",
@@ -171,10 +170,10 @@ Hide/Show a specific option based on the value of another option
     }
   }
 ```
-The option `random-center2` is NOT shown until the option `enable-second` is set to true. This also works with numbers, integers and strings.
+Die Option `random-center2` wird NICHT angezeigt, bis die Option `enable-second` auf true gesetzt ist. Dies funktioniert auch mit Zahlen, Integern und Strings.
 
-### Order
-As each option is a Object and the sort order for Objects is random you need to set an order on your own. Add a `propertyOrder` key.
+### Reihenfolge
+Da jede Option ein Objekt ist und die Sortierreihenfolge bei Objekten zufällig ist, musst du selbst eine Reihenfolge festlegen. Füge einen Schlüssel `propertyOrder` hinzu.
 ``` json{5,11}
   "enable-second": {
     "type": "boolean",
@@ -189,10 +188,10 @@ As each option is a Object and the sort order for Objects is random you need to 
     "propertyOrder" : 2
   }
 ```
-The option `enable-second` will be first, `random-center2` second.
+Die Option `enable-second` steht an erster, `random-center2` an zweiter Stelle.
 
-### Field appends
-You want a specific unit at the end of a field like "s", "ms" or "percent"? Just add a `append` with the wanted unit.
+### Feld-Anhänge
+Du willst eine bestimmte Einheit am Ende eines Feldes wie "s", "ms" oder "Prozent"? Füge einfach ein `append` mit der gewünschten Einheit hinzu.
 ``` json{5}
   "interval": {
     "type": "integer",
@@ -202,10 +201,10 @@ You want a specific unit at the end of a field like "s", "ms" or "percent"? Just
     "propertyOrder" : 1
   }
 ```
-This will add a "s" for seconds to the input field. Please note it will be also translated, so check the translation file if your unit is already available. Add a new one if required.
+Dadurch wird ein "s" für Sekunden in das Eingabefeld eingefügt. Bitte beachte, dass es auch übersetzt wird, überprüfe also die Übersetzungsdatei, ob die Einheit bereits vorhanden ist. Füge bei Bedarf eine neue hinzu.
 
-### Smoothing control (only for effects)
-Since v2 effects are no longer smoothed, it is possible to enable and manipulate smoothing if required. Add the following to the schema.
+### Glättungssteuerung (nur für Effekte)
+Da v2-Effekte nicht mehr geglättet werden, ist es möglich, die Glättung bei Bedarf zu aktivieren und zu manipulieren. Füge dem Schema Folgendes hinzu.
 ``` json
 "smoothing-custom-settings":{  
   "type":"boolean",
@@ -243,8 +242,7 @@ Since v2 effects are no longer smoothed, it is possible to enable and manipulate
 }
 ```
 
-### Translation
-**only for effects - plugins will follow** \
-To translate the effect options to a language we use placeholders that are translated during runtime into the target language.
-It will usually look like this
-`edt_eff_smooth` Available phrases begins with `edt_eff_` they are shared across all effects to prevent duplicates. Please search the [translation file](https://github.com/hyperion-project/hyperion.ng/blob/master/assets/webconfig/i18n/en.json) for a matching translation. If you don't find a matching phrase please add it.
+### Übersetzung
+**nur für Effekte - Plugins ** \
+Um die Effekteinstellungen in eine Sprache zu übersetzen, verwenden wir Platzhalter, die während der Laufzeit in die Zielsprache übersetzt werden.
+Normalerweise sieht das so aus `edt_eff_smooth` Verfügbare Phrasen beginnen mit `edt_eff_` sie werden für alle Effekte gemeinsam verwendet, um Duplikate zu vermeiden. Bitte suche in der [Übersetzungsdatei](https://github.com/hyperion-project/hyperion.ng/blob/master/assets/webconfig/i18n/en.json) nach einer passenden Übersetzung. Wenn du keine passende Phrase findest, füge sie bitte hinzu.

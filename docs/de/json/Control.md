@@ -1,33 +1,33 @@
-# Control
-You can control Hyperion by sending specific JSON messages.
+# Steuerung
+Man kann Hyperion steuern, indem man bestimmte JSON-Nachrichten sendet.
 
 ::: tip
-The `tan` property is supported in these calls, but omitted for brevity.
+Die Eigenschaft `tan` wird in diesen Aufrufen unterstützt, aber aus Gründen der Kürze weggelassen.
 :::
 
 [[toc]]
 
-## Sections
+## Abschnitte
 
-### Set Color
-Set a color for all leds or provide a pattern of led colors.
+### Farbe einstellen
+Stellt eine Farbe für alle Leds ein oder gibt ein Muster von LED-Farben vor.
 
-| Property |  Type   | Required |                                                     Comment                                                      |
+| Eigenschaft |  Typ   | Erforderlich |                                                     Comment                                                      |
 | :------: | :-----: | :------: | :--------------------------------------------------------------------------------------------------------------: |
-|  color   |  Array  |   true   |                                 An array of R G B Integer values e.g. `[R,G,B]`                                  |
-| duration | Integer |  false   |                  Duration of color in ms. If you don't provide a duration, it's `0` -> indefinite                |
-| priority | Integer |   true   | We recommend `50`, following the [Priority Guidelines](/en/api/guidelines#priority_guidelines). Min `2` Max `99` |
-|  origin  | String  |   true   |              A short name of your application like `Hyperion of App` . Max length is `20`, min `4`.              |
+|  color   |  Array  |   true   |                                 Ein Array von R G B Integer-Werten z. B. `[R,G,B]`                                  |
+| duration | Integer |  false   |                  Dauer der Farbe in ms. Wenn du keine Dauer angibst, ist sie `0` -> unendlich.                |
+| priority | Integer |   true   | Wir empfehlen `50`, entsprechend den [Priority Guidelines](/de/api/guidelines#priority_guidelines). Min `2` Max `99` |
+|  origin  | String  |   true   |              Ein kurzer Name deiner Anwendung, z. B. `Hyperion of App`. Maximale Länge ist `20`, minimale `4`.              |
 
 ```json
-// Example: Set a blue color with indefinite duration at priority 50 
+// Beispiel: Einstellen einer blauen Farbe mit unbegrenzter Dauer auf Priorität 50 
 {
   "command":"color",
   "color":[0,0,255],
   "priority":50,
   "origin":"My Fancy App"
 }
-// Example: Set a cyan color for 12 seconds at priority 20
+// Beispiel: Einstellen einer cyanfarbenen Farbe für 12 Sekunden bei Priorität 20
 {
   "command":"color",
   "color":[0,255,255],
@@ -36,11 +36,11 @@ Set a color for all leds or provide a pattern of led colors.
   "origin":"My Fancy App"
 }
 
-// Example: Provide a color pattern, which will be repeated until all LEDs have a color
-// In this case LED 1: Red, LED 2: Red, LED 3: Blue.
+// Beispiel: Gebe ein Farbmuster vor, das so lange wiederholt wird, bis alle LEDs eine Farbe haben
+// In diesem Fall LED 1: Rot, LED 2: Rot, LED 3: Blau.
 {
   "command":"color",
-  "color":[255,0,0,255,0,0,0,0,255], // one led has 3 values (Red,Green,Blue) with range of 0-255
+  "color":[255,0,0,255,0,0,0,0,255], // eine LED hat 3 Werte (Rot,Grün,Blau) mit einem Bereich von 0-255
   "duration":12000,
   "priority":20,
   "origin":"My Fancy App"

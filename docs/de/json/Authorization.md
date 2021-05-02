@@ -1,26 +1,24 @@
-## Authorization
-Hyperion has an authorization system allowing users to login via password, and
-applications to login with tokens. The user can configure how strong or weak the Hyperion API
-should be protected from the `Configuration` -> `Network Services` panel on the Web UI.
+## Autorisierung
+Hyperion verfügt über ein Autorisierungssystem, das es Benutzern erlaubt, sich per Passwort anzumelden, und
+Anwendungen, sich mit Token anzumelden. Der Benutzer kann konfigurieren, wie stark oder schwach die Hyperion-API
+im Bereich `Konfiguration -> Netzwerkdienste` auf der Web-Benutzeroberfläche geschützt werden soll.
 
 [[toc]]
 
-### Token System
-Tokens are a simple way to authenticate an App for API access. They can be created in
-the UI on the `Configuration` -> `Network Services` panel (the panel appears when `API
-Authentication` options is checked). Your application can also [request a
-token](#request-a-token) via the API.
+### Token-System
+Token sind eine einfache Möglichkeit, eine App für den API-Zugriff zu authentifizieren. Sie können erstellt werden in
+der Benutzeroberfläche im Bereich `Konfiguration -> Netzwerkdienste` erstellt werden (der Bereich wird angezeigt, wenn die Option `API Authentifizierung` aktiviert ist. Deine Anwendung kann auch [ein Token](#token-anfordern) über die API anfordern.
 
-### Authorization Check
+### Autorisierungsprüfung
 
-Callers can check whether authorization is required to work with the API, by sending:
+Aufrufer können prüfen, ob eine Autorisierung für die Arbeit mit der API erforderlich ist, indem sie folgendes senden:
 ```json
 {
     "command" : "authorize",
     "subcommand" : "tokenRequired"
 }
 ```
-If the property `required` is true, authentication is required. An example response:
+Wenn die Eigenschaft `required` true ist, ist eine Authentifizierung erforderlich. Eine Beispiel-Antwort:
 ```json
 {
     "command" : "authorize-tokenRequired",
@@ -32,8 +30,8 @@ If the property `required` is true, authentication is required. An example respo
 }
 ```
 
-### Login with Token
-Login with a token as follows -- the caller will receive a [Login response](#login-response).
+### Anmeldung mit Token
+Melde dich mit einem Token wie folgt an -- der Aufrufer erhält eine [Login-Antwort](#login-antwort).
 ```json
 {
     "command" : "authorize",
@@ -42,14 +40,14 @@ Login with a token as follows -- the caller will receive a [Login response](#log
 }
 ```
 
-### Login with Token over HTTP/S
-Add the HTTP Authorization header to every request. On error, the user will get a failed [Login response](#login-response).
+### Anmeldung mit Token über HTTP/S
+Füge den HTTP-Autorisierungs-Header zu jeder Anfrage hinzu. Im Fehlerfall erhält der Benutzer eine fehlgeschlagene [Login-Antwort].(#login-antwort).
 ```http
   Authorization : token YourPrivateTokenHere
 ```
 
-#### Login response
-A successful login response:
+#### Login-Antwort
+Eine erfolgreiche Anmeldeantwort:
 ```json
 {
     "command" : "authorize-login",
@@ -58,7 +56,7 @@ A successful login response:
 }
 ```
 
-A failed login response:
+Eine fehlgeschlagene Anmeldeantwort:
 ```json
 {
     "command" : "authorize-login",
@@ -68,9 +66,9 @@ A failed login response:
 }
 ```
 
-### Logout
-Users can also logout. Hyperion doesn't verify the login state, this call will always
-return a success.
+### Abmelden
+Benutzer können sich auch abmelden. Hyperion prüft den Anmeldestatus nicht, dieser Aufruf wird immer
+einen Erfolg zurück.
 
 ```json
 {
@@ -79,7 +77,7 @@ return a success.
 }
 ```
 
-Response:
+Antwort:
 ```json
 {
     "command" : "authorize-logout",
@@ -88,25 +86,20 @@ Response:
 }
 ```
 ::: warning
-Logging out will stop all streaming data services and subscriptions
+Durch das Abmelden werden alle Streaming-Datendienste und Abonnements beendet
 :::
 
-### Request a Token
+### Token anfordern
 
-Here is the recommended workflow for your application to authenticate:
-   * Ask Hyperion for a token along with a comment (a short meaningful string that
-     identifies the caller is the most useful, e.g. includes an application name and
-     device) and a short randomly created `id` (numbers/letters).
-   * Wait for the response. The user will need to accept the token request from the Web UI.
-   * On success: The call will return a UUID token that can be repeatedly used. Note that
-  access could be revoked by the user at any time, but will continue to last for
-  currently connected sessions in this case.
-   * On error: The call won't get a token, which means the user either denied the request or it timed out (180s).
+Hier ist der empfohlene Workflow für deine Anwendung zur Authentifizierung:
+   * Beantrage bei Hyperion ein Token zusammen mit einer Beschreibung (eine kurze aussagekräftige Zeichenfolge, die
+     den Aufrufer identifiziert, ist am sinnvollsten, z.B. mit einem Anwendungsnamen und
+     Gerät) und eine kurze, zufällig erzeugte `id` (Zahlen/Buchstaben).
+   * Warte auf die Antwort. Der Benutzer muss die Token-Anforderung über die Web-Benutzeroberfläche akzeptieren.
+   * Bei Erfolg: Der Aufruf gibt ein UUID-Token zurück, das wiederholt verwendet werden kann. Beachte, dass der Zugriff vom Benutzer jederzeit widerrufen werden kann, aber die aktuelle Sitzung erhalten bleibt.
+   * Bei Fehler: Der Aufruf erhält kein Token, was bedeutet, dass der Benutzer die Anfrage entweder abgelehnt hat oder die Zeit abgelaufen ist (180s).
 
-Request a token using the follow command, being sure to add a comment that is
-descriptive enough for the Web UI user to make a decision as to whether to grant or deny
-the request. The `id` field has 5 random chars created by the caller, which will appear
-in the Web UI as the user considers granting their approval.
+Fordere ein Token mit dem folgenden Befehl an und achte darauf, dass du einen Kommentar hinzufügst, der aussagekräftig genug ist, damit der Web-UI-Benutzer entscheiden kann, ob er die Anfrage genehmigt oder ablehnt. Das Feld `id` enthält 5 zufällige Zeichen, die vom Aufrufer erstellt werden und in der Web-Benutzeroberfläche erscheinen, wenn der Benutzer die Genehmigung erteilt.
 ```json
 {
     "command" : "authorize",
@@ -116,13 +109,11 @@ in the Web UI as the user considers granting their approval.
 }
 ```
 
-After the call, a popup will appear in the Web UI to accept/reject the token request.
-The calling application should show the comment and the id so that the user can confirm
-the origin properly in the Hyperion UI. After 180 seconds without a user action, the
-request is automatically rejected, and the caller will get a failure response (see below).
+Nach dem Aufruf erscheint ein Popup in der Web-UI, um die Token-Anforderung zu akzeptieren/ablehnen.
+Die aufrufende Anwendung sollte den Kommentar und die ID anzeigen, damit der Benutzer die Herkunft in der Hyperion-Benutzeroberfläche ordnungsgemäß bestätigen kann. Nach 180 Sekunden ohne eine Benutzeraktion wird die Anfrage automatisch abgelehnt und der Aufrufer erhält eine Fehlerantwort (siehe unten).
 
-#### Success response
-If the user accepted the token request the caller will get the following response:
+#### Erfolgreiche Antwort
+Wenn der Benutzer die Token-Anforderung akzeptiert hat, erhält der Aufrufer die folgende Antwort:
 ```json
 {
     "command" : "authorize-requestToken",
@@ -134,14 +125,13 @@ If the user accepted the token request the caller will get the following respons
     }
 }
 ```
-  * Save the token somewhere for further use. The token does not expire.
-  * Be aware that a user can revoke the token. It will continue to function for currently connected sessions.
+  * Speichere das Token irgendwo zur weiteren Verwendung. Das Token läuft nicht ab.
+  * Beachtet werden muss, dass ein Benutzer das Token widerrufen kann. Es funktioniert weiterhin für aktuell verbundene Sitzungen.
 
-#### Failed response
-A request will fail when either:
-   * It times out (i.e. user neither approves nor rejects for 180 seconds after the request
-     is sent).
-   * User rejects the request.
+#### Fehlgeschlagene Antwort
+Eine Anfrage schlägt fehl, wenn entweder:
+   * Zeitüberschreitung (d. h. der Benutzer hat die Anfrage 180 Sekunden lang weder genehmigt noch abgelehnt).
+   * Der Benutzer lehnt die Anfrage ab.
 ```json
 {
     "command" : "authorize-requestToken",
@@ -150,9 +140,9 @@ A request will fail when either:
 }
 ```
 
-#### Request abort
-You can abort the token request by adding an "accept" property to the original request.
-The request will be deleted:
+#### Abbruch der Anforderung
+Die Token-Anforderung kann abgebrochen werden, indem man der ursprünglichen Anforderung eine "accept"-Eigenschaft hinzufügt.
+Die Anforderung wird gelöscht:
 ```json
 {
     "command" : "authorize",

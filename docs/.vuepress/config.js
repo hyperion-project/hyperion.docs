@@ -449,4 +449,3 @@ function getAddonsSidebar (groupA, groupB) {
   }
   ]
 }
-
