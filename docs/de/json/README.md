@@ -1,19 +1,16 @@
-# JSON RPC Introduction
-The JSON-RPC interfaces provides many ways to interact with Hyperion. You can retrieve
-information about your server, your instances and take actions (such as setting a
-priority input).
+# JSON-RPC Einführung
+Die JSON-RPC-Schnittstellen bieten viele Möglichkeiten zur Interaktion mit Hyperion.
+Man kann Informationen über den Server und die Instanzen abrufen und Aktionen ausführen (z. B. einen Prioritätseingang setzen).
 
 [[toc]]
 
-## What is JSON?
-JSON is a standardized message format (see [JSON.org](http://www.json.org/)) and is supported
-by most programming languages. It is human readable which makes for easier debugging.
+## Was ist JSON?
+JSON ist ein standardisiertes Nachrichtenformat (siehe [JSON.org (http://www.json.org/)])
+und wird von den meisten Programmiersprachen unterstützt.
+Es ist für Menschen lesbar, was die Fehlersuche erleichtert.
 
-### Sending JSON
-Hyperion requires a specially formatted JSON message. A `command` argument is always
-required. A `tan` argument is optional. This is an integer you can freely choose -- it is
-part of the response you will receive to allow you to filter the response from other server
-messages (this functionality is likely necessary for advanced usecases only).
+### Senden von JSON
+Hyperion benötigt eine speziell formatierte JSON-Nachricht. Ein Argument `command` ist immer erforderlich. Ein Argument "tan" ist optional. Dies ist eine Ganzzahl, die man frei wählen kann - sie ist Teil der Antwort, die man erhält, um die Antwort von anderen Server-Nachrichten zu filtern (diese Funktionalität ist wahrscheinlich nur für fortgeschrittene Anwendungsfälle notwendig).
 
 ```json
 {
@@ -21,7 +18,7 @@ messages (this functionality is likely necessary for advanced usecases only).
   "tan" : 1
 }
 ```
-Depending on the command, there might be an additional subcommand required:
+Je nach Befehl kann ein zusätzlicher Subbefehl erforderlich sein:
 ```json
 {
   "command" : "YourCommand",
@@ -30,8 +27,8 @@ Depending on the command, there might be an additional subcommand required:
 }
 ```
   
-### Response
-Most messages you send will trigger a response of the following format:
+### Rückantwort
+Die meisten Nachrichten, die du sendest, lösen eine Antwort des folgenden Formats aus:
 ```json
 {
   "command" : "YourCommand",
@@ -40,57 +37,51 @@ Most messages you send will trigger a response of the following format:
   "tan" : 1
 }
 ```
-- **command**: The command you requested.
-- **tan**: The tan you provided (If not, it will default to 0 in the response).
-- **success**: true or false. If false, an **error** argument will contain details of the issue.
-- **info**: The data you requested (if any).
+- **command**: Der angeforderte Befehl.
+- **tan**: Die von dir angegebene tan (Wenn nicht, wird sie in der Antwort standardmäßig auf 0 gesetzt).
+- **success**: true oder false. Wenn es falsch ist, enthält ein **Fehler**-Argument Details zu dem Problem.
+- **info**: Die von dir angeforderten Daten (falls vorhanden).
 
-## Connect
-Hyperion currently supports multiple connection mechanisms: TCP Socket ("Json Server"), WebSocket and HTTP/S.
+## Verbindung
+Hyperion unterstützt derzeit mehrere Verbindungsmechanismen: TCP Socket ("Json Server"), WebSocket und HTTP/S.
 ::: tip
-You can automatically discover Hyperion servers! See [Detect Hyperion](/en/api/detect.md)
+Du kannst Hyperion-Server automatisch erkennen! Siehe [Hyperion erkennen](/de/api/detect.md)
 :::
 
-### TCP Socket
-This is a "raw" connection, you can send and receive line-separated json from the server
-(default port: 19444). This is also known as the "Json Server".
+### TCP-Socket
+Dies ist eine "rohe" Verbindung, du kannst zeilengetrenntes json vom Server senden und empfangen (Standardport: 19444). Dies wird auch als "Json-Server" bezeichnet.
 
 ### WebSocket
-This is part of the Hyperion webserver (default port: 8090). You send and receive json
-commands. WSS is also supported on port 8092. Only TEXT mode is supported. Read more
-about websockets at [Websocket](https://en.wikipedia.org/wiki/WebSocket|).
+Dies ist Teil des Hyperion-Webservers (Standard-Port: 8090). Man sendet und empfängt json-Befehle. WSS wird auch auf Port 8092 unterstützt. Es wird nur der TEXT-Modus unterstützt. Lese mehr über Websockets unter [Websocket](https://en.wikipedia.org/wiki/WebSocket|).
 
 ### HTTP/S Json
-HTTP requests can also be sent to the webserver (default port: 8090, for HTTPS: 8092). Send a HTTP/S POST request along with a properly formatted json message in the body to the (example) url: `http://IpOfDevice:WebserverPort/json-rpc`
+HTTP-Anfragen können auch an den Webserver gesendet werden (Standardport: 8090, für HTTPS: 8092). Sende eine HTTP/S POST-Anfrage zusammen mit einer korrekt formatierten Json-Nachricht im Body an die (Beispiel-)URL: `http://Ip:WebserverPort/json-rpc`
  
-<ImageWrap src="/images/en/http_jsonrpc.jpg" alt="Control Hyperion with HTTP JSON RPC">
-Example picture with a [Firefox](https://addons.mozilla.org/de/firefox/addon/restclient/)/[Chrome](https://chrome.google.com/webstore/detail/advanced-rest-client/hgmloofddffdnphfgcellkdfbfbjeloo/related) Addon to send HTTP JSON messages
+<ImageWrap src="/images/en/http_jsonrpc.jpg" alt="Hyperion mit HTTP JSON RPC steuern">
+Beispielbild mit [Firefox](https://addons.mozilla.org/de/firefox/addon/restclient/)/[Chrome](https://chrome.google.com/webstore/detail/advanced-rest-client/hgmloofddffdnphfgcellkdfbfbjeloo/related) Addon zum Senden von HTTP-JSON-Nachrichten
 
 </ImageWrap>
 
 ::: tip
-If you get a "No Authorization" response, you need to create an [Authorization Token](/en/json/Authorization.md#token-system)
+Wenn du eine "Keine Autorisierung"-Antwort erhältst, musst du ein [Autorisierungs-Token](/de/json/Authorization.md#token-system) erstellen
 :::
 
-::: warning HTTP/S Restrictions
-Please note that the HTTP JSON-RPC lacks of the following functions due to technical limitations.
-- Image streams, led color streams, logging streams, subscriptions
+::: warning HTTP/S-Einschränkungen
+Bitte beachtet, dass dem HTTP-JSON-RPC aufgrund von technischen Einschränkungen folgende Funktionen fehlen.
+- Bild-Streams, Led-Farb-Streams, Logging-Streams, Abonnements
 :::
 
 ## API
 
-### Server Info
-A large variety of data is available from the server: [Server Info](/en/json/ServerInfo.md)
-### Control
-Control your Hyperion server: [Control](/en/json/Control.md)
-### Authorization
-Authorization mechanisms: [Authorization](/en/json/Authorization.md)
-### Subscribe
-Data subscriptions: [Subscribe](/en/json/Subscribe.md)
+### Server-Infos
+Eine Vielzahl von Daten ist vom Server verfügbar: [Server Info](/de/json/ServerInfo.md)
+### Steuerung
+Steuer deinen Hyperion Server: [Steuerung](/de/json/Control.md)
+### Autorisierung
+Autorisierungsmechanismen: [Autorisierung](/de/json/Authorization.md)
+### Abonnieren
+Daten-Abonnements: [Abonnieren](/de/json/Subscribe.md)
 
-## 3rd Party Libraries
+## Drittanbieter-Bibliotheken
 
-* [Hyperion-py](https://github.com/dermotduffy/hyperion-py) is a 3rd-party Python
-  library for communication with Hyperion-NG. It uses the API described here as the
-  underlying communication mechanism and presents it in a user-friendly way. As a 3rd
-  party library, it is not supported by the Hyperion development team.
+* [Hyperion-py](https://github.com/dermotduffy/hyperion-py) ist ein Drittanbieter-Bibliotheken Python-Bibliothek für die Kommunikation mit Hyperion-NG. Sie verwendet die hier beschriebene API als zugrundeliegenden Kommunikationsmechanismus und stellt diesen in einer benutzerfreundlichen Weise dar. Als Drittanbieter-Bibliotheken wird sie nicht vom Hyperion-Entwicklungsteam unterstützt.

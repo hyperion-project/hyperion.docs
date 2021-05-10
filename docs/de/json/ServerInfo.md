@@ -1,10 +1,9 @@
-# Server Information
-This is the primary read mechanism of the Hyperion server. This single command provides data about the live state of Hyperion, broken down into a number
-of different parts (described below).
+# Server-Informationen
+Dies ist der primäre Lesemechanismus des Hyperion-Servers. Dieser einzelne Befehl liefert Daten über den Live-Zustand von Hyperion, aufgeschlüsselt in eine Reihe von verschiedenen Bestandteilen (unten beschrieben).
 
 [[toc]]
 
-You can request a `serverinfo` response by sending the following command:
+Mit dem folgenden Befehl kann eine `serverinfo`-Antwort angefordert werden:
 ```json
 {
     "command":"serverinfo",
@@ -12,15 +11,12 @@ You can request a `serverinfo` response by sending the following command:
 }
 ```
 
-## Parts of a serverinfo response
+## Teile einer serverinfo-Antwort
 
-### Components
-List of Hyperion components and their current status "enabled" (on/off). You can enable
-or disable them during runtime . The "ALL" component reflect Hyperion as a whole -- if
-"ALL" is false (off) you can't enable any other component. [See control
-components](/en/json/control#control-components)
-::: tip Subscribe
-You can subscribe to future data updates. Read more about [Component updates](/en/json/subscribe#component-updates)
+### Komponenten
+Liste der Hyperion-Komponenten und deren aktueller Status "aktiviert" (an/aus). Die Komponenten kannst du während der Laufzeit aktivieren oder deaktivieren. Die Komponente "ALL" spiegelt Hyperion als Ganzes wider - wenn "ALL" false (aus) ist, kann keine andere Komponente aktiviert werden. Siehe Steuerungskomponenten](/de/json/control#control-components)
+::: tip Abonnieren
+Man kann zukünftige Datenaktualisierungen abonnieren. Lese mehr über [Komponenten-Updates](/de/json/subscribe#component-updates)
 :::
 
 ```json
@@ -62,11 +58,10 @@ You can subscribe to future data updates. Read more about [Component updates](/e
 }
 ```
 
-### Adjustments
-Adjustments reflect the value of the last performed (non-persistent) color adjustment
-(e.g. brightness). Read more about [control Adjustments](/en/json/control#adjustments)
-::: tip Subscribe
-You can subscribe to future data updates. Read more about [Adjustment updates](/en/json/subscribe#adjustment-updates)
+### Anpassungen
+Anpassungen spiegeln den Wert der zuletzt durchgeführten (nicht-persistenten) Farbanpassung (z. B. Helligkeit) wider. Lese mehr über [control Anpassungen](/de/json/control#adjustments)
+::: tip Abonnieren
+Du kannst zukünftige Daten-Updates abonnieren. Mehr zu [ Anpassungs-Updates](/de/json/subscribe#adjustment-updates)
 :::
 ```json
 {
@@ -91,15 +86,13 @@ You can subscribe to future data updates. Read more about [Adjustment updates](/
 }
 ```
 
-### Effect list
-An array of effects where each object is one named effect. You can filter between user
-created effects and system provided effects by checking the effect `file` string -- if
-it begins with `:` it's a system provided effect, whereas if the path begins with `/`,
-it's a user created effect.
+### Effekt-Liste
+Ein Array von Effekten, wobei jedes Objekt ein benannter Effekt ist.
+Du kannst zwischen benutzererstellten Effekten und vom System bereitgestellten Effekten filtern, indem du die Effektzeichenkette `Datei` überprüfst -- wenn sie mit `:` beginnt, ist es ein vom System bereitgestellter Effekt, während wenn der Pfad mit `/` beginnt, ist es ein vom Benutzer erstellter Effekt.
 
-See also [set Effect](/en/json/control#set-effect)
-::: tip Subscribe
-You can subscribe to future data updates. Read more about [Effect updates](/en/json/subscribe#effects-updates)
+Siehe auch [Effekt setzen](/de/json/control#set-effect)
+::: tip Abonnieren
+Du kannst zukünftige Daten-Updates abonnieren. Lese mehr über [Effect updates](/de/json/subscribe#effects-updates)
 :::
 ```json
 {
@@ -140,42 +133,37 @@ You can subscribe to future data updates. Read more about [Effect updates](/en/j
 }
 ```
   
-### LED mapping
-Active mode of the led area mapping. [See control LED mapping](/en/json/control#led-mapping)
-::: tip Subscribe
-You can subscribe to future data updates. Read more about [LED mapping updates](/en/json/subscribe#led-mapping-updates)
+### LED-Mapping
+Aktiver Modus des LED-Bereich-Mappings. [Siehe Steuerung LED-Mapping](/de/json/control#led-mapping)
+::: tip Abonnieren
+Du kannst zukünftige Daten-Updates abonnieren. Lese mehr über [LED-Mapping-Updates](/de/json/subscribe#led-mapping-updates)
 :::
 ```json
   "imageToLedMappingType":"multicolor_mean"
 ```
 
-### Video mode
-The current video mode of grabbers. Can be switched to 3DHSBS, 3DVSBS. [See control video mode](/en/json/control#video-mode)
-::: tip Subscribe
-You can subscribe to future data updates. Read more about [Video mode updates](/en/json/subscribe#videomode-updates)
+### Video-Modus
+Der aktuelle Videomodus der Grabber. Kann auf 3DHSBS, 3DVSBS umgeschaltet werden. [Siehe Steuerung Video-Modus](/de/json/control#video-mode)
+::: tip Abonnieren
+Du kannst zukünftige Daten-Updates abonnieren. Lese mehr über [Video mode updates](/de/json/subscribe#videomode-updates)
 :::
 ```json
   "videomode" : "2D"
 ```
 
-### Priorities
-Overview of the registered/active sources. Each object is a source.
-  * **active**: If "true" it is selectable for manual source selection. [See also source selection](/en/json/control#source-selection)
-  * **visible**: If "true" this source is displayed and pushed to the led device. The `visible:true`-source is always the first entry!
-  * **componentId**: A key belonging to a specific component that indicates the kind of input. [See available components](/en/json/control#components-ids-explained)
-  * **origin**: A named external setter of this source for reference purposes. If not given it's `System` (from Hyperion).
-  * **owner**: Contains additional information related to the componentId. If it's an effect,
-  the effect name is shown here. If it's USB capture, the capture device is shown. If
-  it's platform capture, you get the name of the platform capture implementation (e.g. dispmanx/x11/amlogic/...).
-  * **priority**: The priority of this source, an integer between 0 and 255.
-  * **value**: If the source is a color AND color data is available (if active is false
-    there's usually no datta),hen this will be the color in RGB and HSL.
-  * **duration_ms**: Actual duration in ms until this priority is automatically deleted.
-    This is shown if source is color or effect AND a specific duration higher than
-    `0` is set (0 means indefinite).
+### Prioritäten
+Übersicht über die registrierten/aktiven Quellen. Jedes Objekt ist eine Quelle.
+  * **active**: Wenn "true", ist sie für die manuelle Quellenauswahl auswählbar. [Siehe auch Quellenauswahl](/de/json/control#source-selection)
+  * **visible**: Bei "true" wird diese Quelle angezeigt und an das Led-Gerät gepusht. Die `visible:true`-Quelle ist immer der erste Eintrag!
+  * **componentId**: Ein Schlüssel, der zu einer bestimmten Komponente gehört und die Art der Eingabe angibt. [Siehe verfügbare Komponenten](/de/json/control#components-ids-explained)
+  * **origin**: Ein benannter externer Setzer dieser Quelle zu Referenzzwecken. Wenn nicht angegeben, ist es `System` (von Hyperion).
+  * **owner**: Enthält zusätzliche Informationen in Bezug auf die componentId. Wenn es sich um einen Effekt handelt, wird hier der Effektname angezeigt. Wenn es sich um eine USB-Aufnahme handelt, wird das Aufnahmegerät angezeigt. Wenn es sich um ein Plattform-Capture handelt, erhält man den Namen der Plattform-Capture-Implementierung (z. B. dispmanx/x11/amlogic/...).
+  * **priority**: Die Priorität dieser Quelle, eine ganze Zahl zwischen 0 und 255.
+  * **value**: Wenn es sich bei der Quelle um eine Farbe handelt UND Farbdaten vorhanden sind (wenn "active" auf "false" steht, gibt es normalerweise keine Daten), dann ist dies die Farbe in RGB und HSL.
+  * **duration_ms**: Tatsächliche Dauer in ms, bis diese Priorität automatisch gelöscht wird. Dies wird angezeigt, wenn die Quelle eine Farbe oder ein Effekt ist UND eine bestimmte Dauer höher als `0` eingestellt ist (0 bedeutet unbegrenzt).
 
-::: tip Subscribe
-You can subscribe to future data updates. Read more about [Priority updates](/en/json/subscribe#priority-updates)
+::: tip Abonnieren
+Du kannst zukünftige Daten-Updates abonnieren. Lese mehr über [Prioritäts-Updates](/de/json/subscribe#priority-updates)
 :::
 ```json
   "priorities":[
@@ -210,21 +198,18 @@ You can subscribe to future data updates. Read more about [Priority updates](/en
   ]
 ```
 
-### Priorities selection: Auto/Manual
-If `priorities_autoselect` is "true" the visible source is determined by priority. The
-lowest number is automatically selected. If a caller requests to set a source manually,
-then `priorities_autoselect` switches to `false`.
+### Auswahl der Prioritäten: Auto/Manuell
+Wenn `priorities_autoselect` "true" ist, wird die sichtbare Quelle durch die Priorität bestimmt. Die niedrigste Nummer wird automatisch ausgewählt. Wenn ein Caller verlangt, eine Quelle manuell zu setzen,
+dann schaltet `priorities_autoselect` auf `false`.
 
-If the manually selected source is cleared/stops/completes-duration OR the user requests
-the auto selection, `priorities_autoselect` switches back to `true`. This value is
-atomically updated with the priority updates (shown above).
-[See also source selection](/en/json/control#source-selection).
+Wenn die manuell ausgewählte Quelle gelöscht/gestoppt/abgeschlossen wird ODER der Benutzer die automatische Auswahl anfordert, schaltet `priorities_autoselect` zurück auf `true`. Dieser Wert wird
+automatisch mit den Prioritätsaktualisierungen aktualisiert (siehe oben).
+Siehe auch Quellenauswahl](/de/json/control#source-selection).
   
-### Instance
-Information about available instances and their state. Each instance represents a LED
-device. Instances can be controlled, see: [Control Instance](/en/json/control#control-instances).
-::: tip Subscribe
-You can subscribe to future data updates. Read more about [Instance Updates](/en/json/subscribe#instance-updates)
+### Instanz
+Informationen über verfügbare Instanzen und deren Zustand. Jede Instanz repräsentiert ein LED-Gerät. Instanzen können gesteuert werden, siehe: [Instanz steuern](/de/json/control#control-instances).
+::: tip Abonnieren
+Du kannst zukünftige Daten-Updates abonnieren. Lese mehr über [Instance Updates](/de/json/subscribe#instance-updates)
 :::
 ```json
    "instance":[
@@ -242,9 +227,9 @@ You can subscribe to future data updates. Read more about [Instance Updates](/en
 ```
 
 ### LEDs
-Information about led layout (image mapping positions) and led count.
-::: tip Subscribe
-You can subscribe to future data updates. Read more about [LEDs Updates](/en/json/subscribe#leds-updates)
+Informationen über das LED-Layout (Image-Mapping-Positionen) und die Anzahl der LEDs.
+::: tip Abonnieren
+Du kannst zukünftige Daten-Updates abonnieren. Lese mehr über [LEDs Updates](/de/json/subscribe#leds-updates)
 :::
 ```json
 {
@@ -267,17 +252,16 @@ You can subscribe to future data updates. Read more about [LEDs Updates](/en/jso
 ```
 
 ### System & Hyperion
-It's possible to retrieve basic system information about the Hyperion server and the
-host it runs on. This information is static and won't change during runtime.
+Es ist möglich, grundlegende Systeminformationen über den Hyperion-Server und den Host, auf dem er läuft, abzurufen. Diese Informationen sind statisch und werden sich während der Laufzeit nicht ändern.
 ```json
 {
     "command" : "sysinfo",
     "tan" : 1
 }
 ```
-You can use the "version" (Hyperion version) string to check application compatibility. We use [Semantic Versioning 2.0.0](https://semver.org/).
-If you need a specific id to re-detect known servers you can use the `id` field which
-provides a unique id and will not change for a given server.
+Du kannst zukünftige Daten-Updates abonnieren. Wir verwenden [Semantic Versioning 2.0.0 (https://semver.org/).
+Wenn du eine bestimmte ID benötigst, um bekannte Server erneut zu erkennen, kannst du das Feld "id" verwenden, das eine eindeutige ID liefert und sich für einen bestimmten Server nicht ändert.
+
 ```json
 {
     "hyperion":{
@@ -300,10 +284,10 @@ provides a unique id and will not change for a given server.
 }
 ```
 
-### Sessions
- `sessions` shows all Hyperion servers on the current network found via Zeroconf/avahi/bonjour. See also [detect Hyperion](/en/api/detect.md)
- ::: tip Subscribe
-You can subscribe to future data updates. Read more about [Session updates](/en/json/subscribe#session-updates)
+### Sitzungen
+ `sessions` zeigt alle Hyperion-Server im aktuellen Netzwerk an, die über Zeroconf/avahi/bonjour gefunden wurden. Siehe auch [detect Hyperion](/de/api/detect.md)
+ ::: tip Abonnieren
+Du kannst zukünftige Daten-Updates abonnieren. Lese mehr über [Session updates](/de/json/subscribe#session-updates)
 :::
 
 ```json
