@@ -1,12 +1,10 @@
-# Subscription
-During a `serverinfo` request the caller can optionally subscribe to updates -- either
-to specific [serverinfo parts](/en/json/ServerInfo.html#parts) or all available data.
-These updates will be pushed whenever a server-side data change occurs, without the need
-for the caller to poll.
+# Abonnement
+Während einer `serverinfo`-Anfrage kann der Aufrufer optional Updates abonnieren -- entweder für bestimmte [serverinfo parts](/de/json/ServerInfo.html#parts) oder für alle verfügbaren Daten.
+Diese Aktualisierungen werden immer dann gepusht, wenn eine serverseitige Datenänderung auftritt, ohne dass der Aufrufer eine Abfrage durchführen muss.
 
 [[toc]]
 
-To subscribe to specific updates, you can modify the serverinfo command to:
+Um bestimmte Updates zu abonnieren, kannst du den Befehl serverinfo dahingehend ändern:
 ```json
 {
     "command":"serverinfo",
@@ -18,7 +16,7 @@ To subscribe to specific updates, you can modify the serverinfo command to:
     "tan":1
 }
 ```
-To subscribe for all available updates modify the severinfo command to
+Um alle verfügbaren Updates zu abonnieren, ändere den Befehl severinfo in:
 ```json
 {
     "command":"serverinfo",
@@ -26,10 +24,8 @@ To subscribe for all available updates modify the severinfo command to
     "tan":1
 }
 ```
-### Base response layout
-All pushed subscription updates will have an `-update` suffix added to the relevant key
-from the [serverinfo part in question](/en/json/ServerInfo.html#parts). The new data
-will be in the `data` property. There is no `tan` nor `success` argument provided.
+### Basis-Antwort-Layout
+Alle gepushten Abonnement-Updates haben ein `-update`-Suffix, das dem entsprechenden Schlüssel aus dem [betreffenden Serverinfo-Teil](/de/json/ServerInfo.html#parts) hinzugefügt wird. Die neuen Daten werden in der Eigenschaft `data` stehen. Es ist weder ein `tan`- noch ein `success`-Argument vorgesehen.
 ```json
 {
     "command":"XYZ-update",
@@ -38,10 +34,8 @@ will be in the `data` property. There is no `tan` nor `success` argument provide
     }
 }
 ```
-### Component updates
-The caller can subscribe to component updates. These updates are meant to update the
-`components` section of the caller's initial serverinfo. Relevant `serverinfo`
-subscription command:
+### Komponenten-Updates
+Der Aufrufer kann Komponenten-Updates abonnieren. Diese Aktualisierungen sind dazu gedacht, den Abschnitt `components` in der ursprünglichen Serverinfo des Aufrufers zu aktualisieren. Relevanter `serverinfo`-Abonnement-Befehl:
 
 ```json
 {
@@ -52,7 +46,7 @@ subscription command:
     "tan":1
 }
 ```
-After this, the caller will receive incremental updates. An example:
+Danach erhält der Aufrufer inkrementelle Updates. Ein Beispiel:
 ```json
 {
     "command":"components-update",
@@ -63,10 +57,8 @@ After this, the caller will receive incremental updates. An example:
 }
 ```
 
-### Session updates
-The caller can subscribe to session updates (Hyperion instances found with
-Bonjour/Zeroconf/Ahavi). These updates are meant to update the `sessions` section of
-the caller's initial serverinfo. Relevant `serverinfo` subscription command:
+### Sitzungsaktualisierungen
+Der Aufrufer kann Sitzungsaktualisierungen abonnieren (Hyperion-Instanzen, die mit Bonjour/Zeroconf/Ahavi gefunden werden). Diese Aktualisierungen sind dazu gedacht, den Abschnitt `sessions` der ursprünglichen Serverinfo des Aufrufers zu aktualisieren. Relevanter `serverinfo`-Abonnement-Befehl:
 ```json
 {
     "command":"serverinfo",
@@ -76,8 +68,8 @@ the caller's initial serverinfo. Relevant `serverinfo` subscription command:
     "tan":1
 }
 ```
-These updates aren't incremental -- they contain all found entries on each update.
-Example response with 2 HTTP server sessions (`_hyperiond-http._tcp`):
+Diese Aktualisierungen sind nicht inkrementell -- sie enthalten alle gefundenen Einträge bei jeder Aktualisierung.
+Beispielantwort mit 2 HTTP-Server-Sitzungen (`_hyperiond-http._tcp`):
 ```json
 {
     "command":"sessions-update",
@@ -101,10 +93,8 @@ Example response with 2 HTTP server sessions (`_hyperiond-http._tcp`):
    ]
 }
 ```
-### Priority updates
-The caller can subscribe to priority updates. These updates are meant to update the
-`priorities` and `priorities_autoselect` section of the caller's initial `serverinfo`.
-Relevant `serverinfo` subscription command:
+### Prioritäts-Updates
+Der Aufrufer kann Prioritäts-Updates abonnieren. Diese Aktualisierungen sind dazu gedacht, die Abschnitte `priorities` und `priorities_autoselect` in der ursprünglichen `serverinfo` des Aufrufers zu aktualisieren. Relevanter `serverinfo`-Abonnement-Befehl:
 ```json
 {
     "command":"serverinfo",
@@ -112,8 +102,7 @@ Relevant `serverinfo` subscription command:
     "tan":1
 }
 ```
-Caller will get the complete data. Please note that if a color or effect is running with
-a timeout > -1, the caller will receive new data each second. An example update:
+Der Aufrufer erhält die kompletten Daten. Bitte beachte, dass wenn eine Farbe oder ein Effekt mit einem Timeout > -1 läuft, der Aufrufer jede Sekunde neue Daten erhält. Ein Beispiel für ein Update:
 ```json
 {
   "command":"priorities-update",
@@ -152,17 +141,15 @@ a timeout > -1, the caller will receive new data each second. An example update:
   }
 }
 ```
-### LED Mapping updates
-The caller can subscribe to LED mapping type updates. These updates are meant to update
-the `imageToLedMappingType` section of the caller's initial `serverinfo`.
-Relevant `serverinfo` subscription command:
+### Aktualisierungen des LED-Mappings
+Der Aufrufer kann Aktualisierungen des LED-Mapping-Typs abonnieren. Diese Aktualisierungen sind dazu gedacht, den Abschnitt `imageToLedMappingType` in der ursprünglichen `serverinfo` des Aufrufers zu aktualisieren. Relevanter `serverinfo`-Abonnement-Befehl:
 ```json
 {
     "command":"serverinfo",
     "subscribe":["imageToLedMapping-update"],
     "tan":1}
 ```
-An example update:
+Ein Beispiel-Update:
 ```json
 {
     "command":"imageToLedMapping-update",
@@ -171,10 +158,9 @@ An example update:
     }
 }
 ```
-### Adjustment updates
-The caller can subscribe to adjustment updates. These updates are meant to update the
-`adjustment` section of the caller's initial `serverinfo`. Relevant `serverinfo`
-subscription command:
+### Abgleich-Updates
+Der Aufrufer kann Abgleich-Updates abonnieren. Diese Aktualisierungen sind dazu gedacht, den Abschnitt `Abgleich` der ursprünglichen `Serverinfo` des Aufrufers zu aktualisieren. Relevante `Serverinfo`.
+Abonnement-Befehl:
 ```json
 {
     "command":"serverinfo",
@@ -182,7 +168,7 @@ subscription command:
     "tan":1
 }
 ```
-An example update:
+Ein Beispiel-Update:
 ```json
 {
   "command":"adjustment-update",
@@ -205,10 +191,9 @@ An example update:
     }]
 }
 ```
-### VideoMode updates
-The caller can subscribe to videomode updates. These updates are meant to update the
-`videomode` section of the cakker's initial `serverinfo`. Relevant `serverinfo`
-subscription command:
+### VideoMode-Aktualisierungen
+Der Aufrufer kann Videomode-Updates abonnieren. Diese Aktualisierungen sind dazu gedacht, den Abschnitt `Videomode` der ursprünglichen `Serverinfo` des Aufrufers zu aktualisieren. Relevante `Serverinfo`
+Abonnement-Befehl:
 ```json
 {
   "command":"serverinfo",
@@ -216,7 +201,7 @@ subscription command:
   "tan":1
 }
 ```
-An example update:
+Ein Beispiel-Update:
 ```json
 {
   "command":"videomode-update",
@@ -225,10 +210,9 @@ An example update:
   }
 }
 ```
-### Effects updates
-The caller can subscribe to effect list updates. These updates are meant to update the
-`effects` section of the caller's initial `serverinfo`. Relevant `serverinfo`
-subscription command:
+### Aktualisierungen der Effekte
+Der Aufrufer kann Aktualisierungen der Effektliste abonnieren. Diese Aktualisierungen sind dazu gedacht, den Abschnitt `effects` in der ursprünglichen `serverinfo` des Aufrufers zu aktualisieren. Relevante `Serverinfo`.
+Abonnement-Befehl:
 ```json
 {
   "command":"serverinfo",
@@ -236,7 +220,7 @@ subscription command:
   "tan":1
 }
 ```
-An example update:
+Ein Beispiel-Update:
 ```json
 {
   "command":"effects-update",
@@ -246,10 +230,10 @@ An example update:
 }
 ```
 
-### Instance updates
-The caller can subscribe to instance updates. These updates are meant to update the
-`instance` section of the caller's initial serverinfo. Relevant `serverinfo`
-subscription command:
+### Instanz-Updates
+Der Aufrufer kann Instanz-Updates abonnieren. Diese Aktualisierungen sind dazu gedacht, den
+Instanz"-Abschnitt der ursprünglichen Serverinfo des Aufrufers zu aktualisieren. Relevanter `serverinfo`
+Abonnement-Befehl:
 ```json
 {
   "command":"serverinfo",
@@ -257,8 +241,7 @@ subscription command:
   "tan":1
 }
 ```
-An example update. This is not incremental -- the caller will get the full set of
-instances:
+Ein Beispiel-Update. Dies ist nicht inkrementell - der Aufrufer erhält den vollständigen Datensatz von Instanzen:
 ```json
 {
   "command":"instance-update",
@@ -276,9 +259,8 @@ instances:
   ]
 }
 ```
-### LEDs updates
-The caller can subscribe to leds updates. These updates are meant to update the `leds`
-section of the caller's initial `serverinfo`. Relevant `serverinfo` subscription command:
+### LED-Updates
+Der Aufrufer kann leds-Updates abonnieren. Diese Aktualisierungen sind dazu gedacht, den Abschnitt `leds` in der ursprünglichen `serverinfo` des Aufrufers zu aktualisieren. Relevanter `serverinfo`-Abonnement-Befehl:
 ```json
 {
   "command":"serverinfo",
@@ -286,7 +268,7 @@ section of the caller's initial `serverinfo`. Relevant `serverinfo` subscription
   "tan":1
 }
 ```
-An example update. This is not incremental -- the caller willg et the full set of leds:
+Ein Beispiel-Update. Dies ist nicht inkrementell - der Aufrufer wird den vollständigen Datensatz der Leds erhalten:
 ```json
 {
   "command":"leds-update",
