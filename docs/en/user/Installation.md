@@ -32,8 +32,8 @@ Internet Explorer is not supported
 ### RaspberryPi
 For RaspberryPi we provide a .deb file.  \
 Got to the [Release page](https://github.com/hyperion-project/hyperion.ng/releases), select the desired release and download from the release site the file \
-Hyperion-<release nr>-Linux-armv6l.deb for RaspberryPi Ver. 1 or \
-Hyperion-<release nr>-Linux-armv7l.deb for RaspberryPi Ver. 2 and higher \
+Hyperion-release nr-Linux-armv6l.deb for RaspberryPi Ver. 1 or \
+Hyperion-release nr-Linux-armv7l.deb for RaspberryPi Ver. 2 and higher \
 Install from commandline by typing \
 `sudo dpkg -i /<path to>/Hyperion-<release nr>-Linux-armv6l.deb` for RaspberryPi Ver. 1 or \
 `sudo dpkg -i /<path to>/Hyperion-<release nr>-Linux-armv7l.deb` for RaspberryPi Ver. 2 and higher \
