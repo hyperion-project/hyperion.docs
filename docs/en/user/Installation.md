@@ -30,7 +30,7 @@ Internet Explorer is not supported
   * Windows 10 you can use the .exe file from [Release page](https://github.com/hyperion-project/hyperion.ng/releases) for a single click installation.
 
 ### RaspberryPi
-For RaspberryPi we provide a ...Linux-armv[6|7]l.deb file.  \
+For RaspberryPi with existing Raspberry Pi OS (former Raspbian) we provide a ...Linux-armv[6|7]l.deb file.  \
 Got to the [Release page](https://github.com/hyperion-project/hyperion.ng/releases), select the desired release and download from the release site the file \
 Hyperion-release nr-Linux-armv6l.deb for RaspberryPi Ver. 1 or \
 Hyperion-release nr-Linux-armv7l.deb for RaspberryPi Ver. 2 and higher \
