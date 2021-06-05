@@ -135,7 +135,7 @@ Creates a RGB colorpicker.
 The option `color` will be of type array (shown as RGB colorpicker) with the title `edt_eff_color` ([Titles will be translated](#translation)). This colorpicker will be set to initial red.
 
 ### Array - Colorpicker RGBA
-Creates a RGBA colorpicker. Think twice brefore you provide a RGBA picker, the use case is limited. 
+Creates a RGBA colorpicker. Think twice before you provide a RGBA picker, the use case is limited. 
 ``` json
   "color" : {
     "type": "array",

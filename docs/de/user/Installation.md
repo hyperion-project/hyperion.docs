@@ -22,7 +22,7 @@ In den nachfolgendem Beispielen wird zur Verdeutlichung der Syntax die Hardware 
 :::
 
 ### Raspberry Pi
-Wir empfehlen die Benutzung von [HyperBian](/en/user/HyperBian) für eine Neuinstallation. \
+Wir empfehlen die Benutzung von [HyperBian](/de/user/HyperBian) für eine Neuinstallation. \
 Alternativ kann Hyperion auf einem bestehenden [Debian/Ubuntu](#debian-ubuntu) System installiert werden.
 
 ### macOS
