@@ -24,10 +24,23 @@ Internet Explorer is not supported
 :::
 
 ## Install Hyperion
-  * Raspberry Pi you can use [HyperBian](/en/user/HyperBian.md) for a fresh start. Or use the install system
+  * Raspberry Pi you can use [HyperBian](/en/user/HyperBian.md) for a fresh start. Or follow the procedure below.
   * We provide installation packages (.deb) to install Hyperion with a single click on Debian/Ubuntu based systems.
   * Mac OSX - currently just a zip file with the binary
   * Windows 10 you can use the .exe file from [Release page](https://github.com/hyperion-project/hyperion.ng/releases) for a single click installation.
+
+### RaspberryPi
+For RaspberryPi with existing Raspberry Pi OS (former Raspbian) we provide a ...Linux-armv[6|7]l.deb file.  \
+Got to the [Release page](https://github.com/hyperion-project/hyperion.ng/releases), select the desired release and download from the release site the file \
+Hyperion-release nr-Linux-armv6l.deb for RaspberryPi Ver. 1 or \
+Hyperion-release nr-Linux-armv7l.deb for RaspberryPi Ver. 2 and higher \
+Install from commandline by typing \
+`sudo dpkg -i /<path to>/Hyperion-<release nr>-Linux-armv6l.deb` for RaspberryPi Ver. 1 or \
+`sudo dpkg -i /<path to>/Hyperion-<release nr>-Linux-armv7l.deb` for RaspberryPi Ver. 2 and higher \
+ 
+`sudo apt-get install -f` \
+Hyperion now starts with power up of your RaspberryPi. \
+RaspberryPi users using LibreElec refer to [this](https://hyperion-project.org/forum/index.php?thread/10463-install-hyperion-ng-on-libreelec-x86-64-rpi-inoffiziell-unofficially/&pageNo=1) instruction.
 
 ### Debian/Ubuntu
 For Debian/Ubuntu we provide a .deb file. A one click installation package that does the job for you. \
