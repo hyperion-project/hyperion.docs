@@ -3,7 +3,9 @@ sidebar: false
 ---
 
 <p style="text-align:center">
-  <HyperionLogo /><br>
+  <HyperionLogoDynamic />
+  <span id="animation" class="rainbow" style="position: absolute" />
+  </br>
   Willkommen in der bunten Welt von Hyperion. Bitte wähle aus, welche Dokumentation du einsehen möchtest.
 </p>
 

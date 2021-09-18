@@ -57,8 +57,8 @@ Dies ist Teil des Hyperion-Webservers (Standard-Port: 8090). Man sendet und empf
 ### HTTP/S Json
 HTTP-Anfragen können auch an den Webserver gesendet werden (Standardport: 8090, für HTTPS: 8092). Sende eine HTTP/S POST-Anfrage zusammen mit einer korrekt formatierten Json-Nachricht im Body an die (Beispiel-)URL: `http://Ip:WebserverPort/json-rpc`
  
-<ImageWrap src="/images/en/http_jsonrpc.jpg" alt="Hyperion mit HTTP JSON RPC steuern">
-Beispielbild mit [Firefox](https://addons.mozilla.org/de/firefox/addon/restclient/)/[Chrome](https://chrome.google.com/webstore/detail/advanced-rest-client/hgmloofddffdnphfgcellkdfbfbjeloo/related) Addon zum Senden von HTTP-JSON-Nachrichten
+<ImageWrap src="/images/de/http_jsonrpc.jpg" alt="Hyperion mit HTTP JSON RPC steuern">
+Beispielbild mit [Firefox](https://addons.mozilla.org/de/firefox/addon/restclient/)/[Chrome](https://chrome.google.com/webstore/detail/yet-another-rest-client/ehafadccdcdedbhcbddihehiodgcddpl) Addon zum Senden von HTTP-JSON-Nachrichten
 
 </ImageWrap>
 

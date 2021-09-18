@@ -1,6 +1,6 @@
 <template>
-  <img v-if="lightMode._light" :src="$withBase(this.$site.themeConfig.logoLight)" class="logo">
-  <img v-else :src="$withBase(this.$site.themeConfig.logoDark)" class="logo">
+  <img v-if="lightMode._light" :src="$withBase(this.$site.themeConfig.logoLightStatic)" class="logo">
+  <img v-else :src="$withBase(this.$site.themeConfig.logoDarkStatic)" class="logo">
 </template>
 
 <script>

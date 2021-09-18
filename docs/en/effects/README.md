@@ -1,8 +1,6 @@
 # Effect development
 Hyperion provides a powerful API to write your own effects, along with possible options and user interface to tune them.
 
-[[toc]]
-
 ## Effect Files 
 An effect has 3 different files.
 |         File          |               language                |                                        Comment                                        |

@@ -6,7 +6,8 @@ Mit deinem Webbrowser kannst du Hyperion über die Konfigurationsoberfläche (au
 **Beispiel:** `http://192.168.0.20:8090`
 
 ### Dashboard
-<ImageWrap src="/images/de/user_config_dash.png" alt="WebUI - Dashboard" />
+ \
+<ImageWrap src="/images/de/user_config_dash.jpg" alt="WebUI - Dashboard" />
 
  **Navigationsleiste (oben rechts)**
  * **Kamera** - Du möchtest dein Browserfenster aufnehmen? Hiermit ist das möglich.
@@ -37,10 +38,15 @@ Du kannst eine bestimmte Seite direkt aufrufen, in dem du an die IP-Adresse und 
 Wir haben jedem Einstellungspunkt im WebUI zusätzliche Informationen spendiert. Einige davon erfordern zusätzliche Erklärung, die hier behandelt werden. Wenn du mehr Hilfe benötigst oder dir etwas an Infos fehlt, unser Forum steht für deine Fragen bereit.
 
 #### Sprachen
-Unser WebUI erkennt automatisch die Sprache deines Browsers. Somit ist das einstellen der Spache nicht notwendig. Solltest du doch einmal Hyperion in einer anderen Sprache kennen lernen wollen, kannst du dies jederzeit tun. \
-Möchtest du bei der Übersetzung helfen? Total einfach! Hier entlang: [POEditor](https://poeditor.com/join/project/Y4F6vHRFjA).
-<ImageWrap src="/images/de/user_config_lang.png" alt="WebUI - Sprachen" />
+Unser WebUI erkennt automatisch die Sprache deines Browsers. Somit ist das einstellen der Spache nicht notwendig. Solltest du doch einmal Hyperion in einer anderen Sprache kennen lernen wollen, kannst du dies jederzeit tun.
+
+<ImageWrap src="/images/de/user_config_lang.jpg" alt="WebUI - Sprachen" />
+
+::: tip Möchtest du bei der Übersetzung helfen?
+Total einfach! Hier entlang: [POEditor](https://poeditor.com/join/project/Y4F6vHRFjA)
+:::
 
 #### Einstellungsstufen
 Um neue Benutzer nicht mit Einstellungen zu überfluten, haben wir Stufen geschaffen. Die Stufe **Standard** ist für Anfänger optimal und bietet die notwendigsten Einstellungen an. Wollt (oder müsst) ihr etwas tiefer in die Hyperion Welt eintauchen, ist die Stufe **Fortgeschritten** genau das richtig. **Experte** ist wie die Bezeichnung schon sagt, nur für Experten.
-<ImageWrap src="/images/de/user_config_access.png" alt="WebUI - Einstellungsstufe" />
+
+<ImageWrap src="/images/de/user_config_access.jpg" alt="WebUI - Einstellungsstufe" />

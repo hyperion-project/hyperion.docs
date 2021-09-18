@@ -7,7 +7,7 @@
   "private": true,
   "licence": "MIT",
   "scripts": {
-    "docs:dev": "vuepress dev docs --no-cache",
+    "docs:dev": "vuepress dev docs --no-cache --no-clear-screen",
     "docs:build": "vuepress build docs",
     "docs:serve": "vuepress serve docs --build --open"
   },
