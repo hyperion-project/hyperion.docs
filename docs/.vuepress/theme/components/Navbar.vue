@@ -2,7 +2,7 @@
   <header class="navbar">
     <SidebarButton @toggle-sidebar="$emit('toggle-sidebar')"/>
     <router-link :to="$localePath" class="home-link">
-      <HyperionLogo />
+      <HyperionLogoStatic />
       <span class="site-name"
           ref="siteName"
           v-if="$siteTitle"

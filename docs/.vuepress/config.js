@@ -63,8 +63,10 @@ module.exports = {
     */
     sidebarDepth: 3,
     smoothScroll: true,
-    logoLight: '/hyperion_logo_light.png',
-    logoDark: '/hyperion_logo_dark.png',
+    logoLightStatic: '/hyperion_logo_light_static.png',
+    logoDarkStatic: '/hyperion_logo_dark_static.png',
+    logoLightDynamic: '/hyperion_logo_light_dynamic.png',
+    logoDarkDynamic: '/hyperion_logo_dark_dynamic.png',
     notFoundLight: '/not_found_light.png',
     notFoundDark: '/not_found_dark.png',
     searchPlaceholder: 'Search...',
@@ -122,7 +124,7 @@ module.exports = {
           // { text: 'Addons API', link: '/de/addons/' }
         ],
 				sidebar: {
-        	'/de/user/': getUserSidebar('Allgemein', '', 'DE'),
+        	'/de/user/': getUserSidebar('Allgemein', 'Erweitert', 'DE'),
           '/de/effects/': getEffectsSidebar('Effekte', 'Effekt UI'),
           '/de/json/': getJsonSidebar('JSON', 'Misc'),
           '/de/api/': getApiSidebar('Gehe zurück zu')
@@ -175,7 +177,8 @@ module.exports = {
     ],
     // https://vuepress.vuejs.org/plugin/official/plugin-pwa.html#install
     [
-      '@vuepress/pwa', {
+      '@vuepress/pwa',
+      {
         serviceWorker: true,
         updatePopup: true
       }
@@ -368,6 +371,14 @@ function getUserSidebar (groupA, groupB, Language) {
             ]
           },
           'HyperBian'
+        ]
+      },
+      {
+        title: groupB,
+        collapsable: false,
+        children: [
+          'advanced/Advanced',
+          'advanced/Support',
         ]
       }
     ]

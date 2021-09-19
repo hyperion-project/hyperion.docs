@@ -6,7 +6,8 @@ Open the web configuration by typing the IP address of your device and the port 
 **Example:** `http://192.168.0.20:8090`
 
 ### Dashboard
-<ImageWrap src="/images/en/user_config_dash.png" alt="Hyperion Web Configuration - Dashboard" />
+ \
+<ImageWrap src="/images/en/user_config_dash.jpg" alt="Hyperion Web Configuration - Dashboard" />
 
 
  **Top right navbar**
@@ -37,10 +38,15 @@ The web configuration supports hashtags for sitenames, so you could directly ope
 We added additional information(s) to each option. Some topics require additional attention which are covered here. If you need more help or something lacks of infos, just dive into our Forum.
 
 #### Language
-By default, the web configuration selects the language based on your browser locale or best matching next to. So no configuration is required. In case you want to start learning Hyperion in another language, select from the provided once. \
-Want to contribute a new translation? It's easy! Checkout: [POEditor](https://poeditor.com/join/project/Y4F6vHRFjA).
-<ImageWrap src="/images/en/user_config_lang.png" alt="Hyperion Web Configuration - Language" />
+By default, the web configuration selects the language based on your browser locale or best matching next to. So no configuration is required. In case you want to start learning Hyperion in another language, select from the provided once.
+
+<ImageWrap src="/images/en/user_config_lang.jpg" alt="Hyperion Web Configuration - Language" />
+
+::: tip Want to contribute in translation?
+It's easy! Checkout: [POEditor](https://poeditor.com/join/project/Y4F6vHRFjA)
+:::
 
 #### Settings level
 Settings level prevents a option flooding for new users. While the **Default** level is for beginners and has the lowest amount of options the **Advanced** is for people that want to or need to dive a little deeper. **Expert** is for experts, you shouldn't need it that often.
-<ImageWrap src="/images/en/user_config_access.png" alt="Hyperion Web Configuration - Settings level" />
+
+<ImageWrap src="/images/en/user_config_access.jpg" alt="Hyperion Web Configuration - Settings level" />

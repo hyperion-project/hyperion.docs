@@ -1,5 +1,5 @@
 # Fortgeschritten
-spezifische Themen mit Details
+Spezifische Themen mit Details
 
 [[TOC]]
 
@@ -81,9 +81,10 @@ In diesem Beispiel wird die erste LED `gbr` sein, die anderen LEDs werden der gl
 
 ### Editieren mit der Webkonfiguration
 Während das Bearbeiten dieser Einstellungen in einem lokalen Texteditor etwas ungewohnt ist, kann man die Werte in der Web-Konfiguration bearbeiten!
-  - Stelle sicher, dass die [Hyperion-Einstellungsstufe] (../Configuration.md#settings-level) auf **Fortgeschritten** gestellt ist.
+  - Stelle sicher, dass die [Hyperion-Einstellungsstufe](../Konfiguration.md#Einstellungsstufen) auf **Fortgeschritten** gestellt ist.
   - Navigiere zu Konfiguration -> LED-Hardware und wechsele auf die Registerkarte LED-Layout. Du wirst einen neuen Abschnitt **Generierte/aktuelle LED-Konfiguration** sehen.
-<ImageWrap src="/images/en/user_ledlayout3.jpg" alt="Hyperion Led Layout" />
+
+<ImageWrap src="/images/de/user_ledlayout3.jpg" alt="Hyperion Led Layout" />
 
 Du kannst die Werte frei bearbeiten, eine Vorschau auf der rechten Seite anzeigen, indem du auf **Aktualisiere Vorschau** klickst. Wenn du mit den Änderungen zufrieden bist, vergiss nicht zu speichern.
 
@@ -94,11 +95,13 @@ Der Unterschied zwischen den verfügbaren Modi für die Schwarzbalkenerkennung w
   * **Classic:** Die ursprünglichen Implementierungen - geringere CPU-Zeit (Legacy für RPi 1) scannen nur das obere Drittel des Bildes, was zu einer langsamen Erkennung und Problemen mit dem TV-Senderlogo führt.
   * **OSD:** Basierend auf dem Default-Modus - nicht sehr effektiv, verhindert aber Randumschaltungen, die durch OSD-Einblendungen (Programminfos und Lautstärkeleiste) verursacht werden können.
   * **Letterbox:** Basierend auf dem Default-Modus - berücksichtigt nur Schwarzbalken am oberen und unteren Rand des Bildes, ignoriert die Seiten.
+
 <ImageWrap src="/images/en/user_bbmodes.jpg" alt="Hyperion Blackbar detection modes" />
 
 ## Gamma Kurve
- Gammawerte in einer Grafik. Wie du siehst, ist 1,0 neutral. Niedriger als 1,0 erhöht die Farbe, höher reduziert die Farbe. 
- <ImageWrap src="/images/en/user_gammacurve.png" alt="Hyperion Gamma Curve" />
+Gammawerte in einer Grafik. Wie du siehst, ist 1,0 neutral. Niedriger als 1,0 erhöht die Farbe, höher reduziert die Farbe.
+
+<ImageWrap src="/images/en/user_gammacurve.png" alt="Hyperion Gamma Curve" />
 
 
 ## CLI
@@ -173,7 +176,7 @@ Hyperion-Remote wird automatisch nach einem Hyperion-Server suchen. So kannst du
 Alle diese Anwendungen können unabhängig von Hyperion gestartet werden und haben alle leicht unterschiedliche Optionen. Sie kommunizieren mit der Flatbuffer-Schnittstelle von Hyperion. Dann lassen wir uns eine von ihnen starten! In diesem Beispiel verwende ich dispmanx für Raspberry Pi, also lasst uns die verfügbaren Optionen ansehen.
 
 ``` sh
-hyprion-dispmanx -h
+hyperion-dispmanx -h
   -f, --framerate <framerate>  Bildrate für die Bildübertragung [Standard: 10]
   --width <width>              Breite des aufgenommenen Bildes [Standard: 64]
   --height <height>            Höhe des aufgenommenen Bildes [Standard: 64]

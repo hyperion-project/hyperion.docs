@@ -1,8 +1,6 @@
 # Effekt-Erstellung
 Hyperion bietet eine leistungsfähige API, um eigene Effekte zu erstellen, zusammen mit den möglichen Optionen und der Benutzeroberfläche, um diese anzupassen.
 
-[[toc]]
-
 ## Effekt-Dateien 
 Ein Effekt hat 3 verschiedene Dateien.
 |         Datei          |               Sprache                |                                        Bemerkung                                        |

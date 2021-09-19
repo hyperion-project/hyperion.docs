@@ -19,35 +19,36 @@ Hyperion will be configured and controlled trough a web interface.
   * Safari 9.1+
   * Microsoft Edge 14+
 
-::: warning Internet Explorer
-Internet Explorer is not supported
+## Install
+::: warning Note
+In the following examples the hardware architecture x86_64 is used to clarify the syntax.
 :::
 
-## Install Hyperion
-  * Raspberry Pi you can use [HyperBian](/en/user/HyperBian.md) for a fresh start. Or follow the procedure below.
-  * We provide installation packages (.deb) to install Hyperion with a single click on Debian/Ubuntu based systems.
-  * Mac OSX - currently just a zip file with the binary
-  * Windows 10 you can use the .exe file from [Release page](https://github.com/hyperion-project/hyperion.ng/releases) for a single click installation.
+## Raspberry Pi
+Raspberry Pi user can use [HyperBian](/en/user/HyperBian.md) for a fresh start. \
+Alternatively, Hyperion can be installed on an existing [Raspberry Pi OS (formerly Raspbian)/Debian/Ubuntu](#rpi-debian-ubuntu) system. \
+Raspberry Pi users with LibreElec look [here](https://hyperion-project.org/forum/index.php?thread/10463-install-hyperion-ng-on-libreelec-x86-64-rpi-inoffiziell-unofficially/&pageNo=1).
 
-### RaspberryPi
-For RaspberryPi with existing Raspberry Pi OS (former Raspbian) we provide a ...Linux-armv[6|7]l.deb file.  \
-Got to the [Release page](https://github.com/hyperion-project/hyperion.ng/releases), select the desired release and download from the release site the file \
-Hyperion-release nr-Linux-armv6l.deb for RaspberryPi Ver. 1 or \
-Hyperion-release nr-Linux-armv7l.deb for RaspberryPi Ver. 2 and higher \
-Install from commandline by typing \
-`sudo dpkg -i /<path to>/Hyperion-<release nr>-Linux-armv6l.deb` for RaspberryPi Ver. 1 or \
-`sudo dpkg -i /<path to>/Hyperion-<release nr>-Linux-armv7l.deb` for RaspberryPi Ver. 2 and higher \
- 
-`sudo apt-get install -f` \
-Hyperion now starts with power up of your RaspberryPi. \
-RaspberryPi users using LibreElec refer to [this](https://hyperion-project.org/forum/index.php?thread/10463-install-hyperion-ng-on-libreelec-x86-64-rpi-inoffiziell-unofficially/&pageNo=1) instruction.
+### RPi/Debian/Ubuntu
+You can install Hyperion from the commandline using the following 3 steps:
 
-### Debian/Ubuntu
-For Debian/Ubuntu we provide a .deb file. A one click installation package that does the job for you. \
-Download the file from the [Release page](https://github.com/hyperion-project/hyperion.ng/releases) \
-Install from commandline by typing. \
-`sudo apt install ./Hyperion-2.0.0-Linux-x86_64.deb` \
-Hyperion can be now started from your start menu.
+1. First we import the public key from Hyperion:
+```shell
+wget -qO- https://apt.hyperion-project.org/hyperion.pub.key | sudo gpg --dearmor -o /usr/share/keyrings/hyperion.pub.gpg
+```
+
+2. After that we enter Hyperion-Project as source of Hyperion:
+```shell
+echo "deb [signed-by=/usr/share/keyrings/hyperion.pub.gpg] https://apt.hyperion-project.org/ $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/hyperion.list
+```
+
+3. Last, we update the package list and install Hyperion:
+```shell
+sudo apt-get update && sudo apt-get install hyperion
+```
+
+## macOS
+Currently just a zip file with the binarys.
 
 ### Fedora
 For Fedora we provide a .rpm file. A one click installation package that does the job for you. \
@@ -64,7 +65,7 @@ After following the instructions Hyperion can be now started from your start men
 
 ## Uninstall Hyperion
 On Debian/Ubuntu you can remove Hyperion with this command \
-`sudo apt remove hyperion`\
+`sudo apt-get --purge autoremove hyperion`\
 On Windows 10 Hyperion can be removed using the Windows 10 "Programs and Features" settings.
 
 ### Hyperion user data

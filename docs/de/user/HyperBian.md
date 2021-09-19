@@ -51,7 +51,7 @@ network={
 
 ### SSH
 Eigentlich solltest du den Zugang nicht benötigen, aber wir erklären es trotzdem. \
-Zum aktivieren von SSH, öffne über den Datei-Explorer die SD-Karte/SSD/HDD/USB-Stick etc mit dem Namen "**boot**". Erstelle eine neue Textdatei und benenne die Datei in `ssh` um (ohne Dateierweiterung). Der SSH Zugang sollte danach aktivert sein. \
+Zum aktivieren von SSH, öffne über den Datei-Explorer die SD-Karte/SSD/HDD/USB-Stick etc. mit dem Namen "**boot**". Erstelle eine neue Textdatei und benenne die Datei in `ssh` um (ohne Dateierweiterung). Der SSH Zugang sollte danach aktiviert sein. \
 
 **SSH LOGIN**
  - Benutzername: pi

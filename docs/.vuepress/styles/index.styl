@@ -88,6 +88,103 @@
   .links
     padding-left: 0 !important
 
+///////////////////
+// EFFECTS BEGIN //
+///////////////////
+
+@media (min-width: $MQMobile)
+  :root {
+    --degree: 0deg;
+  }
+
+  .rainbow {
+    width: 102px;
+    height: 70px;
+    margin-top: 4px;
+    margin-left: -182px;
+    background: conic-gradient(from var(--degree), red, yellow, lime, aqua, #3333ff, magenta, red);
+    -webkit-mask:
+      linear-gradient(to left, black 85%, transparent),
+      linear-gradient(to top left, black 85%, transparent),
+      linear-gradient(to top, black 85%, transparent),
+      linear-gradient(to top right, black 85%, transparent),
+      linear-gradient(to right, black 85%, transparent),
+      linear-gradient(to bottom right, black 85%, transparent),
+      linear-gradient(to bottom, black 85%, transparent),
+      linear-gradient(to bottom left, black 85%, transparent);
+    -webkit-mask-composite: source-in;
+    mask-composite: intersect;
+    animation: 5s angle linear infinite;
+    clip-path: polygon(0% 0%, 0% 100%, 15% 100%, 15% 15%, 85% 15%, 85% 85%, 15% 85%, 15% 100%, 100% 100%, 100% 0%);
+  }
+
+  .police-solid {
+    width: 102px;
+    height: 70px;
+    margin-top: 4px;
+    margin-left: -181px;
+    background: conic-gradient(from var(--degree), #005179 50%, $dangerRed 50%);
+    -webkit-mask:
+      linear-gradient(to left, black 85%, transparent),
+      linear-gradient(to top left, black 85%, transparent),
+      linear-gradient(to top, black 85%, transparent),
+      linear-gradient(to top right, black 85%, transparent),
+      linear-gradient(to right, black 85%, transparent),
+      linear-gradient(to bottom right, black 85%, transparent),
+      linear-gradient(to bottom, black 85%, transparent),
+      linear-gradient(to bottom left, black 85%, transparent);
+    -webkit-mask-composite: source-in;
+    mask-composite: intersect;
+    animation: 2s angle linear infinite;
+    clip-path: polygon(0% 0%, 0% 100%, 15% 100%, 15% 15%, 85% 15%, 85% 85%, 15% 85%, 15% 100%, 100% 100%, 100% 0%);
+  }
+
+  @keyframes angle {
+    to {
+      --degree: 360deg;
+    }
+  }
+
+  @property --degree {
+    syntax: '<angle>';
+    initial-value: 0deg;
+    inherits: false;
+  }
+
+  .kitt {
+    width: 102px;
+    height: 64px;
+    margin-top: 7px;
+    margin-left: -182px;
+    background: linear-gradient(to right,  transparent 0%, transparent 50%, $dangerRed 55%, $dangerRed 60%, transparent 65%, transparent 100%);
+    -webkit-mask:
+      linear-gradient(to left, black 85%, transparent),
+      linear-gradient(to left top, black 85%, transparent),
+      linear-gradient(to top, black 85%, transparent),
+      linear-gradient(to top right, black 85%, transparent),
+      linear-gradient(to right, black 85%, transparent),
+      linear-gradient(to right bottom, black 85%, transparent),
+      linear-gradient(to bottom, black 85%, transparent),
+      linear-gradient(to bottom left, black 85%, transparent);
+    -webkit-mask-composite: source-in;
+    mask-composite: intersect;
+    background-repeat: repeat-y;
+    animation: scroll 2s infinite linear;
+    clip-path: polygon(0% 0%, 0% 100%, 10% 100%, 10% 10%, 90% 10%, 90% 90%, 10% 90%, 10% 100%, 100% 100%, 100% 0%);
+  }
+
+  @keyframes scroll {
+    0% { background-position:calc(0% - 50px) center; }
+    50% { background-position:calc(100% + 35px) center; }
+    100% { background-position:calc(0% - 50px) center;	}
+  }
+
+// Someone should adjust the mobile view. Currently disabled
+
+/////////////////
+// EFFECTS END //
+/////////////////
+
 // Dark mode
 html.dark
   background-color: $darkPrimaryBg
@@ -219,6 +316,10 @@ html.dark
       background-color: $darkTipBg
       .custom-block-title
         color: $tipGreen
+      .custom-block
+        &.details
+          summary
+            color: $tipGreen !important
     &.warning
       border-color: $warningYellow
       background-color: $darkTipBg
@@ -226,11 +327,23 @@ html.dark
         color: $warningYellow
       ul li
         color: $darkTextColor
+      .custom-block
+        &.details
+          summary
+            color: $warningYellow !important
     &.danger
       border-color: $dangerRed
       background-color: $darkTipBg
       .custom-block-title
         color: $dangerRed
+      .custom-block
+        &.details
+          summary
+            color: $dangerRed !important
+    &.details
+      background-color: $darkTipBg
+      summary
+        color: $darkTextColor
 
   .card
     background-color: #005179
