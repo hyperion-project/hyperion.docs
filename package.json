@@ -12,6 +12,7 @@
     "docs:serve": "vuepress serve docs --build --open"
   },
   "dependencies": {
+    "bowser": "^2.11.0",
     "vue-material-design-icons": "^4.11.0",
     "vuepress": "^1.8.2",
     "vuepress-plugin-medium-zoom": "^1.1.9",
