@@ -83,6 +83,7 @@ In this example the first led will be `gbr`, the other leds will be assigned to 
 While editing these values in a local texteditor is a little bit weird, you could edit them at the web configuration!
   - Make sure you raised the [Hyperion Settings level](../Configuration.md#settings-level) to **Advanced**.
   - Navigate to Configuration -> LED Hardware and switch to the LED Layout tab. You will notice a new section **Generated/Current LED Configuration**.
+
 <ImageWrap src="/images/en/user_ledlayout3.jpg" alt="Hyperion Led Layout" />
 
 You could freely edit the values, show a preview on the right side by clicking **Update Preview**. When you are happy with the changes don't forget to save.
@@ -94,11 +95,13 @@ Explain the differences between the available modes for blackbar detection.
   * **Classic:** The original implementation - lower cpu time (legacy for RPi 1) just scan the top one third of the picture which leads to a  slow detection and trouble with TV channel logo.
   * **OSD:** Based on the default mode - not that effective but prevents border switching which may caused of OSD overlays (program infos and volume bar).
   * **Letterbox:** Based on the default mode - only considers blackbars at the top and bottom of the picture, ignoring the sides.
+
 <ImageWrap src="/images/en/user_bbmodes.jpg" alt="Hyperion Blackbar detection modes" />
 
 ## Gamma Curve
- Gamma values in a graphic. AS you see 1.0 is neutral. Lower than 1.0 increase the color, higher reduce color. 
- <ImageWrap src="/images/en/user_gammacurve.png" alt="Hyperion Gamma Curve" />
+Gamma values in a graphic. AS you see 1.0 is neutral. Lower than 1.0 increase the color, higher reduce color.
+
+<ImageWrap src="/images/en/user_gammacurve.png" alt="Hyperion Gamma Curve" />
 
 
 ## CLI

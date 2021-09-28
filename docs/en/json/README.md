@@ -64,7 +64,7 @@ about websockets at [Websocket](https://en.wikipedia.org/wiki/WebSocket|).
 HTTP requests can also be sent to the webserver (default port: 8090, for HTTPS: 8092). Send a HTTP/S POST request along with a properly formatted json message in the body to the (example) url: `http://IpOfDevice:WebserverPort/json-rpc`
  
 <ImageWrap src="/images/en/http_jsonrpc.jpg" alt="Control Hyperion with HTTP JSON RPC">
-Example picture with a [Firefox](https://addons.mozilla.org/de/firefox/addon/restclient/)/[Chrome](https://chrome.google.com/webstore/detail/advanced-rest-client/hgmloofddffdnphfgcellkdfbfbjeloo/related) Addon to send HTTP JSON messages
+Example picture with a [Firefox](https://addons.mozilla.org/de/firefox/addon/restclient/)/[Chrome](https://chrome.google.com/webstore/detail/yet-another-rest-client/ehafadccdcdedbhcbddihehiodgcddpl) Addon to send HTTP JSON messages
 
 </ImageWrap>
 
