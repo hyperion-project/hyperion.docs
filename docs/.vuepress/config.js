@@ -40,6 +40,7 @@ module.exports = {
     ['meta', { name: 'msapplication-TileImage', content: '/icons/ms-icon-144x144.png' }], // probably invert
     ['meta', { name: 'msapplication-TileColor', content: '#2b81a0' }] // might not match with icon
   ],
+  serviceWorker: true,
   dest: "./dist",
   title: "Hyperion",
   // removing this sections disables lang selector. But everything else works. Featue Request to merge with themeConfig.locales?
@@ -55,12 +56,6 @@ module.exports = {
     }
   },
   themeConfig: {
-    /*  algolia: {
-          apiKey: '<API_KEY>',
-          indexName: '<INDEX_NAME>'
-        },
-
-    */
     sidebarDepth: 3,
     smoothScroll: true,
     logoLightStatic: '/hyperion_logo_light_static.png',
@@ -119,7 +114,7 @@ module.exports = {
         nav: [
           // { text: 'Startseite', link: '/de/' },
           { text: 'Benutzer', link: '/de/user/' },
-          { text: 'Effects', link: '/de/effects/' },
+          { text: 'Effekte', link: '/de/effects/' },
           { text: 'Json API', link: '/de/json/' }
           // { text: 'Addons API', link: '/de/addons/' }
         ],

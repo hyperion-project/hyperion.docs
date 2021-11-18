@@ -1,10 +1,11 @@
 <template>
   <div class="dropdown-wrapper" :class="{ open }">
-    <button class="dropdown-title" type="button" :aria-label="dropdownAriaLabel" @click="handleDropdown">
+    <button class="dropdown-title" type="button" @click="handleDropdown">
       <web-icon />
     </button>
-    <button class="mobile-dropdown-title" type="button" :aria-label="dropdownAriaLabel" @click="setOpen(!open)">
-      <web-icon />
+    <button class="mobile-dropdown-title" type="button" @click="setOpen(!open)">
+      {{languageText}}&nbsp;
+	  <web-icon />
     </button>
 
     <DropdownTransition>
@@ -59,5 +60,18 @@
   export default {
     extends: DefaultDropdownLink,
     components: { WebIcon },
+	computed: {
+      languageText() {
+        return (this.$themeLocaleConfig.selectText);
+      }
+	}
   }
 </script>
+
+<style lang="stylus" scoped>
+@media (max-width: $MQMobile)
+  .dropdown-wrapper .mobile-dropdown-title
+    display flex
+    font-size 1.0em
+    line-height 1.25rem
+</style>

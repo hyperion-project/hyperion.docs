@@ -13,19 +13,18 @@
     </a>
 
     <!-- Dark Mode only on mobile device -->
-    <a v-if="isMobile" @click="lightMode.toggle()" class="repo-link" :title="repoLabel" :aria-label="repoLabel">
+    <a v-if="isMobile" @click="lightMode.toggle()" class="repo-link">
+	  {{themeText}}&nbsp;
       <weather-night-icon v-if="lightMode._light" />
       <white-balance-sunny-icon v-else />
     </a>
 
     <!-- Language Icon only on mobile device -->
-    <div v-if="isMobile" class="nav-links">
-      <div v-for="item in languages" :key="item.link" class="nav-item">
-        <DropdownLink :item="item" />
-      </div>
-    </div>
-
-
+	  <a v-if="isMobile" class="repo-link">
+		<div v-for="item in languages" :key="item.link" class="nav-item" style="padding:0">
+		  <DropdownLink :item="item" />
+		</div>
+	  </a>
   </nav>
 </template>
 
@@ -68,6 +67,10 @@
     },
   
     computed: {
+      themeText() {
+        return this.lightMode._light ? 'Dark Mode' : 'Light Mode';
+      },
+
       nav () {
         return this.$themeLocaleConfig.nav || this.$site.themeConfig.nav || []
       },
@@ -111,3 +114,11 @@
     }
   }
 </script>
+
+<style lang="stylus" scoped>
+
+  .sidebar .nav-links .nav-item, .sidebar .nav-links .repo-link
+    display flex
+    align-items center
+
+</style>

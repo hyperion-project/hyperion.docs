@@ -27,7 +27,7 @@
       window.addEventListener('resize', this.onResize, { passive: true });
       this.lightMode.init();
 
-      // This check can be removed if multiple webkit masks are supported under  CSS in Safari
+      // This check can be removed if multiple webkit masks are supported under CSS in Safari
       const browser = Bowser.getParser(window.navigator.userAgent);
       this.isSafari = browser.satisfies({
         macos: {
