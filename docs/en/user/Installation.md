@@ -12,7 +12,7 @@ Hyperion supports various platforms for installation, as package or portable .zi
 **Please note that some arm devices have limited support in terms of screen capturing**
 
 ### Supported Browsers
-Hyperion will be configured and controlled trough a web interface.
+Hyperion will be configured and controlled through a web interface.
   * Chrome 47+
   * Firefox 43+
   * Opera 34+
