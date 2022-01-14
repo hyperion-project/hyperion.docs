@@ -13,23 +13,19 @@ The RGB byte order is applicable for all led hardware implementations. If you wa
 ## Specific Settings
 Each LED hardware falls under one of the 4 categories and has specific settings:
 
-### SPI
-Are 3 or 4 wire leds which can be powered via SPI of a Raspberry Pi or an Arduino (which is USB connected to your computer/HTPC/Pi).
+### SPI/PWM
+Are 3 or 4 wire leds which can be powered via SPI or PWM (Pulse Width Modulation) of a Raspberry Pi or an Arduino (which is USB connected to your computer/HTPC/Pi).
 
-* [APA102](/en/user/leddevices/spi/apa102)
-* [APA104](/en/user/leddevices/spi/apa104)
-* [LPD6803](/en/user/leddevices/spi/lpd6803)
-* [LPD8806](/en/user/leddevices/spi/lpd8806)
-* [P9813](/en/user/leddevices/spi/p9813)
-* [SK6812](/en/user/leddevices/spi/SK6812)
-* [SK9822](/en/user/leddevices/spi/SK9822)
-* [WS2801](/en/user/leddevices/spi/ws2801)
-* [WS2812](/en/user/leddevices/spi/ws2812)
-
-### GPIO
-Controllers/LEDs that can be controlled via PWM (Pulse Width Modulation) of a Raspberry Pi.
-
-* [PiBlaster](/en/user/leddevices/gpio/piblaster)
+* [APA102](/en/user/leddevices/spi_pwm/apa102)
+* [APA104](/en/user/leddevices/spi_pwm/apa104)
+* [LPD6803](/en/user/leddevices/spi_pwm/lpd6803)
+* [LPD8806](/en/user/leddevices/spi_pwm/lpd8806)
+* [P9813](/en/user/leddevices/spi_pwm/p9813)
+* [SK6812](/en/user/leddevices/spi_pwm/SK6812)
+* [SK9822](/en/user/leddevices/spi_pwm/SK9822)
+* [WS2801](/en/user/leddevices/spi_pwm/ws2801)
+* [WS2812](/en/user/leddevices/spi_pwm/ws2812)
+* [pi-blaster](/en/user/leddevices/spi_pwm/piblaster)
 
 ### USB/Serial
 Plug and play. The following controllers are supported.
@@ -65,4 +61,4 @@ Everything that is reachable over network.
 ### Others
 All other devices that do not fit into any categories.
 
-* [File](/en/user/leddevices/debug)
+* [File](/en/user/leddevices/others/debug)

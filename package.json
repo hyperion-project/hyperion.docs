@@ -14,9 +14,9 @@
   "dependencies": {
     "bowser": "^2.11.0",
     "vue-material-design-icons": "^4.11.0",
-    "vuepress": "^1.8.2",
+    "vuepress": "^1.9.5",
     "vuepress-plugin-medium-zoom": "^1.1.9",
-    "vuepress-plugin-redirect": "^1.2.5"
+    "vuepress-plugin-redirect": "^1.0.1"
   },
   "devDependencies": {
     "@vuepress/plugin-back-to-top": "^1.8.2",

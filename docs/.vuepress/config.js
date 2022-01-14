@@ -204,26 +204,20 @@ function getUserSidebar (groupA, groupB, Language) {
             children: [
               'leddevices/',
               {
-                title: 'SPI',
+                title: 'SPI/PWM',
                 collapsable: true,
                 children: [
-                  'leddevices/spi/apa102',
-                  'leddevices/spi/apa104',
-                  'leddevices/spi/lpd6803',
-                  'leddevices/spi/lpd8806',
-                  'leddevices/spi/p9813',
-                  'leddevices/spi/sk6812',
-                  'leddevices/spi/sk6822',
-                  'leddevices/spi/sk9822',
-                  'leddevices/spi/ws2801',
-                  'leddevices/spi/ws2812'
-                ]
-              },
-              {
-                title: 'GPIO',
-                collapsable: true,
-                children: [
-                  'leddevices/gpio/piblaster'
+                  'leddevices/spi_pwm/apa102',
+                  'leddevices/spi_pwm/apa104',
+                  'leddevices/spi_pwm/lpd6803',
+                  'leddevices/spi_pwm/lpd8806',
+                  'leddevices/spi_pwm/p9813',
+                  'leddevices/spi_pwm/sk6812',
+                  'leddevices/spi_pwm/sk6822',
+                  'leddevices/spi_pwm/sk9822',
+                  'leddevices/spi_pwm/ws2801',
+                  'leddevices/spi_pwm/ws2812',
+				  'leddevices/spi_pwm/piblaster'
                 ]
               },
               {
@@ -298,26 +292,20 @@ function getUserSidebar (groupA, groupB, Language) {
             children: [
               'leddevices/',
               {
-                title: 'SPI',
+                title: 'SPI/PWM',
                 collapsable: true,
                 children: [
-                  'leddevices/spi/apa102',
-                  'leddevices/spi/apa104',
-                  'leddevices/spi/lpd6803',
-                  'leddevices/spi/lpd8806',
-                  'leddevices/spi/p9813',
-                  'leddevices/spi/sk6812',
-                  'leddevices/spi/sk6822',
-                  'leddevices/spi/sk9822',
-                  'leddevices/spi/ws2801',
-                  'leddevices/spi/ws2812'
-                ]
-              },
-              {
-                title: 'GPIO',
-                collapsable: true,
-                children: [
-                  'leddevices/gpio/piblaster'
+                  'leddevices/spi_pwm/apa102',
+                  'leddevices/spi_pwm/apa104',
+                  'leddevices/spi_pwm/lpd6803',
+                  'leddevices/spi_pwm/lpd8806',
+                  'leddevices/spi_pwm/p9813',
+                  'leddevices/spi_pwm/sk6812',
+                  'leddevices/spi_pwm/sk6822',
+                  'leddevices/spi_pwm/sk9822',
+                  'leddevices/spi_pwm/ws2801',
+                  'leddevices/spi_pwm/ws2812',
+				  'leddevices/spi_pwm/piblaster'
                 ]
               },
               {

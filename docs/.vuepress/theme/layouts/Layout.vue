@@ -15,6 +15,12 @@
         isDark: false,
       }
     },
+    beforeMount () {
+      const browserLang = (window.navigator ? (window.navigator.language  || window.navigator.systemLanguage  || window.navigator.userLanguage) : "ru").toLowerCase().substr(0, 2);
+      if (browserLang == 'de' && window.location.pathname == '/' && document.referrer.indexOf(window.location.origin) < 0) {
+        window.location.pathname = '/de'
+      }
+    },
     mounted() {
       this.isDark = window.localStorage.getItem('vuepress-isDark') || false;
     },

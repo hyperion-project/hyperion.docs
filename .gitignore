@@ -68,6 +68,10 @@ typings/
 # Yarn Integrity file
 .yarn-integrity
 
+# Yarn lock
+yarn.lock
+yarn-debug.log
+
 # dotenv environment variables file
 .env
 .env.test
