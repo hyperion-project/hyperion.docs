@@ -15,7 +15,7 @@ Open the web configuration by typing the IP address of your device and the port 
  * **Moon** - Dark Mode.
  * **Arrows** - Switch between different LED hardware instances (If multiple are available)
  * **TV** - Live led visualization
- * **Wand/magic stick** - Wizards that guide you through color calibration and more
+ * **Magic wand** - Wizards that guide you through color calibration and more
  * **Wrench** - Settings for language selection, settings level, logout, ...
  
  **Left sidebar**

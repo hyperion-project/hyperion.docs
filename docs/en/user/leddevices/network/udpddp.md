@@ -1,19 +1,18 @@
-# UDP Raw
+# UDP DDP
 
-The device streams a set of RGB values using the UDP network protocol.
+The device streams RGB values using the Distributed Display Protocol ([DDP](http://www.3waylabs.com/ddp/#Data%20Types)) on top of the UDP network protocol.
 
 **The devices is not able to detect, if the remote device is not available or failed.**
 
 ::: warning Note:
-The maximum number of LEDs supported is 490. The current UDP-raw protocol cannot handle the loss of fragmented packets.
-Therefore the number of LEDs is limited to have only one package per update.
+The Distributed Display Protocol issues a subsequent UDP-package per 480 LEDs.
 :::
 
 ### Specific Settings
 
 ##### Hostname/IP-address
 
-Define the WLED device's Hostname (DNS/mDNS) or IP-address (IPv4 or IPv6) you would like streaming to.
+Define the device's Hostname (DNS/mDNS) or IP-address (IPv4 or IPv6) you would like streaming to.
 
 ##### Port
 

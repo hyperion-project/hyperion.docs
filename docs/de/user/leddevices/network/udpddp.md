@@ -1,12 +1,11 @@
-# UDP Raw
+# UDP DDP
 
-Das Gerät überträgt eine Reihe von RGB-Werten über das UDP-Netzwerkprotokoll.
+Das Gerät überträgt RGB-Werte mithilfe des Distributed Display Protocol ([DDP](http://www.3waylabs.com/ddp/#Data%20Types)), das auf dem UDP-Netzwerkprotokoll aufbaut.
 
 **Das Gerät ist nicht in der Lage zu erkennen, ob das entfernte Gerät nicht verfügbar oder ausgefallen ist.**
 
 ::: warning Hinweis:
-Die maximale Anzahl der unterstützten LEDs beträgt 490. Das aktuelle UDP-Raw-Protokoll kann nicht mit dem Verlust von fragmentierten Paketen umgehen.
-Daher ist die Anzahl der LEDs begrenzt, um nur ein Paket pro Aktualisierung zu haben.
+Das Distributed Display Protocol gibt pro 480 LEDs ein weiteres UDP-Paket aus.
 :::
 
 ### Spezifische Einstellungen
