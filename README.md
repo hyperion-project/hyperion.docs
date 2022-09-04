@@ -10,13 +10,17 @@ To edit or translate the documentation, it's not necessarily required to follow 
  - Do `yarn install`
  - Now you can start dev server with `yarn docs:dev`
  - Open Browser and go to address `localhost:8080`
-
+ 
 #### Notes
  - If you want to view the deployable site locally run `yarn docs:serve`
  - Do not rename files and folders while translating
  - Copy/paste and translate also `.vuepress/config.js` at `themeConfig.locales`
  - Changes in `.vuepress/config.js` may lead to a bugged dev server. Restart.
  - To modify the sidebar pages checkout `.vuepress/config.js` at `themeConfig.sidebar`
+ 
+ - In case the yarn commands fail with an `error:03000086:digital envelope routines::initialization error`, set openssl-legacy mode and run the command again: \
+   **Linux** `export NODE_OPTIONS=--openssl-legacy-provider` \
+   **Windows** `SET NODE_OPTIONS=--openssl-legacy-provider`
 
 ### Production
 To get a deployable version run
