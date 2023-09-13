@@ -48,7 +48,7 @@ sudo apt-get update && sudo apt-get install hyperion
 ```
 
 ## macOS
-Currently just a zip file with the binarys.
+Currently just a zip file with the binaries.
 
 ### Fedora
 For Fedora we provide a .rpm file. A one click installation package that does the job for you. \
