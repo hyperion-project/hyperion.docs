@@ -61,5 +61,5 @@ You can override the default brightness of WLED during streaming by defining the
 
 ##### Brightness
 
-The brigtness level used when "Overwrite brightness" is enabled.
+The brightness level used when "Overwrite brightness" is enabled.
 
