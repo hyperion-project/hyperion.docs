@@ -169,7 +169,7 @@ Overview of the registered/active sources. Each object is a source.
   it's platform capture, you get the name of the platform capture implementation (e.g. dispmanx/x11/amlogic/...).
   * **priority**: The priority of this source, an integer between 0 and 255.
   * **value**: If the source is a color AND color data is available (if active is false
-    there's usually no datta),hen this will be the color in RGB and HSL.
+    there's usually no data), then this will be the color in RGB and HSL.
   * **duration_ms**: Actual duration in ms until this priority is automatically deleted.
     This is shown if source is color or effect AND a specific duration higher than
     `0` is set (0 means indefinite).
