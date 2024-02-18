@@ -140,7 +140,7 @@ module.exports = {
     // if your docs are in a specific branch (defaults to 'master'):
     docsBranch: 'main',
     // defaults to false, set to true to enable
-    editLinks: true,
+    editLinks: false,
     // default value is true. Allows to hide next page links on all pages
     nextLinks: true,
     // default value is true. Allows to hide prev page links on all pages
