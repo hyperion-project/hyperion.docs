@@ -18,6 +18,15 @@ Is a ready to use image for your Raspberry Pi. Based on the original Raspberry P
   * On Windows: [INSTALLING OPERATING SYSTEM IMAGES USING WINDOWS](https://www.raspberrypi.org/documentation/installation/installing-images/windows.md)
   * On Mac: [INSTALLING OPERATING SYSTEM IMAGES ON MAC OS](https://www.raspberrypi.org/documentation/installation/installing-images/mac.md)
   * On Linux: [INSTALLING OPERATING SYSTEM IMAGES ON LINUX](https://www.raspberrypi.org/documentation/installation/installing-images/linux.md)
+  
+::: tip Use HyperBian's default user and password, if asked for
+ - User: `hyperion`
+ - Password: `ambientlight`
+ 
+You can choose a different username, but then take care to update Hyperion's preconfigured service later.
+To update the service to the [current service user](http://localhost:8080/en/user/Installation.html#change-the-service-user-to-the-current-user)
+:::
+
   * In case your Raspberry Pi has WiFi or you want to use a WiFi stick, you could pre-configure the Wifi SSID and password before you plugin the SD in your Pi. See [HyperBian Wifi](#hyperbian-wifi)
   * Optional: Enable SSH [HyperBian SSH](#HyperBian-SSH)
 
@@ -41,7 +50,7 @@ country=GB
     key_mgmt=WPA-PSK
   }
 ```
- ::: warning Note:
+::: warning Note:
 You need to replace 'GB' with the ISO code of your country.
 See Wikipedia for a list of country codes.
 :::
