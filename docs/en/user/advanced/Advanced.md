@@ -4,7 +4,7 @@ Specific topics with details
 [[TOC]]
 
 ## LED Layout
-Hyperion assigns each single led a specific position at the picture. These positions are squares and to create a square you need 4 values (top edge, bottom edge, left edge, right edge). These edges are reflected in `hmin`, `hmax` for horizontal and `vmin`, `vmax` for vertical. They have a value range from `0.0` to `1.0`.
+Hyperion assigns each single LED a specific position at the picture. These positions are squares and to create a square you need 4 values (top edge, bottom edge, left edge, right edge). These edges are reflected in `hmin`, `hmax` for horizontal and `vmin`, `vmax` for vertical. They have a value range from `0.0` to `1.0`.
 
 <ImageWrap src="/images/en/user_ledlayout.jpg" alt="Hyperion Led Layout">
 Assignment of LED edges
@@ -22,13 +22,13 @@ So let's have a closer look. Following a single led definition:
 ```
 Let's visualize the example above!
 
-<ImageWrap src="/images/en/user_ledlayout1.jpg" alt="Hyperion Led Layout">
-A single led definition
+<ImageWrap src="/images/en/user_ledlayout1.jpg" alt="Hyperion LED Layout">
+A single LED definition
 
 </ImageWrap>
 
-So let us add 2 more leds to make it more clear \
-**The order is important! The first entry is the first led, the second the second led, ...**
+So let us add 2 more LEDs to make it more clear \
+**The order is important! The first entry is the first LED, the second the second LED, ...**
 ``` json
 {
   "hmax": 0.2,
@@ -49,13 +49,13 @@ So let us add 2 more leds to make it more clear \
   "vmin": 0.7
 }
 ```
-<ImageWrap src="/images/en/user_ledlayout2.jpg" alt="Hyperion Led Layout">
+<ImageWrap src="/images/en/user_ledlayout2.jpg" alt="Hyperion LED Layout">
 Now with three LEDs
 
 </ImageWrap>
 
 ### Additional properties
-You may connected different led stripe charges with different RGB byte orders. You can overwrite the global RGB byte order by adding a `colorOrder` property to all leds that require a different one.
+You may connected different LED stripes with different RGB byte orders. You can overwrite the global RGB byte order by adding a `colorOrder` property to all LEDs that require a different one.
 ``` json
 {
   "hmax": 0.2,
@@ -77,7 +77,7 @@ You may connected different led stripe charges with different RGB byte orders. Y
   "vmin": 0.7
 }
 ```
-In this example the first led will be `gbr`, the other leds will be assigned to the global RGB order that has been defined at the led hardware section.
+In this example the first LED will be `gbr`, the other LEDs will be assigned to the global RGB order that has been defined at the led hardware section.
 
 ### Edit with Web Configuration
 While editing these values in a local texteditor is a little bit weird, you could edit them at the web configuration!
@@ -171,27 +171,71 @@ Hyperion remote will search for a Hyperion server automatically. So you can even
 :::
 
 ### hyperion-capture
- We deliver also stand alone capture apps right in your Hyperion directory. They are called hyperion-dispmanx, hyperion-osx, hyperion-x11, hyperion-amlogic, hyperion-framebuffer, hyperion-qt. Depending on your platform you have more or less.
+ We deliver also stand alone capture apps right in your Hyperion directory:
+ 
+Executable  | Source
+| :--- | :---
+hyperion-aml | Amlogic screen capture
+hyperion-dispmanx | DispManX Raspberry Pi screen capture
+hyperion-framebuffer | Linux FrameBuffer screen capture 
+hyperion-osx | macOS screen capture
+hyperion-qt | Qt multi platform screen capture
+hyperion-v4l2 | USB capture
+hyperion-x11 | X11 screen capture
+hyperion-xcb | XCB screen capture
 
-All these application can be started independent from Hyperion and all of these have slightly different options. They communicate with the flatbuffer interface of Hyperion. So let's start one of them! In this example i use dispmanx for Raspberry Pi, so let us check the available options.
+Depending on your platform you have more or less
+
+All these application can be started independent from Hyperion and all of these have slightly different options. They communicate with the flatbuffer interface of Hyperion. 
+Each module will search a Hyperion server automatically, if the `--address option is not used.
+
+Below you find the output of Qt capture executable for illustration.
 
 ``` sh
-hyprion-dispmanx -h
-  -f, --framerate <framerate>  Capture frame rate [default: 10]
-  --width <width>              Width of the captured image [default: 64]
-  --height <height>            Height of the captured image [default: 64]
-  --screenshot                 Take a single screenshot, save it to file and quit
-  -a, --address <address>      Set the address of the hyperion server [default: 127.0.0.1:19445]
-  -p, --priority <priority>    Use the provided priority channel (suggested 100-199) [default: 150]
-  --skip-reply                 Do not receive and check reply messages from Hyperion
-  -h, --help                   Show this help message and exit
-  --crop-left <crop-left>      pixels to remove on left after grabbing
-  --crop-right <crop-right>    pixels to remove on right after grabbing
-  --crop-top <crop-top>        pixels to remove on top after grabbing
-  --crop-bottom <crop-bottom>  pixels to remove on bottom after grabbing
-  --3DSBS                      Interpret the incoming video stream as 3D side-by-side
-  --3DTAB                      Interpret the incoming video stream as 3D top-and-bottom
+hyperion-qt --help
+hyperion-qt:
+	Version   : 2.0.16 ((HEAD detached at 2.0.16) (Paulchen-Panther-cb85d2d/a93d79b-1705568419))
+	build time: Jan 18 2024 09:15:43
+Usage: ./bin/hyperion-qt [options]
+Qt interface capture application for Hyperion. Will automatically search a Hyperion server if -a option isn't used. Please note that if you have more than one server running it's more or less random which one will be used.
 
-# Let's start with capture interval of 15, width of 100 and a height of 100
-hyperion-dispmanx -a 192.168.0.20:19445 -f 15 --width 100 --height 100
+Options:
+  -d, --display <display>                Set the display to capture [default:
+                                         0]
+  -f, --framerate <framerate>            Capture frame rate. Range 1-30fps
+                                         [default: 25]
+  -s, --size-decimator <size-decimator>  Decimation factor for the output image
+                                         size [default=8]
+  --crop-left <crop-left>                Number of pixels to crop from the left
+                                         of the picture before decimation
+  --crop-right <crop-right>              Number of pixels to crop from the
+                                         right of the picture before decimation
+  --crop-top <crop-top>                  Number of pixels to crop from the top
+                                         of the picture before decimation
+  --crop-bottom <crop-bottom>            Number of pixels to crop from the
+                                         bottom of the picture before decimation
+  --3DSBS                                Interpret the incoming video stream as
+                                         3D side-by-side
+  --3DTAB                                Interpret the incoming video stream as
+                                         3D top-and-bottom
+  -a, --address <address>                The hostname or IP-address (IPv4 or
+                                         IPv6) of the hyperion server.
+                                         Default host: 127.0.0.1, port: 19400.
+                                         Sample addresses:
+                                         Host : hyperion.fritz.box
+                                         IPv4 : 127.0.0.1:19400
+                                         IPv6 : [2001:1:2:3:4:5:6:7]
+  -p, --priority <priority>              Use the provided priority channel
+                                         (suggested 100-199) [default: 150]
+  --skip-reply                           Do not receive and check reply
+                                         messages from Hyperion
+  --screenshot                           Take a single screenshot, save it to
+                                         file and quit
+  --debug                                Enable debug logging
+  -h, --help                             Show this help message and exit
+``` 
+
+Sample with a capture interval of 15fps
+```
+hyperion-qt -f 15
 ```
