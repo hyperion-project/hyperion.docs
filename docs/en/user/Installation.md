@@ -30,7 +30,7 @@ Install [HyperBian](/en/user/HyperBian.md) to get a complete system out of the b
 
 ::: details Other distributions based on Ubuntu or Debian
 
-The same easy installation script can be used, but the underderlying distribution codename needs to be provided by an additional option
+The same easy installation script can be used, but the underlying distribution codename needs to be provided by an additional option
 
   `--ubuntu` _codebase name_ or `--debian` _codebase name_
 
@@ -44,7 +44,7 @@ curl -sSL https://releases.hyperion-project.org/install | bash -s -- --ubuntu 'j
 ## Update Hyperion
 
 In case Hyperion was installed from the package repository page or an deb/rpm standalone package,
-follow the standard operating system proceedures to update the system.
+follow the standard operating system procedures to update the system.
 
 ### Ubuntu, Debian and friends + HyperBian
 
@@ -71,15 +71,15 @@ See [here](https://hyperion-project.org/forum/index.php?thread/13754-install-upd
 Hyperion's project [package repository page](https://releases.hyperion-project.org/) provides you with the respective removal instructions
 
 ## Hyperion User Data
-Hyperion stores user configuration data and customized effects inside the executing user's home directory (folder `.hyperion`).
+Hyperion stores user configuration data and customised effects inside the executing user's home directory (folder `.hyperion`).
 
 Alternatively, you can check the "About Hyperion" page.
 The `Config path:` entry specifies the location where user data is stored currently.
 
 ## Hyperion Linux Service
 
-On non-interactive (head-less) environments, a Hyperion service is installed running under the current user.
-In same cases, e.g. using ws281x LEDs, Hyperion must run under root.
+On non-interactive (headless) environments, a Hyperion service is installed running under the current user.
+In same cases, e.g. using ws281x LEDs, Hyperion must run under `root`.
 Hyperion provides a command-line utility which allows switching the user running the service.
 
 ### Change the service user to 'root'

@@ -4,67 +4,92 @@ Für die Installation von Hyperion werden für zahlreiche Plattformen Installati
 ## Voraussetzungen
 
 ### Unterstützte Systeme
-  * Raspberry Pi
-  * Debian 9 | Ubuntu 16.04 oder neuer
+  * Raspberry Pi (siehe auch [HyperBian](/de/user/HyperBian))
+  * Debian 10, Ubuntu 20.04, Fedora 37 oder neuer
   * Mac OS
   * Windows 10
+  
+**Bitte beachten... Einige arm-Geräte bieten nur eine eingeschränkte Unterstützung für die Bildschirmaufnahme**
 
 ### Unterstützte Browser
+Hyperion wird über eine Webschnittstelle konfiguriert und gesteuert.
   * Chrome 47+
   * Firefox 43+
   * Opera 34+
   * Safari 9.1+
   * Microsoft Edge 14+
 
-## Installieren
-::: warning Bitte beachten!
-In den nachfolgendem Beispielen wird zur Verdeutlichung der Syntax die Hardware Architektur x86_64 verwendet.
+## Hyperion installieren
+
+### Ubuntu, Debian und Konsorten, Fedora, LibreELEC, macOS, Windows
+Die Hyperion-Projekt [Paket Repository Seite](https://releases.hyperion-project.org/) bietet Installationsanweisungen auf Knopfdruck.
+
+::: tip Ein fertiges Installations-Image ist für Raspberry Pi Benutzer verfügbar
+Installiere [HyperBian](/de/user/HyperBian.md), um ein komplettes System zu erhalten, das sofort einsatzbereit ist.
 :::
 
-### Raspberry Pi
-Wir empfehlen die Benutzung von [HyperBian](/de/user/HyperBian) für eine Neuinstallation. \
-Alternativ kann Hyperion auf einem bestehenden [Raspberry Pi OS (ehemals Raspbian)/Debian/Ubuntu](#rpi-debian-ubuntu) System installiert werden. \
-Raspberry Pi Nutzer mit LibreElec schauen [hier](https://hyperion-project.org/forum/index.php?thread/10463-install-hyperion-ng-on-libreelec-x86-64-rpi-inoffiziell-unofficially/&pageNo=1).
+::: details Andere Distributionen basierend auf Ubuntu oder Debian
 
-### RPi/Debian/Ubuntu
-Über die Kommandozeile kannst du Hyperion mithilfe der nachfolgenden 3 Schritte installieren:
+Das gleiche einfache Installationsskript kann verwendet werden, aber der Codename der zugrunde liegenden Distribution muss durch eine zusätzliche Option angegeben werden
 
-1. Als erstes importieren wir den öffentlichen Schlüssel von Hyperion:
-```shell
-wget -qO- https://apt.hyperion-project.org/hyperion.pub.key | sudo gpg --dearmor -o /usr/share/keyrings/hyperion.pub.gpg
+  `--ubuntu` _codebase name_ oder `--debian` _codebase name_
+
+Beispiel für Pop!_OS 22.04 LTS oder Mint 21.2 Victoria (die auf Ubuntu 'jammy' basieren)
+
 ```
-
-2. Danach tragen wir Hyperion-Project als Quelle von Hyperion ein:
-```shell
-echo "deb [signed-by=/usr/share/keyrings/hyperion.pub.gpg] https://apt.hyperion-project.org/ $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/hyperion.list
+curl -sSL https://releases.hyperion-project.org/install | bash -s -- --ubuntu 'jammy'
 ```
+:::
 
-3. Als letztes aktualisieren wir die Paketliste und installieren Hyperion:
-```shell
-sudo apt-get update && sudo apt-get install hyperion
+## Hyperion aktualisieren
+
+Falls Hyperion von der Paket-Repository-Seite oder einem deb/rpm-Standalone-Paket installiert wurde,
+folge dem Standardverfahren des Betriebssystems, um das System zu aktualisieren.
+
+### Ubuntu, Debian und Konsorten + HyperBian
+
+Öffnen ein Terminal oder verbinden Dich per ssh mit einem entfernten System und führe folgenden Befehl aus
+
 ```
-
-### macOS
-Wird derzeit nur als zip-archivierte Datei, in der Hyperion im Binärformat vorliegt angeboten.
+sudo apt-get install hyperion
+```
 
 ### Fedora
-Lade dir das Installationspaket (.rpm) von der [Download Seite](https://github.com/hyperion-project/hyperion.ng/releases) herunter. \
-Über die Kommandozeile kannst du das Installationspaket mit folgendem Befehl installieren: \
-`sudo dnf install ./Hyperion-2.0.0-Linux-x86_64.rpm` \
-Hyperion kann jetzt über das Startmenü gestartet werden.
 
-### Windows 10
-Lade dir die ausführbare Installationdatei (.exe) von der [Download Seite](https://github.com/hyperion-project/hyperion.ng/releases) herunter. \
-Zum installieren führe die heruntergeladene Datei aus.
-Hyperion kann jetzt über das Startmenü gestartet werden.
+Öffne ein Terminal und führe folgenden Befehl aus
 
-## Deinstallieren
+```
+sudo dnf -y upgrade hyperion
+```
 
-Unter Raspberry Pi OS (ehemals Raspbian)/Debian/Ubuntu kann Hyperion mit folgendem Befehl deinstalliert werden: \
-`sudo apt-get --purge autoremove hyperion`
+### LibreELEC
+Siehe [hier](https://hyperion-project.org/forum/index.php?thread/13754-install-update-hyperion-ng-on-libreelec/&pageNo=1).
 
-Unter Windows erfolgt die Deinstallation über die Systemsteuerung.
+## Hyperion deinstallieren
 
-### Lokale Daten
-Einstellungen werden im Heimverzeichnis unter dem Unterverzeichnis `.hyperion` abgespeichert.
+### Ubuntu, Debian und Konsorten, LibreELEC, Fedora, macOS, Windows
+Die Hyperion-Projekt [Paket Repository Seite] (https://releases.hyperion-project.org/) bietet entsprechende Anweisungen zur Deinstallation an.
+
+## Hyperion Benutzerdaten
+Hyperion speichert Benutzerkonfigurationsdaten und angepasste Effekte im Home-Verzeichnis des ausführenden Benutzers (Ordner `.hyperion`).
+
+Alternativ kanst Du den Speicherort auch auf der Seite "Über Hyperion" nachsehen.
+Der Eintrag `Config path:` gibt den Ort an, an dem die Benutzerdaten derzeit gespeichert sind.
+
+## Hyperion Linux Dienst
+
+In nicht-interaktiven (head-less) Umgebungen wird ein Hyperion Service installiert, der unter dem aktuellen Benutzer läuft.
+In den gleichen Fällen, z.B. bei Verwendung von ws281x LEDs, muss Hyperion unter `root laufen.
+Hyperion stellt ein Kommandozeilenprogramm zur Verfügung, mit dem der Benutzer, unter dem der Dienst läuft, gewechselt werden kann.
+
+### Ändern des Benutzers des Dienstes auf 'root'
+
+```
+sudo updateHyperionUser -u root
+```
+
+### Ändern des Benutzer des Dienstes auf den aktuellen Benutzer
+```
+sudo updateHyperionUser
+```
 
