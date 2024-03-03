@@ -88,6 +88,25 @@ Hyperion unterstützt mehrere verschiedene LED-Geräte, die sich in vier Hauptka
 * [WS2812](/de/user/leddevices/spi_pwm/ws2812)
 * [pi-blaster](/de/user/leddevices/spi_pwm/piblaster)
 
+Auf den meisten Systemen ist das SPI (Serial Peripheral Interface) standardmäßig nicht an und muss aktiviert werden.
+::: details SPI aktivieren
+
+**Raspberry Pi / Raspberry Pi OS**
+
+`sudo raspi-config nonint do_spi 0`
+
+**Raspberry Pi / LibreELEC**
+
+Füge `dtparam=spi=on`gemäß [LibreELEC Wiki Anleitung](https://wiki.libreelec.tv/configuration/config_txt) zur config.txt hinzu.
+:::
+
+Wenn Du mehr als 250 LEDs betreiben willst, musst die SPI-Puffergröße erhöht werden
+
+::: details SPI Puffer vergrößern
+
+Füge `spidev.bufsize=1024000` in die cmdline.txt ein
+:::
+
 ### USB/Seriell
 Plug and Play. Die folgenden Controller werden unterstützt.
 
