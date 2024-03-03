@@ -4,68 +4,90 @@ Is a ready to use image for your Raspberry Pi. Based on the original Raspberry P
 2. Burn image on SD 
 3. Power on your Pi
 4. Visit with your Browser `http://IpOfYourPi:8090` for configuration
- 
 
 ## Requirements
-  * SD card with at least 2GB size
+  * SD card with at least 4GB size
   * Raspberry Pi
   * Linux/Mac/Windows + SD card read/writer
 
 ## Installation
-  * Download the image here: [HyperBian Download](https://github.com/Hyperion-Project/HyperBian/releases)
-  * Extract HyperBian-XXXX.img out of the HyperBian.zip
-  * Burn the extracted HyperBian-XXXX.img to your SD card. Below 3 instructions for the specific system
-  * On Windows: [INSTALLING OPERATING SYSTEM IMAGES USING WINDOWS](https://www.raspberrypi.org/documentation/installation/installing-images/windows.md)
-  * On Mac: [INSTALLING OPERATING SYSTEM IMAGES ON MAC OS](https://www.raspberrypi.org/documentation/installation/installing-images/mac.md)
-  * On Linux: [INSTALLING OPERATING SYSTEM IMAGES ON LINUX](https://www.raspberrypi.org/documentation/installation/installing-images/linux.md)
-  
-::: tip Use HyperBian's default user and password, if asked for
+  1. Download the ready-made [HyperBian Image](https://github.com/Hyperion-Project/HyperBian/releases)
+  2. Install the [Raspberry Pi Imager](https://www.raspberrypi.com/documentation/computers/getting-started.html#raspberry-pi-imager) in support of burning the image to an SD card.
+  3. Start the Pi Imager
+  4. As operating system choose "Custom OS" and provide the downloaded HyperBian-XXXX package
+  5. Choose your target storage, i.e. your SD-Card
+  6. Click "Next" and select "No" for no extra customization
+  7. The HyperBian image should be written to the SD Card
+  8. Put the SD-Card into your Raspberry Pi and start up the system
+
+### WiFi, timezone & ssh access
+In case you want to use WiFi with your Raspberry Pi or update the timezone or other OS related configuration, you can use the Pi Imager OS customisation screen.
+At installation step 6., select "Edit Settings" and then e.g. provide the WiFi SSID, password and country.
+"Save" the settings and proceed with "Yes" to start the imaging process.
+
+::: tip Use HyperBian's default user (and password), if asked for
  - User: `hyperion`
  - Password: `ambientlight`
  
 You can choose a different username, but then take care to update Hyperion's preconfigured service later.
-To update the service to the [current service user](http://localhost:8080/en/user/Installation.html#change-the-service-user-to-the-current-user)
+To update the service to the [current service user](/en/user/Installation.html#change-the-service-user-to-the-current-user)
 :::
 
-  * In case your Raspberry Pi has WiFi or you want to use a WiFi stick, you could pre-configure the Wifi SSID and password before you plugin the SD in your Pi. See [HyperBian Wifi](#hyperbian-wifi)
-  * Optional: Enable SSH [HyperBian SSH](#HyperBian-SSH)
+The configuration will happening during the first boot.
 
-### HyperBian WiFi
-In case you want to use WiFi with your Raspberry Pi, you can include the Wifi SSID and password after you burned the HyperBian-XXXX.img to your SD card for auto configuration on first boot.
-Open the SD card with a file explorer. It's called "boot".
- - Create a new  text file
-<ImageWrap src="/images/en/user_hyperbian_wpa_suppli1.jpg" alt="Create a new textfile" />
- - Rename it to "wpa_supplicant.conf"
-<ImageWrap src="/images/en/user_hyperbian_wpa_suppli2.jpg" alt="Rename to wpa_supplicant.conf"/>
- - Add your WiFi credentials. \
- Replace **YOUR_SSID** and **YOUR_PASSWORD** with your values.
-```
-ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
-update_config=1
-country=GB
+::: details Alternative way
 
-  network={
-    ssid="YOUR_SSID"
-    psk="YOUR_PASSWORD"
-    key_mgmt=WPA-PSK
-  }
+In case you are not using PI Imager or do not want providing the details via the Customisation screen,
+you can also setup addition details via file.
+
+Create a file named `custom.toml`.
+Customise the file with the setup you are looking for. Comment out element not to be changed.
+
+Store the file in the SD-Card boot portition.
+
+**Sample - custom.toml**
+
+``` toml
+# Required:
+config_version = 1
+
+[system]
+hostname = "HyperBian"
+
+[user]
+name = "hyperion"
+# The password can be encrypted or plain. To encrypt, we can use "openssl passwd -5 raspberry"
+password = "ambientlight"
+password_encrypted = false
+
+[ssh]
+# ssh_import_id = "gh:user" # import public keys from github
+enabled = false
+password_authentication = true
+# We can also seed the ssh public keys configured for the default user:
+# authorized_keys = [ "ssh-rsa ... user@host", ... ]
+
+[wlan]
+ssid = "myWifi"
+password = "myWifiPassword"
+password_encrypted = false
+hidden = false
+# The country is written to /etc/default/crda
+# Reference: https://wireless.wiki.kernel.org/en/developers/Regulatory
+country = "DE"
+
+[locale]
+keymap = "de"
+timezone = "Europe/Berlin"
 ```
-::: warning Note:
-You need to replace 'GB' with the ISO code of your country.
-See Wikipedia for a list of country codes.
 :::
- - Save it! You are done, the WiFi will be configured during next boot
 
-### HyperBian SSH
-You should never need it for daily usage, but for completion: To enable SSH access, plugin your sd card with HyperBian already installed into your computer, and open the "boot" partition with a file explorer. Create a empty file named `ssh` in the root directory (without file extension). SSH will be enabled now on next boot.
 
-<ImageWrap src="/images/en/user_hyperbian_ssh.jpg" alt="Enable SSH"/>
-
-#### SSH LOGIN
+#### Default SSH LOGIN
  - User: `hyperion`
  - Password: `ambientlight`
  
- ::: tip
+::: tip
 HyperBian is shipped with an English keyboard configured. If you do not own an English keyboard some keys might be found at a different place.
 For the first time login, type as you would have an English keyboard; after logging in successfully you can update to your keyboard layout via `sudo raspi-config`.
 :::

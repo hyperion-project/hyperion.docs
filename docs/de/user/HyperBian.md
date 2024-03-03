@@ -1,64 +1,88 @@
 # HyperBian
-Ein fertiges (Ready-to-use) System für deinen Raspberry Pi, basierend auf dem originalen "Raspberry Pi OS Lite" Betriebssystem. Hyperion ist natürlich vorinstalliert. Einfacher geht es nicht.
+Ist ein einsatzbereites (Ready-to-use) Image für Deinen Raspberry Pi. Es basiert auf dem originalen Raspberry Pi Foundation Image "Raspberry Pi OS Lite". Hyperion ist bereits vorinstalliert. Einfacher geht es nicht.
 1. [Herunterladen](https://github.com/Hyperion-Project/HyperBian/releases)
-2. Das Image auf die SD-Karte/SSD/HDD/USB-Stick etc. schreiben
+2. Image auf SD brennen 
 3. Raspberry Pi einschalten
 4. Zum Konfigurieren mit Deinem Browser die Adresse `http://IpAdresseDeinesRPi:8090` aufrufen
- 
 
-## Anforderung
-  * SD-Karte/SSD/HDD/USB-Stick etc. mit mindestens 2 GB
-  * Raspberry Pi (Zero/1/2/3/4)
+## Anforderungen
+  * SD-Karte mit mindestens 4 GB Größe
+  * Raspberry Pi
   * Linux/Mac/Windows + SD Kartenleser/-schreiber
 
 ## Installation
-  * HyperBian [herunterladen](https://github.com/Hyperion-Project/HyperBian/releases)
-  * Die Datei HyperBian.zip entpacken
-  * Die entpackte HyperBian-****.img auf Deine SD Karte/ SSD etc. schreiben \
-    Wie das funktioniert findest Du hier:
-    [Windows](https://www.raspberrypi.org/documentation/installation/installing-images/windows.md)
-    [Mac OS](https://www.raspberrypi.org/documentation/installation/installing-images/mac.md)
-    [Linux](https://www.raspberrypi.org/documentation/installation/installing-images/linux.md)
-  * Solltest Du vorhaben Deinen Raspberry Pi über WLAN zu betreiben, kannst Du Deine SD-Karte/SSD etc. schon vorbereiten bevor Du sie in/an Deinen RPi steckst. Siehe [WLAN](#wlan)
-  * Optional: Aktiviere [SSH](#ssh)
+  1. Lade das fertige [HyperBian Image](https://github.com/Hyperion-Project/HyperBian/releases) herunter
+  2. Installiere den [Raspberry Pi Imager](https://www.raspberrypi.com/documentation/computers/getting-started.html#raspberry-pi-imager), um das Image auf eine SD-Karte zu brennen.
+  3. Starte den Pi Imager
+  4. Wähle als Betriebssystem "Custom OS" und wähle das heruntergeladene HyperBian-XXXX-Paket aus
+  5. Wähle das Ziel, d.h. die SD-Karte
+  6. Klicken auf "Next" und wähle "No" für keine zusätzlichen Anpassungen
+  7. Das HyperBian-Image sollte nun auf die SD-Karte geschrieben werden
+  8. Stecke die SD-Karte in den Raspberry Pi und starte das System
 
-### WLAN
-Wenn Du Deinen Raspberry Pi über WLAN betreiben möchtest, kannst Du die WLAN-SSID und das Passwort von Deinem Router schon vor dem ersten Start Deines Raspberry Pis auf die SD-Karte/SSD/HDD/USB-Stick etc. schreiben. \
-Öffne über den Datei-Explorer die SD-Karte/SSD/HDD/USB-Stick etc mit dem Namen "**boot**".
+### WiFi, Zeitzone & ssh-Zugang
+Falls der Raspberry Pi mit WLAN genutzt werden soll oder die Zeitzone bzw. andere OS-bezogene Konfigurationen aktualisiert werden sollen, kann das Pi Imager OS-Customization Menü verwendet werden.
+Im Installationsschritt 6. wähle "Edit Settings" und gib dann z.B. die WLAN SSID, das Passwort und das Land an.
+Sichere die die Einstellungen mit "Save" und fahre mit "Yes" fort, um den Imager-Prozess zu starten.
 
- - Erstelle eine neue Textdatei
-<ImageWrap src="/images/de/user_hyperbian_new_text_file.png" alt="Neue Textdatei" />
-
-- Benenne sie in "wpa_supplicant.conf" um
-<ImageWrap src="/images/de/user_hyperbian_rename_to_wpa_supplicant.png" alt="Umbenannt in wpa_supplicant.conf"/>
-
-- Füge Deine WLAN-Anmeldeinformationen hinzu. \
-Ersetze **SSID** und **PASSWORT** durch Deine Werte.
-
-```
-ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
-update_config=1
-country=DE
-
-network={
-   ssid="SSID"
-   psk="PASSWORT"
-   key_mgmt=WPA-PSK
-}
-```
- ::: warning Hinweis:
-Ersetze ggf. 'DE' durch den ISO-Code Deines Landes.
-Siehe Wikipedia für eine Liste der Ländercodes.
+::: tip Verwenden den Standardbenutzer (und das Passwort) von HyperBian, falls diese angegeben werden müssen.
+ - Benutzer: `hyperion`
+ - Kennwort: `ambientlight`
+ 
+Es kann auch ein anderer Benutzernamen gewählt werden, allerdings muss dann der vorkonfigurierte Dienst von Hyperion später aktualisieren werden-
+Aktualisierung des Dienstes auf den [aktuellen Benutzer](/de/user/Installation.html#andern-des-benutzer-des-dienstes-auf-den-aktuellen-benutzer)
 :::
- - Jetzt noch abspeichern! Du bist fertig und das WLAN wird beim nächsten Booten des Raspberry Pis konfiguriert.
 
-### SSH
-Eigentlich solltest Du den Zugang nicht benötigen, aber wir erklären es trotzdem. \
-Zum aktivieren von SSH, öffne über den Datei-Explorer die SD-Karte/SSD/HDD/USB-Stick etc. mit dem Namen "**boot**". Erstelle eine neue Textdatei und benenne die Datei in `ssh` um (ohne Dateierweiterung). Der SSH Zugang sollte danach aktiviert sein.
+Die Konfiguration wird während des ersten Starts durchgeführt.
 
-<ImageWrap src="/images/de/user_hyperbian_ssh_file.png" alt="SSH aktivieren"/>
+::: details Alternative Methode
 
-#### SSH LOGIN
+Falls der PI Imager nicht verwende wird oder die Details nicht das OS-Customization Menü angegeben werden sollen, 
+kann man die Einrichtung auch per Datei vornehmen.
+
+Erstelle eine Datei namens `custom.toml`.
+Passe die Datei mit den gewünschten Einstellungen an. Kommentiere alle die Elemente aus, die nicht geändert werden sollen.
+
+Speicher die Datei in der Boot Partion der SD-Karte.
+
+**Beispiel - custom.toml**
+
+``` toml
+# Required:
+config_version = 1
+
+[system]
+hostname = "HyperBian"
+
+[user]
+name = "hyperion"
+# The password can be encrypted or plain. To encrypt, we can use "openssl passwd -5 raspberry"
+password = "ambientlight"
+password_encrypted = false
+
+[ssh]
+# ssh_import_id = "gh:user" # import public keys from github
+enabled = false
+password_authentication = true
+# We can also seed the ssh public keys configured for the default user:
+# authorized_keys = [ "ssh-rsa ... user@host", ... ]
+
+[wlan]
+ssid = "myWifi"
+password = "myWifiPassword"
+password_encrypted = false
+hidden = false
+# The country is written to /etc/default/crda
+# Reference: https://wireless.wiki.kernel.org/en/developers/Regulatory
+country = "DE"
+
+[locale]
+keymap = "de"
+timezone = "Europe/Berlin"
+```
+:::
+
+#### Standard SSH LOGIN
  - Benutzername: `hyperion`
  - Passwort: `ambientlight`
 
