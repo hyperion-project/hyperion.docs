@@ -275,6 +275,7 @@ function getUserSidebar (groupA, groupB, Language) {
         children: [
           'advanced/Advanced',
           'advanced/Support',
+          'advanced/Testing',
         ]
       }
     ]
@@ -364,6 +365,7 @@ function getUserSidebar (groupA, groupB, Language) {
         children: [
           'advanced/Advanced',
           'advanced/Support',
+          'advanced/Testing',
         ]
       }
     ]
