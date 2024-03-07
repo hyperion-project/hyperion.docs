@@ -80,7 +80,7 @@ You may connected different LED stripes with different RGB byte orders. You can 
 In this example the first LED will be `gbr`, the other LEDs will be assigned to the global RGB order that has been defined at the led hardware section.
 
 ### Edit with Web Configuration
-While editing these values in a local texteditor is a little bit weird, you could edit them at the web configuration!
+While editing these values in a local text editor is a little bit weird, you could edit them at the web configuration!
   - Make sure you raised the [Hyperion Settings level](../Configuration.md#settings-level) to **Advanced**.
   - Navigate to Configuration -> LED Hardware and switch to the LED Layout tab. You will notice a new section **Generated/Current LED Configuration**.
 
@@ -91,20 +91,20 @@ You could freely edit the values, show a preview on the right side by clicking *
 ## Blackbar detection
 Explain the differences between the available modes for blackbar detection.
 
-  * **Default:** 3 scanlines in each direction (X Y) - fastest detection
-  * **Classic:** The original implementation - lower cpu time (legacy for RPi 1) just scan the top one third of the picture which leads to a  slow detection and trouble with TV channel logo.
+  * **Default:** 3 scan-lines in each direction (X Y) - fastest detection
+  * **Classic:** The original implementation - lower CPU time (legacy for RPi 1) just scan the top one third of the picture which leads to a  slow detection and trouble with TV channel logo.
   * **OSD:** Based on the default mode - not that effective but prevents border switching which may caused of OSD overlays (program infos and volume bar).
   * **Letterbox:** Based on the default mode - only considers blackbars at the top and bottom of the picture, ignoring the sides.
 
-<ImageWrap src="/images/en/user_bbmodes.jpg" alt="Hyperion Blackbar detection modes" />
+<ImageWrap src="/images/en/user_bbmodes.jpg" alt="Hyperion Black-bar detection modes" />
 
 ## Gamma Curve
-Gamma values in a graphic. AS you see 1.0 is neutral. Lower than 1.0 increase the color, higher reduce color.
+Gamma values in a graphic. AS you see 1.0 is neutral. Lower than 1.0 increase the colour, higher reduce colour.
 
 <ImageWrap src="/images/en/user_gammacurve.png" alt="Hyperion Gamma Curve" />
 
 
-## CLI
+## Command Line Interface
 All executables shipped with Hyperion have some command line arguments/options
 
 ### hyperiond
@@ -167,11 +167,11 @@ hyperion-remote --instance "My cool instance name" -e "Rainbow swirl"
 ```
 
 ::: tip
-Hyperion remote will search for a Hyperion server automatically. So you can even use that on another device in your local network without providing a ip/port
+Hyperion remote will search for a Hyperion server automatically. So you can even use that on another device in your local network without providing a IP/port
 :::
 
 ### hyperion-capture
- We deliver also stand alone capture apps right in your Hyperion directory:
+We deliver also stand alone capture apps right in your Hyperion directory:
  
 Executable  | Source
 | :--- | :---
@@ -187,7 +187,7 @@ hyperion-xcb | XCB screen capture
 Depending on your platform you have more or less
 
 All these application can be started independent from Hyperion and all of these have slightly different options. They communicate with the flatbuffer interface of Hyperion. 
-Each module will search a Hyperion server automatically, if the `--address option is not used.
+Each module will search a Hyperion server automatically, if the `--address` option is not used.
 
 Below you find the output of Qt capture executable for illustration.
 
@@ -235,7 +235,7 @@ Options:
   -h, --help                             Show this help message and exit
 ``` 
 
-Sample with a capture interval of 15fps
+Sample with a capture interval of 15 frames per second (fps)
 ```
 hyperion-qt -f 15
 ```

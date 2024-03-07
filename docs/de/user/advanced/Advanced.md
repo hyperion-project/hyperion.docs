@@ -4,7 +4,7 @@ Spezifische Themen mit Details
 [[TOC]]
 
 ## LED Layout
-Hyperion weist jeder einzelnen Led eine bestimmte Position im Bild zu. Diese Positionen sind Quadrate und um ein Quadrat zu erzeugen, benötigen Sie 4 Werte (obere Kante, untere Kante, linke Kante, rechte Kante). Diese Kanten spiegeln sich in `hmin`, `hmax` für horizontal und `vmin`, `vmax` für vertikal wider. Sie haben einen Wertebereich von `0.0` bis `1.0`.
+Hyperion weist jeder einzelnen LED eine bestimmte Position im Bild zu. Diese Positionen sind Quadrate und um ein Quadrat zu erzeugen, benötigen Sie 4 Werte (obere Kante, untere Kante, linke Kante, rechte Kante). Diese Kanten spiegeln sich in `hmin`, `hmax` für horizontal und `vmin`, `vmax` für vertikal wider. Sie haben einen Wertebereich von `0.0` bis `1.0`.
 
 <ImageWrap src="/images/en/user_ledlayout.jpg" alt="Hyperion Led Layout">
 Zuordnung der LED-Kanten
@@ -22,12 +22,12 @@ Schauen wir uns das also genauer an. Nach einer einzelnen LED Definition:
 ```
 Lass uns das obige Beispiel visualisieren!
 
-<ImageWrap src="/images/en/user_ledlayout1.jpg" alt="Hyperion Led Layout">
+<ImageWrap src="/images/en/user_ledlayout1.jpg" alt="Hyperion LED Layout">
 Eine einzelnen LED Definition
 
 </ImageWrap>
 
-Fügen wir also 2 weitere Leds hinzu, um es deutlicher zu machen \
+Fügen wir also 2 weitere LEDs hinzu, um es deutlicher zu machen \
 **Die Reihenfolge ist wichtig! Der erste Eintrag ist die erste LED, der zweite die zweite LED, ...**
 ``` json
 {
@@ -49,7 +49,7 @@ Fügen wir also 2 weitere Leds hinzu, um es deutlicher zu machen \
   "vmin": 0.7
 }
 ```
-<ImageWrap src="/images/en/user_ledlayout2.jpg" alt="Hyperion Led Layout">
+<ImageWrap src="/images/en/user_ledlayout2.jpg" alt="Hyperion LED Layout">
 Jetzt mit drei LEDs
 
 </ImageWrap>
@@ -84,7 +84,7 @@ Während das Bearbeiten dieser Einstellungen in einem lokalen Texteditor etwas u
   - Stelle sicher, dass die [Hyperion-Einstellungsstufe](../Konfiguration.md#Einstellungsstufen) auf **Fortgeschritten** gestellt ist.
   - Navigiere zu Konfiguration -> LED-Hardware und wechsele auf die Registerkarte LED-Layout. Du wirst einen neuen Abschnitt **Generierte/aktuelle LED-Konfiguration** sehen.
 
-<ImageWrap src="/images/de/user_ledlayout3.jpg" alt="Hyperion Led Layout" />
+<ImageWrap src="/images/de/user_ledlayout3.jpg" alt="Hyperion LED Layout" />
 
 Du kannst die Werte frei bearbeiten, eine Vorschau auf der rechten Seite anzeigen, indem du auf **Aktualisiere Vorschau** klickst. Wenn du mit den Änderungen zufrieden bist, vergiss nicht zu speichern.
 
@@ -104,7 +104,7 @@ Gammawerte in einer Grafik. Wie du siehst, ist 1,0 neutral. Niedriger als 1,0 er
 <ImageWrap src="/images/en/user_gammacurve.png" alt="Hyperion Gamma Curve" />
 
 
-## CLI
+## Befehlszeile
 Alle mit Hyperion ausgelieferten ausführbaren Dateien haben einige Befehlszeilenargumente/Optionen
 
 ### hyperiond
@@ -129,7 +129,7 @@ hyperiond --export-effects /tmp
 hyperiond --desktop
 ```
 
-::: Tipp
+::: tip
 Wenn ein Pfadname Leerzeichen enthält, dann umschließe ihn mit `"` . \
 `hyperiond --userdata "/temp/another Dir"`
 :::
@@ -166,32 +166,77 @@ hyperion-remote --instance "Mein cooler Instanzname"
 hyperion-remote --instance "Mein cooler Instanzname" -e "Rainbow swirl"
 ```
 
-::: Tipp
+::: tip
 Hyperion-Remote wird automatisch nach einem Hyperion-Server suchen. So kannst du das sogar auf einem anderen Gerät in deinem lokalen Netzwerk verwenden, ohne eine IP/Port anzugeben.
 :::
 
 ### hyperion-capture
- Wir liefern auch unabhängige Capture-Apps direkt in deinem Hyperion-Verzeichnis. Sie lauten hyperion-dispmanx, hyperion-osx, hyperion-x11, hyperion-amlogic, hyperion-framebuffer, hyperion-qt. Abhängig von der verwendeten Plattform hat man mehr oder weniger.
+Wir stellen auch auch unabhängige Capture-Apps direkt in deinem Hyperion-Verzeichnis bereit:
+ 
+App | Quelle
+| :--- | :---
+hyperion-aml | Amlogic Bildschirmerfassung
+hyperion-dispmanx | DispManX Raspberry Pi Bildschirmerfassung
+hyperion-framebuffer | Linux FrameBuffer Bildschirmerfassung 
+hyperion-osx | macOS Bildschirmerfassung
+hyperion-qt | Qt Multi Platform Bildschirmerfassung
+hyperion-v4l2 | USB Erfassung
+hyperion-x11 | X11 Bildschirmerfassung
+hyperion-xcb | XCB Bildschirmerfassung
 
-Alle diese Anwendungen können unabhängig von Hyperion gestartet werden und haben alle leicht unterschiedliche Optionen. Sie kommunizieren mit der Flatbuffer-Schnittstelle von Hyperion. Dann lassen wir uns eine von ihnen starten! In diesem Beispiel verwende ich dispmanx für Raspberry Pi, also lasst uns die verfügbaren Optionen ansehen.
+Abhängig von deiner Plattform sind es mehr oder weniger Apps.
+
+Alle diese Anwendungen können unabhängig von Hyperion gestartet werden und alle haben leicht unterschiedliche Optionen. Sie kommunizieren mit der Flatbuffer-Schnittstelle von Hyperion. 
+Jedes Modul sucht automatisch nach einem Hyperion-Server, wenn die Option `--address` nicht verwendet wird.
+
+Nachfolgend findest du zur Veranschaulichung die Ausgabe von der Qt Bildschirmerfassungsapp.
 
 ``` sh
-hyperion-dispmanx -h
-  -f, --framerate <framerate>  Bildrate für die Bildübertragung [Standard: 10]
-  --width <width>              Breite des aufgenommenen Bildes [Standard: 64]
-  --height <height>            Höhe des aufgenommenen Bildes [Standard: 64]
-  --screenshot                 Macht einen einzelnen Screenshot, speichert ihn in einer Datei und beendet ihn
-  -a, --address <address>      Setzt die Adresse des Hyperion-Servers [Standard: 127.0.0.1:19445]
-  -p, --priority <priority>    Benutzt den vorgesehenen Prioritätskanal (vorgeschlagen 100-199) [Standard: 150]
-  --skip-reply                 Keine Rückmeldung von Hyperion empfangen und prüfen
-  -h, --help                   Diese Hilfemeldung anzeigen und beenden
-  --crop-left <crop-left>      zu entfernende Pixel auf der linken Seite nach dem Erfassen
-  --crop-right <crop-right>    zu entfernende Pixel auf der rechten Seite nach dem Erfassen
-  --crop-top <crop-top>        Pixel zum Entfernen an der Oberseite nach dem Erfassen
-  --crop-bottom <crop-bottom>  Pixel zum Entfernen an der Unterseite nach dem Erfassen
-  --3DSBS                      Interpretiert den eingehenden Videostrom als 3D-Side-by-Side
-  --3DTAB                      Interpretiert den eingehenden Videostrom als 3D-Oben-und-Unten
+hyperion-qt --help
+hyperion-qt:
+	Version   : 2.0.16 ((HEAD detached at 2.0.16) (Paulchen-Panther-cb85d2d/a93d79b-1705568419))
+	build time: Jan 18 2024 09:15:43
+Usage: ./bin/hyperion-qt [options]
+Qt interface capture application for Hyperion. Will automatically search a Hyperion server if -a option isn't used. Please note that if you have more than one server running it's more or less random which one will be used.
 
-# Beginnen wir mit einem Aufnahmeintervall von 15, einer Breite von 100 und einer Höhe von 100
-hyperion-dispmanx -a 192.168.0.20:19445 -f 15 --width 100 --height 100
+Options:
+  -d, --display <display>                Set the display to capture [default:
+                                         0]
+  -f, --framerate <framerate>            Capture frame rate. Range 1-30fps
+                                         [default: 25]
+  -s, --size-decimator <size-decimator>  Decimation factor for the output image
+                                         size [default=8]
+  --crop-left <crop-left>                Number of pixels to crop from the left
+                                         of the picture before decimation
+  --crop-right <crop-right>              Number of pixels to crop from the
+                                         right of the picture before decimation
+  --crop-top <crop-top>                  Number of pixels to crop from the top
+                                         of the picture before decimation
+  --crop-bottom <crop-bottom>            Number of pixels to crop from the
+                                         bottom of the picture before decimation
+  --3DSBS                                Interpret the incoming video stream as
+                                         3D side-by-side
+  --3DTAB                                Interpret the incoming video stream as
+                                         3D top-and-bottom
+  -a, --address <address>                The hostname or IP-address (IPv4 or
+                                         IPv6) of the hyperion server.
+                                         Default host: 127.0.0.1, port: 19400.
+                                         Sample addresses:
+                                         Host : hyperion.fritz.box
+                                         IPv4 : 127.0.0.1:19400
+                                         IPv6 : [2001:1:2:3:4:5:6:7]
+  -p, --priority <priority>              Use the provided priority channel
+                                         (suggested 100-199) [default: 150]
+  --skip-reply                           Do not receive and check reply
+                                         messages from Hyperion
+  --screenshot                           Take a single screenshot, save it to
+                                         file and quit
+  --debug                                Enable debug logging
+  -h, --help                             Show this help message and exit
+``` 
+
+Beispiel mit einem Aufnahmeintervall von 15 Bildern pro Sekunde (fps)
 ```
+hyperion-qt -f 15
+```
+
