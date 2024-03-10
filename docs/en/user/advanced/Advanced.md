@@ -103,6 +103,43 @@ Gamma values in a graphic. AS you see 1.0 is neutral. Lower than 1.0 increase th
 
 <ImageWrap src="/images/en/user_gammacurve.png" alt="Hyperion Gamma Curve" />
 
+## Event Services 
+
+With Hperion's event services capabilities you can link Operating system, time-based and/or CEC events to actions executed.
+
+### Operating System Events
+
+Settings related to different Operating System events Hyperion can handle.
+
+* **Listen to suspend events**: Enable/Disable listing to operating system suspend/resume events
+* **Listen to lock events**: Enable/Disable listing to screen lock/unlock events
+* **Suspend when locked**: Suspend when the screen is locked, otherwise go into idle mode
+
+### Scheduled Events
+
+Settings related to scheduled, i.e. time based events, which Hyperion will handle.
+
+You can define multiple event/action sets to configure which action should take place on a point in time. The action will be scheduled daily.
+* **Time**: Point in time that will trigger an action
+* **Action**: Action to be applied
+
+::: details Sample Configuration
+\
+<ImageWrap src="/images/en/user_events_scheduled.png" alt="Scheduled Events - Sample" />
+:::
+
+### CEC Events
+
+Settings related to different CEC (Consumer Electronics Control) protocol events Hyperion can handle-
+
+You can define multiple event/action sets to configure which action should take place on a recognised CEC event
+* **Action**: Action to be applied
+* **CEC Event**: CEC event that will trigger an action
+
+::: details Sample Configuration
+\
+<ImageWrap src="/images/en/user_events_cec.png" alt="CEC Events -Sample" />
+:::
 
 ## Command Line Interface
 All executables shipped with Hyperion have some command line arguments/options

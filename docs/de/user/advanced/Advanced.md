@@ -103,6 +103,43 @@ Gammawerte in einer Grafik. Wie du siehst, ist 1,0 neutral. Niedriger als 1,0 er
 
 <ImageWrap src="/images/en/user_gammacurve.png" alt="Hyperion Gamma Curve" />
 
+## Ereignisse & Aktionen 
+
+Mit den Ereignisdiensten von Hperion können Betriebssystem-, zeitbasierte und/oder CEC-Ereignisse mit ausgeführten Aktionen verknüpft werden.
+
+### Betriebssystem-Ereignisse
+
+Einstellungen zu verschiedenen Betriebssystem-Ereignissen, die Hyperion verarbeiten kann.
+
+* **Reagiere auf Ruhezusstand**: Reagiere auf Ereignisse, die das Betriebssystem aussetzen/fortsetzen
+* **Reagiere auf Bildschirmsperre**: Reagiere auf Ereignisse beim Sperren/Entsperren des Bildschirms
+* **Leerlauf, bei Bildschirmsperre**: Wechsel in den Ruhezustand, wenn der Bildschirm gesperrt ist; andernfalls in den Leerlaufmodus wechseln
+
+### Zeitliche Ereignisse 
+
+Einstellungen, die sich auf geplante, d.h. zeitbasierte Ereignisse beziehen, die von Hyperion verarbeitet werden sollen.
+
+Es können mehrere Ereignis-/Aktionspaare definiert werden, um festzulegen, welche Aktion zu einem bestimmten Zeitpunkt ausgeführt werden soll. Die Aktion wird täglich eingeplant.
+* **Zeitpunkt**: Zeitpunkt, zu dem eine Aktion ausgeführt werden soll
+* **Aktion**: Auszuführende Aktion
+
+::: details Beispiel Konfiguration
+\
+<ImageWrap src="/images/de/user_events_scheduled.png" alt="Geplante Ereignisse -Beispiel" />
+:::
+
+### CEC-Ereignisse
+
+Einstellungen für verschiedene CEC (Consumer Electronics Control) Protokollereignisse, die Hyperion verarbeiten kann.
+
+Es können mehrere Ereignis-/Aktionspaare definiert werden, um zu konfigurieren, welche Aktion bei einem erkannten CEC-Ereignis ausgeführt werden soll.
+* **CEC-Ereignis**: CEC-Ereignis, das die Aktion auslösen soll
+* **Aktion**: Auszuführende Aktion
+
+::: details Beispiel Konfiguration
+\
+<ImageWrap src="/images/de/user_events_cec.png" alt="CEC-Ereignisse - Beispiel" />
+:::
 
 ## Befehlszeile
 Alle mit Hyperion ausgelieferten ausführbaren Dateien haben einige Befehlszeilenargumente/Optionen
