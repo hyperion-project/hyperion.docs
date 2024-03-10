@@ -274,6 +274,7 @@ function getUserSidebar (groupA, groupB, Language) {
         collapsable: false,
         children: [
           'advanced/Advanced',
+          'advanced/CLI',          
           'advanced/Support',
           'advanced/Testing',
         ]
@@ -364,6 +365,7 @@ function getUserSidebar (groupA, groupB, Language) {
         collapsable: false,
         children: [
           'advanced/Advanced',
+          'advanced/CLI',            
           'advanced/Support',
           'advanced/Testing',
         ]
