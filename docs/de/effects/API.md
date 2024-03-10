@@ -2,9 +2,9 @@
 Alle verfügbaren Funktionen zur Verwendung.
 
 ## API Übersicht
-| Function                          | Returns |   Comment  |
-| ------------------------------- | ----- | -------- |
-| hyperion.ledCount                 | Integer | Get the current led count from the led layout |
+| Function                          | Retuns  | Comment  |
+| :-------------------------------- | :-----  | :------- |
+| hyperion.ledCount                 | Integer | Get the current LED count from the LED layout |
 | hyperion.latchTime                | Integer | Get the current active latchtime in ms. |
 | hyperion.imageWidth()             | Integer | Get the current image width, calculate positions for elements at the [coordinate system](http://doc.qt.io/qt-5/coordsys.html#rendering)  |
 | hyperion.imageHeight()            | Integer | Get the current image height,calculate positions for elements at the [coordinate system](http://doc.qt.io/qt-5/coordsys.html#rendering) |
@@ -38,7 +38,7 @@ Sollte aufgerufen werden, bevor du mit dem zeichnen beginnst!
 :::
 `hyperion.imageMinSize(pixelX,pixelY)`
 | Argument | Type       | Comment |
-| ---------- | -------- | ---------------------------------------------------------------------------------- |
+| :------- | :--------- | :----------------------------------------------------- |
 | pixelX   | Integer    | Minimum Pixels at the x-axis of the image to draw on with `hyperion.image*` functions |
 | pixelY   | Integer    | Minimum Pixels at the y-axis of the image to draw on with `hyperion.image*` functions |
 
@@ -46,8 +46,8 @@ Sollte aufgerufen werden, bevor du mit dem zeichnen beginnst!
 Dreht das Koordinatensystem im Mittepunkt, der auf der x-Achse 0 und auf der y-Achse 0 ist, um den angegebenen Winkel im Uhrzeigersinn. Hinweis: Wenn du den Mittelpunkt des Koordinatensystems verschieben willst, kannst du hyperion.imageCOffset() verwenden. **Die Drehung wird bis zum Ende des Effekts beibehalten**. \
 `hyperion.imageCRotate(angle)`
 | Argument | Type       | Comment |
-| ---------- | -------- | ----------------------------------------------------- |
-| angle   | Integer    | Angle of the rotation between `0` and `360`, clockwise |
+| :------- | :--------- | :----------------------------------------------------- |
+| angle    | Integer    | Angle of the rotation between `0` and `360`, clockwise |
 
 ### hyperion.imageCOffset()
 Versatz zum Koordinatensystem an der x-Achse und y-Achse hinzufügen.
@@ -56,7 +56,7 @@ Versatz zum Koordinatensystem an der x-Achse und y-Achse hinzufügen.
 :::
 `hyperion.imageCOffset(offsetX, offsetY)`
 | Argument | Type       | Comment |
-| -------- | ---------- | ----------------------------------------------------- |
+| :------- | :--------- | :----------------------------------------------------- |
 | offsetX  | Integer    | Offset which is added to the coordinate system at the x-axis. Positive value moves to the right, negative to the left |
 | offsetY  | Integer    | Offset which is added to the coordinate system at the y-axis. Positive value moves to the right, negative to the left |
 
@@ -67,15 +67,15 @@ Schneidet das Koordinatensystem in der Vertikalen und Horizontalen. Mehr Informa
 :::
 `hyperion.imageCShear(sh, sv)`
 | Argument | Type       | Comment |
-| -------- | ---------- | -------------------------- |
+| :------- | :--------- | :----------------------------------------------------- |
 | sh       | Integer    | Horizontal pixels to shear |
 | sv       | Integer    | Vertical pixels to shear. |
 
 ### hyperion.imageConicalGradient()
 Zeichnet einen konischen Farbverlauf auf das Bild, alle Argumente sind erforderlich. Füge die Parameter in der Reihenfolge der Zeilen unten hinzu. Kurze Erläuterung zu conical gradient in den QT Docs: [Conical Gradient](http://doc.qt.io/qt-5/qconicalgradient.html#details) \
 `hyperion.imageConicalGradient(startX, startY, width, height, centerX, centerY, angle, bytearray)`
-| Argument | Type       | Comment |
-| -------- | ---------- | ----------------------------------------------------- |
+| Argument  | Type       | Comment |
+| :-------- | :--------- | :----------------------------------------------------- |
 | startX    | Integer    | Defines the start point at the x-axis of the rectangle that contains the gradient |
 | startY    | Integer    | Defines the start point at the y-axis of the rectangle that contains the gradient |
 | width     | Integer    | Defines the width of the rectangle |
@@ -94,7 +94,7 @@ Zeichnet einen radialen Farbverlauf auf das Bild. Füge die Parameter in der unt
 Kurze Beschreibung bei QT Docs: [Radial Gradient](http://doc.qt.io/qt-5/qradialgradient.html#details) \
 `hyperion.imageRadialGradient(startX, startY, width, height, centerX, centerY, radius, focalX, focalY, focalRadius, bytearray, spread)`
 | Argument  | Type       |  Comment  |
-| --------- | ---------- | ----------------------------------------------------- |
+| :-------- | :--------- | :----------------------------------------------------- |
 | startX    | Integer    | start point at the x-axis of the rectangle which contains the gradient. |
 | startY    | Integer    | start point at the y-axis of the rectangle which contains the gradient. |
 | width     | Integer    | width of the rectangle. |
@@ -120,7 +120,7 @@ Zeichnet einen linearen Farbverlauf auf das Bild. Füge die Parameter in der unt
 Kurze Beschreibung bei QT Docs: [Linear Gradient](http://doc.qt.io/qt-5/qlineargradient.html#details) \
 `hyperion.imageLinearGradient(startRX, startRY, width, height, startX, startY, endX, endY, bytearray, spread)`
 | Argument  | Type       |  Comment  |
-| --------- | ---------- | ----------------------------------------------------- |
+| :-------- | :--------- | :----------------------------------------------------- |
 | startRX   | Integer    | start point at the x-axis of the rectangle which contains the gradient. |
 | startRY   | Integer    | start point at the y-axis of the rectangle which contains the gradient. |
 | width     | Integer    | width of the rectangle. |
@@ -140,7 +140,7 @@ Kurze Beschreibung bei QT Docs: [Linear Gradient](http://doc.qt.io/qt-5/qlinearg
 Zeichnet eine Linie in das Bild. Alle Parameter sind erforderlich, außer a für Alpha. Füge die Parameter in der Reihenfolge der Zeilen unten hinzu. \
 `hyperion.imageDrawLine(startX, startY, endX, endY, thick, r, g, b, a)`
 | Argument  | Type       |  Comment  |
-| --------- | ---------- | ----------------------------------------------------- |
+| :-------- | :--------- | :----------------------------------------------------- |
 | startX    | Integer    | start point at the x-axis. Relates to `hyperion.imageWidth()` |
 | startY    | Integer    | start point at the y-axis. Relates to `hyperion.imageHeight()` |
 | endX      | Integer    | end point at the x-axis. Relates to `hyperion.imageWidth()` |
@@ -159,7 +159,7 @@ Zeichnet eine Linie in das Bild. Alle Parameter sind erforderlich, außer a für
 Zeichnet einen Punkt in das Bild. Alle Parameter sind erforderlich, außer a für Alpha. Füge die Parameter in der unten angegebenen Reihenfolge hinzu. \
 `hyperion.imageDrawPoint(x, y, thick, r, g, b, a)`
 | Argument  | Type       |  Comment  |
-| --------- | ---------- | ----------------------------------------------------- |
+| :-------- | :--------- | :----------------------------------------------------- |
 | x         | Integer    | point position at the x-axis. Relates to `hyperion.imageWidth()` |
 | y         | Integer    | point position at the y-axis. Relates to `hyperion.imageHeight()` |
 | thick     | Integer    | Thickness of the point in pixel, should be calculated based on image height or width. But at least one Pixel. Example: `max(int(0.1*hyperion.imageHeight(),1)` is 10% of the image height. |
@@ -176,7 +176,7 @@ Zeichnet einen Punkt in das Bild. Alle Parameter sind erforderlich, außer a fü
 Zeichnet ein Polygon in das Bild und füllt es mit der bestimmten Farbe. Wird zum freien Formen verwendet (Dreieck, Sechseck,... was immer man will). Alle Parameter sind erforderlich, mit Ausnahme von a für Alpha. Füge die Parameter in der untenstehenden Reihenfolge hinzu. \
 `hyperion.imageDrawPolygon(bytearray, r, g, b, a)`
 | Argument  | Type       |  Comment  |
-| --------- | ---------- | ----------------------------------------------------- |
+| :-------- | :--------- | :----------------------------------------------------- |
 | bytearray | ByteArray  | bytearray([point1X,point1Y,point2X,point2Y,point3X,point3Y,...]). Add pairs of X/Y coordinates to specific the corners of the polygon, each point has a X and a Y coordinate, you could add as much points as you need. The last point automatically connects to the first point.|
 | r         | Integer    | red color from `0` to `255` |
 | g         | Integer    | green color from `0` to `255` |
@@ -191,7 +191,7 @@ hyperion.imageDrawPolygon(bytearray, r, g, b)` -> Alpha ist standardmäßig 255
 Zeichnet einen Kreis (auch bekannt als Kreisdiagramm) in das Bild und füllt ihn mit der bestimmten Farbe. Alle Parameter sind erforderlich, außer a für Alpha. Füge die Parameter in der Reihenfolge der Zeilen unten hinzu. \
 `hyperion.imageDrawPie(centerX, centerY, radius, startAngle, spanAngle, r, g, b, a)`
 | Argument  | Type       |  Comment  |
-| --------- | ---------- | ----------------------------------------------------- |
+| :-------- | :--------- | :----------------------------------------------------- |
 | centerX   | Integer    | The center of the Pie at the x-axis |
 | centerY   | Integer    | The center of the Pie at the y-axis |
 | radius    | Integer    | radius of the Pie in Pixels |
@@ -210,7 +210,7 @@ Zeichnet einen Kreis (auch bekannt als Kreisdiagramm) in das Bild und füllt ihn
 Zeichnet ein Rechteck auf das Bild. Alle Parameter sind erforderlich, außer a für Alpha. Füge die Parameter in der Reihenfolge der Zeilen unten hinzu. \
 `hyperion.imageDrawRect(startX, startY, width, height, thick, r, g, b, a,)`
 | Argument  | Type       |  Comment  |
-| --------- | ---------- | ----------------------------------------------------- |
+| :-------- | :--------- | :----------------------------------------------------- |
 | startX    | Integer    | start point at the x-axis. Relates to `hyperion.imageWidth()` |
 | startY    | Integer    | start point at the y-axis. Relates to `hyperion.imageHeight()` |
 | width     | Integer    | width of the rectangle. Relates to `hyperion.imageWidth()` |
@@ -225,7 +225,7 @@ Zeichnet ein Rechteck auf das Bild. Alle Parameter sind erforderlich, außer a f
 Füllt einen bestimmten Teil des Bildes mit einer Volltonfarbe (oder ganz). Alle Parameter sind erforderlich.  Füge die Parameter in der Reihenfolge der Zeilen unten hinzu. \
 `hyperion.imageSolidFill(startX, startY, width, height, r, g, b, a)`
 | Argument  | Type       |  Comment  |
-| --------- | ---------- | ----------------------------------------------------- |
+| :-------- | :--------- | :----------------------------------------------------- |
 | startX    | Integer    | start point at the x-axis. Relates to `hyperion.imageWidth()` |
 | startY    | Integer    | start point at the y-axis. Relates to `hyperion.imageHeight()` |
 | width     | Integer    | width of the fill area. Relates to `hyperion.imageWidth()` |
@@ -245,7 +245,7 @@ Füllt einen bestimmten Teil des Bildes mit einer Volltonfarbe (oder ganz). Alle
 Weist einer bestimmten Pixelposition eine Farbe zu. Alle Parameter sind erforderlich. Füge die Parameter in der Reihenfolge der Zeilen unten hinzu. \
 `hyperion.imageSetPixel(X, Y, r, g, b)`
 | Argument  | Type       |  Comment  |
-| --------- | ---------- | ----------------------------------------------------- |
+| :-------- | :--------- | :----------------------------------------------------- |
 | X         | Integer    | pixel point at the x-axis. Relates to `hyperion.imageWidth()` |
 | Y         | Integer    | pixel point at the y-axis. Relates to `hyperion.imageHeight()` |
 | r         | Integer    | define red color from `0` to `255` |
@@ -256,7 +256,7 @@ Weist einer bestimmten Pixelposition eine Farbe zu. Alle Parameter sind erforder
 Ermittelt eine Farbe an einer bestimmten Pixelposition.  Alle Parameter sind erforderlich. Füge die Parameter in der Reihenfolge der Zeilen unten hinzu. \
 `hyperion.imageGetPixel(X, Y)`
 | Argument  | Type       |  Comment  |
-| --------- | ---------- | ----------------------------------------------------- |
+| :-------- | :--------- | :----------------------------------------------------- |
 | X         | Integer    | pixel point at the x-axis. Relates to `hyperion.imageWidth()` |
 | Y         | Integer    | pixel point at the y-axis. Relates to `hyperion.imageHeight()` |
 | Return   | Tuple    | Returns a Python Tuple of RGB values |
@@ -264,14 +264,14 @@ Ermittelt eine Farbe an einer bestimmten Pixelposition.  Alle Parameter sind erf
 
 
 ### hyperion.setColor()
-Setzt eine einzelne Farbe für alle Leds mit `hyperion.setColor(255,0,0)`, so werden alle Leds rot dargestellt. Es ist aber auch möglich, ein Bytearray von RGB-Werten zu senden. Jeder RGB-Wert in diesem Bytearray repräsentiert eine Led.
+Setzt eine einzelne Farbe für alle LEDs mit `hyperion.setColor(255,0,0)`, so werden alle LEDs rot dargestellt. Es ist aber auch möglich, ein Bytearray von RGB-Werten zu senden. Jeder RGB-Wert in diesem Bytearray repräsentiert eine LED.
  - **Beispiel 1:** `hyperion.setColor(bytearray([255,0,0]))` Die erste LED wird rot
  - **Beispiel 2:** `hyperion.setColor(bytearray([255,0,0,0,255,0]))` Die erste LED wird rot, die zweite ist grün
  - **Beispiel 3:** `hyperion.setColor(bytearray([255,0,0,0,255,0,255,255,255]))` Die erste LED wird rot, die zweite ist grün und die dritte ist weiss
- - Normalerweise ordnet man allen Leds eine Farbe zu, deshalb muss man wissen, wie viele Leds der Benutzer gerade hat. Ermittle dies mit `hyperion.ledCount`
+ - Normalerweise ordnet man allen LEDs eine Farbe zu, deshalb muss man wissen, wie viele LEDs der Benutzer gerade hat. Ermittle dies mit `hyperion.ledCount`
 
 ::: warning hyperion.setColor()
- - Die Funktion hyperion.setColor() wird nicht empfohlen, um Led-Farben zuzuweisen, sie arbeitet nicht mit den **`hyperion.image*`**-Funktionen zusammen
+ - Die Funktion hyperion.setColor() wird nicht empfohlen, um LED-Farben zuzuweisen, sie arbeitet nicht mit den **`hyperion.image*`**-Funktionen zusammen
  - Du weißt nicht, wo oben/links/rechts/unten ist und es funktioniert nicht mit Matrix-Layouts!
  - Bitte beachte, dass du stattdessen die **`hyperion.image*`**-Funktionen verwenden kannst, um beeindruckende Effekte zu erzeugen, die mit der Benutzereinstellung skalieren
 :::
