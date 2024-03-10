@@ -1,8 +1,9 @@
-
 # WLED
 
 [WLED](https://kno.wled.ge/) ermöglicht die Ansteuerung verschiedener LED-Typen über WIFI, Ethernet oder serielle Verbindungen unter Nutzung von ESP8266/ESP32-Geräten.
 Das Gerät steuert die WLED aktiv (ein-/ausschalten) und ermöglicht das Speichern/Wiederherstellen des Gerätezustands vor dem Streaming von LED-Updates.
+
+## Konfiguration
 
 ### Verbindung
 

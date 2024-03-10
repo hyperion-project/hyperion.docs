@@ -9,19 +9,21 @@ The maximum number of LEDs supported is 490. The current UDP-raw protocol cannot
 Therefore the number of LEDs is limited to have only one package per update.
 :::
 
+## Configuration
+
 ### Specific Settings
 
-##### Hostname/IP-address
+#### Hostname/IP-address
 
 Define the WLED device's Hostname (DNS/mDNS) or IP-address (IPv4 or IPv6) you would like streaming to.
 
-##### Port
+#### Port
 
 UDP port streamed to.
 
-#### Advanced/Expert Settings
+### Advanced/Expert Settings
 
-##### Latch time
+#### Latch time
 
 Latch time is the time-frame a device requires until the next update can be processed. During that time-frame any updates done are ignored.
 

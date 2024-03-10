@@ -3,6 +3,8 @@
 [WLED](https://kno.wled.ge/) allows to address various LED types via WIFI, Ethernet or Serial connectivity leveraging ESP8266/ESP32 devices.
 The device actively controls WLED (switch on/off), as well as allows to store/restore the devices state before streaming LED updates.
 
+## Configuration
+
 ### Connectivity
 
 WLED devices are discovered automatically by Hyperion.
