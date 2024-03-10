@@ -400,7 +400,7 @@ function getJsonSidebar (groupA, groupB) {
       '',
       'ServerInfo',
       'Control',
-      'Authorization',
+      'Authentication',
       'Subscribe',
     ]
   },

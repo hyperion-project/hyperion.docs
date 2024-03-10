@@ -35,7 +35,8 @@ will be in the `data` property. There is no `tan` nor `success` argument provide
     "command":"XYZ-update",
     "data":{
         ..Data here..
-    }
+    },
+    "instance": ..instance# sent the update...
 }
 ```
 ### Component updates
@@ -59,48 +60,11 @@ After this, the caller will receive incremental updates. An example:
     "data":{
         "enabled":false,
         "name":"SMOOTHING"
-    }
+    },
+    "instance": 0
 }
 ```
 
-### Session updates
-The caller can subscribe to session updates (Hyperion instances found with
-Bonjour/Zeroconf/Ahavi). These updates are meant to update the `sessions` section of
-the caller's initial serverinfo. Relevant `serverinfo` subscription command:
-```json
-{
-    "command":"serverinfo",
-    "subscribe":[
-        "sessions-update"
-    ],
-    "tan":1
-}
-```
-These updates aren't incremental -- they contain all found entries on each update.
-Example response with 2 HTTP server sessions (`_hyperiond-http._tcp`):
-```json
-{
-    "command":"sessions-update",
-    "data":[
-        {
-            "address":"192.168.58.169",
-            "domain":"local.",
-            "host":"ubuntu-2",
-            "name":"My Hyperion Config@ubuntu:8090",
-            "port":8090,
-            "type":"_hyperiond-http._tcp."
-        },
-        {
-            "address":"192.168.58.169",
-            "domain":"local.",
-            "host":"ubuntu-2",
-            "name":"My Hyperion Config@ubuntu:8099",
-            "port":8099,
-            "type":"_hyperiond-http._tcp."
-        }
-   ]
-}
-```
 ### Priority updates
 The caller can subscribe to priority updates. These updates are meant to update the
 `priorities` and `priorities_autoselect` section of the caller's initial `serverinfo`.
@@ -149,7 +113,8 @@ a timeout > -1, the caller will receive new data each second. An example update:
       }
     ],
     "priorities_autoselect":false
-  }
+  },
+  "instance": 0
 }
 ```
 ### LED Mapping updates
@@ -168,7 +133,8 @@ An example update:
     "command":"imageToLedMapping-update",
     "data":{
         "imageToLedMappingType":"multicolor_mean"
-    }
+    },
+    "instance": 0
 }
 ```
 ### Adjustment updates
@@ -189,9 +155,9 @@ An example update:
     "data":[{
       "backlightColored":true,
       "backlightThreshold":0,
-      "black":[0,0,0],
       "blue":[0,0,255],
-      "brightness":1,
+      "brightness": 100,
+      "brightnessCompensation": 100,
       "cyan":[0,127,127],
       "gammaBlue":1.4,
       "gammaGreen":1.4,
@@ -202,7 +168,8 @@ An example update:
       "red":[255,0,0],
       "white":[255,255,255],
       "yellow":[255,255,0]
-    }]
+    }],
+    "instance": 0
 }
 ```
 ### VideoMode updates
@@ -222,7 +189,8 @@ An example update:
   "command":"videomode-update",
   "data":{
     "videomode": "2D"
-  }
+  },
+  "instance": 0
 }
 ```
 ### Effects updates
@@ -242,7 +210,8 @@ An example update:
   "command":"effects-update",
   "data":{
     "effects": [ ..All effects here..]
-  }
+  },
+  "instance": 0
 }
 ```
 
@@ -273,11 +242,12 @@ instances:
       "running" : false,
       "friendly_name" : "PhilipsHue LED Hardware instance"
     }
-  ]
+  ],
+  "instance": 0
 }
 ```
-### LEDs updates
-The caller can subscribe to leds updates. These updates are meant to update the `leds`
+### LED Layout updates
+The caller can subscribe to LED layout configuration updates. These updates are meant to update the `leds`
 section of the caller's initial `serverinfo`. Relevant `serverinfo` subscription command:
 ```json
 {
@@ -300,6 +270,7 @@ An example update. This is not incremental -- the caller willg et the full set o
        },
        ... more leds ...
       ]
-    }
-  }
+    },
+  "instance": 0
+}
 ```
