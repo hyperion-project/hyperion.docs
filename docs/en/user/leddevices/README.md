@@ -72,8 +72,7 @@ The button "Identify" is only activated, if the current configuration is valid.
 Hyperion supports multiple different LED devices which fall into four main categories:
 
 ### SPI/PWM
-Are 3 or 4 wire LEDs which can be powered via SPI or PWM (Pulse Width Modulation) of a Raspberry Pi or an Arduino (which is USB connected to your computer/HTPC/Pi).
-
+Are 3 or 4 wire LEDs which can be powered via SPI (Serial Peripheral Interface) or PWM (Pulse Width Modulation) of a Raspberry Pi or an Arduino (which is USB connected to your computer/HTPC/Pi).
 
 * [APA102](/en/user/leddevices/spi_pwm/apa102)
 * [APA104](/en/user/leddevices/spi_pwm/apa104)
@@ -86,6 +85,11 @@ Are 3 or 4 wire LEDs which can be powered via SPI or PWM (Pulse Width Modulation
 * [WS2812](/en/user/leddevices/spi_pwm/ws2812)
 * [pi-blaster](/en/user/leddevices/spi_pwm/piblaster)
 
+#### PWM Prerequisites (Controller type RPi PWM/ws281x)
+PWM (Pulse Width Modulation) requires that Hyperion run under the `root` user.\
+In case you run Hyperion as a service: [Change the service user to 'root'](/en/user/Installation.html#change-the-service-user-to-root)
+
+#### SPI Prerequisites (Controller type group RPi SPI)
 On most systems the SPI (Serial Peripheral Interface) is not enabled per default and requires to be activated.
 ::: details Activate SPI
 

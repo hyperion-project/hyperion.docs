@@ -75,7 +75,7 @@ Die Schaltfläche "Identifiziere" ist nur dann aktiviert, wenn die aktuelle Konf
 Hyperion unterstützt mehrere verschiedene LED-Geräte, die sich in vier Hauptkategorien einteilen lassen:
 
 ### SPI/PWM
-3 oder 4 adrige Led Strips, die über SPI/PWM (Pulsweitenmodulation) mit einem Raspberry Pi (oder einem Arduino) verbunden werden können.
+3 oder 4 adrige LED Strips, die über SPI (Serial Peripheral Interface) oder PWM (Pulsweitenmodulation) mit einem Raspberry Pi (oder einem Arduino) verbunden werden können.
 
 * [APA102](/de/user/leddevices/spi_pwm/apa102)
 * [APA104](/de/user/leddevices/spi_pwm/apa104)
@@ -88,6 +88,12 @@ Hyperion unterstützt mehrere verschiedene LED-Geräte, die sich in vier Hauptka
 * [WS2812](/de/user/leddevices/spi_pwm/ws2812)
 * [pi-blaster](/de/user/leddevices/spi_pwm/piblaster)
 
+
+#### PWM-Voraussetzungen (Steuerungstyp RPi PWM/ws281x)
+PWM (Pulsweitenmodulation) setzt voraus, dass Hyperion unter dem Benutzer `root` läuft.\
+Falls Sie Hyperion als Dienst ausführen: [Ändern des Benutzers des Dienstes auf 'root'](/de/user/Installation.html#change-the-service-user-to-root)
+
+#### SPI-Voraussetzungen (Steuerungstypgruppe RPi SPI)
 Auf den meisten Systemen ist das SPI (Serial Peripheral Interface) standardmäßig nicht an und muss aktiviert werden.
 ::: details SPI aktivieren
 
