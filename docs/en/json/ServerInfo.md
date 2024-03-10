@@ -55,6 +55,10 @@ You can subscribe to future data updates. Read more about [Component updates](/e
       "name":"V4L"
     },
     {
+        "enabled": false,
+        "name": "AUDIO"
+    },    
+    {
       "enabled":true,
       "name":"LEDDEVICE"
     }
@@ -74,8 +78,10 @@ You can subscribe to future data updates. Read more about [Adjustment updates](/
     {
       "backlightColored":true,
       "backlightThreshold":0,
+      "brightness": 100,
+      "brightnessCompensation": 100,
+      "brightnessGain": 1,
       "blue":[0,0,255],
-      "brightness":1,
       "cyan":[0,127,127],
       "gammaBlue":1.4,
       "gammaGreen":1.4,
@@ -84,6 +90,7 @@ You can subscribe to future data updates. Read more about [Adjustment updates](/
       "id":"default",
       "magenta":[255,0,255],
       "red":[255,0,0],
+      "saturationGain": 1,      
       "white":[255,255,255],
       "yellow":[255,255,0]
     }
@@ -114,7 +121,8 @@ You can subscribe to future data updates. Read more about [Effect updates](/en/j
         ],
         "hueChange":60,
         "reverse":false,
-        "rotationTime":60
+        "rotationTime":60,
+        "smoothing-custom-settings": null        
       },
       "file":":/effects//mood-blobs-blue.json",
       "name":"Blue mood blobs",
@@ -129,7 +137,10 @@ You can subscribe to future data updates. Read more about [Effect updates](/en/j
           138,
           0
         ],
-        "sleepTime":0.14999999999999999
+        "sleepTime": 0.2,
+        "smoothing-custom-settings": true,
+        "smoothing-time_ms": 500,
+        "smoothing-updateFrequency": 20
       },
       "file":":/effects//candle.json",
       "name":"Candle",
@@ -169,7 +180,7 @@ Overview of the registered/active sources. Each object is a source.
   it's platform capture, you get the name of the platform capture implementation (e.g. dispmanx/x11/amlogic/...).
   * **priority**: The priority of this source, an integer between 0 and 255.
   * **value**: If the source is a color AND color data is available (if active is false
-    there's usually no datta),hen this will be the color in RGB and HSL.
+    there's usually no data), then this will be the color in RGB and HSL.
   * **duration_ms**: Actual duration in ms until this priority is automatically deleted.
     This is shown if source is color or effect AND a specific duration higher than
     `0` is set (0 means indefinite).
@@ -182,14 +193,13 @@ You can subscribe to future data updates. Read more about [Priority updates](/en
     {
       "active":true,
       "componentId":"COLOR",
-      "origin":"Web Configuration@192.168.0.28",
-      "owner":"COLOR",
-      "priority":1,
+      "origin": "Web Configuration@::ffff:192.168.2.100",
+        "priority":1,
       "value":{
         "HSL":[
           0,
           1,
-          0.50000762939453125
+          0.5000076293945312
         ],
         "RGB":[
           0,
@@ -200,13 +210,13 @@ You can subscribe to future data updates. Read more about [Priority updates](/en
       "visible":true
     },
     {
-      "active":true,
-      "componentId":"EFFECT",
-      "origin":"System",
-      "owner":"Warm mood blobs",
-      "priority":255,
-      "visible":false
-    }
+      "active": true,
+      "componentId": "GRABBER",
+      "origin": "System",
+      "owner": "Qt",
+      "priority": 250,
+      "visible": false
+    }    
   ]
 ```
 
@@ -280,43 +290,34 @@ If you need a specific id to re-detect known servers you can use the `id` field 
 provides a unique id and will not change for a given server.
 ```json
 {
-    "hyperion":{
-        "build":"webd (brindosch-38f97dc/814977d-1489698970)",
-        "gitremote": "https://github.com/hyperion-project/hyperion.git",
-        "time":"Mar 16 2017 21:25:46",
-        "version":"2.0.0",
-        "id":"jKsh78D3hd..."
+    "hyperion": {
+      "build": "(HEAD detached at 2.0.16) (Paulchen-Panther-cb85d2d/a93d79b-1705568419)",
+      "gitremote": "https://github.com/hyperion-project/hyperion.ng",
+      "id": "e7ad2b3b-...",
+      "isGuiMode": true,
+      "readOnlyMode": false,
+      "rootPath": "/home/user/.hyperion",
+      "time": "Jan 18 2024 09:11:31",
+      "version": "2.0.16"
     },
-    "system":{
-        "architecture":"arm",
-        "hostName":"raspberrypi",
-        "kernelType":"linux",
-        "kernelVersion":"4.4.13-v7+",
-        "prettyName":"Raspbian GNU/Linux 8 (jessie)",
-        "productType":"raspbian",
-        "productVersion":"8",
-        "wordSize":"32"
-      }
-}
-```
-
-### Sessions
- `sessions` shows all Hyperion servers on the current network found via Zeroconf/avahi/bonjour. See also [detect Hyperion](/en/api/detect.md)
- ::: tip Subscribe
-You can subscribe to future data updates. Read more about [Session updates](/en/json/subscribe#session-updates)
-:::
-
-```json
-{
-  "sessions":[
-    {
-        "address":"192.168.0.20",
-        "domain":"local.",
-        "host":"raspberrypi",
-        "name":"Awwh yeah!!@raspberrypi:8099",
-        "port":8090,
-        "type":"_hyperiond-http._tcp."
+    "system": {
+      "architecture": "x86_64",
+      "cpuHardware": "",
+      "cpuModelName": "Intel(R) Core(TM) i7-4790 CPU @ 3.60GHz",
+      "cpuModelType": "60",
+      "cpuRevision": "",
+      "domainName": "speedport.ip",
+      "hostName": "ubuntu2204",
+      "isUserAdmin": false,
+      "kernelType": "linux",
+      "kernelVersion": "5.15.0-97-generic",
+      "prettyName": "Ubuntu 22.04.4 LTS",
+      "productType": "ubuntu",
+      "productVersion": "22.04",
+      "pyVersion": "3.7.3",
+      "qtVersion": "5.11.3",
+      "wordSize": "64"
     }
-  ] 
 }
 ```
+

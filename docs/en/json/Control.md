@@ -10,14 +10,14 @@ The `tan` property is supported in these calls, but omitted for brevity.
 ## Sections
 
 ### Set Color
-Set a color for all leds or provide a pattern of led colors.
+Set a color for all LEDs or provide a pattern of LED colors.
 
-| Property |  Type   | Required |                                                     Comment                                                      |
-| :------: | :-----: | :------: | :--------------------------------------------------------------------------------------------------------------: |
-|  color   |  Array  |   true   |                                 An array of R G B Integer values e.g. `[R,G,B]`                                  |
-| duration | Integer |  false   |                  Duration of color in ms. If you don't provide a duration, it's `0` -> indefinite                |
-| priority | Integer |   true   | We recommend `50`, following the [Priority Guidelines](/en/api/guidelines#priority_guidelines). Min `2` Max `99` |
-|  origin  | String  |   true   |              A short name of your application like `Hyperion of App` . Max length is `20`, min `4`.              |
+| Property |  Type   | Required | Comment                                                                                                          |
+| :------  | :-----: | :------: | :--------------------------------------------------------------------------------------------------------------- |
+| color    | Array   | true     | An array of R G B Integer values e.g. `[R,G,B]`                                                                  |
+| duration | Integer | false    | Duration of color in ms. If you don't provide a duration, it's `0` -> indefinite                                 |
+| priority | Integer | true     | We recommend `50`, following the [Priority Guidelines](/en/api/guidelines#priority_guidelines). Min `2` Max `99` |
+| origin   | String  | true     | A short name of your application like `Hyperion of App` . Max length is `20`, min `4`.                           |
 
 ```json
 // Example: Set a blue color with indefinite duration at priority 50 
@@ -37,10 +37,11 @@ Set a color for all leds or provide a pattern of led colors.
 }
 
 // Example: Provide a color pattern, which will be repeated until all LEDs have a color
+// One LED has 3 values (Red,Green,Blue) with range of 0-255
 // In this case LED 1: Red, LED 2: Red, LED 3: Blue.
 {
   "command":"color",
-  "color":[255,0,0,255,0,0,0,0,255], // one led has 3 values (Red,Green,Blue) with range of 0-255
+  "color":[255,0,0,255,0,0,0,0,255],
   "duration":12000,
   "priority":20,
   "origin":"My Fancy App"
@@ -50,12 +51,12 @@ Set a color for all leds or provide a pattern of led colors.
 ### Set Effect
 Set an effect by name. Available names can be found in the [serverinfo effect list](/en/json/ServerInfo.md#effect-list).
 
-| Property |  Type   | Required |                                                     Comment                                                      |
-| :------: | :-----: | :------: | :--------------------------------------------------------------------------------------------------------------: |
-|  effect  | Object  |   true   |                          Object with additional properties. e.g. `"name":"EffectName"`.                          |
-| duration | Integer |  false   |                  Duration of effect in ms. If you don't provide a duration, it's `0` -> indefinite               |
-| priority | Integer |   true   | We recommend `50`, following the [Priority Guidelines](/en/api/guidelines#priority_guidelines). Min `2` Max `99` |
-|  origin  | String  |   true   |              A short name of your application like `Hyperion of App` . Max length is `20`, min `4`.              |
+| Property |  Type   | Required | Comment                                                                                                          |
+| :------  | :-----: | :------: | :--------------------------------------------------------------------------------------------------------------- |
+| effect   | Object  | true     | Object with additional properties. e.g. `"name":"EffectName"`.                                                   |
+| duration | Integer | false    | Duration of effect in ms. If you don't provide a duration, it's `0` -> indefinite                                |
+| priority | Integer | true     | We recommend `50`, following the [Priority Guidelines](/en/api/guidelines#priority_guidelines). Min `2` Max `99` |
+| origin   | String  | true     | A short name of your application like `Hyperion of App` . Max length is `20`, min `4`.                           |
 
 ```json
 // Example: Set the 'Warm mood blobs' effect with indefinite duration
@@ -90,26 +91,27 @@ Set an effect by name. Available names can be found in the [serverinfo effect li
   },
   "duration":5000,
   "priority":50,
-  "origin":"My Fancy App"}
+  "origin":"My Fancy App"
+}
 ```
 
 ### Set Image
 Set a single image. Supports all [Qt5](https://doc.qt.io/qt-5/qimagereader.html#supportedImageFormats) image formats, including png/jpg/gif.
 
-| Property  |  Type   | Required |                                                     Comment                                                      |
-| :-------: | :-----: | :------: | :--------------------------------------------------------------------------------------------------------------: |
-| imagedata | String  |   true   |                         Data of image as [Base64](https://en.wikipedia.org/wiki/Base64)                          |
-|  format   | String  |   true   |                         Set to `auto` to let Hyperion parse the image according to type                          |
-|   name    | String  |   true   |                                              The name of the image                                               |
-| duration  | Integer |  false   |                  Duration of image in ms. If you don't provide a duration, it's `0` -> endless                   |
-| priority  | Integer |   true   | We recommend `50`, following the [Priority Guidelines](/en/api/guidelines#priority_guidelines). Min `2` Max `99` |
-|  origin   | String  |   true   |              A short name of your application like `Hyperion of App` . Max length is `20`, min `4`.              |
+| Property  |  Type   | Required | Comment                                                                                                          |
+| :-------- | :-----: | :------: | :--------------------------------------------------------------------------------------------------------------- |
+| imagedata | String  | true     | Data of image as [Base64](https://en.wikipedia.org/wiki/Base64)                                                  |
+| format    | String  | true     | Set to `auto` to let Hyperion parse the image according to type                                                  |
+| name      | String  | true     | The name of the image                                                                                            |
+| duration  | Integer | false    | Duration of image in ms. If you don't provide a duration, it's `0` -> endless                                    |
+| priority  | Integer | true     | We recommend `50`, following the [Priority Guidelines](/en/api/guidelines#priority_guidelines). Min `2` Max `99` |
+| origin    | String  | true     | A short name of your application like `Hyperion of App` . Max length is `20`, min `4`.                           |
 
 ```json
 // Set an image for 5 seconds
 {
   "command":"image",
-  "imagedata":"VGhpcyBpcyBubyBpbWFnZSEgOik=", // as base64!
+  "imagedata":"VGhpcyBpcyBubyBpbWFnZSEgOik=",
   "name":"Name of Image",
   "format":"auto",
   "priority":50,
@@ -125,12 +127,12 @@ effect](#set-effect) or [set image](#set-image).
 // Clear effect/color/image with priority 50
 {
   "command":"clear",
-  "priority":50,
+  "priority":50
 }
 // Clear all effects/colors/images
 {
   "command":"clear",
-  "priority":-1,
+  "priority":-1
 }
 ```
 ::: warning
@@ -142,8 +144,8 @@ priority list
 ### Adjustments
 Adjustments reflect the color calibration. You can modify all properties of [serverinfo adjustments](/en/json/serverinfo#adjustments).
 
-|        Property        |      Type      | Required |                                            Comment                                             |
-| :--------------------: | :------------: | :------: | :--------------------------------------------------------------------------------------------: |
+| Property               |      Type      | Required | Comment                                                                                        |
+| :--------------------- | :------------: | :------: | :--------------------------------------------------------------------------------------------- |
 |          red           |     Array      |  false   |                        An array of R G B Integer values e.g. `[R,G,B]`                         |
 |         green          |     Array      |  false   |                        An array of R G B Integer values e.g. `[R,G,B]`                         |
 |          blue          |     Array      |  false   |                        An array of R G B Integer values e.g. `[R,G,B]`                         |
@@ -194,7 +196,16 @@ Adjustments reflect the color calibration. You can modify all properties of [ser
 ```
 
 ### LED mapping
-Switch the image to led mapping mode. Possible values are `unicolor_mean` (led color based on whole picture color) and `multicolor_mean` (led colors based on led layout)
+Switch the LED mapping mode for the incoming image.
+
+| mappingType value         | Description                            |
+| :------------------------ | :------------------------------------- |
+| multicolor_mean           | Mean Color Simple - per LED            |
+| unicolor_mean             | Mean Color Image - applied on all LEDs |
+| multicolor_mean_squared   | Mean Color Squared - per LED           |
+| dominant_color            | Dominant Color- per LED                |
+| dominant_color_advanced   | Dominant Color Advanced - per LED      |
+
 ```json
 // Example: Set mapping mode to multicolor_mean
 {
@@ -254,21 +265,22 @@ Hyperion itself needs to be enabled! Check the status of "ALL" in the components
 Each component has a unique id. Not all of them can be enabled/disabled -- some of them,
 such as effect and color, are used to determine the source type when examining the
 [priority list](/en/json/ServerInfo.html#priorities).
-|  ComponentID   |      Component       | Enable/Disable |                                    Comment                                    |
-| :------------: | :------------------: | :------------: | :---------------------------------------------------------------------------: |
-|   SMOOTHING    |      Smoothing       |      Yes       |                              Smoothing component                              |
-|  BLACKBORDER   | Blackborder detector |      Yes       |                         Black bar detection component                         |
-|   FORWARDER    | Json/Proto forwarder |      Yes       |                        Json/Proto forwarder component                         |
-| BOBLIGHTSERVER |   Boblight server    |      Yes       |                           Boblight server component                           |
-|    GRABBER     |   Platform capture   |      Yes       |                          Platform Capture component                           |
-|      V4L       |  V4L capture device  |      Yes       |                         USB capture device component                          |
-|   LEDDEVICE    |      Led device      |      Yes       |     Led device component start/stops output of the configured led device      |
+|  ComponentID   |      Component       | Enable/Disable | Comment                                                                       |
+| :------------  | :------------------: | :------------: | :---------------------------------------------------------------------------- |
+|   SMOOTHING    |      Smoothing       |      Yes       | Smoothing component                                                           |
+|  BLACKBORDER   | Blackborder detector |      Yes       | Black bar detection component                                                 |
+|   FORWARDER    | JSON/Proto forwarder |      Yes       | JSON/Proto forwarder component                                                |
+| BOBLIGHTSERVER |   Boblight server    |      Yes       | Boblight server component                                                     |
+|    GRABBER     |   Screen capture     |      Yes       | Screen Capture component                                                      |
+|      V4L       |  V4L capture device  |      Yes       | USB capture device component                                                  |
+|      AUDIO     |  AUDIO capture device|      Yes       | Audio capture device component                                                |
+|   LEDDEVICE    |      LED device      |      Yes       | LED device component start/stops output of the configured LED device          |
 |      ALL       |  SPECIAL: Hyperion   |      Yes       | Enable or disable Hyperion. Recovers/saves last state of all other components |
-|     COLOR      |     Solid color      |       No       |            All colors that has been set belongs to this component             |
-|     EFFECT     |        Effect        |       No       |                     All effects belongs to this component                     |
-|     IMAGE      |     Solid Image      |       No       |          All single/solid images belongs to this. NOT for streaming           |
-| FLATBUFSERVER  |  Flatbuffers Server  |       No       |                All image stream sources from flatbuffer server                |
-|  PROTOSERVER   |  Protobuffer Server  |       No       |               All image stream sources from Protobuffer server                |
+|     COLOR      |     Solid color      |       No       | All colors that has been set belongs to this component                        |
+|     EFFECT     |        Effect        |       No       | All effects belongs to this component                                         |
+|     IMAGE      |     Solid Image      |       No       | All single/solid images belongs to this. NOT for streaming                    |
+| FLATBUFSERVER  |  Flatbuffers Server  |       No       | All image stream sources from Flatbuffers server                              |
+|  PROTOSERVER   |  Protobuffer Server  |       No       | All image stream sources from Protobuffer server                              |
 
 
 ### Source Selection
@@ -298,7 +310,7 @@ You can only select priorities which are `active:true`!
 
 ### Control Instances
 An instance represents an LED hardware instance. It runs within its own scope with it's
-own plugin settings, led layout and calibration. Before selecting you can instance, you
+own plugin settings, LED layout and calibration. Before selecting you can instance, you
 should first get information about the available instances from [serverinfo](/en/json/serverinfo#instance).
 
 ```json
@@ -363,16 +375,16 @@ This feature is not available for HTTP/S JSON-RPC
 :::
 
 
-### Live Led Color Stream
-You can request a live led color stream with current color values in RGB for each single
-led. The update rate is 125ms.
+### Live LED Color Stream
+You can request a live LED color stream with current color values in RGB for each single
+LED. The update rate is 125ms.
 ```json
 {
   "command":"ledcolors",
   "subcommand":"ledstream-start"
 }
 ```
-You will receive "ledcolors-ledstream-update" messages with an array of all led colors.
+You will receive "ledcolors-ledstream-update" messages with an array of all LED colors.
 Stop the stream by sending:
 ```json
 {
@@ -383,3 +395,36 @@ Stop the stream by sending:
 ::: danger HTTP/S
 This feature is not available for HTTP/S JSON-RPC
 :::
+
+### Control Hyperion
+Control the Hyperion system as a whole with the following subcommands;
+
+| subcommand    | Description                                                         |
+| :------------ | :------------------------------------------------------------------ |
+| suspend       | Suspend all components and instances                                |
+| resume        | Resume from suspend                                                 |
+| toggleSuspend | Toggle between suspend and resume                                   |
+| idle          | Suspend, but keep LED on and run a background effect, if configured |
+| toggleIdle    | Toggle between idle and resume                                      |
+| restart       | Restart Hyperion                                                    |
+
+```json
+// Command to suspend Hyperion
+{
+  "command" : "system",
+  "subcommand" : "suspend"
+}
+
+// Command to resume Hyperion from suspend
+{
+  "command" : "system",
+  "subcommand" : "resume"
+}
+
+// Command to toggle between suspend and resume
+{
+  "command" : "system",
+  "subcommand" : "toggleSuspend"
+}
+```
+

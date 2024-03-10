@@ -1,41 +1,45 @@
 # Configuration
-Hyperion is fully configurable via web browser. The interface is fully responsive and created with touch devices in mind.
+Hyperion is fully accessible & configurable via web browser. The interface is fully responsive and created with touch devices in mind.
 
-## Web Configuration
-Open the web configuration by typing the IP address of your device and the port 8090 in your browser. The installation script will show you the address, if you don't know it. \
+## Web Interface
+Open the web interface by typing the IP address of your device and the port 8090 in your browser. The installation script will show you the address, if you don't know it. \
 **Example:** `http://192.168.0.20:8090`
 
-### Dashboard
+### Dashboard Page
  \
 <ImageWrap src="/images/en/user_config_dash.jpg" alt="Hyperion Web Configuration - Dashboard" />
 
 
  **Top right navbar**
- * **Camera** - You want to record your browser window? It is possible.
+ * **Camera** - Record your browser window as an input
  * **Moon** - Dark Mode.
- * **Arrows** - Switch between different LED hardware instances (If multiple are available)
- * **TV** - Live led visualization
- * **Magic wand** - Wizards that guide you through color calibration and more
- * **Wrench** - Settings for language selection, settings level, logout, ...
+ * **TV** - Live LED visualisation
+ * **Magic wand** - Wizards that guide you through colour calibration and more
+ * **Wrench** - Settings for language selection, settings level, UI locking password
+ * **Power** - Suspend, resume or restart
+ * **Lock** - Lock the Hyperion user interface 
  
  **Left sidebar**
- * **Dashboard** - Yes, here we are.
- * **Configuration** - All available settings
- * **Remote Control** - Control Hyperion like any other Hyperion remote application
- * **Effects Configurator** - Create new effects based on effect templates
+ * **Dashboard** - Control an instance's components or global settings
+ * **General** - General settings and LED hardware instance management
+ * **LED Instances** - Configure an LED instance
+ * **Capturing Hardware** - Configure the different ways of capturing content, i.e. screen, video or audio 
+ * **Network Services** - Network related configurations
+ * **Remote Control** - Control Hyperion, change settings temporarily or trigger effects
  * **Support** - Where you get support and how to support us (and why)
- * **System** - Inspect your log messages, upload a report for support, credits page, etc
+ * **System** - Configure to react on system events, inspect your log messages or get more details about the running Hyperionsystem
 
- **Page**
- * The **Information** panel shows some important/useful informations. With a small smart access area with important actions.
- * The **Component status** shows always the latest state (enabled/disabled) of the components
+ **Dashboard**
+ * The **LED Hardware Instance** shows always the latest state (enabled/disabled) of an instance's components
+ * The **Status** panel shows the state of instance independent components, plus the current version
 
 ::: tip Hashtag navigation
-The web configuration supports hashtags for sitenames, so you could directly open a specific page by calling the hashtag. **Example:** `http://192.168.0.20:8090/#remote` - will open the remote control page.
+The web configuration supports hashtags for sitenames, so you could directly open a specific page by calling the hashtag.
+**Example:** `http://192.168.0.20:8090/#remote` - will open the remote control page.
 :::
 
 ### Configuration
-We added additional information(s) to each option. Some topics require additional attention which are covered here. If you need more help or something lacks of infos, just dive into our Forum.
+We added additional information(s) to each option. Some topics require additional attention which are covered here. If you need more help or lack information, just dive into our [Forum](https://hyperion-project.org/forum/).
 
 #### Language
 By default, the web configuration selects the language based on your browser locale or best matching next to. So no configuration is required. In case you want to start learning Hyperion in another language, select from the provided once.

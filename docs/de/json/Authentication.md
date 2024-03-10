@@ -1,17 +1,18 @@
-## Autorisierung
-Hyperion verfügt über ein Autorisierungssystem, das es Benutzern erlaubt, sich per Passwort anzumelden, und
-Anwendungen, sich mit Token anzumelden. Der Benutzer kann konfigurieren, wie stark oder schwach die Hyperion-API
+## Authentifizierung
+Hyperion verfügt über ein Authentifizierungssystem, das es Benutzern erlaubt, sich per Passwort anzumelden, und
+Anwendungen, sich mit Token zu authentifiziereb. Der Benutzer kann konfigurieren, wie stark oder schwach die Hyperion-API
 im Bereich `Konfiguration -> Netzwerkdienste` auf der Web-Benutzeroberfläche geschützt werden soll.
 
 [[toc]]
 
 ### Token-System
 Token sind eine einfache Möglichkeit, eine App für den API-Zugriff zu authentifizieren. Sie können erstellt werden in
-der Benutzeroberfläche im Bereich `Konfiguration -> Netzwerkdienste` erstellt werden (der Bereich wird angezeigt, wenn die Option `API Authentifizierung` aktiviert ist. Deine Anwendung kann auch [ein Token](#token-anfordern) über die API anfordern.
+der Benutzeroberfläche im Bereich `Konfiguration -> Netzwerkdienste` erstellt werden (der Bereich wird angezeigt, 
+wenn die Option `API Authentifizierung` aktiviert ist. Deine Anwendung kann auch [ein Token](#token-anfordern) über die API anfordern.
 
-### Autorisierungsprüfung
+### Authentifizierungsprüfung
 
-Aufrufer können prüfen, ob eine Autorisierung für die Arbeit mit der API erforderlich ist, indem sie folgendes senden:
+Aufrufer können prüfen, ob eine Authentifizierung für die Arbeit mit der API erforderlich ist, indem sie folgendes senden:
 ```json
 {
     "command" : "authorize",
@@ -99,7 +100,8 @@ Hier ist der empfohlene Workflow für deine Anwendung zur Authentifizierung:
    * Bei Erfolg: Der Aufruf gibt ein UUID-Token zurück, das wiederholt verwendet werden kann. Beachte, dass der Zugriff vom Benutzer jederzeit widerrufen werden kann, aber die aktuelle Sitzung erhalten bleibt.
    * Bei Fehler: Der Aufruf erhält kein Token, was bedeutet, dass der Benutzer die Anfrage entweder abgelehnt hat oder die Zeit abgelaufen ist (180s).
 
-Fordere ein Token mit dem folgenden Befehl an und achte darauf, dass du einen Kommentar hinzufügst, der aussagekräftig genug ist, damit der Web-UI-Benutzer entscheiden kann, ob er die Anfrage genehmigt oder ablehnt. Das Feld `id` enthält 5 zufällige Zeichen, die vom Aufrufer erstellt werden und in der Web-Benutzeroberfläche erscheinen, wenn der Benutzer die Genehmigung erteilt.
+Fordere ein Token mit dem folgenden Befehl an und achte darauf, dass du einen Kommentar hinzufügst, der aussagekräftig genug ist, damit der Web-UI-Benutzer entscheiden kann, ob er die Anfrage genehmigt oder ablehnt.
+Das Feld `id` enthält 5 zufällige Zeichen, die vom Aufrufer erstellt werden und in der Web-Benutzeroberfläche erscheinen, wenn der Benutzer die Genehmigung erteilt.
 ```json
 {
     "command" : "authorize",
@@ -110,7 +112,8 @@ Fordere ein Token mit dem folgenden Befehl an und achte darauf, dass du einen Ko
 ```
 
 Nach dem Aufruf erscheint ein Popup in der Web-UI, um die Token-Anforderung zu akzeptieren/ablehnen.
-Die aufrufende Anwendung sollte den Kommentar und die ID anzeigen, damit der Benutzer die Herkunft in der Hyperion-Benutzeroberfläche ordnungsgemäß bestätigen kann. Nach 180 Sekunden ohne eine Benutzeraktion wird die Anfrage automatisch abgelehnt und der Aufrufer erhält eine Fehlerantwort (siehe unten).
+Die aufrufende Anwendung sollte den Kommentar und die ID anzeigen, damit der Benutzer die Herkunft in der Hyperion-Benutzeroberfläche ordnungsgemäß bestätigen kann.
+Nach 180 Sekunden ohne eine Benutzeraktion wird die Anfrage automatisch abgelehnt und der Aufrufer erhält eine Fehlerantwort (siehe unten).
 
 #### Erfolgreiche Antwort
 Wenn der Benutzer die Token-Anforderung akzeptiert hat, erhält der Aufrufer die folgende Antwort:

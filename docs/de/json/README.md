@@ -33,12 +33,14 @@ Die meisten Nachrichten, die du sendest, lösen eine Antwort des folgenden Forma
 {
   "command" : "YourCommand",
   "info":{ ...DATA... },
+  "instance": 0,
   "success" : true,
   "tan" : 1
 }
 ```
 - **command**: Der angeforderte Befehl.
 - **tan**: Die von dir angegebene tan (Wenn nicht, wird sie in der Antwort standardmäßig auf 0 gesetzt).
+- **instance**: Instanz, welche das Update gesendet hat
 - **success**: true oder false. Wenn es falsch ist, enthält ein **Fehler**-Argument Details zu dem Problem.
 - **info**: Die von dir angeforderten Daten (falls vorhanden).
 
@@ -77,8 +79,8 @@ Bitte beachtet, dass dem HTTP-JSON-RPC aufgrund von technischen Einschränkungen
 Eine Vielzahl von Daten ist vom Server verfügbar: [Server Info](/de/json/ServerInfo.md)
 ### Steuerung
 Steuer deinen Hyperion Server: [Steuerung](/de/json/Control.md)
-### Autorisierung
-Autorisierungsmechanismen: [Autorisierung](/de/json/Authorization.md)
+### Authentifizierung
+Authentifizierungsmechanismen: [Authentifizierung](/de/json/Authentication.md)
 ### Abonnieren
 Daten-Abonnements: [Abonnieren](/de/json/Subscribe.md)
 

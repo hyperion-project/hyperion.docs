@@ -10,14 +10,14 @@ Die Eigenschaft `tan` wird in diesen Aufrufen unterstützt, aber aus Gründen de
 ## Abschnitte
 
 ### Farbe einstellen
-Stellt eine Farbe für alle Leds ein oder gibt ein Muster von LED-Farben vor.
+Stellt eine Farbe für alle LEDs ein oder gibt ein Muster von LED-Farben vor.
 
-| Eigenschaft |  Typ   | Erforderlich |                                                     Anmerkung                                                      |
-| :------: | :-----: | :------: | :--------------------------------------------------------------------------------------------------------------: |
-|  color   |  Array  |   true   |                                 Ein Array von R G B Integer-Werten z. B. `[R,G,B]`                                  |
-| duration | Integer |  false   |                  Dauer der Farbe in ms. Wenn du keine Dauer angibst, ist sie `0` -> unendlich.                |
-| priority | Integer |   true   | Wir empfehlen `50`, entsprechend den [Priority Guidelines](/de/api/guidelines#priority_guidelines). Min `2` Max `99` |
-|  origin  | String  |   true   |              Ein kurzer Name deiner Anwendung, z. B. `Hyperion of App`. Maximale Länge ist `20`, minimale `4`.              |
+| Eigenschaft |  Typ    | Erforderlich | Anmerkung                                                                                                            |
+| :---------- | :-----: | :----------: | :------------------------------------------------------------------------------------------------------------------- |
+| color       | Array   | Ja           | Ein Array von R G B Integer-Werten z. B. `[R,G,B]`                                                                   |
+| duration    | Integer | Nein         | Dauer der Farbe in ms. Wenn du keine Dauer angibst, ist sie `0` -> unendlich.                                        |
+| priority    | Integer | Ja           | Wir empfehlen `50`, entsprechend den [Priority Guidelines](/de/api/guidelines#priority_guidelines). Min `2` Max `99` |
+| origin      | String  | Ja           | Ein kurzer Name deiner Anwendung, z. B. `Hyperion of App`. Maximale Länge ist `20`, minimale `4`.                    |
 
 ```json
 // Beispiel: Einstellen einer blauen Farbe mit unbegrenzter Dauer auf Priorität 50 
@@ -37,10 +37,11 @@ Stellt eine Farbe für alle Leds ein oder gibt ein Muster von LED-Farben vor.
 }
 
 // Beispiel: Gebe ein Farbmuster vor, das so lange wiederholt wird, bis alle LEDs eine Farbe haben
+// Eine LED hat 3 Werte (Rot,Grün,Blau) mit einem Bereich von 0-255
 // In diesem Fall LED 1: Rot, LED 2: Rot, LED 3: Blau.
 {
   "command":"color",
-  "color":[255,0,0,255,0,0,0,0,255], // eine LED hat 3 Werte (Rot,Grün,Blau) mit einem Bereich von 0-255
+  "color":[255,0,0,255,0,0,0,0,255],
   "duration":12000,
   "priority":20,
   "origin":"My Fancy App"
@@ -50,12 +51,12 @@ Stellt eine Farbe für alle Leds ein oder gibt ein Muster von LED-Farben vor.
 ### Effekt auswählen
 Startet einen Effekt mittels Namen. Die verfügbaren Namen findet man in der [serverinfo effect list](/de/json/ServerInfo.md#effect-list).
 
-| Eigenschaft |  Typ   | Erforderlich |                                                     Bemerkung                                                      |
-| :------: | :-----: | :------: | :--------------------------------------------------------------------------------------------------------------: |
-|  effect  | Object  |   true   |                          Objekt mit zusätzlichen Eigenschaften. z. B. `"name":"EffectName"`.                          |
-| duration | Integer |  false   |                  Dauer der Effekte in ms. Wenn du keine Dauer angibst, ist es `0` -> unendlich.               |
-| priority | Integer |   true   | Wir empfehlen `50`, entsprechend den [Priority Guidelines](/de/api/guidelines#priority_guidelines). Min. `2` Max. `99` |
-|  origin  | String  |   true   |              Ein kurzer Name deiner Anwendung wie `Hyperion Programm`. Maximale Länge ist `20`, min. `4`.              |
+| Eigenschaft | Typ     | Erforderlich | Bemerkung                                                                                                              |
+| :---------- | :-----: | :----------: | :--------------------------------------------------------------------------------------------------------------------- |
+| effect      | Object  | Ja           | Objekt mit zusätzlichen Eigenschaften. z. B. `"name":"EffectName"`.                                                    |
+| duration    | Integer | Nein         | Dauer der Effekte in ms. Wenn du keine Dauer angibst, ist es `0` -> unendlich.                                         |
+| priority    | Integer | Ja           | Wir empfehlen `50`, entsprechend den [Priority Guidelines](/de/api/guidelines#priority_guidelines). Min. `2` Max. `99` |
+| origin      | String  | Ja           | Ein kurzer Name deiner Anwendung wie `Hyperion Programm`. Maximale Länge ist `20`, min. `4`.                           |
 
 ```json
 // Beispiel: Auswählen des Effekts 'Warm mood blobs' mit unbegrenzter Dauer
@@ -90,26 +91,27 @@ Startet einen Effekt mittels Namen. Die verfügbaren Namen findet man in der [se
   },
   "duration":5000,
   "priority":50,
-  "origin":"My Fancy App"}
+  "origin":"My Fancy App"
+}
 ```
 
 ### Bild einsetzen
 Setzt ein einzelnes Bild. Unterstützt alle [Qt5](https://doc.qt.io/qt-5/qimagereader.html#supportedImageFormats) Bildformate, einschließlich png/jpg/gif.
 
-| Eigenschaft  |  Typ   | Erforderlich |                                                     Bemerkung                                                      |
-| :-------: | :-----: | :------: | :--------------------------------------------------------------------------------------------------------------: |
-| imagedata | String  |   true   |                         Angaben des Bildes als [Base64](https://en.wikipedia.org/wiki/Base64).                          |
-|  format   | String  |   true   |                         Setze diese Option auf "Auto", damit Hyperion das Bild je nach Dateityp parst.                          |
-|   name    | String  |   true   |                                              Der Name des Bildes.                                               |
-| duration  | Integer |  false   |                  Anzeigendauer des Bildes in ms. Wenn du keine Dauer angibst, ist es `0` -> endlos.                   |
-| priority  | Integer |   true   | Wir empfehlen `50`, entsprechend den [Priority Guidelines](/de/api/guidelines#priority_guidelines). Min. `2` Max. `99` |
-|  origin   | String  |   true   |              Ein kurzer Name deiner Anwendung wie `Hyperion Programm`. Maximale Länge ist `20`, min. `4`.              |
+| Eigenschaft | Typ     | Erforderlich | Bemerkung                                                                                                             |
+| :---------- | :-----: | :----------: | :-------------------------------------------------------------------------------------------------------------------- |
+| imagedata   | String  | Ja           | Angaben des Bildes als [Base64](https://en.wikipedia.org/wiki/Base64).                                                |
+| format      | String  | Ja           | Setze diese Option auf "Auto", damit Hyperion das Bild je nach Dateityp parsed.                                        |
+| name        | String  | Ja           | Der Name des Bildes.                                                                                                  |
+| duration    | Integer | Nein         | Anzeigendauer des Bildes in ms. Wenn du keine Dauer angibst, ist es `0` -> endlos.                                    |
+| priority    | Integer | Ja           | Wir empfehlen `50`, entsprechend den [Priority Guidelines](/de/api/guidelines#priority_guidelines). Min. `2` Max. `99`|
+| origin      | String  | Ja           | Ein kurzer Name deiner Anwendung wie `Hyperion Programm`. Maximale Länge ist `20`, min. `4`.                          |
 
 ```json
 // Ein Bild für 5 Sekunden einstellen
 {
   "command":"image",
-  "imagedata":"VGhpcyBpcyBubyBpbWFnZSEgOik=", // als base64!
+  "imagedata":"VGhpcyBpcyBubyBpbWFnZSEgOik=",
   "name":"Name of Image",
   "format":"auto",
   "priority":50,
@@ -125,12 +127,12 @@ effect](#set-effect) oder [set image](#set-image).
 // Effekt/Farbe/Bild löschen mit Priorität 50
 {
   "command":"clear",
-  "priority":50,
+  "priority":50
 }
 // Alle Effekte/Farben/Bilder löschen
 {
   "command":"clear",
-  "priority":-1,
+  "priority":-1
 }
 ```
 ::: warning
@@ -141,23 +143,23 @@ Stattdessen empfehlen wir, dass Benutzer eine Liste möglicher Löschziele auf d
 ### Anpassungen
 Anpassungen spiegeln die Farbkalibrierung wider. Man kann alle Eigenschaften von [serverinfo adjustments](/de/json/serverinfo#adjustments) ändern.
 
-|        Eigenschaft        |      Typ      | Erforderlich |                                            Bemerkung                                             |
-| :--------------------: | :------------: | :------: | :--------------------------------------------------------------------------------------------: |
-|          red           |     Array      |  false   |                        Ein Array von R G B Integer-Werten z. B. `[R,G,B]`                         |
-|         green          |     Array      |  false   |                        Ein Array von R G B Integer-Werten z. B. `[R,G,B]`                         |
-|          blue          |     Array      |  false   |                        Ein Array von R G B Integer-Werten z. B. `[R,G,B]`                         |
-|          cyan          |     Array      |  false   |                        Ein Array von R G B Integer-Werten z. B. `[R,G,B]`                         |
-|        magenta         |     Array      |  false   |                        Ein Array von R G B Integer-Werten z. B. `[R,G,B]`                         |
-|         yellow         |     Array      |  false   |                        Ein Array von R G B Integer-Werten z. B. `[R,G,B]`                         |
-|         white          |     Array      |  false   |                        Ein Array von R G B Integer-Werten z. B. `[R,G,B]`                         |
-|        gammaRed        | Number (float) |  false   |                           Minimum:`0.1` Maximum `5.0` In `0.1` Schritten                             |
-|       gammaGreen       | Number (float) |  false   |                           Minimum:`0.1` Maximum `5.0` In `0.1` Schritten                             |
-|       gammaBlue        | Number (float) |  false   |                           Minimum:`0.1` Maximum `5.0` In `0.1` Schritten                             |
-|       brightness       |    Integer     |  false   |                             Minimum: `0` Maximum `100` In `0.1` Schritten                              |
-| brightnessCompensation |    Integer     |  false   |                             Minimum: `0` Maximum `100` In `0.1` Schritten                              |
-|   backlightThreshold   |    Integer     |  false   | Minimum: `0` maximal `100`. Schritt von `1`. (Minimale Helligkeit!) Deaktiviert für Effekt/Farbe/Bild |
-|    backlightColored    |    Boolean     |  false   |    Bei `true` ist die Hintergrundbeleuchtung farbig, bei `false` ist sie weiß. Deaktiviert für Effekt/Farbe/Bild     |
-|           id           |     String     |  false   |                                        Kurze Bezeichnung                                        |
+| Eigenschaft            |      Typ       | Erforderlich | Bemerkung                                                                                                        |
+| :--------------------- | :------------: | :----------: | :--------------------------------------------------------------------------------------------------------------- |
+|          red           |     Array      |  Nein        |                        Ein Array von R G B Integer-Werten z. B. `[R,G,B]`                                        |
+|         green          |     Array      |  Nein        |                        Ein Array von R G B Integer-Werten z. B. `[R,G,B]`                                        |
+|          blue          |     Array      |  Nein        |                        Ein Array von R G B Integer-Werten z. B. `[R,G,B]`                                        |
+|          cyan          |     Array      |  Nein        |                        Ein Array von R G B Integer-Werten z. B. `[R,G,B]`                                        |
+|        magenta         |     Array      |  Nein        |                        Ein Array von R G B Integer-Werten z. B. `[R,G,B]`                                        |
+|         yellow         |     Array      |  Nein        |                        Ein Array von R G B Integer-Werten z. B. `[R,G,B]`                                        |
+|         white          |     Array      |  Nein        |                        Ein Array von R G B Integer-Werten z. B. `[R,G,B]`                                        |
+|        gammaRed        | Number (float) |  Nein        |                           Minimum:`0.1` Maximum `5.0` In `0.1` Schritten                                         |
+|       gammaGreen       | Number (float) |  Nein        |                           Minimum:`0.1` Maximum `5.0` In `0.1` Schritten                                         |
+|       gammaBlue        | Number (float) |  Nein        |                           Minimum:`0.1` Maximum `5.0` In `0.1` Schritten                                         |
+|       brightness       |    Integer     |  Nein        |                             Minimum: `0` Maximum `100` In `0.1` Schritten                                        |
+| brightnessCompensation |    Integer     |  Nein        |                             Minimum: `0` Maximum `100` In `0.1` Schritten                                        |
+|   backlightThreshold   |    Integer     |  Nein        | Minimum: `0` maximal `100`. Schritt von `1`. (Minimale Helligkeit!) Deaktiviert für Effekt/Farbe/Bild            |
+|    backlightColored    |    Boolean     |  Nein        |    Bei `true` ist die Hintergrundbeleuchtung farbig, bei `false` ist sie weiß. Deaktiviert für Effekt/Farbe/Bild |
+|           id           |     String     |  Nein        |                                        Kurze Bezeichnung                                                         |
 
 ```json
 // Beispiel: GammaRot auf 1,5 setzen
@@ -181,7 +183,7 @@ Anpassungen spiegeln die Farbkalibrierung wider. Man kann alle Eigenschaften von
     "backlightColored":true
   }
 }
-// Beispiel: Senden Sie die 3 obigen Beispiele auf einmal
+// Beispiel: Sende die 3 obigen Beispiele auf einmal
 {
   "command":"adjustment",
   "adjustment":{
@@ -193,7 +195,16 @@ Anpassungen spiegeln die Farbkalibrierung wider. Man kann alle Eigenschaften von
 ```
 
 ### LED-Mapping
-Schaltet das Bild in den LED-Mapping-Modus. Mögliche Werte sind `unicolor_mean` (LED-Farbe basierend auf der gesamten Bildfarbe) und `multicolor_mean` (LED-Farben basierend auf der LED-Anordnung)
+Wechselt den LED-Mapping-Modus für das eingehende Bild.
+
+| mappingType Wert          | Beschreibung                                           |
+| :------------------------ | :----------------------------------------------------- |
+| multicolor_mean           | Durchschnittsfarbe einfach - pro LED                   |
+| unicolor_mean             | Durchschnittsfarbe Gesamtbild - auf alle LED angewandt |
+| multicolor_mean_squared   | Durchschnittsfarbe zum Quadrat - pro LED               |
+| dominant_color            | Dominant Color- per LED                                |
+| dominant_color_advanced   | Dominante Farbe fortgeschritten - pro LED              |
+
 ```json
 // Beispiel: Mapping-Modus auf multicolor_mean setzen
 {
@@ -252,21 +263,22 @@ Hyperion selbst muss aktiviert sein! Prüfe den Status von "ALL" in der Komponen
 Jede Komponente hat eine eindeutige ID. Nicht alle von ihnen können aktiviert/deaktiviert werden - einige von ihnen
 wie Effekt und Farbe, werden verwendet, um den Quellentyp zu bestimmen, wenn die [Prioritätsliste](/de/json/ServerInfo.html#Prioritäten) untersucht wird.
 
-|  ComponentID   |      Component       | Enable/Disable |                                    Comment                                    |
-| :------------: | :------------------: | :------------: | :---------------------------------------------------------------------------: |
-|   SMOOTHING    |      Smoothing       |      Yes       |                              Glättungs-Komponente                              |
-|  BLACKBORDER   | Blackborder detector |      Yes       |                         Komponente zur Erkennung von schwarzen Balken                         |
-|   FORWARDER    | Json/Proto forwarder |      Yes       |                        Json/Proto-Forwarder-Komponente                         |
-| BOBLIGHTSERVER |   Boblight server    |      Yes       |                           Boblight-Server-Komponente                           |
-|    GRABBER     |   Platform capture   |      Yes       |                          Plattform Erfassungskomponente                           |
-|      V4L       |  V4L capture device  |      Yes       |                         USB-Aufnahmegerät-Komponente                          |
-|   LEDDEVICE    |      Led device      |      Yes       |     Led-Gerätekomponente startet/stoppt die Ausgabe des konfigurierten Led-Geräts      |
+|  ComponentID   |      Component       | Enable/Disable | Beschreibung                                                                                                    |
+| :------------- | :------------------: | :------------: | :-------------------------------------------------------------------------------------------------------------- |
+|   SMOOTHING    |      Smoothing       |      Yes       | Glättungs-Komponente                                                                                            |
+|  BLACKBORDER   | Blackborder detector |      Yes       | Komponente zur Erkennung von schwarzen Balken                                                                   |
+|   FORWARDER    | JSON/Proto forwarder |      Yes       | JSON/Proto-Forwarder-Komponente                                                                                 |
+| BOBLIGHTSERVER |   Boblight server    |      Yes       | Boblight-Server-Komponente                                                                                      |
+|    GRABBER     |   Screen capture     |      Yes       | Bildschirm Erfassungskomponente                                                                                 |
+|      V4L       |  V4L capture device  |      Yes       | USB-Aufnahmegerät-Komponente                                                                                    |
+|    AUDIO       |   Audio capture      |      Yes       | Audio Erfassungskomponente                                                                                      |
+|   LEDDEVICE    |      LED device      |      Yes       | LED-Gerätekomponente startet/stoppt die Ausgabe des konfigurierten LED-Geräts                                   |
 |      ALL       |  SPECIAL: Hyperion   |      Yes       | Aktivieren oder deaktiviere Hyperion. Wiederherstellen/Speichern des letzten Zustands aller anderen Komponenten |
-|     COLOR      |     Solid color      |       No       |            Alle Farben, die eingestellt wurden, gehören zu dieser Komponente             |
-|     EFFECT     |        Effect        |       No       |                     Alle Effekte gehören zu dieser Komponente                     |
-|     IMAGE      |     Solid Image      |       No       |          Dazu gehören alle Einzel-/Festbilder. NICHT für Streaming           |
-| FLATBUFSERVER  |  Flatbuffers Server  |       No       |                Alle Bildstream-Quellen vom Flatbuffer-Server                |
-|  PROTOSERVER   |  Protobuffer Server  |       No       |               Alle Bild-Stream-Quellen vom Protobuffer-Server                |
+|     COLOR      |     Solid color      |       No       | Alle Farben, die eingestellt wurden, gehören zu dieser Komponente                                               |
+|     EFFECT     |        Effect        |       No       | Alle Effekte gehören zu dieser Komponente                                                                       |
+|     IMAGE      |     Solid Image      |       No       | Dazu gehören alle Einzel-/Festbilder. NICHT für Streaming                                                       |
+| FLATBUFSERVER  |  Flatbuffers Server  |       No       | Alle Bildstream-Quellen vom Flatbuffer-Server                                                                   |
+|  PROTOSERVER   |  Protobuffer Server  |       No       | Alle Bild-Stream-Quellen vom Protobuffer-Server                                                                 |
 
 
 ### Auswahl der Quelle
@@ -321,7 +333,7 @@ Bei der Verbindung mit der API wird standardmäßig eine Verbindung zur Instanz 
 Man kann nur eine Instanz gleichzeitig innerhalb einer einzigen Verbindung steuern,
 und [Abonnements](/de/json/subscribe#instance-updates) sind im Kontext der ausgewählten Instanz.
 
-It's possible to switch to another instance with the following command:
+Mit dem folgenden Befehl kann zu einer anderen Instanz gewechselt werden:
 
 ```json
 // Zur Instanz 1 wechseln
@@ -362,16 +374,16 @@ Diese Funktion ist für HTTP/S JSON-RPC nicht verfügbar.
 :::
 
 
-### Led-Farb-Live-Stream
-Mit dieser Funktion kann ein Live-Led-Farbstream mit aktuellen Farbwerten in RGB
- für jede einzelne Led angefordert werden. Die Aktualisierungsrate beträgt 125ms.
+### LED-Farb-Live-Stream
+Mit dieser Funktion kann ein Live-LED-Farbstream mit aktuellen Farbwerten in RGB
+ für jede einzelne LED angefordert werden. Die Aktualisierungsrate beträgt 125ms.
 ```json
 {
   "command":"ledcolors",
   "subcommand":"ledstream-start"
 }
 ```
-Du erhältst "ledcolors-ledstream-update"-Meldungen mit einem Array aller led-Farben.
+Du erhältst "ledcolors-ledstream-update"-Meldungen mit einem Array aller LED-Farben.
 Stoppe den Stream durch Senden:
 ```json
 {
@@ -382,3 +394,34 @@ Stoppe den Stream durch Senden:
 ::: danger HTTP/S
 Diese Funktion ist für HTTP/S JSON-RPC nicht verfügbar.
 :::
+
+### Hyperion steuern
+Steuere das Hyperion System als Ganzes mit den folgenden subCommand Befehlen:
+
+| subcommand    | Beschreibung |
+| :------------ | :----------------------------------------------------------------------------------------- |
+| suspend       | Ruhezustand für alle Komponenten und Instanzen                                             |
+| resume        | Beenden des Ruhezustands, fortsetzen der Verarbeitung                                                                |
+| toggleSuspend | Umschalten zwischen Suspend und Resume                                                     |
+| idle          | Ruhezustand, aber LEDs anlassen und einen Hintergrund-Effekt ausführen, falls konfiguriert |
+| toggleIdle    | Umschalten zwischen Idle und Fortsetzen                                                    |
+| restart       | Hyperion neu starten                                                                       |
+
+```json
+// Beispiel : Hyperion in den Ruhezustand setzen
+{
+  "Befehl" : "System",
+  "subcommand" : "suspend"
+}
+
+// Beispiel:  Wiederaufnahme der Verarbeitung	
+{
+  "befehl" : "system",
+  "subcommand" : "resume"
+}
+
+// Beispiel: Umschalten zwischen Suspend und Resume
+{
+  "befehl" : "system",
+  "subcommand" : "toggleSuspend"
+}

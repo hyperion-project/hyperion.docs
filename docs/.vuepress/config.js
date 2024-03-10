@@ -246,6 +246,7 @@ function getUserSidebar (groupA, groupB, Language) {
                   'leddevices/network/fadecandy',
                   'leddevices/network/nanoleaf',
                   'leddevices/network/philipshue',
+                  'leddevices/network/razer',
                   'leddevices/network/tinkerforge',
                   'leddevices/network/tpm2net',
                   'leddevices/network/udpartnet',
@@ -273,7 +274,9 @@ function getUserSidebar (groupA, groupB, Language) {
         collapsable: false,
         children: [
           'advanced/Advanced',
+          'advanced/CLI',          
           'advanced/Support',
+          'advanced/Testing',
         ]
       }
     ]
@@ -334,6 +337,7 @@ function getUserSidebar (groupA, groupB, Language) {
                   'leddevices/network/fadecandy',
                   'leddevices/network/nanoleaf',
                   'leddevices/network/philipshue',
+                  'leddevices/network/razer',
                   'leddevices/network/tinkerforge',
                   'leddevices/network/tpm2net',
                   'leddevices/network/udpartnet',
@@ -361,7 +365,9 @@ function getUserSidebar (groupA, groupB, Language) {
         collapsable: false,
         children: [
           'advanced/Advanced',
+          'advanced/CLI',            
           'advanced/Support',
+          'advanced/Testing',
         ]
       }
     ]
@@ -396,7 +402,7 @@ function getJsonSidebar (groupA, groupB) {
       '',
       'ServerInfo',
       'Control',
-      'Authorization',
+      'Authentication',
       'Subscribe',
     ]
   },

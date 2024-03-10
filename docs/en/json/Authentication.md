@@ -1,6 +1,6 @@
-## Authorization
-Hyperion has an authorization system allowing users to login via password, and
-applications to login with tokens. The user can configure how strong or weak the Hyperion API
+## Authentication
+Hyperion has an authentication system allowing users to login via password, and
+applications to authenticate via tokens. The user can configure how strong or weak the Hyperion API
 should be protected from the `Configuration` -> `Network Services` panel on the Web UI.
 
 [[toc]]
@@ -11,9 +11,9 @@ the UI on the `Configuration` -> `Network Services` panel (the panel appears whe
 Authentication` options is checked). Your application can also [request a
 token](#request-a-token) via the API.
 
-### Authorization Check
+### Authentication Check
 
-Callers can check whether authorization is required to work with the API, by sending:
+Callers can check whether authentication is required to work with the API, by sending:
 ```json
 {
     "command" : "authorize",

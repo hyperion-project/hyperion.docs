@@ -25,13 +25,15 @@ Um alle verfügbaren Updates zu abonnieren, ändere den Befehl severinfo in:
 }
 ```
 ### Basis-Antwort-Layout
-Alle gepushten Abonnement-Updates haben ein `-update`-Suffix, das dem entsprechenden Schlüssel aus dem [betreffenden Serverinfo-Teil](/de/json/ServerInfo.html#parts) hinzugefügt wird. Die neuen Daten werden in der Eigenschaft `data` stehen. Es ist weder ein `tan`- noch ein `success`-Argument vorgesehen.
+Alle gepushten Abonnement-Updates haben ein `-update`-Suffix, das dem entsprechenden Schlüssel aus dem [betreffenden Serverinfo-Teil](/de/json/ServerInfo.html#parts) hinzugefügt wird.
+Die neuen Daten werden in der Eigenschaft `data` stehen. Es ist weder ein `tan`- noch ein `success`-Argument vorgesehen.
 ```json
 {
     "command":"XYZ-update",
     "data":{
         ..Data here..
-    }
+    },
+    "instance": ..Instanz, welche das Update gesendet hat...
 }
 ```
 ### Komponenten-Updates
@@ -53,44 +55,8 @@ Danach erhält der Aufrufer inkrementelle Updates. Ein Beispiel:
     "data":{
         "enabled":false,
         "name":"SMOOTHING"
-    }
-}
-```
-
-### Sitzungsaktualisierungen
-Der Aufrufer kann Sitzungsaktualisierungen abonnieren (Hyperion-Instanzen, die mit Bonjour/Zeroconf/Ahavi gefunden werden). Diese Aktualisierungen sind dazu gedacht, den Abschnitt `sessions` der ursprünglichen Serverinfo des Aufrufers zu aktualisieren. Relevanter `serverinfo`-Abonnement-Befehl:
-```json
-{
-    "command":"serverinfo",
-    "subscribe":[
-        "sessions-update"
-    ],
-    "tan":1
-}
-```
-Diese Aktualisierungen sind nicht inkrementell -- sie enthalten alle gefundenen Einträge bei jeder Aktualisierung.
-Beispielantwort mit 2 HTTP-Server-Sitzungen (`_hyperiond-http._tcp`):
-```json
-{
-    "command":"sessions-update",
-    "data":[
-        {
-            "address":"192.168.58.169",
-            "domain":"local.",
-            "host":"ubuntu-2",
-            "name":"My Hyperion Config@ubuntu:8090",
-            "port":8090,
-            "type":"_hyperiond-http._tcp."
-        },
-        {
-            "address":"192.168.58.169",
-            "domain":"local.",
-            "host":"ubuntu-2",
-            "name":"My Hyperion Config@ubuntu:8099",
-            "port":8099,
-            "type":"_hyperiond-http._tcp."
-        }
-   ]
+    },
+    "instance": 0
 }
 ```
 ### Prioritäts-Updates
@@ -138,7 +104,8 @@ Der Aufrufer erhält die kompletten Daten. Bitte beachte, dass wenn eine Farbe o
       }
     ],
     "priorities_autoselect":false
-  }
+  },
+  "instance": 0
 }
 ```
 ### Aktualisierungen des LED-Mappings
@@ -155,7 +122,8 @@ Ein Beispiel-Update:
     "command":"imageToLedMapping-update",
     "data":{
         "imageToLedMappingType":"multicolor_mean"
-    }
+    },
+    "instance": 0
 }
 ```
 ### Abgleich-Updates
@@ -175,9 +143,9 @@ Ein Beispiel-Update:
     "data":[{
       "backlightColored":true,
       "backlightThreshold":0,
-      "black":[0,0,0],
       "blue":[0,0,255],
-      "brightness":1,
+      "brightness": 100,
+      "brightnessCompensation": 100,
       "cyan":[0,127,127],
       "gammaBlue":1.4,
       "gammaGreen":1.4,
@@ -188,7 +156,8 @@ Ein Beispiel-Update:
       "red":[255,0,0],
       "white":[255,255,255],
       "yellow":[255,255,0]
-    }]
+    }],
+    "instance": 0
 }
 ```
 ### VideoMode-Aktualisierungen
@@ -207,7 +176,8 @@ Ein Beispiel-Update:
   "command":"videomode-update",
   "data":{
     "videomode": "2D"
-  }
+  },
+  "instance": 0
 }
 ```
 ### Aktualisierungen der Effekte
@@ -226,7 +196,8 @@ Ein Beispiel-Update:
   "command":"effects-update",
   "data":{
     "effects": [ ..All effects here..]
-  }
+  },
+  "instance": 0
 }
 ```
 
@@ -256,11 +227,13 @@ Ein Beispiel-Update. Dies ist nicht inkrementell - der Aufrufer erhält den voll
       "running" : false,
       "friendly_name" : "PhilipsHue LED Hardware instance"
     }
-  ]
+  ],
+  "instance": 0
 }
 ```
-### LED-Updates
-Der Aufrufer kann leds-Updates abonnieren. Diese Aktualisierungen sind dazu gedacht, den Abschnitt `leds` in der ursprünglichen `serverinfo` des Aufrufers zu aktualisieren. Relevanter `serverinfo`-Abonnement-Befehl:
+### LED Layout Updates
+Der Aufrufer kann Updates zur LED Layout Konfiguration abonnieren. Diese Aktualisierungen sind dazu gedacht, den Abschnitt `leds` in der ursprünglichen `serverinfo` des Aufrufers zu aktualisieren.
+Relevanter `serverinfo`-Abonnement-Befehl:
 ```json
 {
   "command":"serverinfo",
@@ -282,6 +255,7 @@ Ein Beispiel-Update. Dies ist nicht inkrementell - der Aufrufer wird den vollst�
        },
        ... more leds ...
       ]
-    }
-  }
+    },
+  "instance": 0
+}
 ```
