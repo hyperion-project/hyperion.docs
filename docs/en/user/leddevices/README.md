@@ -26,7 +26,7 @@ To display additional configuration items, change the [settings-level](/en/user/
 ### General Settings
 General settings you will find at every LED device type.
 
-##### Hardware LED Count
+#### Hardware LED Count
 The number of physical LEDs the device allows to be addressed.
 
 ::: details In case the Hardware LED Count is disabled
@@ -35,20 +35,20 @@ For some devices the input element is disabled as the number of LEDs is resolved
 Failing to get a device's properties result in an error message provided to you. Check the configuration done or refresh the page.
 :::
 
-#### Advanced/Expert Settings
+### Advanced/Expert Settings
 
-##### RGB Byte Order
+#### RGB Byte Order
 The RGB byte order is configurable per LED device type. If you want to check or modify this value, use the "RGB Byte Order wizard" (Magic Wand).
 
-##### Autostart
+#### Autostart
 An LED device is started when Hyperion is brought up per default.
 In case autostart is disabled, the device is to be switched on later manually or via API.
 
-##### Connection attempts
+#### Connection attempts
 Each LED device provides a retry to open capability.
 If the number of connection attempts is exceeded the LED device will get in error state.
 
-##### Retry interval
+#### Retry interval
 The number of seconds to be passed until the next retry attempt for connection is done.
 
 ### Specific Settings
@@ -57,12 +57,12 @@ Some settings are common across the different device categories.
 
 ### Actions
 
-##### Save settings
+#### Save settings
 Allows to save the settings if the configuration is valid.
 In case you have not configured an [LED-Layout](/en/user/advanced/Advanced.html#led-layout) yet, you have the option creating a default one and refine it later.
 If the LEDs configured by the layout exceed the number of the hardware LED count, check and refine the configuration or the layout.
 
-##### Identify
+#### Identify
 For some LED device types you can test the technical settings before saving or let the LEDs of the device light up for identification.
 
 The button "Identify" is only activated, if the current configuration is valid.

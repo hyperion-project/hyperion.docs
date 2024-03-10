@@ -23,11 +23,11 @@ Standardmäßig werden nicht alle Konfigurationselemente angzeigt, um eine schne
 Um zusätzliche Konfigurationselemente anzuzeigen, ändere die [Einstellungsstufe](/de/user/Konfiguration.html#einstellungsstufen).
 :::
 
-## Allgemeine Einstellungen
+### Allgemeine Einstellungen
 
 Allgemeine Einstellungen findest Du bei jedem LED-Gerätetyp.
 
-##### Anzahl Hardware LEDs
+#### Anzahl Hardware LEDs
 Die Anzahl der physikalischen LEDs, die vom Gerät angesprochen werden können.
 
 ::: details Falls der Hardware LED Count deaktiviert ist
@@ -36,21 +36,21 @@ Bei einigen Geräten ist das Eingabeelement deaktiviert, da die Anzahl der LEDs 
 Wenn die Eigenschaften eines Geräts nicht abrufen weren können, erhäst Du eine Fehlermeldung. Überprüfe die vorgenommene Konfiguration oder aktualisiere die Seite.
 :::
 
-#### Erweiterte Einstellungen
+### Erweiterte Einstellungen
 
-##### RGB-Byte-Reihenfolge
+#### RGB-Byte-Reihenfolge
 
 Die RGB-Byte-Reihenfolge ist für jeden LED-Gerätetyp konfigurierbar. Wenn du diesen Wert überprüfen oder ändern möchtest, verwende den "RGB Byte Reihenfolge Assistenten" (Zauberstab).
 
-##### Autostart
+#### Autostart
 Ein LED-Gerät wird standardmäßig gestartet, wenn Hyperion gestartet wird.
 Falls der Autostart deaktiviert ist, muss das Gerät später manuell oder über die API eingeschaltet werden.
 
-##### Verbindungsversuche
+#### Verbindungsversuche
 Jedes LED-Gerät bietet die Möglichkeit, die Verbindung erneut zu öffnen.
 Wenn die Anzahl der Verbindungsversuche überschritten wird, geht das LED-Gerät in den Fehlerzustand über.
 
-##### Wiederholungsintervall
+#### Wiederholungsintervall
 Die Anzahl der Sekunden, die bis zur nächsten Wiederholung des Verbindungsversuchs vergehen sollen.
 
 ### Spezifische Einstellungen
@@ -59,13 +59,13 @@ Einige Einstellungen sind für die verschiedenen Gerätekategorien gleich.
 
 ### Aktionen
 
-##### Einstellungen Speichern
+#### Einstellungen Speichern
 Erlaubt das Speichern der Einstellungen, wenn die Konfiguration gültig ist.
 
 Falls noch kein [LED-Layout](/de/user/advanced/Advanced.html#led-layout) konfiguriert ist, hast Du die Möglichkeit, ein Standard-Layout zu erstellen und es später anzupassen.
 Wenn die Anzahl der im Layout konfigurierten LEDs die Anzahl der Hardware-LEDs übersteigt, überprüfe die Konfiguration oder das Layout und passe es an.
 
-##### Identifiziere
+#### Identifiziere
 Bei einigen LED-Gerätetypen kannst Du die technischen Einstellungen vor dem Speichern testen bzw. die LEDs der Gerätes zur Identifikation aufleuchten lassen.
 
 Die Schaltfläche "Identifiziere" ist nur dann aktiviert, wenn die aktuelle Konfiguration gültig ist.
