@@ -394,3 +394,34 @@ Stoppe den Stream durch Senden:
 ::: danger HTTP/S
 Diese Funktion ist für HTTP/S JSON-RPC nicht verfügbar.
 :::
+
+### Hyperion steuern
+Steuere das Hyperion System als Ganzes mit den folgenden subCommand Befehlen:
+
+| subcommand    | Beschreibung |
+| :------------ | :----------------------------------------------------------------------------------------- |
+| suspend       | Ruhezustand für alle Komponenten und Instanzen                                             |
+| resume        | Beenden des Ruhezustands, fortsetzen der Verarbeitung                                                                |
+| toggleSuspend | Umschalten zwischen Suspend und Resume                                                     |
+| idle          | Ruhezustand, aber LEDs anlassen und einen Hintergrund-Effekt ausführen, falls konfiguriert |
+| toggleIdle    | Umschalten zwischen Idle und Fortsetzen                                                    |
+| restart       | Hyperion neu starten                                                                       |
+
+```json
+// Beispiel : Hyperion in den Ruhezustand setzen
+{
+  "Befehl" : "System",
+  "subcommand" : "suspend"
+}
+
+// Beispiel:  Wiederaufnahme der Verarbeitung	
+{
+  "befehl" : "system",
+  "subcommand" : "resume"
+}
+
+// Beispiel: Umschalten zwischen Suspend und Resume
+{
+  "befehl" : "system",
+  "subcommand" : "toggleSuspend"
+}

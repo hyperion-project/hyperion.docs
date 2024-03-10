@@ -395,3 +395,36 @@ Stop the stream by sending:
 ::: danger HTTP/S
 This feature is not available for HTTP/S JSON-RPC
 :::
+
+### Control Hyperion
+Control the Hyperion system as a whole with the following subcommands;
+
+| subcommand    | Description                                                         |
+| :------------ | :------------------------------------------------------------------ |
+| suspend       | Suspend all components and instances                                |
+| resume        | Resume from suspend                                                 |
+| toggleSuspend | Toggle between suspend and resume                                   |
+| idle          | Suspend, but keep LED on and run a background effect, if configured |
+| toggleIdle    | Toggle between idle and resume                                      |
+| restart       | Restart Hyperion                                                    |
+
+```json
+// Command to suspend Hyperion
+{
+  "command" : "system",
+  "subcommand" : "suspend"
+}
+
+// Command to resume Hyperion from suspend
+{
+  "command" : "system",
+  "subcommand" : "resume"
+}
+
+// Command to toggle between suspend and resume
+{
+  "command" : "system",
+  "subcommand" : "toggleSuspend"
+}
+```
+
