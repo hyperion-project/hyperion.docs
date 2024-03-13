@@ -93,20 +93,45 @@ In case you run Hyperion as a service: [Change the service user to 'root'](/en/u
 On most systems the SPI (Serial Peripheral Interface) is not enabled per default and requires to be activated.
 ::: details Activate SPI
 
-**Raspberry Pi / Raspberry Pi OS**
+For non RPi-devices, please check your device's documentation.
+
+SPI activation for Raspberry Pi devices is dependend on the Operating System you run:
+
+* **Raspberry Pi OS**
 
 `sudo raspi-config nonint do_spi 0`
 
-**Raspberry Pi / LibreELEC**
+* **LibreELEC**
 
 Add `dtparam=spi=on`to config.txt per [LibreELEC Wiki instructions](https://wiki.libreelec.tv/configuration/config_txt)
+
+* **CoreELEC / OSMC**
+
+You can activate SPI via the Hardware tab under Settings
+
+* **Other**
+
+Please check the system documentation.
+
 :::
 
 In case you run more than 250 LEDs you need to increase the SPI buffer size
 
 ::: details Increase SPI Buffer
 
-Add `spidev.bufsize=1024000` to the cmdline.txt
+Add `spidev.bufsize=1024000` to the cmdline.txt.
+
+Configuration on Raspberry Pi devices is dependend on the Operating System you run:
+
+* **Raspberry Pi OS**
+
+Edit the cmdline.txt file in the boot partition located at `/boot/firmware/`.
+
+**Note**: Prior to the Bookworm version, it was located at `/boot/`. 
+
+* **LibreELEC**
+
+Edit the cmdline.txt file the same way as [config.txt](https://wiki.libreelec.tv/configuration/config_txt)
 :::
 
 ### USB/Serial
