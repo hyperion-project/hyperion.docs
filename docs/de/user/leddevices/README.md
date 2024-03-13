@@ -97,20 +97,50 @@ Falls Sie Hyperion als Dienst ausführen: [Ändern des Benutzers des Dienstes au
 Auf den meisten Systemen ist das SPI (Serial Peripheral Interface) standardmäßig nicht an und muss aktiviert werden.
 ::: details SPI aktivieren
 
-**Raspberry Pi / Raspberry Pi OS**
+Für Nicht-RPI-Geräte schau bitte in der Dokumentation deines Gerätes nach.
+
+Die SPI-Aktivierung für Raspberry Pi-Geräte hängt vom verwendeten Betriebssystem ab:
+
+* **Raspberry Pi OS**
 
 `sudo raspi-config nonint do_spi 0`
 
-**Raspberry Pi / LibreELEC**
+* **LibreELEC**
 
-Füge `dtparam=spi=on`gemäß [LibreELEC Wiki Anleitung](https://wiki.libreelec.tv/configuration/config_txt) zur config.txt hinzu.
+Füge `dtparam=spi=on` zur config.txt gemäß [LibreELEC Wiki Anleitung](https://wiki.libreelec.tv/configuration/config_txt) hinzu.
+
+* **CoreELEC / OSMC**
+
+SPI kann über Hardware unter Einstellungen aktiviert werden.
+
+* **Andere**
+
+Bitte konsultiere die Systemdokumentation.
+
 :::
 
 Wenn Du mehr als 250 LEDs betreiben willst, musst die SPI-Puffergröße erhöht werden
 
 ::: details SPI Puffer vergrößern
 
-Füge `spidev.bufsize=1024000` in die cmdline.txt ein
+Füge `spidev.bufsize=1024000` in die cmdline.txt ein.
+
+Die Konfiguration auf Raspberry Pi Geräten hängt vom verwendeten Betriebssystem ab:
+
+* **Raspberry Pi OS**
+
+Bearbeite die Datei cmdline.txt in der Boot-Partition unter `/boot/firmware/`.
+
+**Hinweis**: Vor der Bookworm-Version befand sich diese Datei unter `/boot/`. 
+
+* **LibreELEC**
+
+Editiere die Datei cmdline.txt auf die gleiche Weise wie die Datei [config.txt](https://wiki.libreelec.tv/configuration/config_txt).
+
+* **Andere**
+
+Bitte konsultiere die Systemdokumentation.
+
 :::
 
 ### USB/Seriell
