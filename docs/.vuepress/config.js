@@ -76,6 +76,7 @@ export default defineUserConfig ({
       description: 'Hyperion Ambient Light Dokumentation'
     }
   },
+  bundler: viteBundler(),
   theme: hyperionTheme({
     docsDir: 'docs',
     docsBranch: 'main',
@@ -132,7 +133,11 @@ export default defineUserConfig ({
       build: false
     }),
     registerComponentsPlugin({
-      componentsDir: path.resolve(__dirname, './components')
+      components: {
+        HyperionLogoDynamic: path.resolve(__dirname, "./components/HyperionLogoDynamic.vue"),
+        ImageWrap: path.resolve(__dirname, "./components/ImageWrap.vue"),
+        MainSection: path.resolve(__dirname, "./components/MainSection.vue")
+      }
     }),
     searchPlugin({
       locales: {
@@ -144,10 +149,5 @@ export default defineUserConfig ({
         }
       }
     })
-  ],
-  bundler: viteBundler({
-    viteOptions: {
-      base: '/hyperion.docs/'
-    }
-  })
+  ]
 })
