@@ -25,7 +25,6 @@
 </template>
 
 <script>
-  import { RouterLink } from 'vue-router';
   import AccountEditIcon from "vue-material-design-icons/AccountEdit.vue";
   import AutoFixIcon from "vue-material-design-icons/AutoFix.vue";
   import CodeJsonIcon from "vue-material-design-icons/CodeJson.vue";

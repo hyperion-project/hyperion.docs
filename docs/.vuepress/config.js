@@ -146,7 +146,8 @@ export default defineUserConfig ({
     })
   ],
   bundler: viteBundler({
-    viteOptions: {},
-    vuePluginOptions: {},
-  }),
+    viteOptions: {
+      base: '/hyperion.docs/'
+    }
+  })
 })
