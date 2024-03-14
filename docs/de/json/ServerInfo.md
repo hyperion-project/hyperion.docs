@@ -1,8 +1,6 @@
 # Server-Informationen
 Dies ist der primäre Lesemechanismus des Hyperion-Servers. Dieser einzelne Befehl liefert Daten über den Live-Zustand von Hyperion, aufgeschlüsselt in eine Reihe von verschiedenen Bestandteilen (unten beschrieben).
 
-[[toc]]
-
 Mit dem folgenden Befehl kann eine `serverinfo`-Antwort angefordert werden:
 ```json
 {

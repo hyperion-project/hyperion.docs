@@ -5,8 +5,6 @@ Man kann Hyperion steuern, indem man bestimmte JSON-Nachrichten sendet.
 Die Eigenschaft `tan` wird in diesen Aufrufen unterstützt, aber aus Gründen der Kürze weggelassen.
 :::
 
-[[toc]]
-
 ## Abschnitte
 
 ### Farbe einstellen

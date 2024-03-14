@@ -7,4 +7,4 @@ Ein Effekt hat 3 verschiedene Dateien.
 | :-------------------- | :------------------------------------ | :-----------------------------------------------------------------------------------------------------------------------------    |
 | neweffect.py          | [Python](https://www.python.org)      |                                Das Herzstück des Effekts                                                                          |
 | neweffect.json        | [JSON](http://www.json.org)           |           Enthält Optionen für die Python-Datei, die dafür sorgen, dass sie konfigurierbar ist.                                   |
-| neweffect.schema.json | [JSON Schema](http://json-schema.org) | Erzeugt die Bedienoberfläche für die Optionen und wird zur Überprüfung von Benutzereingaben verwendet. [Read more](/de/api/ui.md) |
+| neweffect.schema.json | [JSON Schema](http://json-schema.org) | Erzeugt die Bedienoberfläche für die Optionen und wird zur Überprüfung von Benutzereingaben verwendet. [Read more](/de/api/Ui.md) |

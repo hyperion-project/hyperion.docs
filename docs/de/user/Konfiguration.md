@@ -6,7 +6,7 @@ Mit deinem Webbrowser kannst du Hyperion über die Konfigurationsoberfläche (au
 **Beispiel:** `http://192.168.0.20:8090`
 
 ### Dashboard Seite
- \
+<br>
 <ImageWrap src="/images/de/user_config_dash.jpg" alt="WebUI - Dashboard" />
 
  **Navigationsleiste (rechts oben)**

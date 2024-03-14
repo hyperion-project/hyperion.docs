@@ -1,0 +1,110 @@
+// responsive breakpoints
+$MQLarge: 1200px !default;
+$MQIpad: 1023px !default;
+$MQNarrow: 959px !default;
+$MQMobile: 720px !default;
+$MQMobileNarrow: 420px !default;
+
+// base colors
+// TODO Refactor required
+$darkColor10: rgba(27, 35, 47, 1);
+$darkColor9: rgba(27, 35, 47, .9);
+$darkColor8: rgba(27, 35, 47, .8);
+$darkColor7: rgba(27, 35, 47, .7);
+$darkColor6: rgba(27, 35, 47, .6);
+$darkColor5: rgba(27, 35, 47, .5);
+$darkColor4: rgba(27, 35, 47, .4);
+$darkColor3: rgba(27, 35, 47, .3);
+$darkColor2: rgba(27, 35, 47, .2);
+$darkColor1: rgba(27, 35, 47, .1);
+
+$lightColor10: rgba(255, 255, 255, 1);
+$lightColor9: rgba(255, 255, 255, .9);
+$lightColor8: rgba(255, 255, 255, .8);
+$lightColor7: rgba(255, 255, 255, .7);
+$lightColor6: rgba(255, 255, 255, .6);
+$lightColor5: rgba(255, 255, 255, .5);
+$lightColor4: rgba(255, 255, 255, .4);
+$lightColor3: rgba(255, 255, 255, .3);
+$lightColor2: rgba(255, 255, 255, .2);
+$lightColor1: rgba(255, 255, 255, .1);
+
+// code languages
+$codeLang: 'c' 'cpp' 'cs' 'css' 'dart' 'docker' 'fs' 'go' 'html' 'java' 'js'
+  'json' 'kt' 'less' 'makefile' 'md' 'php' 'py' 'rb' 'rs' 'sass' 'scss' 'sh'
+  'styl' 'ts' 'toml' 'vue' 'yml' !default;
+
+// OLD theme primary colors
+// $accentColor = #2b819a
+// $accentColorDark = #83ccf5;
+// NEW theme primary colors
+$brandColor: #2b819a !default;
+$brandColorDark: #83ccf5 !default;
+
+// OLD background colors
+// $darkPrimaryBg = #1b2838;
+// $darkNavbarBg = #181a21;
+// $darkSecondaryBg = #313335;
+// NEW background colors
+$bgColor: #fff !default;
+$bgColorDark: #1b2838 !default;
+$bgColorLight: #f3f5f7 !default;
+$bgColorLightDark: hsla(0,0%,100%,.05) !default;
+$bgColorLighter: #f6f6f6 !default;
+$bgColorLighterDark: #132840 !default;
+$bgColorTransparent: rgba(255, 255, 255, .9) !default;
+$bgColorTransparentDark: rgba(27, 40, 56, .9) !default;
+$bgColorNavbar: $bgColorTransparent !default;
+$bgColorNavbarDark: #181a21 !default;
+$bgColorSidebar: $bgColor !default;
+$bgColorSidebarDark: $bgColorDark !default;
+$bgColorArrow: rgba(0, 0, 0, .9) !default;
+$bgColorArrowDark: #DFE0E1 !default;
+
+// OLD text colors
+// $darkTextColor = #DFE0E1;
+// $darkAltTextColor = #b9b9b9;
+// NEW text colors
+$textColor: rgba(0, 0, 0, .9) !default;
+$textColorDark: #DFE0E1 !default;
+$textColorSub: #7f7f7f !default;
+$textColorSubDark: #8b8b8b !default;
+
+// OLD border colors
+// $darkBorderColor = alpha(#fff, 0.2);
+// NEW border colors
+$borderColor: #eaeaea !default;
+$borderColorDark: rgba(255, 255, 255, 0.2) !default;
+$borderColorSub: #dadada !default;
+$borderColorSubDark: rgba(230, 230, 230, 0.2) !default;
+
+// OLD Container colors
+// $tipGreen = #479F00;
+// $warningYellow = #e18300;
+// $dangerRed = #cc0000;
+// NEW Container colors
+$infoColor: #007bff !default;
+$tipColor: #479F00 !default;
+$tipTitleColor: #479F00 !default;
+$warningColor: #e18300 !default;
+$warningTitleColor: #e18300 !default;
+$dangerColor: #cc0000 !default;
+$dangerTitleColor: #cc0000 !default;
+
+// Code colors
+$codeBgColor: #32607a !default;
+$codeHighlightBgColor: rgba(0, 0, 0, 66%) !default;
+$codeColor: rgba(27, 31, 35, 0.05) !default;
+$codeColorDark: #fff !default;
+$inlineCodeText: #c52950 !default;
+$inlineCodeTextDark: #f4c988 !default;
+$inlineCodeBg: #f9f2f4 !default;
+$inlineCodeBgDark: #32607a !default;
+
+// Shadow colors
+$boxShadow: 0 4px 8px 0 $darkColor1 !default;
+$boxShadowHover: 0 8px 16px 0 $darkColor2 !default;
+$boxShadowDark: 0 4px 8px 0 $darkColor6 !default;
+$boxShadowHoverDark: 0 8px 16px 0 $darkColor7 !default;
+$boxShadowInset: inset 2px 2px 4px #bab6b6, inset -1px -1px 4px $lightColor6 !default;
+$boxShadowInsetDark: inset 2px 2px 4px $darkColor9, inset -1px -1px 4px $lightColor2 !default;

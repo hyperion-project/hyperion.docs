@@ -2,8 +2,6 @@
 Während einer `serverinfo`-Anfrage kann der Aufrufer optional Updates abonnieren -- entweder für bestimmte [serverinfo parts](/de/json/ServerInfo.html#parts) oder für alle verfügbaren Daten.
 Diese Aktualisierungen werden immer dann gepusht, wenn eine serverseitige Datenänderung auftritt, ohne dass der Aufrufer eine Abfrage durchführen muss.
 
-[[toc]]
-
 Um bestimmte Updates zu abonnieren, kannst du den Befehl serverinfo dahingehend ändern:
 ```json
 {

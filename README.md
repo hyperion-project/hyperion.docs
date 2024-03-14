@@ -5,7 +5,7 @@ This repository contains the [Hyperion](https://github.com/hyperion-project/hype
 To edit or translate the documentation, it's not necessarily required to follow these steps (As we use Markdown). But if you want to check the results, please do so.
  - Install latest [Node.js LTS](https://nodejs.org/en/)
  - Open console
- - Install Yarn `npm install -g yarn` (If this does not work - logout/login)
+ - Install Yarn `npm install --global yarn` (If this does not work - logout/login)
  - Clone this repository and navigate into it
  - Do `yarn install`
  - Now you can start dev server with `yarn docs:dev`

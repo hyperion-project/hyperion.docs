@@ -1,0 +1,126 @@
+// variables
+@use "variables";
+
+// light/dark mode
+@use 'light';
+@use 'dark';
+
+// hyperion logo effects
+@use 'effects';
+
+// common styles
+:root {
+    scroll-behavior: smooth;
+}
+
+.site-name.can-hide {
+    display: none;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.sub-text {
+  color: rgb(94, 94, 94);
+  font-size: 90%;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.dark {
+  color: white;
+  .sub-text {
+    opacity: 0.8;
+    color: white;
+  }
+}
+
+.flex {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.flex-center {
+  justify-content: center;
+}
+
+.no-decoration {
+  text-decoration: none !important;
+}
+
+// Not found (404)
+.not-found {
+  display: flex;
+  justify-content: center;
+}
+
+// cards
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+  &:hover {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.4);
+  }
+}
+
+// .search-box
+// input, .suggestions
+//   background-color: $darkSecondaryBg;
+//   border-color: $darkBorderColor;
+
+// input
+//   color: $darkTextColor;
+//   &:focus
+//     border-color: alpha($accentColorDark, 0.75);
+// .suggestion
+//   &.focused
+//     background-color: $darkPrimaryBg;
+//     a
+//       color: $accentColorDark;
+//   a
+//     color: $darkAltTextColor;
+
+// plugin-search
+.search-box {
+  --search-accent-color: var(--c-brand);
+  --search-text-color: var(--c-text);
+  --search-item-text-color: var(--c-text-sub);
+  --search-item-focus-bg-color: var(--c-bg-lighter);
+  --search-border-color: var(--c-border);
+  --search-input-width: 13rem;
+  --search-result-width: 20rem;
+}
+
+// language dropdown
+.translate-dropdown {
+  display: flex;
+  margin: auto;
+  margin-left: 1rem;
+  border: 0;
+  background: none;
+  color: var(--c-text);
+  opacity: 0.8;
+  cursor: pointer;
+
+  @media print {
+    display: none;
+  }
+
+  &:hover {
+    opacity: 1;
+  }
+
+  .icon {
+    vertical-align: bottom;
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+}
+
+// plugin-medium-zoom
+.medium-zoom-overlay {
+  --medium-zoom-bg-color: var(--c-bg-transparent);
+}

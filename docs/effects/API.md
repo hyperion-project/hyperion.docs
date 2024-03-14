@@ -1,9 +1,9 @@
-# Effekt-Engine-API
-Alle verfügbaren Funktionen zur Verwendung.
+# Effect Engine API
+All available functions for usage.
 
-## API Übersicht
-| Function                          | Retuns  | Comment  |
-| :-------------------------------- | :-----  | :------- |
+## API Overview
+| Function                          | Returns | Comment  |
+| :------------------------------   | ------- | :------- |
 | hyperion.ledCount                 | Integer | Get the current LED count from the LED layout |
 | hyperion.latchTime                | Integer | Get the current active latchtime in ms. |
 | hyperion.imageWidth()             | Integer | Get the current image width, calculate positions for elements at the [coordinate system](https://doc.qt.io/qt-5/coordsys.html#rendering)  |
@@ -32,66 +32,67 @@ Alle verfügbaren Funktionen zur Verwendung.
 
 
 ### hyperion.imageMinSize()
-Da `hyperion.imageWidth()` und `hyperion.imageHeight()` mit dem LED-Layout skaliert, kann eine Mindestgröße definiert werden, um mehr Pixel zum Arbeiten zu erhalten. Bedenke, dass das Verhältnis zwischen Breite/Höhe immer von der Einstellung der Benutzer-LED abhängt, du kannst es nicht erzwingen.
+As the `hyperion.imageWidth()` and `hyperion.imageHeight()` scales with the LED layout, you could define a minimum size to get more pixels to work with.
+Keep in mind that the ratio between width/height depends always on user LED setup, you can't force it.
 ::: warning
-Sollte aufgerufen werden, bevor du mit dem zeichnen beginnst!
+Should be called before you start painting!
 :::
 `hyperion.imageMinSize(pixelX,pixelY)`
 | Argument | Type       | Comment |
-| :------- | :--------- | :----------------------------------------------------- |
+| :------- | :-------   | :------------------------------------------------------------------------------------ |
 | pixelX   | Integer    | Minimum Pixels at the x-axis of the image to draw on with `hyperion.image*` functions |
 | pixelY   | Integer    | Minimum Pixels at the y-axis of the image to draw on with `hyperion.image*` functions |
 
 ### hyperion.imageCRotate()
-Dreht das Koordinatensystem im Mittepunkt, der auf der x-Achse 0 und auf der y-Achse 0 ist, um den angegebenen Winkel im Uhrzeigersinn. Hinweis: Wenn du den Mittelpunkt des Koordinatensystems verschieben willst, kannst du hyperion.imageCOffset() verwenden. **Die Drehung wird bis zum Ende des Effekts beibehalten**. \
+Rotates the coordinate system at the center which is 0 at the x-axis and 0 at the y-axis by the given angle clockwise. Note: If you want to move the center of the coordinate system you could use hyperion.imageCOffset(). **The rotation is kept until the effect ends**. \
 `hyperion.imageCRotate(angle)`
-| Argument | Type       | Comment |
-| :------- | :--------- | :----------------------------------------------------- |
-| angle    | Integer    | Angle of the rotation between `0` and `360`, clockwise |
+| Argument | Type     | Comment |
+| :------- | :------- | :----------------------------------------------------- |
+| angle    | Integer  | Angle of the rotation between `0` and `360`, clockwise |
 
 ### hyperion.imageCOffset()
-Versatz zum Koordinatensystem an der x-Achse und y-Achse hinzufügen.
+Add offset to the coordinate system at the x-axis and y-axis.
 ::: warning
-Änderungen am Koordinatensystem führen zu ungewohntem Verhalten einiger kürzerer Versionen anderer hyperion.image* Zeichenfunktionen
+Changes at the coordinate system results in weird behavior of some shorter versions of other hyperion.image* drawing functions
 :::
 `hyperion.imageCOffset(offsetX, offsetY)`
-| Argument | Type       | Comment |
-| :------- | :--------- | :----------------------------------------------------- |
-| offsetX  | Integer    | Offset which is added to the coordinate system at the x-axis. Positive value moves to the right, negative to the left |
-| offsetY  | Integer    | Offset which is added to the coordinate system at the y-axis. Positive value moves to the right, negative to the left |
+| Argument | Type     | Comment |
+| :------- | :------- | :----------------------------------------------------- |
+| offsetX  | Integer  | Offset which is added to the coordinate system at the x-axis. Positive value moves to the right, negative to the left |
+| offsetY  | Integer  | Offset which is added to the coordinate system at the y-axis. Positive value moves to the right, negative to the left |
 
 ### hyperion.imageCShear()
-Schneidet das Koordinatensystem in der Vertikalen und Horizontalen. Mehr Informationen zum Schneiden findet man hier: [Shear Mapping](https://en.wikipedia.org/wiki/Shear_mapping)
+Shears the coordinate system at the vertical and horizontal. More info to shearing here: [Shear Mapping](https://en.wikipedia.org/wiki/Shear_mapping)
 ::: warning
-Änderungen am Koordinatensystem führen zu ungewohntem Verhalten einiger kürzerer Versionen anderer hyperion.image* Zeichenfunktionen
+Changes at the coordinate system results in weird behavior of some shorter versions of other hyperion.image* drawing functions
 :::
 `hyperion.imageCShear(sh, sv)`
-| Argument | Type       | Comment |
-| :------- | :--------- | :----------------------------------------------------- |
-| sh       | Integer    | Horizontal pixels to shear |
-| sv       | Integer    | Vertical pixels to shear. |
+| Argument | Type     | Comment |
+| :------- | :------- | :----------------------------------------------------- |
+| sh       | Integer  | Horizontal pixels to shear |
+| sv       | Integer  | Vertical pixels to shear. |
 
 ### hyperion.imageConicalGradient()
-Zeichnet einen konischen Farbverlauf auf das Bild, alle Argumente sind erforderlich. Füge die Parameter in der Reihenfolge der Zeilen unten hinzu. Kurze Erläuterung zu conical gradient in den QT Docs: [Conical Gradient](https://doc.qt.io/qt-5/qconicalgradient.html#details) \
+Draws a conical gradient on the image, all arguments are required. Add the arguments in the order of rows below. Short explanation for conical gradient at the QT docs: [Conical Gradient](https://doc.qt.io/qt-5/qconicalgradient.html#details) \
 `hyperion.imageConicalGradient(startX, startY, width, height, centerX, centerY, angle, bytearray)`
 | Argument  | Type       | Comment |
-| :-------- | :--------- | :----------------------------------------------------- |
+| :-------- | :-------   | :----------------------------------------------------- |
 | startX    | Integer    | Defines the start point at the x-axis of the rectangle that contains the gradient |
 | startY    | Integer    | Defines the start point at the y-axis of the rectangle that contains the gradient |
 | width     | Integer    | Defines the width of the rectangle |
 | height    | Integer    | Defines the height of the rectangle |
 | centerX   | Integer    | Defines the center of the gradient at the x-axis. For the center of the picture use `hyperion.imageWidth()*0.5`, don't forget to surround it with int() or round() |
 | centerY   | Integer    | Defines the center of the gradient at the y-axis. For the center of the picture use `hyperion.imageHeight()*0.5`, don't forget to surround it with int() or round() |
-| angle     | Integer  | Defines the angle from `0` to `360`. Used to rotate the gradient at the center point. |
-| bytearray | ByteArray | bytearray of (position,red,green,blue,alpha,position,red,green,blue,alpha,...). Could be repeated as often you need it, all values have ranges from 0 to 255. The position is a point where the red green blue values are assigned. <br/> **Example:** `bytearray([0,255,0,0,255,255,0,255,0,255])` - this is a gradient which starts at 0 with color 255,0,0 and alpha 255 and ends at position 255 with color 0,255,0 and alpha 255. The colors in between are interpolation, so this example is a color shift from red to green from 0° to 360°. |
+| angle     | Integer    | Defines the angle from `0` to `360`. Used to rotate the gradient at the center point. |
+| bytearray | ByteArray  | bytearray of (position,red,green,blue,alpha,position,red,green,blue,alpha,...). Could be repeated as often you need it, all values have ranges from 0 to 255. The position is a point where the red green blue values are assigned. <br/> **Example:** `bytearray([0,255,0,0,255,255,0,255,0,255])` - this is a gradient which starts at 0 with color 255,0,0 and alpha 255 and ends at position 255 with color 0,255,0 and alpha 255. The colors in between are interpolation, so this example is a color shift from red to green from 0° to 360°. |
 
-::: tip Kürzere Versionen von hyperion.imageConicalGradient()
-`hyperion.imageConicalGradient(centerX, centerY, angle, bytearray)` -> startX und startY sind 0 und die Breite/Höhe ist max. -> Ganzes Bild
+::: tip Shorter versions of hyperion.imageConicalGradient()
+`hyperion.imageConicalGradient(centerX, centerY, angle, bytearray)` -> startX and startY are 0 and the width/height is max. -> Entire image
 :::
 
 ### hyperion.imageRadialGradient()
-Zeichnet einen radialen Farbverlauf auf das Bild. Füge die Parameter in der unten angegebenen Reihenfolge hinzu. Alle Argumente sind erforderlich.
-Kurze Beschreibung bei QT Docs: [Radial Gradient](https://doc.qt.io/qt-5/qradialgradient.html#details) \
+Draws a radial gradient on the image. Add the arguments in the order of rows below. All arguments are required.
+Short description at QT Docs: [Radial Gradient](https://doc.qt.io/qt-5/qradialgradient.html#details) \
 `hyperion.imageRadialGradient(startX, startY, width, height, centerX, centerY, radius, focalX, focalY, focalRadius, bytearray, spread)`
 | Argument  | Type       |  Comment  |
 | :-------- | :--------- | :----------------------------------------------------- |
@@ -108,16 +109,15 @@ Kurze Beschreibung bei QT Docs: [Radial Gradient](https://doc.qt.io/qt-5/qradial
 | bytearray | ByteArray  | bytearray of (position,red,green,blue,position,red,green,blue,...). Could be repeated as often you need it, all values have ranges from 0 to 255. The position is a point where the red green blue values are assigned <br/> **Example:** `bytearray([0,255,0,0,255,0,255,0])` - this is a gradient which starts at 0 with color 255,0,0 and ends at position 255 with color 0,255,0. The colors in between are interpolation, so this example is a color shift from red to green. |
 | spread    | Integer    | Defines the spread method outside the gradient. Available spread modes are: <br/> `0` -> The area is filled with the closest stop color <br/> `1` -> The gradient is reflected outside the gradient area <br/> `2` -> The gradient is repeated outside the gradient area <br/> Please note that outside means _inside_ the rectangle but outside of the gradient start and end points, so if these points are the same, you don't see the spread mode. A picture to the spread modes can you find here: [Spread modes](https://doc.qt.io/qt-5/qradialgradient.html#details) |
 
-::: tip Kürzere Versionen von hyperion.imageRadialGradient()
- - `hyperion.imageRadialGradient(startX, startY, width, height, centerX, centerY, radius, bytearray, spread)` -> focalX, focalY, focalRadius erhalten ihre Werte aus centerX, centerY und radius
- - `hyperion.imageRadialGradient(centerX, centerY, radius, focalX, focalY, focalRadius, bytearray, spread)` -> startX und startY sind 0
- - `hyperion.imageRadialGradient(centerX, centerY, radius, bytearray, spread)` -> startX und startY sind 0 & focalX, focalY, focalRadius erhalten ihre Werte aus centerX, centerY und radius
-
+::: tip Shorter versions of hyperion.imageRadialGradient()
+ - `hyperion.imageRadialGradient(startX, startY, width, height, centerX, centerY, radius, bytearray, spread)` -> focalX, focalY, focalRadius get their values from centerX, centerY and radius
+ - `hyperion.imageRadialGradient(centerX, centerY, radius, focalX, focalY, focalRadius, bytearray, spread)` -> startX and startY are 0
+ - `hyperion.imageRadialGradient(centerX, centerY, radius, bytearray, spread)` -> startX and startY are 0 & focalX, focalY, focalRadius get their values from centerX, centerY and radius
 :::
 
 ### hyperion.imageLinearGradient()
-Zeichnet einen linearen Farbverlauf auf das Bild. Füge die Parameter in der unten angegebenen Reihenfolge hinzu. Alle Argumente sind erforderlich.
-Kurze Beschreibung bei QT Docs: [Linear Gradient](https://doc.qt.io/qt-5/qlineargradient.html#details) \
+Draws a linear gradient on the image. Add the arguments in the order of rows below. All arguments are required.
+Short description at QT Docs: [Linear Gradient](https://doc.qt.io/qt-5/qlineargradient.html#details) \
 `hyperion.imageLinearGradient(startRX, startRY, width, height, startX, startY, endX, endY, bytearray, spread)`
 | Argument  | Type       |  Comment  |
 | :-------- | :--------- | :----------------------------------------------------- |
@@ -132,12 +132,12 @@ Kurze Beschreibung bei QT Docs: [Linear Gradient](https://doc.qt.io/qt-5/qlinear
 | bytearray | ByteArray  | bytearray of (position,red,green,blue,alpha,position,red,green,blue,alpha,...). Could be repeated as often you need it, all values have ranges from 0 to 255. The position is a point where the red green blue values are assigned. <br/> **Example:** `bytearray([0,255,0,0,255,255,0,255,0,127])` this is a gradient which starts at 0 with color 255,0,0 and alpha 255 and ends at position 255 with color 0,255,0 and alpha 127. The colors in between are interpolation, so this example is a color shift from red to green. |
 | spread    | Integer    | Defines the spread method outside the gradient. Available spread modes are: <br/> `0` -> The area is filled with the closest stop color <br/> `1` -> The gradient is reflected outside the gradient area <br/> `2` -> The gradient is repeated outside the gradient area <br/> Please note that outside means _inside_ the rectangle but outside of the gradient start and end points, so if these points are the same, you don't see the spread mode. A picture to the spread modes can you find here: [Spread modes](https://doc.qt.io/qt-5/qlineargradient.html#details) |
 
-::: tip Kürzere Versionen von hyperion.imageLinearGradient()
-`hyperion.imageLinearGradient(startX, startY, endX, endY, bytearray, spread)` -> Das Rechteck, das den Farbverlauf enthält, ist standardmäßig das gesamte Bild
+::: tip Shorter versions of hyperion.imageLinearGradient()
+`hyperion.imageLinearGradient(startX, startY, endX, endY, bytearray, spread)` -> The rectangle which contains the gradient defaults to the full image
 :::
 
 ### hyperion.imageDrawLine()
-Zeichnet eine Linie in das Bild. Alle Parameter sind erforderlich, außer a für Alpha. Füge die Parameter in der Reihenfolge der Zeilen unten hinzu. \
+Draws a line at the image. All arguments are required, exception a for alpha. Add the arguments in the order of rows below. \
 `hyperion.imageDrawLine(startX, startY, endX, endY, thick, r, g, b, a)`
 | Argument  | Type       |  Comment  |
 | :-------- | :--------- | :----------------------------------------------------- |
@@ -151,12 +151,12 @@ Zeichnet eine Linie in das Bild. Alle Parameter sind erforderlich, außer a für
 | b         | Integer    | blue color from `0` to `255` |
 | a         | Integer    | **Optional** alpha of the color from `0` to `255`, if not provided, it's `255` |
 
-::: tip Kürzere Versionen von hyperion.imageLinearGradient()
-`hyperion.imageLinearGradient(startX, startY, endX, endY, bytearray, spread)` -> Das Rechteck, das den Farbverlauf enthält, ist standardmäßig das gesamte Bild
+::: tip Shorter versions of hyperion.imageLinearGradient()
+`hyperion.imageLinearGradient(startX, startY, endX, endY, bytearray, spread)` -> The rectangle which contains the gradient defaults to the full image
 :::
 
 ### hyperion.imageDrawPoint()
-Zeichnet einen Punkt in das Bild. Alle Parameter sind erforderlich, außer a für Alpha. Füge die Parameter in der unten angegebenen Reihenfolge hinzu. \
+Draws a point/dot at the image. All arguments are required, exception a for alpha. Add the arguments in the order of rows below. \
 `hyperion.imageDrawPoint(x, y, thick, r, g, b, a)`
 | Argument  | Type       |  Comment  |
 | :-------- | :--------- | :----------------------------------------------------- |
@@ -168,12 +168,12 @@ Zeichnet einen Punkt in das Bild. Alle Parameter sind erforderlich, außer a fü
 | b         | Integer    | blue color from `0` to `255` |
 | a         | Integer    | **Optional** alpha of the color from `0` to `255`, if not provided, it's `255` |
 
-::: tip Kürzere Versionen von hyperion.imageDrawPoint()
-`hyperion.imageDrawPoint(x, y, thick, r, g, b)` -> Alpha ist standardmäßig 255
+::: tip Shorter versions of hyperion.imageDrawPoint()
+`hyperion.imageDrawPoint(x, y, thick, r, g, b)` -> alpha defaults to 255
 :::
 
 ### hyperion.imageDrawPolygon()
-Zeichnet ein Polygon in das Bild und füllt es mit der bestimmten Farbe. Wird zum freien Formen verwendet (Dreieck, Sechseck,... was immer man will). Alle Parameter sind erforderlich, mit Ausnahme von a für Alpha. Füge die Parameter in der untenstehenden Reihenfolge hinzu. \
+Draws a polygon at the image and fills it with the specific color. Used for free forming (triangle, hexagon,... whatever you want  ). All arguments are required, exception a for alpha. Add the arguments in the order of rows below. \
 `hyperion.imageDrawPolygon(bytearray, r, g, b, a)`
 | Argument  | Type       |  Comment  |
 | :-------- | :--------- | :----------------------------------------------------- |
@@ -183,12 +183,12 @@ Zeichnet ein Polygon in das Bild und füllt es mit der bestimmten Farbe. Wird zu
 | b         | Integer    | blue color from `0` to `255` |
 | a         | Integer    | **Optional** alpha of the color from `0` to `255`, if not provided, it's `255` |
 
-::: tip Kürzere Versionen von hyperion.imageDrawPolygon()
-hyperion.imageDrawPolygon(bytearray, r, g, b)` -> Alpha ist standardmäßig 255
+::: tip Shorter versions of hyperion.imageDrawPolygon()
+`hyperion.imageDrawPolygon(bytearray, r, g, b)` -> alpha defaults to 255
 :::
 
 ### hyperion.imageDrawPie()
-Zeichnet einen Kreis (auch bekannt als Kreisdiagramm) in das Bild und füllt ihn mit der bestimmten Farbe. Alle Parameter sind erforderlich, außer a für Alpha. Füge die Parameter in der Reihenfolge der Zeilen unten hinzu. \
+Draws a pie (also known from pie charts) at the image and fills it with the specific color. All arguments are required, exception a for alpha. Add the arguments in the order of rows below. \
 `hyperion.imageDrawPie(centerX, centerY, radius, startAngle, spanAngle, r, g, b, a)`
 | Argument  | Type       |  Comment  |
 | :-------- | :--------- | :----------------------------------------------------- |
@@ -202,12 +202,12 @@ Zeichnet einen Kreis (auch bekannt als Kreisdiagramm) in das Bild und füllt ihn
 | b         | Integer    | blue color from `0` to `255` |
 | a         | Integer    | **Optional** alpha of the color from `0` to `255`, if not provided, it's `255` |
 
-::: tip Kürzere Versionen von hyperion.imageDrawPie()
-`hyperion.imageDrawPie(centerX, centerY, radius, startAngle, spanAngle, r, g, b)` -> alpha ist standardmäßig 255
+::: tip Shorter versions of hyperion.imageDrawPie()
+`hyperion.imageDrawPie(centerX,  centerY,  radius,  startAngle,  spanAngle,  r,  g,  b)` -> alpha defaults to 255
 :::
 
 ### hyperion.imageDrawRect()
-Zeichnet ein Rechteck auf das Bild. Alle Parameter sind erforderlich, außer a für Alpha. Füge die Parameter in der Reihenfolge der Zeilen unten hinzu. \
+Draws a rectangle on the image. All arguments are required, exception a for alpha. Add the arguments in the order of rows below. \
 `hyperion.imageDrawRect(startX, startY, width, height, thick, r, g, b, a,)`
 | Argument  | Type       |  Comment  |
 | :-------- | :--------- | :----------------------------------------------------- |
@@ -222,7 +222,7 @@ Zeichnet ein Rechteck auf das Bild. Alle Parameter sind erforderlich, außer a f
 | a         | Integer    | **Optional** alpha of the color from `0` to `255`, if not provided, it's `255` |
 
 ### hyperion.imageSolidFill()
-Füllt einen bestimmten Teil des Bildes mit einer Volltonfarbe (oder ganz). Alle Parameter sind erforderlich.  Füge die Parameter in der Reihenfolge der Zeilen unten hinzu. \
+Fill a specific part of the image with a solid color (or entire). All arguments are required. Add the arguments in the order of rows below. \
 `hyperion.imageSolidFill(startX, startY, width, height, r, g, b, a)`
 | Argument  | Type       |  Comment  |
 | :-------- | :--------- | :----------------------------------------------------- |
@@ -235,14 +235,14 @@ Füllt einen bestimmten Teil des Bildes mit einer Volltonfarbe (oder ganz). Alle
 | b         | Integer    | define blue color from `0` to `255` |
 | a         | Integer    | alpha of the color from `0` to `255` |
 
-::: tip Kürzere Versionen von hyperion.imageSolidFill()
- - `hyperion.imageSolidFill(startX, startY, width, height, r, g, b)` -> kein Alpha, Standardwert ist 255
- - `hyperion.imageSolidFill(r, g, b, a)` ->  startX und startY ist 0, Breite und Höhe ist max. -> Volles Bild
- - `hyperion.imageSolidFill(r, g, b)` ->  startX und startY ist 0, Breite und Höhe ist max, Alpha 255. -> Volles Bild
+::: tip Shorter versions of hyperion.imageSolidFill()
+ - `hyperion.imageSolidFill(startX, startY, width, height, r, g, b)` -> no alpha, defaults to 255
+ - `hyperion.imageSolidFill(r, g, b, a)` ->  startX and startY is 0, width and height is max. -> full image
+ - `hyperion.imageSolidFill(r, g, b)` ->  startX and startY is 0, width and height is max, alpha 255. -> full image
 :::
 
 ### hyperion.imageSetPixel()
-Weist einer bestimmten Pixelposition eine Farbe zu. Alle Parameter sind erforderlich. Füge die Parameter in der Reihenfolge der Zeilen unten hinzu. \
+Assign a color to a specific pixel position. All arguments are required. Add the arguments in the order of rows below. \
 `hyperion.imageSetPixel(X, Y, r, g, b)`
 | Argument  | Type       |  Comment  |
 | :-------- | :--------- | :----------------------------------------------------- |
@@ -253,25 +253,25 @@ Weist einer bestimmten Pixelposition eine Farbe zu. Alle Parameter sind erforder
 | b         | Integer    | define blue color from `0` to `255` |
 
 ### hyperion.imageGetPixel()
-Ermittelt eine Farbe an einer bestimmten Pixelposition.  Alle Parameter sind erforderlich. Füge die Parameter in der Reihenfolge der Zeilen unten hinzu. \
+Get a color of a specific pixel position. All arguments are required. Add the arguments in the order of rows below. \
 `hyperion.imageGetPixel(X, Y)`
 | Argument  | Type       |  Comment  |
 | :-------- | :--------- | :----------------------------------------------------- |
 | X         | Integer    | pixel point at the x-axis. Relates to `hyperion.imageWidth()` |
 | Y         | Integer    | pixel point at the y-axis. Relates to `hyperion.imageHeight()` |
-| Return   | Tuple    | Returns a Python Tuple of RGB values |
+| Return    | Tuple      | Returns a Python Tuple of RGB values |
 
 
 
 ### hyperion.setColor()
-Setzt eine einzelne Farbe für alle LEDs mit `hyperion.setColor(255,0,0)`, so werden alle LEDs rot dargestellt. Es ist aber auch möglich, ein Bytearray von RGB-Werten zu senden. Jeder RGB-Wert in diesem Bytearray repräsentiert eine LED.
- - **Beispiel 1:** `hyperion.setColor(bytearray([255,0,0]))` Die erste LED wird rot
- - **Beispiel 2:** `hyperion.setColor(bytearray([255,0,0,0,255,0]))` Die erste LED wird rot, die zweite ist grün
- - **Beispiel 3:** `hyperion.setColor(bytearray([255,0,0,0,255,0,255,255,255]))` Die erste LED wird rot, die zweite ist grün und die dritte ist weiss
- - Normalerweise ordnet man allen LEDs eine Farbe zu, deshalb muss man wissen, wie viele LEDs der Benutzer gerade hat. Ermittle dies mit `hyperion.ledCount`
+Set a single color to all LEDs by adding `hyperion.setColor(255,0,0)`, all LEDs will be red. But it is also possible to send a bytearray of RGB values. Each RGB value in this bytearray represents one LED.
+ - **Example 1:** `hyperion.setColor(bytearray([255,0,0]))` The first LED will be red
+ - **Example 2:** `hyperion.setColor(bytearray([255,0,0,0,255,0]))` The first LED will be red, the second is green
+ - **Example 3:** `hyperion.setColor(bytearray([255,0,0,0,255,0,255,255,255]))` The first LED will be red, the second is green, the third is white
+ - You usually assign to all LEDs a color, therefore you need to know how much LEDs the user currently have. Get it with `hyperion.ledCount`
 
 ::: warning hyperion.setColor()
- - Die Funktion hyperion.setColor() wird nicht empfohlen, um LED-Farben zuzuweisen, sie arbeitet nicht mit den **`hyperion.image*`**-Funktionen zusammen
- - Du weißt nicht, wo oben/links/rechts/unten ist und es funktioniert nicht mit Matrix-Layouts!
- - Bitte beachte, dass du stattdessen die **`hyperion.image*`**-Funktionen verwenden kannst, um beeindruckende Effekte zu erzeugen, die mit der Benutzereinstellung skalieren
+ - hyperion.setColor() function is not recommended to assign LED colors, it doesn't work together with **`hyperion.image*`** functions
+ - You don't know where is top/left/right/bottom and it doesn't work with matrix layouts!
+ - Please consider to use the **`hyperion.image*`** functions instead to create amazing effects that scales with the user setup
 :::

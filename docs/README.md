@@ -5,16 +5,39 @@ sidebar: false
 <p style="text-align:center">
   <HyperionLogoDynamic />
   <span id="animation" class="rainbow" style="position: absolute" />
-  </br>
+  <br>
   Welcome in the colorful world of Hyperion. Please choose the documentation you want to view.
 </p>
 
 <div class="flex flex-center no-decoration">
-  <MainSection title="User" text="Installation, configuration and advanced informations" to="/en/user" icon="user" />
-  <MainSection title="Effects" text="Learn how to create an effect" to="/en/effects" icon="effects" />
-  <MainSection title="JSON API" text="Learn how to interact with the API" to="/en/json" icon="json" />
+  <MainSection title="User" text="Installation, configuration and advanced informations" to="/user/" icon="user" />
+  <MainSection title="Effects" text="Learn how to create an effect" to="/effects/" icon="effects" />
+  <MainSection title="JSON API" text="Learn how to interact with the API" to="/json/" icon="json" />
 </div>
 
 ::: tip Tip:
-You can select another translation at the top.
+You can select another translation at the top{{ isMobile }}.
 :::
+
+<script setup>
+import { onBeforeUnmount, onMounted, ref } from 'vue';
+const isMobile = ref('');
+const handleResize = () => {
+  if (window.innerWidth < 720) {
+    isMobile.value = ' left menu';
+  } else {
+    isMobile.value = '';
+  }
+};
+
+onMounted(() => {
+  handleResize();
+  window.addEventListener('resize', handleResize, { passive: true });
+});
+
+onBeforeUnmount(() => {
+  if (typeof window !== 'undefined') {
+    window.removeEventListener('resize', handleResize);
+  }
+});
+</script>

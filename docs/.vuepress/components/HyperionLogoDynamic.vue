@@ -1,62 +1,58 @@
 <template>
-  <img v-if="lightMode._light && !isMobile && !isSafari" :src="$withBase(this.$site.themeConfig.logoLightDynamic)" @click="onClick" class="logo" style="position:relative;z-index:1">
-  <img v-else-if="!lightMode._light && !isMobile  && !isSafari" :src="$withBase(this.$site.themeConfig.logoDarkDynamic)" @click="onClick" class="logo" style="position:relative;z-index:1">
-  <img v-else-if="lightMode._light && (isMobile || isSafari)" :src="$withBase(this.$site.themeConfig.logoLightStatic)">
-  <img v-else :src="$withBase(this.$site.themeConfig.logoDarkStatic)">
+    <img v-if="!isDarkMode && !isMobile" :src="themeData.logo_Dynamic" @click="onClick" class="logo" style="position:relative;z-index:100;">
+    <img v-else-if="isDarkMode && !isMobile" :src="themeData.logoDark_Dynamic" @click="onClick" class="logo" style="position:relative;z-index:100;">
+    <img v-else-if="!isDarkMode && isMobile" :src="themeData.logo" class="logo" style="position:relative">
+    <img v-else :src="themeData.logoDark" class="logo" style="position:relative">
 </template>
 
-<script>
-  import LightMode from '../theme/util/light-mode';
-  import Bowser from "bowser";
+<script setup lang="ts">
+import { useThemeData } from '@vuepress/plugin-theme-data/client';
+import { onBeforeUnmount, onMounted, ref } from 'vue';
 
-  export default {
-    data: () => ({
-      lightMode: null,
-      isMobile: false,
-      isSafari: false
-    }),
-    
-    beforeDestroy () {
-      if (typeof window !== 'undefined') {
-        window.removeEventListener('resize', this.onResize, { passive: true })
-      }
-    },
+const themeData: any = useThemeData();
+const isDarkMode = ref(false);
+const isMobile = ref(false);
 
-    mounted() {
-      this.onResize();
-      window.addEventListener('resize', this.onResize, { passive: true });
-      this.lightMode.init();
+const handleResize = () => {
+  isMobile.value = window.innerWidth < 720;
+};
 
-      // This check can be removed if multiple webkit masks are supported under CSS in Safari
-      const browser = Bowser.getParser(window.navigator.userAgent);
-      this.isSafari = browser.satisfies({
-        macos: {
-          safari: '>1'
-        }
-      });
-    },
-
-    methods: {
-      onClick: () => {
-        if(typeof(element) === 'undefined')
-        var animation = document.getElementById('animation');
-        if(animation) {
-          if(animation.getAttribute("class") == "rainbow") {
-            document.getElementById('animation').className = "kitt";
-          } else if (animation.getAttribute("class") == "kitt") {
-             document.getElementById('animation').className = "police-solid";
-          } else {
-            document.getElementById('animation').className = "rainbow";
-          }
-        }
-      },
-      onResize () {
-        this.isMobile = window.innerWidth < 720
-      }
-    },
-
-    created() {
-      this.lightMode = new LightMode();
+const onClick = () => {
+  var animation = document.getElementById('animation');
+  if(typeof animation !== 'undefined') {
+    if(animation!.getAttribute("class") == "rainbow") {
+      animation!.className = "kitt";
+    } else if (animation!.getAttribute("class") == "kitt") {
+      animation!.className = "police-solid";
+    } else {
+      animation!.className = "rainbow";
     }
   }
+};
+
+let observer: MutationObserver | null = null;
+
+onMounted(() => {
+  const html = document.querySelector('html') as HTMLElement;
+  isDarkMode.value = html.classList.contains('dark');
+
+  observer = new MutationObserver(() => {
+    isDarkMode.value = html.classList.contains("dark");
+  });
+
+  observer.observe(html, {
+    attributeFilter: ["class"],
+    attributes: true,
+  });
+
+  handleResize();
+  window.addEventListener('resize', handleResize, { passive: true });
+});
+
+onBeforeUnmount(() => {
+  observer && observer.disconnect();
+  if (typeof window !== 'undefined') {
+    window.removeEventListener('resize', handleResize);
+  }
+});
 </script>
