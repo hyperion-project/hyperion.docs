@@ -50,7 +50,7 @@ Jeder veröffentlichte Eintrag enthält mindestens die folgenden Daten im txt-Fe
 
 ### Test Clients
 Es stehen verschiedene Clients zum Testen zur Verfügung, wie z. B. der
-[avahi-browse](http://manpages.ubuntu.com/manpages/bionic/man1/avahi-browse.1.html) ein Kommandozeilen-Tool für Ubuntu/Debian. Beispiel-Befehl 
+[avahi-browse](https://manpages.ubuntu.com/manpages/bionic/man1/avahi-browse.1.html) ein Kommandozeilen-Tool für Ubuntu/Debian. Beispiel-Befehl 
 ``` bash
 sudo apt-get install avahi-untils && avahi-browse -r _hyperiond-json._tcp
 ```

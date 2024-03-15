@@ -74,16 +74,16 @@ Hyperion supports multiple different LED devices which fall into four main categ
 ### SPI/PWM
 Are 3 or 4 wire LEDs which can be powered via SPI (Serial Peripheral Interface) or PWM (Pulse Width Modulation) of a Raspberry Pi or an Arduino (which is USB connected to your computer/HTPC/Pi).
 
-* [APA102](/user/leddevices/spi_pwm/apa102)
-* [APA104](/user/leddevices/spi_pwm/apa104)
-* [LPD6803](/user/leddevices/spi_pwm/lpd6803)
-* [LPD8806](/user/leddevices/spi_pwm/lpd8806)
-* [P9813](/user/leddevices/spi_pwm/p9813)
-* [SK6812](/user/leddevices/spi_pwm/SK6812)
-* [SK9822](/user/leddevices/spi_pwm/SK9822)
-* [WS2801](/user/leddevices/spi_pwm/ws2801)
-* [WS2812](/user/leddevices/spi_pwm/ws2812)
-* [pi-blaster](/user/leddevices/spi_pwm/piblaster)
+* [APA102](/user/leddevices/spi_pwm/apa102.md)
+* [APA104](/user/leddevices/spi_pwm/apa104.md)
+* [LPD6803](/user/leddevices/spi_pwm/lpd6803.md)
+* [LPD8806](/user/leddevices/spi_pwm/lpd8806.md)
+* [P9813](/user/leddevices/spi_pwm/p9813.md)
+* [SK6812](/user/leddevices/spi_pwm/sk6812.md)
+* [SK9822](/user/leddevices/spi_pwm/sk9822.md)
+* [WS2801](/user/leddevices/spi_pwm/ws2801.md)
+* [WS2812B](/user/leddevices/spi_pwm/ws2812b.md)
+* [pi-blaster](/user/leddevices/spi_pwm/piblaster.md)
 
 #### PWM Prerequisites (Controller type RPi PWM/ws281x)
 PWM (Pulse Width Modulation) requires that Hyperion run under the `root` user.\
@@ -137,37 +137,37 @@ Edit the cmdline.txt file the same way as [config.txt](https://wiki.libreelec.tv
 ### USB/Serial
 Plug and play. The following controllers are supported.
 
-* [Adalight](/user/leddevices/usb/adalight)
-* [Atmo](/user/leddevices/usb/atmo)
-* [DMX](/user/leddevices/usb/dmx)
-* [Hyperion-USBasp](/user/leddevices/usb/hyperion-usbasp)
-* [Karate](/user/leddevices/usb/karate)
-* [Lightpack](/user/leddevices/usb/lightpack)
-* [Multi-Lightpack](/user/leddevices/usb/multilightpack)
-* [Paintpack](/user/leddevices/usb/paintpack)
-* [RawHID](/user/leddevices/usb/rawhid)
-* [SEDU](/user/leddevices/usb/sedu)
-* [TPM2](/user/leddevices/usb/tpm2)
+* [Adalight](/user/leddevices/usb/adalight.md)
+* [Atmo](/user/leddevices/usb/atmo.md)
+* [DMX](/user/leddevices/usb/dmx.md)
+* [Hyperion-USBasp](/user/leddevices/usb/hyperion-usbasp.md)
+* [Karate](/user/leddevices/usb/karate.md)
+* [Lightpack](/user/leddevices/usb/lightpack.md)
+* [Multi-Lightpack](/user/leddevices/usb/multilightpack.md)
+* [Paintpack](/user/leddevices/usb/paintpack.md)
+* [RawHID](/user/leddevices/usb/rawhid.md)
+* [SEDU](/user/leddevices/usb/sedu.md)
+* [TPM2](/user/leddevices/usb/tpm2.md)
 
 ### Network
 Everything that is reachable over network.
 
-* [AtmoOrb](/user/leddevices/network/atmoorb)
-* [Cololight](/user/leddevices/network/cololight)
-* [FadeCandy](/user/leddevices/network/fadecandy)
-* [Nanoleaf](/user/leddevices/network/nanoleaf)
-* [Philips Hue](/user/leddevices/network/philipshue)
-* [Razer Chroma](/user/leddevices/network/razer)
-* [Tinkerforge](/user/leddevices/network/tinkerforge)
-* [TPM2.NET](/user/leddevices/network/tpm2net)
-* [UDP ArtNet](/user/leddevices/network/udpartnet)
-* [UDP DDP](/user/leddevices/network/udpddp)
-* [UDP E1.31](/user/leddevices/network/udpe131)
-* [UDP Raw](/user/leddevices/network/udpraw)
-* [WLED](/user/leddevices/network/wled)
-* [Yeelight](/user/leddevices/network/yeelight)
+* [AtmoOrb](/user/leddevices/network/atmoorb.md)
+* [Cololight](/user/leddevices/network/cololight.md)
+* [FadeCandy](/user/leddevices/network/fadecandy.md)
+* [Nanoleaf](/user/leddevices/network/nanoleaf.md)
+* [Philips Hue](/user/leddevices/network/philipshue.md)
+* [Razer Chroma](/user/leddevices/network/razer.md)
+* [Tinkerforge](/user/leddevices/network/tinkerforge.md)
+* [TPM2.NET](/user/leddevices/network/tpm2net.md)
+* [UDP ArtNet](/user/leddevices/network/udpartnet.md)
+* [UDP DDP](/user/leddevices/network/udpddp.md)
+* [UDP E1.31](/user/leddevices/network/udpe131.md)
+* [UDP Raw](/user/leddevices/network/udpraw.md)
+* [WLED](/user/leddevices/network/wled.md)
+* [Yeelight](/user/leddevices/network/yeelight.md)
 
 ### Others
 All other devices that do not fit into any categories.
 
-* [File](/user/leddevices/others/debug)
+* [File](/user/leddevices/others/debug.md)

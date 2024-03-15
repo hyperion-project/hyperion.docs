@@ -24,6 +24,8 @@ jobs:
           npm install -g yarn
           yarn install
           yarn docs:build
+        env:
+          BASE_DIR: ${{ startsWith(github.repository, 'hyperion-project') && '/' || '/hyperion.docs/' }}
 
       # Deploy to gh-pages
       - name: Deploy to gh-pages

@@ -20,7 +20,7 @@ Das Protokoll findest Du unter dem Menüpunkt "System" oder Du folgst dem Link a
 ::: tip 
 Standardmäßig werden nicht alle Konfigurationselemente angzeigt, um eine schnelle und einfache Einrichtung zu ermöglichen.
 
-Um zusätzliche Konfigurationselemente anzuzeigen, ändere die [Einstellungsstufe](/de/user/Konfiguration.html#einstellungsstufen).
+Um zusätzliche Konfigurationselemente anzuzeigen, ändere die [Einstellungsstufe](/de/user/Configuration.html#einstellungsstufen).
 :::
 
 ### Allgemeine Einstellungen
@@ -77,16 +77,16 @@ Hyperion unterstützt mehrere verschiedene LED-Geräte, die sich in vier Hauptka
 ### SPI/PWM
 3 oder 4 adrige LED Strips, die über SPI (Serial Peripheral Interface) oder PWM (Pulsweitenmodulation) mit einem Raspberry Pi (oder einem Arduino) verbunden werden können.
 
-* [APA102](/de/user/leddevices/spi_pwm/apa102)
-* [APA104](/de/user/leddevices/spi_pwm/apa104)
-* [LPD6803](/de/user/leddevices/spi_pwm/lpd6803)
-* [LPD8806](/de/user/leddevices/spi_pwm/lpd8806)
-* [P9813](/de/user/leddevices/spi_pwm/p9813)
-* [SK6812](/de/user/leddevices/spi_pwm/SK6812)
-* [SK9822](/de/user/leddevices/spi_pwm/SK9822)
-* [WS2801](/de/user/leddevices/spi_pwm/ws2801)
-* [WS2812](/de/user/leddevices/spi_pwm/ws2812)
-* [pi-blaster](/de/user/leddevices/spi_pwm/piblaster)
+* [APA102](/de/user/leddevices/spi_pwm/apa102.md)
+* [APA104](/de/user/leddevices/spi_pwm/apa104.md)
+* [LPD6803](/de/user/leddevices/spi_pwm/lpd6803.md)
+* [LPD8806](/de/user/leddevices/spi_pwm/lpd8806.md)
+* [P9813](/de/user/leddevices/spi_pwm/p9813.md)
+* [SK6812](/de/user/leddevices/spi_pwm/sk6812.md)
+* [SK9822](/de/user/leddevices/spi_pwm/sk9822.md)
+* [WS2801](/de/user/leddevices/spi_pwm/ws2801.md)
+* [WS2812B](/de/user/leddevices/spi_pwm/ws2812b.md)
+* [pi-blaster](/de/user/leddevices/spi_pwm/piblaster.md)
 
 
 #### PWM-Voraussetzungen (Steuerungstyp RPi PWM/ws281x)
@@ -146,37 +146,37 @@ Bitte konsultiere die Systemdokumentation.
 ### USB/Seriell
 Plug and Play. Die folgenden Controller werden unterstützt.
 
-* [Adalight](/de/user/leddevices/usb/adalight)
-* [Atmo](/de/user/leddevices/usb/atmo)
-* [DMX](/de/user/leddevices/usb/dmx)
-* [Hyperion-USBasp](/de/user/leddevices/usb/hyperion-usbasp)
-* [Karate](/de/user/leddevices/usb/karate)
-* [Lightpack](/de/user/leddevices/usb/lightpack)
-* [Multi-Lightpack](/de/user/leddevices/usb/multilightpack)
-* [Paintpack](/de/user/leddevices/usb/paintpack)
-* [RawHID](/de/user/leddevices/usb/rawhid)
-* [SEDU](/de/user/leddevices/usb/sedu)
-* [TPM2](/de/user/leddevices/usb/tpm2)
+* [Adalight](/de/user/leddevices/usb/adalight.md)
+* [Atmo](/de/user/leddevices/usb/atmo.md)
+* [DMX](/de/user/leddevices/usb/dmx.md)
+* [Hyperion-USBasp](/de/user/leddevices/usb/hyperion-usbasp.md)
+* [Karate](/de/user/leddevices/usb/karate.md)
+* [Lightpack](/de/user/leddevices/usb/lightpack.md)
+* [Multi-Lightpack](/de/user/leddevices/usb/multilightpack.md)
+* [Paintpack](/de/user/leddevices/usb/paintpack.md)
+* [RawHID](/de/user/leddevices/usb/rawhid.md)
+* [SEDU](/de/user/leddevices/usb/sedu.md)
+* [TPM2](/de/user/leddevices/usb/tpm2.md)
 
 ### Netzwerk
 Alles, was über das Netzwerk erreichbar ist.
 
-* [AtmoOrb](/de/user/leddevices/network/atmoorb)
-* [Cololight](/de/user/leddevices/network/cololight)
-* [FadeCandy](/de/user/leddevices/network/fadecandy)
-* [Nanoleaf](/de/user/leddevices/network/nanoleaf)
-* [Philips Hue](/de/user/leddevices/network/philipshue)
-* [Razer Chroma](/de/user/leddevices/network/razer)
-* [Tinkerforge](/de/user/leddevices/network/tinkerforge)
-* [TPM2.NET](/de/user/leddevices/network/tpm2net)
-* [UDP ArtNet ](/de/user/leddevices/network/udpartnet)
-* [UDP DDP](/de/user/leddevices/network/udpddp)
-* [UDP E1.31](/de/user/leddevices/network/udpe131)
-* [UDP Raw](/de/user/leddevices/network/udpraw)
-* [WLED](/de/user/leddevices/network/wled)
-* [Yeelight](/de/user/leddevices/network/yeelight)
+* [AtmoOrb](/de/user/leddevices/network/atmoorb.md)
+* [Cololight](/de/user/leddevices/network/cololight.md)
+* [FadeCandy](/de/user/leddevices/network/fadecandy.md)
+* [Nanoleaf](/de/user/leddevices/network/nanoleaf.md)
+* [Philips Hue](/de/user/leddevices/network/philipshue.md)
+* [Razer Chroma](/de/user/leddevices/network/razer.md)
+* [Tinkerforge](/de/user/leddevices/network/tinkerforge.md)
+* [TPM2.NET](/de/user/leddevices/network/tpm2net.md)
+* [UDP ArtNet ](/de/user/leddevices/network/udpartnet.md)
+* [UDP DDP](/de/user/leddevices/network/udpddp.md)
+* [UDP E1.31](/de/user/leddevices/network/udpe131.md)
+* [UDP Raw](/de/user/leddevices/network/udpraw.md)
+* [WLED](/de/user/leddevices/network/wled.md)
+* [Yeelight](/de/user/leddevices/network/yeelight.md)
 
 ### Sonstige
 Alle anderen Geräte, die in keine der Kategorien passen.
 
-* [File](/de/user/leddevices/others/debug)
+* [File](/de/user/leddevices/others/debug.md)

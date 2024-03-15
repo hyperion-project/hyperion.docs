@@ -27,4 +27,4 @@ This project exists thanks to all the people who contribute.
 
 ## License
 
-The source is released under MIT-License (see https://opensource.org/licenses/MIT).
+The source is released under MIT-License (see <https://opensource.org/licenses/MIT>).

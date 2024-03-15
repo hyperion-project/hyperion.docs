@@ -21,7 +21,7 @@ You can still configure a custom Hostname, an IPv4- or IPv6-address of your WLED
 ::: details Streaming protocol
 Per Hyperion 2.0.13, the Hyperion-WLED device makes use of the Distributed Display Protocol (Requires WLED v0.11.0+).
 
-As a fall-back option the UDP-Raw protocol ([limitations](udpraw)) is still supported, too.
+As a fall-back option the UDP-Raw protocol ([limitations](/user/leddevices/network/udpraw.md)) is still supported, too.
 :::
 
 ### Specific Settings
@@ -56,8 +56,8 @@ Allow to keep WLED powered on after streaming and restoring state.
 
 #### Streaming protocol
 
-- [UDP DDP](udpddp)
-- [UDP RAW](udpraw)
+- [UDP DDP](/user/leddevices/network/udpddp.md)
+- [UDP RAW](/user/leddevices/network/udpraw.md)
 
 #### Disable synchronisation
 

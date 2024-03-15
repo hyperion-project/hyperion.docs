@@ -1,12 +1,13 @@
 <template>
-    <img v-if="!isDarkMode && !isMobile" :src="themeData.logo_Dynamic" @click="onClick" class="logo" style="position:relative;z-index:100;">
-    <img v-else-if="isDarkMode && !isMobile" :src="themeData.logoDark_Dynamic" @click="onClick" class="logo" style="position:relative;z-index:100;">
-    <img v-else-if="!isDarkMode && isMobile" :src="themeData.logo" class="logo" style="position:relative">
-    <img v-else :src="themeData.logoDark" class="logo" style="position:relative">
+    <img v-if="!isDarkMode && !isMobile" :src="$withBase(themeData.logo_Dynamic)" @click="onClick" class="logo" style="position:relative;z-index:100;">
+    <img v-else-if="isDarkMode && !isMobile" :src="$withBase(themeData.logoDark_Dynamic)" @click="onClick" class="logo" style="position:relative;z-index:100;">
+    <img v-else-if="!isDarkMode && isMobile" :src="$withBase(themeData.logo)" class="logo" style="position:relative">
+    <img v-else :src="$withBase(themeData.logoDark)" class="logo" style="position:relative">
 </template>
 
 <script setup lang="ts">
 import { useThemeData } from '@vuepress/plugin-theme-data/client';
+
 import { onBeforeUnmount, onMounted, ref } from 'vue';
 
 const themeData: any = useThemeData();

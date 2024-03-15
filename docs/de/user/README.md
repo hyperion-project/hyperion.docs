@@ -27,4 +27,4 @@ Dieses Projekt existiert dank all der Menschen, die dazu beitragen.
 
 ## Lizenz
 
-Der Quellcode ist unter der MIT-Lizenz veröffentlicht (see https://opensource.org/licenses/MIT).
+Der Quellcode ist unter der MIT-Lizenz veröffentlicht (see <https://opensource.org/licenses/MIT>).
