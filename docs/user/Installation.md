@@ -36,7 +36,7 @@ The same easy installation script can be used, but the underlying distribution c
 
 Sample for Pop!_OS 22.04 LTS or Mint 21.2 Victoria (which are based on Ubuntu 'jammy')
 
-```
+``` sh:no-line-numbers
 curl -sSL https://releases.hyperion-project.org/install | bash -s -- --ubuntu 'jammy'
 ```
 :::
@@ -50,7 +50,7 @@ follow the standard operating system procedures to update the system.
 
 Open a terminal or ssh into a remote system and execute
 
-```
+``` sh:no-line-numbers
 sudo apt-get install hyperion
 ```
 
@@ -58,7 +58,7 @@ sudo apt-get install hyperion
 
 Open a terminal and execute
 
-```
+``` sh:no-line-numbers
 sudo dnf -y upgrade hyperion
 ```
 
@@ -84,12 +84,12 @@ Hyperion provides a command-line utility which allows switching the user running
 
 ### Change the service user to 'root'
 
-```
+``` sh:no-line-numbers
 sudo updateHyperionUser -u root
 ```
 
 ### Change the service user to the current user
-```
+``` sh:no-line-numbers
 sudo updateHyperionUser
 ```
 

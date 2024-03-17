@@ -22,7 +22,7 @@ Debugging segmentation faults requires a bunch of work, if we don't own your har
   * To quit gdb press enter and type in `quit`, you can start Hyperion again with `sudo service hyperiond start`. It's not recommended to use "Debug" Hyperion builds in production, just install the "Release" version again.
 
 ### Example backtrace log
-```
+``` gdb
   (gdb) backtrace
   #0  0x0000000000000000 in ?? ()
   #1  0x00000000006173f2 in LinearColorSmoothing::queueColors (this=0xfdfa70, 

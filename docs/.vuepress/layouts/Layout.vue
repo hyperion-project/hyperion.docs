@@ -1,7 +1,13 @@
 <template>
-    <div>
-        <ParentLayout/>
-    </div>
+  <footer>
+    <ParentLayout>
+      <template #page-bottom>
+        <footer style="text-align:center">
+          Copyright © 2014-2024 <a href="https://hyperion-project.org/">Hyperion Project</a>
+        </footer>
+      </template>
+    </ParentLayout>
+  </footer>
 </template>
 
 <script setup>

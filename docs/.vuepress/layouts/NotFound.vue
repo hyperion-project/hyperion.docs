@@ -6,7 +6,7 @@
     <template #page>
       <div class="not-found">
           <img v-if="isDarkMode" :src="$withBase(themeData.notFoundDark)">
-          <img v-else :src="$withBase(themeData.notFoundLight)">
+          <img v-else :src="$withBase(themeData.notFound)">
       </div>
     </template>
   </ParentLayout>

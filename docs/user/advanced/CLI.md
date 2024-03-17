@@ -130,6 +130,6 @@ Options:
 ``` 
 
 Sample with a capture interval of 15 frames per second (fps)
-```
+``` sh:no-line-numbers
 hyperion-qt -f 15
 ```

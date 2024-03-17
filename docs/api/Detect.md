@@ -56,7 +56,7 @@ Each published entry contains at least the following data in the txt field:
 There are several clients available for testing like the
 [avahi-browse](https://manpages.ubuntu.com/manpages/bionic/man1/avahi-browse.1.html) a
 commandline tool for Ubuntu/Debian. Example command 
-``` bash
+``` sh:no-line-numbers
 sudo apt-get install avahi-untils && avahi-browse -r _hyperiond-json._tcp
 ```
 <ImageWrap src="/images/en/avahi-browse.jpg" alt="Searching for Hyperion JSON-API Server with Avahi cli" />

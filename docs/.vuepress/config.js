@@ -6,7 +6,7 @@
 // 
 // If the subfolder is 'dist', the env var BASE_DIR should be set to '/dist/'.
 //////////////////////////////////////////////////////////////////////////
-const baseDIR = (process.env.BASE_DIR ?? '/dist/')
+const baseDIR = (process.env.BASE_DIR ?? '/')
 //////////////////////////////////////////////////////////////////////////
 
 import { viteBundler } from '@vuepress/bundler-vite'
@@ -16,7 +16,6 @@ import { mediumZoomPlugin } from '@vuepress/plugin-medium-zoom'
 import { linksCheckPlugin } from '@vuepress/plugin-links-check'
 import { activeHeaderLinksPlugin } from '@vuepress/plugin-active-header-links'
 import { registerComponentsPlugin } from '@vuepress/plugin-register-components'
-import { backToTopPlugin } from '@vuepress/plugin-back-to-top'
 import { searchPlugin } from '@vuepress/plugin-search'
 import { head, sidebar_EN, sidebar_DE } from './configs'
 
@@ -57,12 +56,12 @@ export default defineUserConfig ({
     repo: 'https://hyperion-project.org/forum/',
     repoLabel: 'Forum',
     contributors: false,
-    logo: 'hyperion_logo_light_static.png',
-    logoDark: 'hyperion_logo_dark_static.png',
-    logo_Dynamic: 'hyperion_logo_light_dynamic.png',
-    logoDark_Dynamic: 'hyperion_logo_dark_dynamic.png',
-    notFoundLight: 'not_found_light.png',
-    notFoundDark: 'not_found_dark.png',
+    logo: 'logo.png',
+    logoDark: 'logoDark.png',
+    hyperion: 'hyperion.png',
+    hyperionDark: 'hyperionDark.png',
+    notFound: 'notFound.png',
+    notFoundDark: 'notFoundDark.png',
     sidebarDepth: 0,
     locales: {
       '/': {

@@ -47,7 +47,7 @@ Store the file in the SD-Card boot portition.
 
 **Sample - custom.toml**
 
-``` toml
+``` toml:no-line-numbers
 # Required:
 config_version = 1
 

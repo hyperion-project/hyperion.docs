@@ -22,7 +22,7 @@ Das Debuggen von Segmentierungsfehlern erfordert einen größeren Aufwand, wenn 
   * Um gdb zu beenden, drücke die Eingabetaste und gibt `quit` ein. Du kannst Hyperion wieder mit `sudo service hyperiond start` starten. Es wird nicht empfohlen, "Debug"-Hyperion-Builds in der produktiven Umgebung zu verwenden, installiere einfach wieder die "Release"-Version.
 
 ### Beispiel Backtrace-Protokoll
-```
+``` gdb:no-line-numbers
   (gdb) backtrace
   #0  0x0000000000000000 in ?? ()
   #1  0x00000000006173f2 in LinearColorSmoothing::queueColors (this=0xfdfa70, 

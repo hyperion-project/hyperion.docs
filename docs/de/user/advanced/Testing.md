@@ -66,7 +66,6 @@ Die Artefakte können unter dem Pull Request selbst gefunden werden.
 Die Hyperion Projekt [Repository Seite](https://releases.hyperion-project.org/) bietet Installationsanweisungen auf Knopfdruck.
 Wähle einfach "Nightly Builds", um die entsprechenden Installationsanweisungen zu erhalten.
 
-::: warning
+::: warning Bitte beachten
 Du musst zuerst eine bestehende Installation deinstallieren.
 :::
-

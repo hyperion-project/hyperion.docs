@@ -1,7 +1,7 @@
 <template>
   <div class="hyperion_container">
-    <img v-if="!isDarkMode" :src="$withBase(themeData.logo_Dynamic)" @click="onClick" class="hyperion_logo" />
-    <img v-else :src="$withBase(themeData.logoDark_Dynamic)" @click="onClick" class="hyperion_logo" />
+    <img v-if="isDarkMode" :src="$withBase(themeData.hyperionDark)" @click="onClick" class="hyperion_logo" />
+    <img v-else :src="$withBase(themeData.hyperion)" @click="onClick" class="hyperion_logo" />
     <span id="hyperion_effect" class="rainbow" style="position:absolute" />
   </div>
 </template>
