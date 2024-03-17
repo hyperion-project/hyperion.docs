@@ -2,11 +2,11 @@
 sidebar: false
 ---
 
-<p style="text-align:center">
+<div style="text-align:center">
   <HyperionLogoDynamic />
   <br>
   Willkommen in der bunten Welt von Hyperion. Bitte wähle aus, welche Dokumentation du einsehen möchtest.
-</p>
+</div>
 
 <div class="flex flex-center no-decoration">
   <MainSection title="Benutzer" text="Installation, Konfiguration und erweiterte Informationen" to="/de/user/" icon="user" />

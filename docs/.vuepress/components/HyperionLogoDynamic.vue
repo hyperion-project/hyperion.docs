@@ -1,24 +1,17 @@
 <template>
   <div class="hyperion_container">
+    <img v-if="!isDarkMode" :src="$withBase(themeData.logo_Dynamic)" @click="onClick" class="hyperion_logo" />
+    <img v-else :src="$withBase(themeData.logoDark_Dynamic)" @click="onClick" class="hyperion_logo" />
     <span id="hyperion_effect" class="rainbow" style="position:absolute" />
-    <img v-if="!isDarkMode" :src="$withBase(themeData.logo_Dynamic)" @click="onClick" class="hyperion_logo">
-    <img v-else :src="$withBase(themeData.logoDark_Dynamic)" @click="onClick" class="hyperion_logo">
-    <!-- <span id="hyperion_effect" class="rainbow" style="position:absolute" /> -->
   </div>
 </template>
 
 <script setup lang="ts">
 import { useThemeData } from '@vuepress/plugin-theme-data/client';
-
 import { onBeforeUnmount, onMounted, ref } from 'vue';
 
 const themeData: any = useThemeData();
 const isDarkMode = ref(false);
-const isMobile = ref(false);
-
-const handleResize = () => {
-  isMobile.value = window.innerWidth < 720;
-};
 
 const onClick = () => {
   var animation = document.getElementById('hyperion_effect');
@@ -47,16 +40,10 @@ onMounted(() => {
     attributeFilter: ["class"],
     attributes: true,
   });
-
-  handleResize();
-  window.addEventListener('resize', handleResize, { passive: true });
 });
 
 onBeforeUnmount(() => {
   observer && observer.disconnect();
-  if (typeof window !== 'undefined') {
-    window.removeEventListener('resize', handleResize);
-  }
 });
 </script>
 
@@ -71,6 +58,6 @@ onBeforeUnmount(() => {
 
   img.hyperion_logo {
     position:relative;
-    // z-index:9;
+    z-index:9;
   }
 </style>
