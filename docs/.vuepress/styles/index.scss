@@ -61,6 +61,11 @@
 .not-found {
   display: flex;
   justify-content: center;
+  margin-top: var(--navbar-height);
+  img {
+    width: 60% !important;
+    object-fit: cover !important;
+  }
 }
 
 // Cards

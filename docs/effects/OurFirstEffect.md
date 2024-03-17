@@ -141,7 +141,3 @@ while not hyperion.abort():
 
 ### Clear the image
 Let's add a option to set the image to black on a configurable interval in seconds. This overwrites all dots with black.
-
-::: tip
- I am sorry, more will come soon
-:::

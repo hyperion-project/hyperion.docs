@@ -1,8 +1,5 @@
 <template>
   <ParentLayout>
-    <template #sidebar>
-      <div/>
-    </template>
     <template #page>
       <div class="not-found">
           <img v-if="isDarkMode" :src="$withBase(themeData.notFoundDark)">

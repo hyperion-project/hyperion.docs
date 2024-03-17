@@ -85,7 +85,7 @@ Each module will search a Hyperion server automatically, if the `--address` opti
 
 Below you find the output of Qt capture executable for illustration.
 
-``` sh
+``` sh:no-line-numbers
 hyperion-qt --help
 hyperion-qt:
 	Version   : 2.0.16 ((HEAD detached at 2.0.16) (Paulchen-Panther-cb85d2d/a93d79b-1705568419))

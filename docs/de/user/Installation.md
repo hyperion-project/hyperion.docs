@@ -4,7 +4,7 @@ Für die Installation von Hyperion werden für zahlreiche Plattformen Installati
 ## Voraussetzungen
 
 ### Unterstützte Systeme
-  * Raspberry Pi (siehe auch [HyperBian](/de/user/HyperBian))
+  * Raspberry Pi (siehe auch [HyperBian](/de/user/HyperBian.md))
   * Debian 10, Ubuntu 20.04, Fedora 37 oder neuer
   * Mac OS
   * Windows 10

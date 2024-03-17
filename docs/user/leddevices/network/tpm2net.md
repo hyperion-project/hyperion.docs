@@ -2,7 +2,7 @@
 
 The device streams RGB values using the TPM2.NET protocol on top of the UDP network protocol.
 
-**The devices is not able to detect, if the remote device is not available or failed.**
+**The device is not able to detect, if the remote device is not available or failed.**
 
 ## Configuration
 

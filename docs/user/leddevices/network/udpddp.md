@@ -2,7 +2,7 @@
 
 The device streams RGB values using the Distributed Display Protocol ([DDP](https://www.3waylabs.com/ddp/#Data%20Types)) on top of the UDP network protocol.
 
-**The devices is not able to detect, if the remote device is not available or failed.**
+**The device is not able to detect, if the remote device is not available or failed.**
 
 ::: warning Note:
 The Distributed Display Protocol issues a subsequent UDP-package per 480 LEDs.

@@ -2,7 +2,7 @@
 
 The device streams a set of RGB values using the UDP network protocol.
 
-**The devices is not able to detect, if the remote device is not available or failed.**
+**The device is not able to detect, if the remote device is not available or failed.**
 
 ::: warning Note:
 The maximum number of LEDs supported is 490. The current UDP-raw protocol cannot handle the loss of fragmented packets.

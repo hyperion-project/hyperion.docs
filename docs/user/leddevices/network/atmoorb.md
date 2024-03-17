@@ -2,7 +2,7 @@
 
 The device streams a set of RGB values to one or many AtmoOrb devices (aka Orbs) over UDP multicast.
 
-**The devices is not able to be detected, if the remote device is not available or failed.**
+**The device is not able to be detected, if the remote device is not available or failed.**
 
 ## Configuration
 

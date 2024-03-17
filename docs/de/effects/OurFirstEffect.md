@@ -141,7 +141,3 @@ while not hyperion.abort():
 
 ### Das Bild leeren
 Fügen wir eine Option hinzu, die das Bild in einem konfigurierbaren Intervall in Sekunden auf Schwarz setzt. Dadurch werden alle Punkte mit Schwarz überschrieben.
-
-::: tip
- Mehr wird bald kommen
-:::
