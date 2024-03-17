@@ -81,7 +81,7 @@ In diesem Beispiel wird die erste LED `gbr` sein, die anderen LEDs werden der gl
 
 ### Editieren mit der Webkonfiguration
 Während das Bearbeiten dieser Einstellungen in einem lokalen Texteditor etwas ungewohnt ist, kann man die Werte in der Web-Konfiguration bearbeiten!
-  - Stelle sicher, dass die [Hyperion-Einstellungsstufe](../Konfiguration.md#Einstellungsstufen) auf **Fortgeschritten** gestellt ist.
+  - Stelle sicher, dass die [Hyperion-Einstellungsstufe](/de/user/Configuration.md#Einstellungsstufen) auf **Fortgeschritten** gestellt ist.
   - Navigiere zu Konfiguration -> LED-Hardware und wechsele auf die Registerkarte LED-Layout. Du wirst einen neuen Abschnitt **Generierte/aktuelle LED-Konfiguration** sehen.
 
 <ImageWrap src="/images/de/user_ledlayout3.jpg" alt="Hyperion LED Layout" />

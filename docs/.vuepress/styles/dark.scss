@@ -1,71 +1,74 @@
 @import 'variables';
 
-html.dark {
-  // brand colors
-  --c-brand: #{$brandColorDark};
+@media not print {
+  html.dark {
+    // brand colors
+    --c-brand: #{$brandColorDark};
 
-  // background colors
-  --c-bg: #{$bgColorDark};
-  --c-bg-light: #{$bgColorLightDark};
-  --c-bg-lighter: #{$bgColorLighterDark};
-  --c-bg-transparent: #{$bgColorTransparentDark};
-  --c-bg-navbar: #{$bgColorNavbarDark};
-  --c-bg-sidebar: #{$bgColorSidebarDark};
-  --c-bg-arrow: #{$bgColorArrowDark};
+    // background colors
+    --c-bg: #{$bgColorDark};
+    --c-bg-light: #{$bgColorLightDark};
+    --c-bg-lighter: #{$bgColorLighterDark};
+    --c-bg-transparent: #{$bgColorTransparentDark};
+    --c-bg-navbar: #{$bgColorNavbarDark};
+    --c-bg-sidebar: #{$bgColorSidebarDark};
+    --c-bg-arrow: #{$bgColorArrowDark};
 
-  // text colors
-  --c-text: #{$textColorDark};
-  --c-text-sub: #{$textColorSubDark};
+    // text colors
+    --c-text: #{$textColorDark};
+    --c-text-accent: var(--c-brand);
+    --c-text-sub: #{$textColorSubDark};
 
-  // border colors
-  --c-border: #{$borderColorDark};
-  --c-border-sub: #{$borderColorSubDark};
+    // border colors
+    --c-border: #{$borderColorDark};
+    --c-border-sub: #{$borderColorSubDark};
 
-  // custom container colors
-  --c-info: #{$infoColor};
-  --c-tip: #{$tipColor};
-  --c-tip-bg: #{$bgColorLightDark};
-  --c-tip-title: #{$tipTitleColor};
-  --c-tip-text: #{$textColorDark};
-  --c-tip-text-accent: var(--c-brand);
-  --c-warning: #{$warningColor};
-  --c-warning-bg: #{$bgColorLightDark};
-  --c-warning-title: #{$warningTitleColor};
-  --c-warning-text: #{$textColorDark};
-  --c-warning-text-accent: var(--c-brand);
-  --c-danger: #{$dangerColor};
-  --c-danger-bg: #{$bgColorLightDark};
-  --c-danger-title: #{$dangerTitleColor};
-  --c-danger-text: #{$textColorDark};
-  --c-danger-text-accent: var(--c-brand);
+    // custom container colors
+    --c-info: #{$infoColor};
+    --c-tip: #{$tipColor};
+    --c-tip-bg: #{$bgColorLightDark};
+    --c-tip-title: #{$tipTitleColor};
+    --c-tip-text: #{$textColorDark};
+    --c-tip-text-accent: var(--c-brand);
+    --c-warning: #{$warningColor};
+    --c-warning-bg: #{$bgColorLightDark};
+    --c-warning-title: #{$warningTitleColor};
+    --c-warning-text: #{$textColorDark};
+    --c-warning-text-accent: var(--c-brand);
+    --c-danger: #{$dangerColor};
+    --c-danger-bg: #{$bgColorLightDark};
+    --c-danger-title: #{$dangerTitleColor};
+    --c-danger-text: #{$textColorDark};
+    --c-danger-text-accent: var(--c-brand);
 
-  // code blocks vars
-  --code-bg-color: #{$codeBgColor};
-  --code-hl-bg-color: rgba(0, 0, 0, 0.66);
-  --code-ln-color: #9e9e9e;
-  --code-scroll-bar-color: #64748b;
-  --code-ln-wrapper-width: 3rem;
-  --inline-code-color: #{$inlineCodeTextDark};
-  --inline-code-bg-color: #{$inlineCodeBgDark};
+    // code blocks vars
+    --code-bg-color: #{$codeBgColor};
+    --code-hl-bg-color: rgba(0, 0, 0, 0.66);
+    --code-ln-color: #9e9e9e;
+    --code-scroll-bar-color: #64748b;
+    --code-ln-wrapper-width: 3rem;
+    --inline-code-color: #{$inlineCodeTextDark};
+    --inline-code-bg-color: #{$inlineCodeBgDark};
 
-  // image masks
-  --image-mask-color: #{$darkColor3};
+    // image masks
+    --image-mask-color: #{$darkColor3};
 
-  // shadows
-  --box-shadow: #{$boxShadowDark};
-  --box-shadow-hover: #{$boxShadowHoverDark};
-  --box-shadow-inset: #{$boxShadowInsetDark};
+    // shadows
+    --box-shadow: #{$boxShadowDark};
+    --box-shadow-hover: #{$boxShadowHoverDark};
+    --box-shadow-inset: #{$boxShadowInsetDark};
 
-  // cards
-  .card {
-    background-color: #005179;
-    &:hover {
-      background-color: #09679e;
+    // cards
+    .card {
+      background-color: #005179;
+      &:hover {
+        background-color: #09679e;
+      }
     }
-  }
 
-  // plugin-search
-  .search-box {
-    --search-bg-color: #313335;
+    // plugin-search
+    .search-box {
+      --search-bg-color: #313335;
+    }
   }
 }

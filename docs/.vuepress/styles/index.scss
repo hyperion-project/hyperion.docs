@@ -57,7 +57,7 @@
   justify-content: center;
 }
 
-// cards
+// Cards
 .card {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   transition: 0.3s;
@@ -66,35 +66,7 @@
   }
 }
 
-// .search-box
-// input, .suggestions
-//   background-color: $darkSecondaryBg;
-//   border-color: $darkBorderColor;
-
-// input
-//   color: $darkTextColor;
-//   &:focus
-//     border-color: alpha($accentColorDark, 0.75);
-// .suggestion
-//   &.focused
-//     background-color: $darkPrimaryBg;
-//     a
-//       color: $accentColorDark;
-//   a
-//     color: $darkAltTextColor;
-
-// plugin-search
-.search-box {
-  --search-accent-color: var(--c-brand);
-  --search-text-color: var(--c-text);
-  --search-item-text-color: var(--c-text-sub);
-  --search-item-focus-bg-color: var(--c-bg-lighter);
-  --search-border-color: var(--c-border);
-  --search-input-width: 13rem;
-  --search-result-width: 20rem;
-}
-
-// language dropdown
+// Language dropdown
 .translate-dropdown {
   display: flex;
   margin: auto;
@@ -118,6 +90,37 @@
     width: 1.5rem;
     height: 1.5rem;
   }
+}
+
+// Printer styles
+@media print {
+  .page {
+    padding-top: 0 !important;
+  }
+  .sidebar,
+  .navbar {
+    display: none;
+  }
+}
+
+// plugin-back-to-top
+.vp-back-to-top-button {
+  --back-to-top-icon: url("/backtotop.svg");
+  --back-to-top-bg-color: var(--c-bg-transparent);
+  --back-to-top-color: var(--c-text);
+  --back-to-top-color-hover: var(--c-text-accent);
+  --back-to-top-shadow: var(--box-shadow);
+}
+
+// plugin-search
+.search-box {
+  --search-accent-color: var(--c-brand);
+  --search-text-color: var(--c-text);
+  --search-item-text-color: var(--c-text-sub);
+  --search-item-focus-bg-color: var(--c-bg-lighter);
+  --search-border-color: var(--c-border);
+  --search-input-width: 13rem;
+  --search-result-width: 20rem;
 }
 
 // plugin-medium-zoom

@@ -1,93 +1,107 @@
 @import "variables";
 
-@media (min-width: $MQMobile) {
-  .main-logo {
-    width: 586px;
-  }
+:root {
+  --degree: 0deg;
+}
 
-  :root {
-    --degree: 0deg;
-  }
+.rainbow {
+  width: calc(17.406143344709898%);
+  aspect-ratio: 51 / 35;
+  left: calc(68.9419795221843%);
+  top: calc(4.655555555555555%);
+  background: conic-gradient(from var(--degree), red, yellow, lime, aqua, #3333ff, magenta, red);
+  -webkit-mask:
+    linear-gradient(to left, black 85%, transparent),
+    linear-gradient(to top left, black 85%, transparent),
+    linear-gradient(to top, black 85%, transparent),
+    linear-gradient(to top right, black 85%, transparent),
+    linear-gradient(to right, black 85%, transparent),
+    linear-gradient(to bottom right, black 85%, transparent),
+    linear-gradient(to bottom, black 85%, transparent),
+    linear-gradient(to bottom left, black 85%, transparent);
+  -webkit-mask-composite: source-in;
+  mask-composite: intersect;
+  animation: 5s angle linear infinite;
+  clip-path: polygon(0% 0%, 0% 100%, 15% 100%, 15% 15%, 85% 15%, 85% 85%, 15% 85%, 15% 100%, 100% 100%, 100% 0%);
+}
 
-  .rainbow {
-    width: 102px;
-    height: 70px;
-    margin-top: 4px;
-    margin-left: -182px;
-    background: conic-gradient(from var(--degree), red, yellow, lime, aqua, #3333ff, magenta, red);
-    -webkit-mask:
-      linear-gradient(to left, black 85%, transparent),
-      linear-gradient(to top left, black 85%, transparent),
-      linear-gradient(to top, black 85%, transparent),
-      linear-gradient(to top right, black 85%, transparent),
-      linear-gradient(to right, black 85%, transparent),
-      linear-gradient(to bottom right, black 85%, transparent),
-      linear-gradient(to bottom, black 85%, transparent),
-      linear-gradient(to bottom left, black 85%, transparent);
-    -webkit-mask-composite: source-in;
-    mask-composite: intersect;
-    animation: 5s angle linear infinite;
-    clip-path: polygon(0% 0%, 0% 100%, 15% 100%, 15% 15%, 85% 15%, 85% 85%, 15% 85%, 15% 100%, 100% 100%, 100% 0%);
-  }
+.police-solid {
+  width: calc(17.406143344709898%);
+  aspect-ratio: 51 / 35;
+  left: calc(69%);
+  top: calc(4.655555555555555%);
+  background: conic-gradient(from var(--degree), #09679e 50%, $dangerColor 50%);
+  -webkit-mask:
+    linear-gradient(to left, black 85%, transparent),
+    linear-gradient(to top left, black 85%, transparent),
+    linear-gradient(to top, black 85%, transparent),
+    linear-gradient(to top right, black 85%, transparent),
+    linear-gradient(to right, black 85%, transparent),
+    linear-gradient(to bottom right, black 85%, transparent),
+    linear-gradient(to bottom, black 85%, transparent),
+    linear-gradient(to bottom left, black 85%, transparent);
+  -webkit-mask-composite: source-in;
+  mask-composite: intersect;
+  animation: 2s angle linear infinite;
+  clip-path: polygon(0% 0%, 0% 100%, 15% 100%, 15% 15%, 85% 15%, 85% 85%, 15% 85%, 15% 100%, 100% 100%, 100% 0%);
+}
 
-  .police-solid {
-    width: 102px;
-    height: 70px;
-    margin-top: 4px;
-    margin-left: -181px;
-    background: conic-gradient(from var(--degree), #005179 50%, $dangerColor 50%);
-    -webkit-mask:
-      linear-gradient(to left, black 85%, transparent),
-      linear-gradient(to top left, black 85%, transparent),
-      linear-gradient(to top, black 85%, transparent),
-      linear-gradient(to top right, black 85%, transparent),
-      linear-gradient(to right, black 85%, transparent),
-      linear-gradient(to bottom right, black 85%, transparent),
-      linear-gradient(to bottom, black 85%, transparent),
-      linear-gradient(to bottom left, black 85%, transparent);
-    -webkit-mask-composite: source-in;
-    mask-composite: intersect;
-    animation: 2s angle linear infinite;
-    clip-path: polygon(0% 0%, 0% 100%, 15% 100%, 15% 15%, 85% 15%, 85% 85%, 15% 85%, 15% 100%, 100% 100%, 100% 0%);
+@keyframes angle {
+  to {
+    --degree: 360deg;
   }
+}
 
-  @keyframes angle {
-    to {
-      --degree: 360deg;
-    }
+@property --degree {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
+
+.kitt {
+  width: calc(2.8%);
+  aspect-ratio: 1 / 4.3;
+  left: calc(77%);
+  top: calc(4.9%);
+  background: linear-gradient(to right, transparent 0%, $dangerColor 50%, transparent 100%);
+  -webkit-mask:
+    linear-gradient(to left, black 85%, transparent),
+    linear-gradient(to left top, black 85%, transparent),
+    linear-gradient(to top, black 85%, transparent),
+    linear-gradient(to top right, black 85%, transparent),
+    linear-gradient(to right, black 85%, transparent),
+    linear-gradient(to right bottom, black 85%, transparent),
+    linear-gradient(to bottom, black 85%, transparent),
+    linear-gradient(to bottom left, black 85%, transparent);
+  -webkit-mask-composite: source-in;
+  mask-composite: intersect;
+  background-repeat: repeat-y;
+  animation: scroll 2s infinite linear;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(-290%);
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
   }
-
-  @property --degree {
-    syntax: '<angle>';
-    initial-value: 0deg;
-    inherits: false;
+  5% {
+    clip-path: polygon(0% 0%, 0% 100%, 0 100%, 0 20%, 100% 20%, 100% 80%, 0 80%, 0 100%, 100% 100%, 100% 0%);
   }
-
-  .kitt {
-    width: 102px;
-    height: 64px;
-    margin-top: 7px;
-    margin-left: -182px;
-    background: linear-gradient(to right,  transparent 0%, transparent 50%, $dangerColor 55%, $dangerColor 60%, transparent 65%, transparent 100%);
-    -webkit-mask:
-      linear-gradient(to left, black 85%, transparent),
-      linear-gradient(to left top, black 85%, transparent),
-      linear-gradient(to top, black 85%, transparent),
-      linear-gradient(to top right, black 85%, transparent),
-      linear-gradient(to right, black 85%, transparent),
-      linear-gradient(to right bottom, black 85%, transparent),
-      linear-gradient(to bottom, black 85%, transparent),
-      linear-gradient(to bottom left, black 85%, transparent);
-    -webkit-mask-composite: source-in;
-    mask-composite: intersect;
-    background-repeat: repeat-y;
-    animation: scroll 2s infinite linear;
-    clip-path: polygon(0% 0%, 0% 100%, 10% 100%, 10% 10%, 90% 10%, 90% 90%, 10% 90%, 10% 100%, 100% 100%, 100% 0%);
+  45% {
+    clip-path: polygon(0% 0%, 0% 100%, 0 100%, 0 20%, 100% 20%, 100% 80%, 0 80%, 0 100%, 100% 100%, 100% 0%);
   }
-
-  @keyframes scroll {
-    0% { background-position:calc(0% - 50px) center; }
-    50% { background-position:calc(100% + 35px) center; }
-    100% { background-position:calc(0% - 50px) center;	}
+  50% {
+    transform: translateX(240%);
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+  }
+  55% {
+    clip-path: polygon(0% 0%, 0% 100%, 0 100%, 0 20%, 100% 20%, 100% 80%, 0 80%, 0 100%, 100% 100%, 100% 0%);
+  }
+  95% {
+    clip-path: polygon(0% 0%, 0% 100%, 0 100%, 0 20%, 100% 20%, 100% 80%, 0 80%, 0 100%, 100% 100%, 100% 0%);
+  }
+  100% {
+    transform: translateX(-290%);
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
   }
 }

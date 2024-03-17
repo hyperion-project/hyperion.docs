@@ -1,12 +1,24 @@
+//////////////////////////////////////////////////////////////////////////
+// The environment variable 'BASE_DIR' can be set if the website
+// is located locally in a subfolder (e.g.: http://localhost/dist/)
+// or if the web address has a subfolder when publishing on GitHub
+// (e.g.: https://MyUserName.github.io/hyperion.docs/).
+// 
+// If the subfolder is 'dist', the env var BASE_DIR should be set to '/dist/'.
+//////////////////////////////////////////////////////////////////////////
+const baseDIR = (process.env.BASE_DIR ?? '/dist/')
+//////////////////////////////////////////////////////////////////////////
+
 import { viteBundler } from '@vuepress/bundler-vite'
 import { defaultTheme } from '@vuepress/theme-default'
 import { defineUserConfig } from 'vuepress'
 import { mediumZoomPlugin } from '@vuepress/plugin-medium-zoom'
 import { linksCheckPlugin } from '@vuepress/plugin-links-check'
+import { activeHeaderLinksPlugin } from '@vuepress/plugin-active-header-links'
 import { registerComponentsPlugin } from '@vuepress/plugin-register-components'
+import { backToTopPlugin } from '@vuepress/plugin-back-to-top'
 import { searchPlugin } from '@vuepress/plugin-search'
-import { head, sidebar_EN, sidebar_DE } from "./configs"
-const baseDIR = (process.env.BASE_DIR ?? '/')
+import { head, sidebar_EN, sidebar_DE } from './configs'
 
 import { getDirname, path } from 'vuepress/utils'
 const __dirname = getDirname(import.meta.url)
@@ -60,7 +72,7 @@ export default defineUserConfig ({
         editLinkText: 'Edit this page on GitHub',
         editLink: false,
         lastUpdatedText: 'Last Updated',
-        rightMenuText: "Content",
+        rightMenuText: "On This Page",
         navbar: [
           { text: 'User', link: '/user/' },
           { text: 'Effects', link: '/effects/' },
@@ -75,7 +87,7 @@ export default defineUserConfig ({
         editLinkText: 'Diese Seite auf Github bearbeiten',
         editLink: false,
         lastUpdatedText: 'Zuletzt aktualisiert',
-        rightMenuText: "Inhalt",
+        rightMenuText: "Inhalt dieser Seite",
         navbar: [
           { text: 'Benutzer', link: '/de/user/' },
           { text: 'Effekte', link: '/de/effects/' },
@@ -92,6 +104,9 @@ export default defineUserConfig ({
     linksCheckPlugin({
       dev: true,
       build: false
+    }),
+    activeHeaderLinksPlugin({
+      headerLinkSelector: 'a.right-menu-item-entry'
     }),
     registerComponentsPlugin({
       components: {

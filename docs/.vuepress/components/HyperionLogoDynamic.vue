@@ -1,8 +1,10 @@
 <template>
-    <img v-if="!isDarkMode && !isMobile" :src="$withBase(themeData.logo_Dynamic)" @click="onClick" class="logo" style="position:relative;z-index:100;">
-    <img v-else-if="isDarkMode && !isMobile" :src="$withBase(themeData.logoDark_Dynamic)" @click="onClick" class="logo" style="position:relative;z-index:100;">
-    <img v-else-if="!isDarkMode && isMobile" :src="$withBase(themeData.logo)" class="logo" style="position:relative">
-    <img v-else :src="$withBase(themeData.logoDark)" class="logo" style="position:relative">
+  <div class="hyperion_container">
+    <span id="hyperion_effect" class="rainbow" style="position:absolute" />
+    <img v-if="!isDarkMode" :src="$withBase(themeData.logo_Dynamic)" @click="onClick" class="hyperion_logo">
+    <img v-else :src="$withBase(themeData.logoDark_Dynamic)" @click="onClick" class="hyperion_logo">
+    <!-- <span id="hyperion_effect" class="rainbow" style="position:absolute" /> -->
+  </div>
 </template>
 
 <script setup lang="ts">
@@ -19,7 +21,7 @@ const handleResize = () => {
 };
 
 const onClick = () => {
-  var animation = document.getElementById('animation');
+  var animation = document.getElementById('hyperion_effect');
   if(typeof animation !== 'undefined') {
     if(animation!.getAttribute("class") == "rainbow") {
       animation!.className = "kitt";
@@ -57,3 +59,18 @@ onBeforeUnmount(() => {
   }
 });
 </script>
+
+<style lang="scss" scoped>
+  div.hyperion_container {
+    position:relative;
+    // hyperion logo size
+    max-width:586px;
+    max-height: 90px;
+    margin:0 auto;
+  }
+
+  img.hyperion_logo {
+    position:relative;
+    // z-index:9;
+  }
+</style>

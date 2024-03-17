@@ -1,12 +1,19 @@
 <!--
 Base From Vdoing Theme
-SRC: https://github.com/xugaoyi/vuepress-theme-vdoing/blob/master/vdoing/components/RightMenu.vue 
+Link: https://github.com/xugaoyi/vuepress-theme-vdoing/blob/master/vdoing/components/RightMenu.vue 
+-->
+
+<!--
+Printer Icon from vuepress Hope Theme
+Link: https://theme-hope.vuejs.press
 -->
 
 <template>
   <div class="right-menu-wrapper">
     <div class="right-menu-margin">
-      <div class="right-menu-title">{{ menu }}</div>
+      <div class="right-menu-title">{{ menu }}
+        <PrinterIcon :size="20" @click="handlePrint"/>
+      </div>
       <div class="right-menu-content">
         <template v-for="(item, i) in headers" :key="i">
           <div
@@ -22,7 +29,7 @@ SRC: https://github.com/xugaoyi/vuepress-theme-vdoing/blob/master/vdoing/compone
               :title="item.title"
               >{{ item.title }}</a
             >
-            <a :href="'#' + item.slug" v-else>{{ item.title }}</a>
+            <a :class="'right-menu-item-entry'" :href="'#' + item.slug" v-else>{{ item.title }}</a>
           </div>
           <div
             :class="[
@@ -39,7 +46,7 @@ SRC: https://github.com/xugaoyi/vuepress-theme-vdoing/blob/master/vdoing/compone
               :title="subItem.title"
               >{{ subItem.title }}</a
             >
-            <a :href="'#' + subItem.slug" v-else>{{ subItem.title }}</a>
+            <a :class="'right-menu-item-entry'" :href="'#' + subItem.slug" v-else>{{ subItem.title }}</a>
           </div>
         </template>
       </div>
@@ -52,33 +59,27 @@ SRC: https://github.com/xugaoyi/vuepress-theme-vdoing/blob/master/vdoing/compone
   import { onMounted, watch, ref } from "vue";
   import { usePageData } from "@vuepress/client";
   import { useThemeLocaleData } from "@vuepress/plugin-theme-data/client";
+  import PrinterIcon from "vue-material-design-icons/PrinterOutline.vue";
 
   const pages = usePageData();
   const theme = useThemeLocaleData();
-
-  const menu = ref("");
+  const menu = ref(theme.value.rightMenuText ?? "Table of Contents");
   const headers = ref([]);
+
   let hashText = ref("");
 
-  menu.value = theme.value.rightMenuText ?? "Table of Contents";
-
-  function getHeadersData() {
-    headers.value = pages.value.headers;
-  }
-
-  function getHashText() {
-    hashText.value = decodeURIComponent(window.location.hash.slice(1));
-  }
-
   onMounted(() => {
-    getHeadersData();
-    getHashText();
+    watch(useRoute(), () => {
+      headers.value = pages.value.headers;
+      hashText.value = decodeURIComponent(window.location.hash.slice(1));
+    }, {
+      immediate: true
+    });
   });
 
-  watch(useRoute(), () => {
-    headers.value = pages.value.headers;
-    getHashText();
-  });
+  function handlePrint() {
+    window.print()
+  }
 </script>
 
 <style lang="scss" scoped>
@@ -100,9 +101,10 @@ SRC: https://github.com/xugaoyi/vuepress-theme-vdoing/blob/master/vdoing/compone
     position: sticky;
     top: 0;
     font-size: 0.8rem;
+
     .right-menu-margin {
       margin-top: calc(var(--navbar-height) + 1rem);
-      border-radius: 3px;
+      border-radius: 0;
       overflow: hidden;
     }
 
@@ -110,6 +112,7 @@ SRC: https://github.com/xugaoyi/vuepress-theme-vdoing/blob/master/vdoing/compone
       padding: 10px 15px 0 15px;
       background: var(--c-bg);
       font-size: 1rem;
+
       &:after {
         content: "";
         display: block;
@@ -126,20 +129,25 @@ SRC: https://github.com/xugaoyi/vuepress-theme-vdoing/blob/master/vdoing/compone
       overflow: hidden;
       background: var(--c-bg);
       padding: 4px 3px 4px 0;
+
       &::-webkit-scrollbar {
         width: 3px;
         height: 3px;
       }
+
       &::-webkit-scrollbar-track-piece {
         background: none;
       }
+
       &::-webkit-scrollbar-thumb:vertical {
         background-color: hsla(0, 0%, 49%, 0.3);
       }
+
       &:hover {
         overflow-y: auto;
         padding-right: 0;
       }
+
       .right-menu-item {
         padding: 4px 0px 0px 15px;
 
@@ -147,21 +155,27 @@ SRC: https://github.com/xugaoyi/vuepress-theme-vdoing/blob/master/vdoing/compone
         white-space: nowrap;
         text-overflow: ellipsis;
         position: relative;
+
         &.level2 {
           font-size: 0.8rem;
         }
+
         &.level3 {
           padding-left: 27px;
         }
+
         &.level4 {
           padding-left: 37px;
         }
+
         &.level5 {
           padding-left: 47px;
         }
+
         &.level6 {
           padding-left: 57px;
         }
+
         &.active {
           &:before {
             content: "";
@@ -173,11 +187,13 @@ SRC: https://github.com/xugaoyi/vuepress-theme-vdoing/blob/master/vdoing/compone
             background: var(--c-text-accent);
             border-radius: 0 4px 4px 0;
           }
+
           a {
             color: var(--c-text-accent);
             opacity: 1;
           }
         }
+
         a {
           color: var(--textColor);
           opacity: 0.75;
@@ -196,6 +212,15 @@ SRC: https://github.com/xugaoyi/vuepress-theme-vdoing/blob/master/vdoing/compone
 
   @media (max-width: 1350px) {
     .theme-default-content .right-menu-wrapper {
+      display: none;
+    }
+  }
+
+  .printer-outline-icon {
+    vertical-align: middle;
+    cursor: pointer;
+
+    @media print {
       display: none;
     }
   }
