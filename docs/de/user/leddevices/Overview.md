@@ -20,7 +20,7 @@ Das Protokoll findest Du unter dem Menüpunkt "System" oder Du folgst dem Link a
 ::: tip 
 Standardmäßig werden nicht alle Konfigurationselemente angzeigt, um eine schnelle und einfache Einrichtung zu ermöglichen.
 
-Um zusätzliche Konfigurationselemente anzuzeigen, ändere die [Einstellungsstufe](/de/user/Configuration.html#einstellungsstufen).
+Um zusätzliche Konfigurationselemente anzuzeigen, ändere die [Einstellungsstufe](/de/user/Configuration.md#einstellungsstufen).
 :::
 
 ### Allgemeine Einstellungen
@@ -62,7 +62,7 @@ Einige Einstellungen sind für die verschiedenen Gerätekategorien gleich.
 #### Einstellungen Speichern
 Erlaubt das Speichern der Einstellungen, wenn die Konfiguration gültig ist.
 
-Falls noch kein [LED-Layout](/de/user/advanced/Advanced.html#led-layout) konfiguriert ist, hast Du die Möglichkeit, ein Standard-Layout zu erstellen und es später anzupassen.
+Falls noch kein [LED-Layout](/de/user/advanced/Advanced.md#led-layout) konfiguriert ist, hast Du die Möglichkeit, ein Standard-Layout zu erstellen und es später anzupassen.
 Wenn die Anzahl der im Layout konfigurierten LEDs die Anzahl der Hardware-LEDs übersteigt, überprüfe die Konfiguration oder das Layout und passe es an.
 
 #### Identifiziere
@@ -91,7 +91,7 @@ Hyperion unterstützt mehrere verschiedene LED-Geräte, die sich in vier Hauptka
 
 #### PWM-Voraussetzungen (Steuerungstyp RPi PWM/ws281x)
 PWM (Pulsweitenmodulation) setzt voraus, dass Hyperion unter dem Benutzer `root` läuft.\
-Falls Sie Hyperion als Dienst ausführen: [Ändern des Benutzers des Dienstes auf 'root'](/de/user/Installation.html#change-the-service-user-to-root)
+Falls Sie Hyperion als Dienst ausführen: [Ändern des Benutzers des Dienstes auf 'root'](/de/user/Installation.md#andern-des-benutzers-des-dienstes-auf-root)
 
 #### SPI-Voraussetzungen (Steuerungstypgruppe RPi SPI)
 Auf den meisten Systemen ist das SPI (Serial Peripheral Interface) standardmäßig nicht an und muss aktiviert werden.

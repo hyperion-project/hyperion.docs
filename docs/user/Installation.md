@@ -1,4 +1,4 @@
-# Install Hyperion
+# Installation
 Hyperion supports various platforms for installation, via package or portable .zip.
 
 ## Prerequisites

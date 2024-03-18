@@ -16,9 +16,10 @@ You can request a `serverinfo` response by sending the following command:
 List of Hyperion components and their current status "enabled" (on/off). You can enable
 or disable them during runtime . The "ALL" component reflect Hyperion as a whole -- if
 "ALL" is false (off) you can't enable any other component. [See control
-components](/json/control#control-components)
+components](/json/Control.md#control-components)
+
 ::: tip Subscribe
-You can subscribe to future data updates. Read more about [Component updates](/json/subscribe#component-updates)
+You can subscribe to future data updates. Read more about [Component updates](/json/Subscribe.md#component-updates)
 :::
 
 ```json
@@ -66,9 +67,9 @@ You can subscribe to future data updates. Read more about [Component updates](/j
 
 ### Adjustments
 Adjustments reflect the value of the last performed (non-persistent) color adjustment
-(e.g. brightness). Read more about [control Adjustments](/json/control#adjustments)
+(e.g. brightness). Read more about [control Adjustments](/json/Control.md#adjustments)
 ::: tip Subscribe
-You can subscribe to future data updates. Read more about [Adjustment updates](/json/subscribe#adjustment-updates)
+You can subscribe to future data updates. Read more about [Adjustment updates](/json/Subscribe.md#adjustment-updates)
 :::
 ```json
 {
@@ -102,9 +103,9 @@ created effects and system provided effects by checking the effect `file` string
 it begins with `:` it's a system provided effect, whereas if the path begins with `/`,
 it's a user created effect.
 
-See also [set Effect](/json/control#set-effect)
+See also [set Effect](/json/Control.md#set-effect)
 ::: tip Subscribe
-You can subscribe to future data updates. Read more about [Effect updates](/json/subscribe#effects-updates)
+You can subscribe to future data updates. Read more about [Effect updates](/json/Subscribe.md#effects-updates)
 :::
 ```json
 {
@@ -150,18 +151,18 @@ You can subscribe to future data updates. Read more about [Effect updates](/json
 ```
   
 ### LED mapping
-Active mode of the led area mapping. [See control LED mapping](/json/control#led-mapping)
+Active mode of the led area mapping. [See control LED mapping](/json/Control.md#led-mapping)
 ::: tip Subscribe
-You can subscribe to future data updates. Read more about [LED mapping updates](/json/subscribe#led-mapping-updates)
+You can subscribe to future data updates. Read more about [LED mapping updates](/json/Subscribe.md#led-mapping-updates)
 :::
 ```json
   "imageToLedMappingType":"multicolor_mean"
 ```
 
 ### Video mode
-The current video mode of grabbers. Can be switched to 3DHSBS, 3DVSBS. [See control video mode](/json/control#video-mode)
+The current video mode of grabbers. Can be switched to 3DHSBS, 3DVSBS. [See control video mode](/json/Control.md#video-mode)
 ::: tip Subscribe
-You can subscribe to future data updates. Read more about [Video mode updates](/json/subscribe#videomode-updates)
+You can subscribe to future data updates. Read more about [Video mode updates](/json/Subscribe.md#videomode-updates)
 :::
 ```json
   "videomode" : "2D"
@@ -169,9 +170,9 @@ You can subscribe to future data updates. Read more about [Video mode updates](/
 
 ### Priorities
 Overview of the registered/active sources. Each object is a source.
-  * **active**: If "true" it is selectable for manual source selection. [See also source selection](/json/control#source-selection)
+  * **active**: If "true" it is selectable for manual source selection. [See also source selection](/json/Control.md#source-selection)
   * **visible**: If "true" this source is displayed and pushed to the led device. The `visible:true`-source is always the first entry!
-  * **componentId**: A key belonging to a specific component that indicates the kind of input. [See available components](/json/control#components-ids-explained)
+  * **componentId**: A key belonging to a specific component that indicates the kind of input. [See available components](/json/Control.md#components-ids-explained)
   * **origin**: A named external setter of this source for reference purposes. If not given it's `System` (from Hyperion).
   * **owner**: Contains additional information related to the componentId. If it's an effect,
   the effect name is shown here. If it's USB capture, the capture device is shown. If
@@ -184,7 +185,7 @@ Overview of the registered/active sources. Each object is a source.
     `0` is set (0 means indefinite).
 
 ::: tip Subscribe
-You can subscribe to future data updates. Read more about [Priority updates](/json/subscribe#priority-updates)
+You can subscribe to future data updates. Read more about [Priority updates](/json/Subscribe.md#priority-updates)
 :::
 ```json
   "priorities":[
@@ -226,13 +227,13 @@ then `priorities_autoselect` switches to `false`.
 If the manually selected source is cleared/stops/completes-duration OR the user requests
 the auto selection, `priorities_autoselect` switches back to `true`. This value is
 atomically updated with the priority updates (shown above).
-[See also source selection](/json/control#source-selection).
+[See also source selection](/json/Control.md#source-selection).
   
 ### Instance
 Information about available instances and their state. Each instance represents a LED
-device. Instances can be controlled, see: [Control Instance](/json/control#control-instances).
+device. Instances can be controlled, see: [Control Instance](/json/Control.md#control-instances).
 ::: tip Subscribe
-You can subscribe to future data updates. Read more about [Instance Updates](/json/subscribe#instance-updates)
+You can subscribe to future data updates. Read more about [Instance Updates](/json/Subscribe.md#instance-updates)
 :::
 ```json
    "instance":[
@@ -252,7 +253,7 @@ You can subscribe to future data updates. Read more about [Instance Updates](/js
 ### LEDs
 Information about led layout (image mapping positions) and led count.
 ::: tip Subscribe
-You can subscribe to future data updates. Read more about [LEDs Updates](/json/subscribe#leds-updates)
+You can subscribe to future data updates. Read more about [LEDs Updates](/json/Subscribe.md#leds-updates)
 :::
 ```json
 {

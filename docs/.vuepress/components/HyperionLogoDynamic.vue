@@ -8,10 +8,10 @@
 
 <script setup lang="ts">
 import { useThemeData } from '@vuepress/plugin-theme-data/client';
-import { onBeforeUnmount, onMounted, ref } from 'vue';
+import { useDarkMode } from '@vuepress/theme-default/lib/client/composables/index.js'
 
 const themeData: any = useThemeData();
-const isDarkMode = ref(false);
+const isDarkMode = useDarkMode()
 
 const onClick = () => {
   var animation = document.getElementById('hyperion_effect');
@@ -25,26 +25,6 @@ const onClick = () => {
     }
   }
 };
-
-let observer: MutationObserver | null = null;
-
-onMounted(() => {
-  const html = document.querySelector('html') as HTMLElement;
-  isDarkMode.value = html.classList.contains('dark');
-
-  observer = new MutationObserver(() => {
-    isDarkMode.value = html.classList.contains("dark");
-  });
-
-  observer.observe(html, {
-    attributeFilter: ["class"],
-    attributes: true,
-  });
-});
-
-onBeforeUnmount(() => {
-  observer && observer.disconnect();
-});
 </script>
 
 <style lang="scss" scoped>
@@ -54,6 +34,7 @@ onBeforeUnmount(() => {
     max-width:586px;
     max-height: 90px;
     margin:0 auto;
+    margin-bottom: 1.2rem;
   }
 
   img.hyperion_logo {

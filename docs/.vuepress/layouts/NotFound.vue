@@ -1,7 +1,7 @@
 <template>
   <ParentLayout>
     <template #page>
-      <div class="not-found">
+      <div v-bind:style="[!isMobile ? 'padding-left: var(--sidebar-width)' : '' ]" class="not-found">
           <img v-if="isDarkMode" :src="$withBase(themeData.notFoundDark)">
           <img v-else :src="$withBase(themeData.notFound)">
       </div>
@@ -10,29 +10,20 @@
 </template>
 
 <script setup lang="ts">
-  import ParentLayout from '@vuepress/theme-default/layouts/Layout.vue';
-  import { useThemeData } from "@vuepress/plugin-theme-data/client";
-  import { onBeforeUnmount, onMounted, ref } from 'vue';
+  import ParentLayout from '@vuepress/theme-default/layouts/Layout.vue'
+  import { useThemeData } from "@vuepress/plugin-theme-data/client"
+  import { useDarkMode, DeviceType, useUpdateDeviceStatus } from '@vuepress/theme-default/lib/client/composables/index.js'
+  import { ref } from 'vue'
 
-  const themeData: any = useThemeData();
-  const isDarkMode = ref(false);
-  let observer: MutationObserver | null = null;
+  const themeData: any = useThemeData()
+  const isDarkMode = useDarkMode()
+  const isMobile = ref(false)
 
-  onMounted(() => {
-    const html = document.querySelector('html') as HTMLElement;
-    isDarkMode.value = html.classList.contains('dark');
-
-    observer = new MutationObserver(() => {
-      isDarkMode.value = html.classList.contains("dark");
-    });
-
-    observer.observe(html, {
-      attributeFilter: ["class"],
-      attributes: true,
-    });
-  });
-
-  onBeforeUnmount(() => {
-    observer && observer.disconnect();
-  });
+  useUpdateDeviceStatus(DeviceType.MOBILE, (width: number): void => {
+    if (window.innerWidth < width) {
+      isMobile.value = true 
+    } else {
+      isMobile.value = false
+    }
+  })
 </script>

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import AutoLink from '@theme/AutoLink.vue'
-// import NavbarDropdown from '@theme/NavbarDropdown.vue'
+import NavbarDropdown from '@theme/NavbarDropdown.vue'
 // import { useRoutePaths } from '@vuepress/helper/client'
 import { computed, ref } from 'vue'
 import type { ComputedRef } from 'vue'
@@ -156,7 +156,7 @@ const useNavbarConfig = (): ComputedRef<ResolvedNavbarItem[]> => {
   )
 }
 
-// const isMobile = ref(false)
+const isMobile = ref(false)
 const navbarConfig = useNavbarConfig()
 // const navbarSelectLanguage = useNavbarSelectLanguage()
 const navbarRepo = useNavbarRepo()
@@ -187,13 +187,12 @@ const navbarLabel = computed(() => {
 <template>
   <nav v-if="navbarLinks.length" class="navbar-items" :aria-label="navbarLabel">
     <div v-for="item in navbarLinks" :key="item.text" class="navbar-item">
-      <!-- <NavbarDropdown
+      <NavbarDropdown
         v-if="'children' in item"
         :item="item"
         :class="isMobile ? 'mobile' : ''"
-      /> -->
-      <!-- <AutoLink v-else :item="item" /> -->
-      <AutoLink :item="item" />
+      />
+      <AutoLink v-else :item="item" />
     </div>
   </nav>
 </template>

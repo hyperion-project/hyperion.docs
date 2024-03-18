@@ -1,6 +1,6 @@
 # Subscription
-During a `serverinfo` request the caller can optionally subscribe to updates -- either
-to specific [serverinfo parts](/json/ServerInfo.html#parts) or all available data.
+During a `serverinfo` request the caller can optionally subscribe to updates, either
+to specific [serverinfo parts](/json/ServerInfo.md#parts-of-a-serverinfo-response) or all available data.
 These updates will be pushed whenever a server-side data change occurs, without the need
 for the caller to poll.
 
@@ -26,7 +26,7 @@ To subscribe for all available updates modify the severinfo command to
 ```
 ### Base response layout
 All pushed subscription updates will have an `-update` suffix added to the relevant key
-from the [serverinfo part in question](/json/ServerInfo.html#parts). The new data
+from the [serverinfo part in question](/json/ServerInfo.md#parts-of-a-serverinfo-response). The new data
 will be in the `data` property. There is no `tan` nor `success` argument provided.
 ```json
 {

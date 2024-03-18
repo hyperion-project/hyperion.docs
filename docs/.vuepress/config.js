@@ -4,7 +4,7 @@
 // or if the web address has a subfolder when publishing on GitHub
 // (e.g.: https://MyUserName.github.io/hyperion.docs/).
 // 
-// If the subfolder is 'dist', the env var BASE_DIR should be set to '/dist/'.
+// If the subfolder is e.g. 'dist', the env var BASE_DIR should be set to '/dist/'.
 //////////////////////////////////////////////////////////////////////////
 const baseDIR = (process.env.BASE_DIR ?? '/')
 //////////////////////////////////////////////////////////////////////////
@@ -16,8 +16,9 @@ import { mediumZoomPlugin } from '@vuepress/plugin-medium-zoom'
 import { linksCheckPlugin } from '@vuepress/plugin-links-check'
 import { activeHeaderLinksPlugin } from '@vuepress/plugin-active-header-links'
 import { registerComponentsPlugin } from '@vuepress/plugin-register-components'
+import { removeHtmlExtensionPlugin } from 'vuepress-plugin-remove-html-extension'
 import { searchPlugin } from '@vuepress/plugin-search'
-import { head, sidebar_EN, sidebar_DE } from './configs'
+import { head, navbar_EN, sidebar_EN, navbar_DE, sidebar_DE } from './configs'
 
 import { getDirname, path } from 'vuepress/utils'
 const __dirname = getDirname(import.meta.url)
@@ -28,7 +29,7 @@ export function hyperionTheme(options) {
     extends: defaultTheme(options),
     alias: {
       "@theme/Page.vue": path.resolve(__dirname, "components/PageCustom.vue"),
-      "@theme/Navbar.vue": path.resolve(__dirname, "components/NavbarCustom.vue")
+      "@theme/Navbar.vue": path.resolve(__dirname, "components/NavbarCustom.vue"),
     }
   }
 }
@@ -72,11 +73,7 @@ export default defineUserConfig ({
         editLink: false,
         lastUpdatedText: 'Last Updated',
         rightMenuText: "On This Page",
-        navbar: [
-          { text: 'User', link: '/user/' },
-          { text: 'Effects', link: '/effects/' },
-          { text: 'Json API', link: '/json/' }
-        ],
+        navbar: navbar_EN,
         sidebar: sidebar_EN
       },
       '/de/': {
@@ -87,11 +84,7 @@ export default defineUserConfig ({
         editLink: false,
         lastUpdatedText: 'Zuletzt aktualisiert',
         rightMenuText: "Inhalt dieser Seite",
-        navbar: [
-          { text: 'Benutzer', link: '/de/user/' },
-          { text: 'Effekte', link: '/de/effects/' },
-          { text: 'Json API', link: '/de/json/' }
-        ],
+        navbar: navbar_DE,
         sidebar: sidebar_DE
       }
     }
@@ -111,9 +104,11 @@ export default defineUserConfig ({
       components: {
         HyperionLogoDynamic: path.resolve(__dirname, "components/HyperionLogoDynamic.vue"),
         ImageWrap: path.resolve(__dirname, "components/ImageWrap.vue"),
+        LinkTo: path.resolve(__dirname, "components/LinkTo.vue"),
         MainSection: path.resolve(__dirname, "components/MainSection.vue")
       }
     }),
+    removeHtmlExtensionPlugin(),
     searchPlugin({
       locales: {
         '/': {

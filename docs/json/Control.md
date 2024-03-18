@@ -14,7 +14,7 @@ Set a color for all LEDs or provide a pattern of LED colors.
 | :------  | :-----: | :------: | :--------------------------------------------------------------------------------------------------------------- |
 | color    | Array   | true     | An array of R G B Integer values e.g. `[R,G,B]`                                                                  |
 | duration | Integer | false    | Duration of color in ms. If you don't provide a duration, it's `0` -> indefinite                                 |
-| priority | Integer | true     | We recommend `50`, following the [Priority Guidelines](/api/guidelines#priority_guidelines). Min `2` Max `99` |
+| priority | Integer | true     | We recommend `50`, following the [Priority Guidelines](/api/Guidelines.md#priority_guidelines). Min `2` Max `99` |
 | origin   | String  | true     | A short name of your application like `Hyperion of App` . Max length is `20`, min `4`.                           |
 
 ```json
@@ -53,7 +53,7 @@ Set an effect by name. Available names can be found in the [serverinfo effect li
 | :------  | :-----: | :------: | :--------------------------------------------------------------------------------------------------------------- |
 | effect   | Object  | true     | Object with additional properties. e.g. `"name":"EffectName"`.                                                   |
 | duration | Integer | false    | Duration of effect in ms. If you don't provide a duration, it's `0` -> indefinite                                |
-| priority | Integer | true     | We recommend `50`, following the [Priority Guidelines](/api/guidelines#priority_guidelines). Min `2` Max `99` |
+| priority | Integer | true     | We recommend `50`, following the [Priority Guidelines](/api/Guidelines.md#priority_guidelines). Min `2` Max `99` |
 | origin   | String  | true     | A short name of your application like `Hyperion of App` . Max length is `20`, min `4`.                           |
 
 ```json
@@ -102,7 +102,7 @@ Set a single image. Supports all [Qt5](https://doc.qt.io/qt-5/qimagereader.html#
 | format    | String  | true     | Set to `auto` to let Hyperion parse the image according to type                                                  |
 | name      | String  | true     | The name of the image                                                                                            |
 | duration  | Integer | false    | Duration of image in ms. If you don't provide a duration, it's `0` -> endless                                    |
-| priority  | Integer | true     | We recommend `50`, following the [Priority Guidelines](/api/guidelines#priority_guidelines). Min `2` Max `99` |
+| priority  | Integer | true     | We recommend `50`, following the [Priority Guidelines](/api/Guidelines.md#priority_guidelines). Min `2` Max `99` |
 | origin    | String  | true     | A short name of your application like `Hyperion of App` . Max length is `20`, min `4`.                           |
 
 ```json
@@ -140,7 +140,7 @@ priority list
 :::
 
 ### Adjustments
-Adjustments reflect the color calibration. You can modify all properties of [serverinfo adjustments](/json/serverinfo#adjustments).
+Adjustments reflect the color calibration. You can modify all properties of [serverinfo adjustments](/json/ServerInfo.md#adjustments).
 
 | Property               |      Type      | Required | Comment                                                                                        |
 | :--------------------- | :------------: | :------: | :--------------------------------------------------------------------------------------------- |
@@ -234,7 +234,7 @@ Switch the video mode. Possible values are: `2D`, `3DSBS` and `3DTAB`.
 
 ### Control Components
 Some components can be enabled and disabled at runtime. To get the current state and
-available components see [Serverinfo Components](/json/serverinfo#components). See
+available components see [Serverinfo Components](/json/ServerInfo.md#components). See
 also: [Components/IDs explained](#components-ids-explained)
 
  ```json
@@ -262,7 +262,7 @@ Hyperion itself needs to be enabled! Check the status of "ALL" in the components
 ### Components/IDs explained
 Each component has a unique id. Not all of them can be enabled/disabled -- some of them,
 such as effect and color, are used to determine the source type when examining the
-[priority list](/json/ServerInfo.html#priorities).
+[priority list](/json/ServerInfo.md#priorities).
 |  ComponentID   |      Component       | Enable/Disable | Comment                                                                       |
 | :------------  | :------------------: | :------------: | :---------------------------------------------------------------------------- |
 |   SMOOTHING    |      Smoothing       |      Yes       | Smoothing component                                                           |
@@ -285,7 +285,7 @@ such as effect and color, are used to determine the source type when examining t
 Sources are always selected automatically by priority value (lowest value is the highest
 priority). You need to know the priority value of the source you want to select -- these
 priority values are available in the [serverinfo
-Priorities](/json/serverinfo#priorities).
+Priorities](/json/ServerInfo.md#priorities).
 ```json
 // Example: Set priority 50 to visible
 {
@@ -293,7 +293,7 @@ Priorities](/json/serverinfo#priorities).
   "priority":50
 }
 ```
-If you get a success response, the `priorities_autoselect`-status will switch to false (see [serverinfo Autoselection Mode](/json/serverinfo##priorities-selection-auto-manual)). You are now in manual mode, to switch back to auto mode send:
+If you get a success response, the `priorities_autoselect`-status will switch to false (see [serverinfo Autoselection Mode](/json/ServerInfo.md#priorities-selection-auto-manual)). You are now in manual mode, to switch back to auto mode send:
 ```json
 {
   "command":"sourceselect",
@@ -309,7 +309,7 @@ You can only select priorities which are `active:true`!
 ### Control Instances
 An instance represents an LED hardware instance. It runs within its own scope with it's
 own plugin settings, LED layout and calibration. Before selecting you can instance, you
-should first get information about the available instances from [serverinfo](/json/serverinfo#instance).
+should first get information about the available instances from [serverinfo](/json/ServerInfo.md#instance).
 
 ```json
 // Command to start instance 1
@@ -330,7 +330,7 @@ should first get information about the available instances from [serverinfo](/js
 ### API Instance handling
 On connection to the API you will be connected to instance `0` by default. You can
 control only one instance at the same time within a single connection, and
-[subscriptions](/json/subscribe#instance-updates) are in the context of the selected instance.
+[subscriptions](/json/Subscribe.md#instance-updates) are in the context of the selected instance.
 
 It's possible to switch to another instance with the following command:
 
@@ -348,7 +348,7 @@ This will return a success response or an error if the instance isn't available.
 It's possible that an instance will stop while you are connected to it. In this case
 connections on that instance will automatically be reset to instance `0`. Keep watching
 the instance data via subscription if you need to handle this case.
-See: [Instance updates](/json/subscribe#instance-updates).
+See: [Instance updates](/json/Subscribe.md#instance-updates).
 :::
 
 ### Live Image Stream

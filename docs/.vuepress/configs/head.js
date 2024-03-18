@@ -1,4 +1,4 @@
-const baseDIR = (process.env.BASE_DIR ?? '/dist/');
+const baseDIR = (process.env.BASE_DIR ?? '/')
 
 export const head = [
   ['link', { rel: 'icon', type: 'image/png', sizes: '16x16', href: baseDIR + 'icons/favicon-16x16.png' }],
@@ -41,4 +41,4 @@ export const head = [
   ['link', { rel: 'mask-icon', href: baseDIR + 'icons/safari-pinned-tab.svg', color: '#fff' }],
   ['meta', { name: 'msapplication-TileImage', content: baseDIR + 'icons/ms-icon-144x144.png' }], // probably invert
   ['meta', { name: 'msapplication-TileColor', content: '#2b81a0' }] // might not match with icon
-];
+]

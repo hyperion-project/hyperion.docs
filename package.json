@@ -26,6 +26,7 @@
     "dependencies": {
         "@vuepress/plugin-back-to-top": "next",
         "@vuepress/plugin-search": "next",
-        "vue-material-design-icons": "latest"
+        "vue-material-design-icons": "latest",
+        "vuepress-plugin-remove-html-extension": "latest"
     }
 }

@@ -52,7 +52,7 @@ Du kannst Hyperion-Server automatisch erkennen! Siehe [Hyperion erkennen](/de/ap
 Dies ist eine "rohe" Verbindung, du kannst zeilengetrenntes json vom Server senden und empfangen (Standardport: 19444). Dies wird auch als "Json-Server" bezeichnet.
 
 ### WebSocket
-Dies ist Teil des Hyperion-Webservers (Standard-Port: 8090). Man sendet und empfängt json-Befehle. WSS wird auch auf Port 8092 unterstützt. Es wird nur der TEXT-Modus unterstützt. Lese mehr über Websockets unter [Websocket](https://en.wikipedia.org/wiki/WebSocket|).
+Dies ist Teil des Hyperion-Webservers (Standard-Port: 8090). Man sendet und empfängt json-Befehle. WSS wird auch auf Port 8092 unterstützt. Es wird nur der TEXT-Modus unterstützt. Lese mehr über Websockets unter [Websocket](https://de.wikipedia.org/wiki/WebSocket).
 
 ### HTTP/S Json
 HTTP-Anfragen können auch an den Webserver gesendet werden (Standardport: 8090, für HTTPS: 8092). Sende eine HTTP/S POST-Anfrage zusammen mit einer korrekt formatierten Json-Nachricht im Body an die (Beispiel-)URL: `http://Ip:WebserverPort/json-rpc`

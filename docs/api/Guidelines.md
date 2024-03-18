@@ -1,8 +1,6 @@
 # Guidelines
 Improve the user experience with Hyperion by following these guidelines.
 
-[[toc]]
-
 ## Priority Guidelines
 Please adhere to the following priority guidelines to avoid user confusion and ensure
 the best user experience possible:

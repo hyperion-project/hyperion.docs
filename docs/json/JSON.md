@@ -58,7 +58,7 @@ This is a "raw" connection, you can send and receive line-separated json from th
 ### WebSocket
 This is part of the Hyperion webserver (default port: 8090). You send and receive json
 commands. WSS is also supported on port 8092. Only TEXT mode is supported. Read more
-about websockets at [Websocket](https://en.wikipedia.org/wiki/WebSocket|).
+about websockets at [Websocket](https://en.wikipedia.org/wiki/WebSocket).
 
 ### HTTP/S Json
 HTTP requests can also be sent to the webserver (default port: 8090, for HTTPS: 8092). Send a HTTP/S POST request along with a properly formatted json message in the body to the (example) url: `http://IpOfDevice:WebserverPort/json-rpc`

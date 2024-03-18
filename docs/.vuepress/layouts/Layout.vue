@@ -3,7 +3,8 @@
     <ParentLayout>
       <template #page-bottom>
         <footer style="text-align:center">
-          Copyright © 2014-2024 <a href="https://hyperion-project.org/">Hyperion Project</a>
+          <p>Released under the MIT License.<br>
+          Copyright © 2014-present <a href="https://hyperion-project.org/">Hyperion Project</a></p>
         </footer>
       </template>
     </ParentLayout>

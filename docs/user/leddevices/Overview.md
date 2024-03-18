@@ -20,7 +20,7 @@ The log can be found under the "System" menu entry or you follow the link at the
 ::: tip 
 By default, not all configuration items are displayed to allow quick and easy setup.
 
-To display additional configuration items, change the [settings-level](/user/Configuration.html#settings-level).
+To display additional configuration items, change the [settings-level](/user/Configuration.md#settings-level).
 :::
 
 ### General Settings
@@ -59,7 +59,7 @@ Some settings are common across the different device categories.
 
 #### Save settings
 Allows to save the settings if the configuration is valid.
-In case you have not configured an [LED-Layout](/user/advanced/Advanced.html#led-layout) yet, you have the option creating a default one and refine it later.
+In case you have not configured an [LED-Layout](/user/advanced/Advanced.md#led-layout) yet, you have the option creating a default one and refine it later.
 If the LEDs configured by the layout exceed the number of the hardware LED count, check and refine the configuration or the layout.
 
 #### Identify
@@ -87,7 +87,7 @@ Are 3 or 4 wire LEDs which can be powered via SPI (Serial Peripheral Interface) 
 
 #### PWM Prerequisites (Controller type RPi PWM/ws281x)
 PWM (Pulse Width Modulation) requires that Hyperion run under the `root` user.\
-In case you run Hyperion as a service: [Change the service user to 'root'](/user/Installation.html#change-the-service-user-to-root)
+In case you run Hyperion as a service: [Change the service user to 'root'](/user/Installation.md#change-the-service-user-to-root)
 
 #### SPI Prerequisites (Controller type group RPi SPI)
 On most systems the SPI (Serial Peripheral Interface) is not enabled per default and requires to be activated.

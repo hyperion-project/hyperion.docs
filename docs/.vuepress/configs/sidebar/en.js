@@ -4,14 +4,14 @@ export const sidebar_EN = {
       text: 'General',
       collapsible: false,
       children: [
-        '/user/README.md',
+        '/user/Introduction.md',
         '/user/Installation.md',
         '/user/Configuration.md',
         {
           text: 'LED Hardware',
           collapsible: true,
           children: [
-            '/user/leddevices/README.md',
+            '/user/leddevices/Overview.md',
             {
               text: 'SPI/PWM',
               collapsible: true,
@@ -94,7 +94,7 @@ export const sidebar_EN = {
       text: 'Effects',
       collapsible: false,
       children: [
-        '/effects/README.md',
+        '/effects/Effects.md',
         '/effects/API.md',
         '/effects/OurFirstEffect.md'
       ]
@@ -112,7 +112,7 @@ export const sidebar_EN = {
       text: 'JSON',
       collapsible: false,
       children: [
-        '/json/README.md',
+        '/json/JSON.md',
         '/json/ServerInfo.md',
         '/json/Control.md',
         '/json/Authentication.md',
@@ -133,8 +133,8 @@ export const sidebar_EN = {
       text: 'Go back to',
       collapsible: false,
       children: [
-        '/effects/README.md',
-        '/json/README.md'
+        '/effects/Effects.md',
+        '/json/JSON.md'
       ]
     }
   ]
