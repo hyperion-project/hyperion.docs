@@ -2,19 +2,15 @@
 sidebar: false
 ---
 
-<p style="text-align:center">
+<div style="text-align:center">
+  <h1>Welcome in the colorful world of</h1>
   <HyperionLogoDynamic />
-  <span id="animation" class="rainbow" style="position: absolute" />
-  </br>
-  Welcome in the colorful world of Hyperion. Please choose the documentation you want to view.
-</p>
-
-<div class="flex flex-center no-decoration">
-  <MainSection title="User" text="Installation, configuration and advanced informations" to="/en/user" icon="user" />
-  <MainSection title="Effects" text="Learn how to create an effect" to="/en/effects" icon="effects" />
-  <MainSection title="JSON API" text="Learn how to interact with the API" to="/en/json" icon="json" />
 </div>
 
-::: tip Tip:
-You can select another translation at the top.
-:::
+<div class="flex flex-center no-decoration">
+  <MainSection title="What is Hyperion?" text="Familiarize yourself with the key features" to="/user/Introduction.md" icon="help" main="" />
+  <MainSection title="Get started" text="Learn how to get started with Hyperion" to="/user/Installation.md" icon="rocket" />
+  <MainSection title="All about Effects" text="Learn how to create an effect" to="/effects/Effects.md" icon="effects" />
+  <MainSection title="JSON API" text="Learn how to interact with the API" to="/json/JSON.md" icon="json" />
+  <MainSection title="GitHub" text="Come and visit us" to="https://github.com/" icon="github" />
+</div>

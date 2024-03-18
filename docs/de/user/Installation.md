@@ -4,7 +4,7 @@ Für die Installation von Hyperion werden für zahlreiche Plattformen Installati
 ## Voraussetzungen
 
 ### Unterstützte Systeme
-  * Raspberry Pi (siehe auch [HyperBian](/de/user/HyperBian))
+  * Raspberry Pi (siehe auch [HyperBian](/de/user/HyperBian.md))
   * Debian 10, Ubuntu 20.04, Fedora 37 oder neuer
   * Mac OS
   * Windows 10
@@ -36,7 +36,7 @@ Das gleiche einfache Installationsskript kann verwendet werden, aber der Codenam
 
 Beispiel für Pop!_OS 22.04 LTS oder Mint 21.2 Victoria (die auf Ubuntu 'jammy' basieren)
 
-```
+```sh:no-line-numbers
 curl -sSL https://releases.hyperion-project.org/install | bash -s -- --ubuntu 'jammy'
 ```
 :::
@@ -46,11 +46,12 @@ curl -sSL https://releases.hyperion-project.org/install | bash -s -- --ubuntu 'j
 Falls Hyperion von der Paket-Repository-Seite oder einem deb/rpm-Standalone-Paket installiert wurde,
 folge dem Standardverfahren des Betriebssystems, um das System zu aktualisieren.
 
+
 ### Ubuntu, Debian und Konsorten + HyperBian
 
 Öffnen ein Terminal oder verbinden Dich per ssh mit einem entfernten System und führe folgenden Befehl aus
 
-```
+```sh:no-line-numbers
 sudo apt-get install hyperion
 ```
 
@@ -58,7 +59,7 @@ sudo apt-get install hyperion
 
 Öffne ein Terminal und führe folgenden Befehl aus
 
-```
+```sh:no-line-numbers
 sudo dnf -y upgrade hyperion
 ```
 
@@ -84,12 +85,13 @@ Hyperion stellt ein Kommandozeilenprogramm zur Verfügung, mit dem der Benutzer,
 
 ### Ändern des Benutzers des Dienstes auf 'root'
 
-```
+```sh:no-line-numbers
 sudo updateHyperionUser -u root
 ```
 
 ### Ändern des Benutzer des Dienstes auf den aktuellen Benutzer
-```
+
+```sh:no-line-numbers
 sudo updateHyperionUser
 ```
 

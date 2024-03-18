@@ -1,8 +1,6 @@
 # Leitfaden
 Optimiere die Benutzerfreundlichkeit von Hyperion, indem du diese Hinweise befolgst.
 
-[[toc]]
-
 ## Prioritätsleitfaden
 Bitte beachtet die folgenden Prioritätsleitfaden, um Verwirrung bei den Benutzern zu vermeiden und eine
 die bestmögliche Benutzererfahrung zu gewährleisten:

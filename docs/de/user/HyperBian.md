@@ -30,7 +30,7 @@ Sichere die die Einstellungen mit "Save" und fahre mit "Yes" fort, um den Imager
  - Kennwort: `ambientlight`
  
 Es kann auch ein anderer Benutzernamen gewählt werden, allerdings muss dann der vorkonfigurierte Dienst von Hyperion später aktualisieren werden-
-Aktualisierung des Dienstes auf den [aktuellen Benutzer](/de/user/Installation.html#andern-des-benutzer-des-dienstes-auf-den-aktuellen-benutzer)
+Aktualisierung des Dienstes auf den [aktuellen Benutzer](/de/user/Installation.md#andern-des-benutzer-des-dienstes-auf-den-aktuellen-benutzer)
 :::
 
 Die Konfiguration wird während des ersten Starts durchgeführt.

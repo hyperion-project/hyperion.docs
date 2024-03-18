@@ -1,8 +1,6 @@
 # Abonnement
-Während einer `serverinfo`-Anfrage kann der Aufrufer optional Updates abonnieren -- entweder für bestimmte [serverinfo parts](/de/json/ServerInfo.html#parts) oder für alle verfügbaren Daten.
+Während einer `serverinfo`-Anfrage kann der Aufrufer optional Updates abonnieren, entweder für bestimmte [Serverinfo-Teile](/de/json/ServerInfo.md#teile-einer-serverinfo-antwort) oder für alle verfügbaren Daten.
 Diese Aktualisierungen werden immer dann gepusht, wenn eine serverseitige Datenänderung auftritt, ohne dass der Aufrufer eine Abfrage durchführen muss.
-
-[[toc]]
 
 Um bestimmte Updates zu abonnieren, kannst du den Befehl serverinfo dahingehend ändern:
 ```json
@@ -25,7 +23,7 @@ Um alle verfügbaren Updates zu abonnieren, ändere den Befehl severinfo in:
 }
 ```
 ### Basis-Antwort-Layout
-Alle gepushten Abonnement-Updates haben ein `-update`-Suffix, das dem entsprechenden Schlüssel aus dem [betreffenden Serverinfo-Teil](/de/json/ServerInfo.html#parts) hinzugefügt wird.
+Alle gepushten Abonnement-Updates haben ein `-update`-Suffix, das dem entsprechenden Schlüssel aus dem [betreffenden Serverinfo-Teil](/de/json/ServerInfo.md#teile-einer-serverinfo-antwort) hinzugefügt wird.
 Die neuen Daten werden in der Eigenschaft `data` stehen. Es ist weder ein `tan`- noch ein `success`-Argument vorgesehen.
 ```json
 {

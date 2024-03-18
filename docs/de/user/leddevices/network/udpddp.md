@@ -1,6 +1,6 @@
 # UDP DDP
 
-Das Gerät überträgt RGB-Werte mithilfe des Distributed Display Protocol ([DDP](http://www.3waylabs.com/ddp/#Data%20Types)), das auf dem UDP-Netzwerkprotokoll aufbaut.
+Das Gerät überträgt RGB-Werte mithilfe des Distributed Display Protocol ([DDP](https://www.3waylabs.com/ddp/#Data%20Types)), das auf dem UDP-Netzwerkprotokoll aufbaut.
 
 **Das Gerät ist nicht in der Lage zu erkennen, ob das entfernte Gerät nicht verfügbar oder ausgefallen ist.**
 

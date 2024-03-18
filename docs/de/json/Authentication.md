@@ -1,9 +1,7 @@
-## Authentifizierung
+# Authentifizierung
 Hyperion verfügt über ein Authentifizierungssystem, das es Benutzern erlaubt, sich per Passwort anzumelden, und
-Anwendungen, sich mit Token zu authentifiziereb. Der Benutzer kann konfigurieren, wie stark oder schwach die Hyperion-API
+Anwendungen, sich mit Token zu authentifizieren. Der Benutzer kann konfigurieren, wie stark oder schwach die Hyperion-API
 im Bereich `Konfiguration -> Netzwerkdienste` auf der Web-Benutzeroberfläche geschützt werden soll.
-
-[[toc]]
 
 ### Token-System
 Token sind eine einfache Möglichkeit, eine App für den API-Zugriff zu authentifizieren. Sie können erstellt werden in
