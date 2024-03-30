@@ -4,7 +4,7 @@ layout: home
 hero:
   name: Hyperion
   text: Ambient Light documentation
-  tagline: Rediscover the colorful world
+  tagline: Discover the colorful world of Ambilight
   image:
     dark: /heroImageDark.svg
     light: /heroImage.svg

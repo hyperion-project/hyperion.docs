@@ -4,7 +4,7 @@ layout: home
 hero:
   name: Hyperion
   text: Ambilight Dokumentation
-  tagline: Die bunte Welt neu entdecken
+  tagline: Entdecke die farbenfrohe Welt von Ambilight
   image:
     dark: /heroImageDark.svg
     light: /heroImage.svg
