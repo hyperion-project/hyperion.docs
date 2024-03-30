@@ -9,10 +9,10 @@
             "name": "Launch Dev Server",
             "type": "node",
             "request": "launch",
-            "runtimeExecutable": "yarn",
+            "runtimeExecutable": "npm",
             "cwd": "${workspaceFolder}",
-            "runtimeArgs": ["docs:dev"],
-            "port": 8080,
+            "runtimeArgs": ["run", "docs:dev"],
+            "port": 5173,
             "console": "integratedTerminal",
             "resolveSourceMapLocations":
             [
@@ -24,7 +24,7 @@
             "name": "Build Docs",
             "type": "node",
             "request": "launch",
-            "runtimeExecutable": "yarn",
+            "runtimeExecutable": "npm",
             "cwd": "${workspaceFolder}",
             "console": "integratedTerminal",
             "resolveSourceMapLocations":
