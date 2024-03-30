@@ -47,7 +47,8 @@
 }
 
 .image-bg {
-  background-image: conic-gradient(from 0deg, red, orange, yellow, green, blue, indigo, violet, red) !important;
+  will-change: opacity;
+  background-image: conic-gradient(from 45deg, red, orange, yellow, green, blue, indigo, violet, red) !important;
   border-radius: 0px !important;
   animation: 2s fadeIn 1;
 }
