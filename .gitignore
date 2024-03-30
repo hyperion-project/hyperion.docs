@@ -9,7 +9,7 @@ package-lock.json
 # vitepress temp
 **/.vitepress/.temp/**
 # vitepress build
-docs/dist
+dist
 
 # Ignore Mac DS_Store files
 .DS_Store

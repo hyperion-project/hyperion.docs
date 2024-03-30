@@ -13,7 +13,7 @@ import { head, navbar_EN, navbar_DE, sidebar_EN, sidebar_DE } from './configs'
 export default defineConfig({
   head: head,
   base: process.env.BASE_DIR ?? '/',
-  outDir: './dist',
+  outDir: '../dist',
   title: "Hyperion documentation",
   titleTemplate: ":title · Hyperion documentation",
   description: "Hyperion Ambient Light documentation",
