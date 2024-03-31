@@ -15,6 +15,7 @@
     "vitepress": "latest"
   },
   "dependencies": {
-    "medium-zoom": "latest"
+    "medium-zoom": "latest",
+    "moment": "latest"
   }
 }

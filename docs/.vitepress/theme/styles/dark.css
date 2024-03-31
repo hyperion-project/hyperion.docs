@@ -8,7 +8,7 @@
   /* Background */
   --vp-c-bg: #1b2838 !important;
   --vp-c-bg-alt: rgb(23, 23, 23);
-  --vp-c-bg-elv: rgba(23, 23, 23, 0.8);
+  --vp-c-bg-elv: rgb(23, 23, 23);
   --vp-c-bg-soft: rgba(23, 23, 23, 0.8);
 
   --vp-c-default-1: var(--vp-c-gray-1);

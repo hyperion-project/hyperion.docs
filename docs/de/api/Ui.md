@@ -19,7 +19,7 @@ Ein Kontrollkästchen anzeigen.
     "default" : false
   }
 ```
-Die Option `swirl_enabled` ist vom Typ boolean mit dem Titel `edt_eff_swirl_enabled` ([Titel werden übersetzt](#translation)). Das `default` setzt die Option auf den definierten Standardwert, zwingend erforderlich!
+Die Option `swirl_enabled` ist vom Typ boolean mit dem Titel `edt_eff_swirl_enabled` ([Titel werden übersetzt](#ubersetzung)). Das `default` setzt die Option auf den definierten Standardwert, zwingend erforderlich!
 
 ### String
 Ein Eingabefeld, das alle möglichen Zeichen akzeptiert.
@@ -30,7 +30,7 @@ Ein Eingabefeld, das alle möglichen Zeichen akzeptiert.
     "default" : "A cool placeholder name"
   }
 ```
-Die Option `swirl_name` wird vom Typ String mit dem Titel `edt_eff_swirl_name` ([Titel werden übersetzt](#translation)) sein. Das `default` setzt die Option auf den definierten Standardwert, zwingend erforderlich! \
+Die Option `swirl_name` wird vom Typ String mit dem Titel `edt_eff_swirl_name` ([Titel werden übersetzt](#ubersetzung)) sein. Das `default` setzt die Option auf den definierten Standardwert, zwingend erforderlich! \
 **Optional**
   * Füge `"minLength" : 5` hinzu, um eine Mindestlänge von 5 zu erzwingen.Achte darauf, dass der Standardwert übereinstimmt.
   * Füge `"maxLength" : 9` hinzu, um eine maximale Länge von 9 zu erzwingen. Achte darauf, dass der Standardwert übereinstimmt.
@@ -45,7 +45,7 @@ Ein Eingabefeld für Integer
     "default" : 5
   }
 ```
-Die Option `swirl_count` wird vom Typ Integer mit dem Titel `edt_eff_swirl_count` ([Titel werden übersetzt](#translation)) sein. Das `default` setzt die Option auf den definierten Standardwert, zwingend erforderlich! \
+Die Option `swirl_count` wird vom Typ Integer mit dem Titel `edt_eff_swirl_count` ([Titel werden übersetzt](#ubersetzung)) sein. Das `default` setzt die Option auf den definierten Standardwert, zwingend erforderlich! \
 **Optional**
   * Füge `"minimum" : 5` hinzu, um einen Mindestwert zu erzwingen, falls er nicht niedriger sein sollte.
   * Füge `"maximum" : 9` hinzu, um einen Maximalwert zu erzwingen, falls er nicht höher sein sollte.
@@ -62,7 +62,7 @@ Ein Eingabefeld für Zahlen (Float)
     "default" : 7.0
   }
 ```
-Die Option `swirl_spread` ist vom Typ Zahl (float) mit dem Titel `edt_eff_swirl_spread` ([Titel werden übersetzt](#translation)). Das `default` setzt die Option auf den definierten Standardwert, erforderlich! \
+Die Option `swirl_spread` ist vom Typ Zahl (float) mit dem Titel `edt_eff_swirl_spread` ([Titel werden übersetzt](#ubersetzung)). Das `default` setzt die Option auf den definierten Standardwert, erforderlich! \
 **Optional**
   * Füge `"minimum" : 5.0` hinzu, um einen Mindestwert zu erzwingen, falls er nicht niedriger sein sollte
   * Füge `"maximum" : 9.6` hinzu, um einen Maximalwert zu erzwingen, falls er nicht höher sein sollte
@@ -93,7 +93,7 @@ Erzeugt ein Array Eingabefeld mit den angegebenen Eigenschaften unter `items`. D
     "default":["de","at"]
   }
 ```
-Die Option `countries` ist vom Typ Array.(in Python ist es ein Python-Tupel) (dargestellt als Array, in dem man Eigenschaften hinzufügen oder entfernen kann, in diesem Fall ein String-Eingabefeld mit dem Titel `edt_eff_country"`) mit dem Titel `edt_eff_swirl_countries` ([Die Titel werden übersetzt](#translation)). Das `default` setzt die Option auf den definierten Standardwert. Zwingend Erforderlich! \
+Die Option `countries` ist vom Typ Array.(in Python ist es ein Python-Tupel) (dargestellt als Array, in dem man Eigenschaften hinzufügen oder entfernen kann, in diesem Fall ein String-Eingabefeld mit dem Titel `edt_eff_country"`) mit dem Titel `edt_eff_swirl_countries` ([Die Titel werden übersetzt](#ubersetzung)). Das `default` setzt die Option auf den definierten Standardwert. Zwingend Erforderlich! \
 **Optional**
   * Füge `"uniqueItems": true` hinzu, wenn du sicherstellen willst, dass jedes Element einzigartig ist.
   * Füge `"minItems": 2` hinzu, um eine Mindestanzahl von Elementen im Array zu erzwingen.
@@ -132,7 +132,7 @@ Erzeugt einen RGB-Farbauswähler.
     "maxItems": 3
   }
 ```
-Die Option `color` ist vom Typ Array (dargestellt als RGB Farbauswahl) mit dem Titel `edt_eff_color` ([Titel werden übersetzt](#translation)). Dieser Farbwähler wird auf anfängliches Rot gesetzt.
+Die Option `color` ist vom Typ Array (dargestellt als RGB Farbauswahl) mit dem Titel `edt_eff_color` ([Titel werden übersetzt](#ubersetzung)). Dieser Farbwähler wird auf anfängliches Rot gesetzt.
 
 ### Array - Farbauswähler RGBA
 Erzeugt einen RGBA-Farbauswähler. Denkt zweimal nach, bevor ihr einen RGBA-Farbauswähler bereitstellt, der Anwendungsfall ist begrenzt.
@@ -146,7 +146,7 @@ Erzeugt einen RGBA-Farbauswähler. Denkt zweimal nach, bevor ihr einen RGBA-Farb
     "maxItems": 4
   }
 ```
-Die Option `color` ist vom Typ Array (dargestellt als RGBA Farbauswähler) mit dem Titel `edt_eff_color` ([Titel werden übersetzt](#translation)). Dieser Farbauswähler wird auf Rot mit 50% Alpha initial gesetzt. Erforderlich, um eine Standardfarbe hinzuzufügen.
+Die Option `color` ist vom Typ Array (dargestellt als RGBA Farbauswähler) mit dem Titel `edt_eff_color` ([Titel werden übersetzt](#ubersetzung)). Dieser Farbauswähler wird auf Rot mit 50% Alpha initial gesetzt. Erforderlich, um eine Standardfarbe hinzuzufügen.
 ## Mehr Verschönerung
 Um die Benutzeroberfläche besser zu organisieren und zu verschönern, stellen wir eine Reihe von zusätzlichen Schlüsselwörtern zur Verfügung.
 

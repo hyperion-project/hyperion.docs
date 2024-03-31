@@ -3,6 +3,9 @@
 @import './dark.css';
 
 :root {
+  /* Global conic gradient */
+  --conic-gradient: conic-gradient(from 45deg, red, orange, yellow, green, blue, indigo, violet, red);
+
   /* Scrollbar */
   scroll-behavior: smooth;
   scrollbar-width: 4px;
@@ -48,13 +51,16 @@
 
 .image-bg {
   will-change: opacity;
-  background-image: conic-gradient(from 45deg, red, orange, yellow, green, blue, indigo, violet, red) !important;
+  background-image: var(--conic-gradient) !important;
   border-radius: 0px !important;
-  animation: 2s fadeIn 1;
+  animation: fadeIn 2s;
+  animation-delay: 1s;
+  opacity: 0;
+  animation-fill-mode: forwards;
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; }
+  from { opacity:0; }
   to { opacity: 1; }
 }
 
@@ -97,6 +103,7 @@ button.DocSearch-Button {
     position: relative;
     transform-style: preserve-3d;
     background-color: var(--vp-sidebar-bg-color);
+    border: none;
     .icon {
       background-color: var(--vp-sidebar-bg-color);
       margin-bottom: 5px;
@@ -111,6 +118,7 @@ button.DocSearch-Button {
     }
     .details {
       padding-top: 0;
+      text-align: center;
     }
   }
 }
@@ -119,12 +127,13 @@ button.DocSearch-Button {
   content: "";
   position: absolute;
   inset: 0px;
-  background: conic-gradient(from 0deg, red, orange, yellow, green, blue, indigo, violet, red);
+  background: var(--conic-gradient);
   filter: blur(15px);
   transform: translate3d(0px,0px,-1px);
   border-radius: inherit;
   pointer-events: none;
   opacity: 0;
+  transition: all 0.25s ease-in-out;
 }
 
 .item .VPFeature:hover:before {
