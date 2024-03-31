@@ -1,4 +1,4 @@
-# Hyperion entdecken
+# Hyperion finden
 Hyperion publiziert seine Dienste im Netzwerk, über mDNS und SSDP.
 
 [[toc]]

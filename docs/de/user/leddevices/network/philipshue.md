@@ -4,7 +4,7 @@ Die bekannte [Philips Hue Bridge + Lampen](https://www.philips-hue.com/de-de) wi
 
 ## Entertainment API
 
-::: danger vor lichtempfindlichen Anfällen
+::: warning Warnung vor Anfällen bei Lichtempfindlichkeit
 Bestimmte Personen fühlen sich möglicherweise unwohl, wenn sie schnellen Lichtblitzen/-mustern ausgesetzt sind.
 Bitte sehe sofort von der Verwendung des Unterhaltungsmodus ab, wenn du Unwohlsein verspürst oder irgendwelche dir bekannten Gesundheitszustände hast. Bitte informiere dich unter diesen Umständen bei einem Arzt. Stelle sicher, dass dein Unterhaltungsraum gut beleuchtet ist.
 

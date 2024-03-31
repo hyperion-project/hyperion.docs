@@ -33,7 +33,7 @@ Alle verfügbaren Funktionen zur Verwendung.
 
 ### hyperion.imageMinSize()
 Da `hyperion.imageWidth()` und `hyperion.imageHeight()` mit dem LED-Layout skaliert, kann eine Mindestgröße definiert werden, um mehr Pixel zum Arbeiten zu erhalten. Bedenke, dass das Verhältnis zwischen Breite/Höhe immer von der Einstellung der Benutzer-LED abhängt, du kannst es nicht erzwingen.
-::: warning
+::: warning Achtung
 Sollte aufgerufen werden, bevor du mit dem zeichnen beginnst!
 :::
 `hyperion.imageMinSize(pixelX,pixelY)`
@@ -51,7 +51,7 @@ Dreht das Koordinatensystem im Mittepunkt, der auf der x-Achse 0 und auf der y-A
 
 ### hyperion.imageCOffset()
 Versatz zum Koordinatensystem an der x-Achse und y-Achse hinzufügen.
-::: warning
+::: warning Achtung
 Änderungen am Koordinatensystem führen zu ungewohntem Verhalten einiger kürzerer Versionen anderer hyperion.image* Zeichenfunktionen
 :::
 `hyperion.imageCOffset(offsetX, offsetY)`
@@ -62,7 +62,7 @@ Versatz zum Koordinatensystem an der x-Achse und y-Achse hinzufügen.
 
 ### hyperion.imageCShear()
 Schneidet das Koordinatensystem in der Vertikalen und Horizontalen. Mehr Informationen zum Schneiden findet man hier: [Shear Mapping](https://en.wikipedia.org/wiki/Shear_mapping)
-::: warning
+::: warning Achtung
 Änderungen am Koordinatensystem führen zu ungewohntem Verhalten einiger kürzerer Versionen anderer hyperion.image* Zeichenfunktionen
 :::
 `hyperion.imageCShear(sh, sv)`
@@ -270,7 +270,7 @@ Setzt eine einzelne Farbe für alle LEDs mit `hyperion.setColor(255,0,0)`, so we
  - **Beispiel 3:** `hyperion.setColor(bytearray([255,0,0,0,255,0,255,255,255]))` Die erste LED wird rot, die zweite ist grün und die dritte ist weiss
  - Normalerweise ordnet man allen LEDs eine Farbe zu, deshalb muss man wissen, wie viele LEDs der Benutzer gerade hat. Ermittle dies mit `hyperion.ledCount`
 
-::: warning hyperion.setColor()
+::: warning Achtung
  - Die Funktion hyperion.setColor() wird nicht empfohlen, um LED-Farben zuzuweisen, sie arbeitet nicht mit den **`hyperion.image*`**-Funktionen zusammen
  - Du weißt nicht, wo oben/links/rechts/unten ist und es funktioniert nicht mit Matrix-Layouts!
  - Bitte beachte, dass du stattdessen die **`hyperion.image*`**-Funktionen verwenden kannst, um beeindruckende Effekte zu erzeugen, die mit der Benutzereinstellung skalieren

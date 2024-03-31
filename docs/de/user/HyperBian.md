@@ -86,7 +86,7 @@ timezone = "Europe/Berlin"
  - Benutzername: `hyperion`
  - Passwort: `ambientlight`
 
-::: tip
+::: tip Tip
   HyperBian wird mit einer englischen Tastatur-Konfiguration ausgeliefert. Dort sind die Zeichen 'y' und 'z' vertauscht. Für den Benutzernamen musst Du also zuerstmal `hzperion` tippen; danach kannst Du das Tataturlayout per `sudo raspi-config` ändern.
 :::
 

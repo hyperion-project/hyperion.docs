@@ -1,7 +1,7 @@
 # Steuerung
 Man kann Hyperion steuern, indem man bestimmte JSON-Nachrichten sendet.
 
-::: tip
+::: tip Tip
 Die Eigenschaft `tan` wird in diesen Aufrufen unterstützt, aber aus Gründen der Kürze weggelassen.
 :::
 
@@ -133,7 +133,7 @@ effect](#set-effect) oder [set image](#set-image).
   "priority":-1
 }
 ```
-::: warning
+::: warning Achtung
 Wenn du alles löschst, löschst du alle Effekte und Farben, unabhängig davon, wer sie eingestellt hat!
 Stattdessen empfehlen wir, dass Benutzer eine Liste möglicher Löschziele auf der Grundlage einer Prioritätenliste bereitstellen
 :::
@@ -253,7 +253,7 @@ auch: [Komponenten/IDs erklärt](#komponenten-ids-erklart)
   }
 }
 ```
-::: warning
+::: warning Achtung
 Hyperion selbst muss aktiviert sein! Prüfe den Status von "ALL" in der Komponentenliste, bevor du eine andere Komponente änderst!
 :::
 
@@ -299,7 +299,7 @@ Wenn die Antwort erfolgreich ist, wechselt der `priorities_autoselect`-Status au
 ```
 Danach wird der `Prioritäten_autoselect`-Status wieder auf `wahr` gesetzt.
 
-::: warning
+::: warning Achtung
 Du kannst nur Prioritäten auswählen, die `active:true` sind!
 :::
 
@@ -342,7 +342,7 @@ Mit dem folgenden Befehl kann zu einer anderen Instanz gewechselt werden:
 ```
 Dies gibt eine erfolgreiche Antwort oder einen Fehler zurück, wenn die Instanz nicht verfügbar ist.
 
-::: warning
+::: warning Achtung
 Es ist möglich, dass eine Instanz anhält, während man mit ihr verbunden ist.
 In diesem Fall werden die Verbindungen zu dieser Instanz automatisch auf die Instanz `0` zurückgesetzt.
 Behalte die Instanzdaten über das Abonnement im Auge, wenn du diesen Vorgang behandeln musst.

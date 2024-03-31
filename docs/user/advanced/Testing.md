@@ -1,3 +1,7 @@
+---
+outline: [2, 3]
+---
+
 # Testing 
 ## Pull Requests 
 
@@ -26,11 +30,15 @@ Pull requests (PRs) can be tested in a self contained way without affecting a cu
 
 4. Execute the install_pr script replacing _YourAccessdToken_ with your token copied in 2. and _PRID_ with the PR number
 
-	`wget -qO- https://raw.githubusercontent.com/hyperion-project/hyperion.ng/master/bin/scripts/install_pr.sh | bash -s -- -t YourAccessToken PRID`
+``` sh:no-line-numbers
+wget -qO- https://raw.githubusercontent.com/hyperion-project/hyperion.ng/master/bin/scripts/install_pr.sh | bash -s -- -t YourAccessToken PRID
+```
 
 5. Run the execution script to start Hyperion under the current user, replace _PRID_ with the PR number
 
-	`./hyperion_prPRID/PRID_.sh`
+``` sh:no-line-numbers
+./hyperion_prPRID/PRID_.sh
+```
 
 6. Test the content of the Pull Request and provide feedback on the PR itself.
 
@@ -41,7 +49,9 @@ The script will stop the current Hyperion service before execution.
 After doing your tests, you should start the service again or just reboot to start the service automatically.
 Replace _USER_ with the username, Hyperion runs with.
 
-`systemctl start hyperion@USER.service`
+``` sh:no-line-numbers
+systemctl start hyperion@USER.service
+```
 
 ::: tip Test an PR using the current current configuration
 
@@ -54,7 +64,9 @@ i.e. any updates to the configuration when testing the PR will also not be refle
 
 Current user, Pull request #1649 and making use of the current configuration
 
-`wget -qO- https://raw.githubusercontent.com/hyperion-project/hyperion.ng/master/bin/scripts/install_pr.sh | bash -s -- -t YourAccessToken -c ~/.hyperion 1649`
+``` sh:no-line-numbers
+wget -qO- https://raw.githubusercontent.com/hyperion-project/hyperion.ng/master/bin/scripts/install_pr.sh | bash -s -- -t YourAccessToken -c ~/.hyperion 1649
+```
 
 ### Windows, macOS
 

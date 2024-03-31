@@ -31,7 +31,7 @@ export const head: HeadConfig[] = [
 
   // PWA
   ['link', { rel: 'manifest', href: BASE_DIR + 'manifest.json' }],
-  ['meta', { name: 'theme-color', content: '#2b81a0' }], // ???
+  ['meta', { name: 'theme-color', content: 'white' }],
   ['meta', { name: 'apple-mobile-web-app-capable', content: 'yes' }],
   ['meta', { name: 'apple-mobile-web-app-status-bar-style', content: 'black' }],
   ['meta', { name: 'apple-mobile-web-app-title', content: 'Hyperion Documentation' }],
@@ -41,5 +41,5 @@ export const head: HeadConfig[] = [
   ['link', { rel: 'apple-touch-icon', sizes: '180x180', href: BASE_DIR + 'icons/apple-icon-180x180.png' }],
   ['link', { rel: 'mask-icon', href: BASE_DIR + 'icons/safari-pinned-tab.svg', color: '#fff' }],
   ['meta', { name: 'msapplication-TileImage', content: BASE_DIR + 'icons/ms-icon-144x144.png' }], // probably invert
-  ['meta', { name: 'msapplication-TileColor', content: '#2b81a0' }] // might not match with icon
+  ['meta', { name: 'msapplication-TileColor', content: 'white' }] // might not match with icon
 ]

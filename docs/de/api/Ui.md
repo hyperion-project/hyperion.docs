@@ -1,7 +1,7 @@
 # Grafische Benutzeroberfläche
 Wir verwenden ein JSON-Schema, um eine benutzerfreundliche GUI zu erstellen und die Eingaben zu validieren, damit keine falschen oder unerwünschten Daten von einer Python-Datei übernommen werden. Jede Python-Datei benötigt ein GUI-Schema.
 
-::: tip
+::: tip Tip
 Wenn du noch nie JSON-Syntax geschrieben hast, empfehlen wir eine kurze Einführung. [Hier](https://www.digitalocean.com/community/tutorials/an-introduction-to-json) und/oder [hier (fachlich)](https://www.json.org/)
 :::
 

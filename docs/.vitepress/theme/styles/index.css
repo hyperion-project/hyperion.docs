@@ -4,7 +4,8 @@
 
 :root {
   /* Global conic gradient */
-  --conic-gradient: conic-gradient(from 45deg, red, orange, yellow, green, blue, indigo, violet, red);
+  --degree: 0deg;
+  --conic-gradient: conic-gradient(from var(--degree), red, orange, yellow, green, blue, indigo, violet, red);
 
   /* Scrollbar */
   scroll-behavior: smooth;
@@ -38,30 +39,40 @@
 
   /* Hero image background */
   --vp-home-hero-name-color: var(--vp-c-text-1);
-  --vp-home-hero-image-filter: blur(30px);
-
-  @media (min-width: 640px) {
-    --vp-home-hero-image-filter: blur(45px);
-  }
-
-  @media (min-width: 960px) {
-    --vp-home-hero-image-filter: blur(55px);
-  }
+  --vp-home-hero-image-filter: blur(45px);
 }
 
 .image-bg {
   will-change: opacity;
-  background-image: var(--conic-gradient) !important;
+  background-image: conic-gradient(from var(--degree), red, orange, yellow, green, blue, indigo, violet, red) !important;
   border-radius: 0px !important;
-  animation: fadeIn 2s;
-  animation-delay: 1s;
+  animation: fadeIn 2s 1s forwards, rotateIt 5s linear infinite;
   opacity: 0;
-  animation-fill-mode: forwards;
 }
 
 @keyframes fadeIn {
-  from { opacity:0; }
-  to { opacity: 1; }
+  from {
+    opacity:0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes rotateIt {
+  from {
+    filter: blur(45px);
+  }
+  to {
+    filter: blur(45.1px);
+    --degree: 360deg;
+  }
+}
+
+@property --degree {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
 }
 
 .text-center {
@@ -128,7 +139,7 @@ button.DocSearch-Button {
   position: absolute;
   inset: 0px;
   background: var(--conic-gradient);
-  filter: blur(15px);
+  filter: blur(17px);
   transform: translate3d(0px,0px,-1px);
   border-radius: inherit;
   pointer-events: none;

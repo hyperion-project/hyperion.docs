@@ -36,6 +36,6 @@
 
   /* Borders */
   --vp-c-border: #3c3f44;
-  --vp-c-divider: transparent;
+  --vp-c-divider: #000000;
   --vp-c-gutter: #000000;
 }

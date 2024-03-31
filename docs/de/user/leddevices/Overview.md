@@ -7,7 +7,7 @@ sidebarDepth: 0
 # Übersicht
 Hyperion unterstützt viele verschiedene Controller und LED-Gerätetypen. Auch Netzwerkkommunikation ist möglich, daher unterstützt Hyperion auch Philips Hue, WLED und mehr.
 
-::: tip 
+::: tip Tip
 Falls dein LED-Gerät nicht funktioniert oder im Dashboard bzw. in der Fernbedienung als deaktiviert angezeigt wird, 
 überprüfe zuerst das Hyperion-Protokoll auf Fehler!
 
@@ -17,7 +17,7 @@ Das Protokoll findest Du unter dem Menüpunkt "System" oder Du folgst dem Link a
 
 ## Konfiguration
 
-::: tip 
+::: tip Tip
 Standardmäßig werden nicht alle Konfigurationselemente angzeigt, um eine schnelle und einfache Einrichtung zu ermöglichen.
 
 Um zusätzliche Konfigurationselemente anzuzeigen, ändere die [Einstellungsstufe](/de/user/Configuration.md#einstellungsstufen).

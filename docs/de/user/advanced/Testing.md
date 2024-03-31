@@ -1,3 +1,7 @@
+---
+outline: [2, 3]
+---
+
 # Testen 
 ## Pull Requests 
 
@@ -26,11 +30,15 @@ Pull Requests (PRs) können in sich geschlossen getestet werden, ohne eine aktue
 
 4. Führe das install_pr Skript aus und ersetze dabei _Zugangstoken_ durch das in 2. kopierte Token und _PRID_ durch die PR-Nummer
 
-	`wget -qO- https://raw.githubusercontent.com/hyperion-project/hyperion.ng/master/bin/scripts/install_pr.sh | bash -s -- -t Zugangstoken PRID`
+``` sh:no-line-numbers
+wget -qO- https://raw.githubusercontent.com/hyperion-project/hyperion.ng/master/bin/scripts/install_pr.sh | bash -s -- -t Zugangstoken PRID
+```
 
 5. Starte das erzeugte Ausführungsskript, um Hyperion unter dem aktuellen Benutzer zu starten; ersetze _PRID_ durch die PR-Nummer
 
-	`./hyperion_prPRID/PRID_.sh`
+``` sh:no-line-numbers
+./hyperion_prPRID/PRID_.sh
+```
 
 6. Teste den Inhalt des Pull Request und gibt Feedback zum PR.
 
@@ -41,7 +49,9 @@ Das Skript wird den aktuellen Hyperion-Dienst vor der Ausführung anhalten.
 Nachdem Du Deine Tests ausgeführt hast, solltest Du den Dienst erneut starten oder einfach neu booten, um den Dienst automatisch zu starten.
 Ersetze _USER_ durch den Benutzernamen, mit dem Hyperion läuft.
 
-`systemctl start hyperion@USER.service`
+``` sh:no-line-numbers
+systemctl start hyperion@USER.service
+```
 
 ::: tip Teste einen PR mit der aktuellen Konfiguration
 
@@ -54,7 +64,9 @@ d.h. alle Aktualisierungen der Konfiguration beim Testen des PR werden auch nich
 
 Aktueller Benutzer, Pull Request #1649 und Verwendung der aktuellen Konfiguration
 
-`wget -qO- https://raw.githubusercontent.com/hyperion-project/hyperion.ng/master/bin/scripts/install_pr.sh | bash -s -- -t Zugangstoken -c ~/.hyperion 1649`
+``` sh:no-line-numbers
+wget -qO- https://raw.githubusercontent.com/hyperion-project/hyperion.ng/master/bin/scripts/install_pr.sh | bash -s -- -t Zugangstoken -c ~/.hyperion 1649
+```
 
 ### Windows, macOS
 

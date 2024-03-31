@@ -28,7 +28,7 @@ async function initialize() {
   var publishedDate = latestReleaseInfo.published_at;
   if(typeof publishedDate !== 'undefined') {
     var publishedSince = moment().diff(moment(publishedDate), 'days');
-    if(publishedSince < 80) {
+    if(publishedSince <= 14) {
       newVersionAvailable.value = true;
     }
     console.log(publishedSince);

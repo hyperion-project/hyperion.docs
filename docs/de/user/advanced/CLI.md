@@ -26,7 +26,7 @@ hyperiond --export-effects /tmp
 hyperiond --desktop
 ```
 
-::: tip
+::: tip Tip
 Wenn ein Pfadname Leerzeichen enthält, dann umschließe ihn mit `"` . \
 `hyperiond --userdata "/temp/another Dir"`
 :::
@@ -63,7 +63,7 @@ hyperion-remote --instance "Mein cooler Instanzname"
 hyperion-remote --instance "Mein cooler Instanzname" -e "Rainbow swirl"
 ```
 
-::: tip
+::: tip Tip
 Hyperion-Remote wird automatisch nach einem Hyperion-Server suchen. So kannst du das sogar auf einem anderen Gerät in deinem lokalen Netzwerk verwenden, ohne eine IP/Port anzugeben.
 :::
 

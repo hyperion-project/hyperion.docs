@@ -93,7 +93,7 @@ export const sidebar_DE: any = {
       text: 'Allgemeines',
       items: [
         { text: "Effekt-Erstellung", link: '/de/effects/Effects.md' },
-        { text: "API", link: '/de/effects/API.md' },
+        { text: "Effect Engine API", link: '/de/effects/API.md' },
         { text: "Unser erster Effekt", link: '/de/effects/OurFirstEffect.md' }
       ]
     },
@@ -118,7 +118,7 @@ export const sidebar_DE: any = {
     {
       text: 'Sonstiges',
       items: [
-        { text: "Hyperion aufspüren", link: '/de/api/Detect.md' },
+        { text: "Hyperion finden", link: '/de/api/Detect.md' },
         { text: "Leitfaden", link: '/de/api/Guidelines.md' }
       ]
     }

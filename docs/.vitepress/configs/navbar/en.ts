@@ -30,7 +30,7 @@ export const navbar_EN: any = [
         text: 'General',
         items: [
           { text: "Effect development", link: '/effects/Effects.md' },
-          { text: "API", link: '/effects/API.md' },
+          { text: "Effect Engine API", link: '/effects/API.md' },
           { text: "Our first Effect", link: '/effects/OurFirstEffect.md' }
         ]
       },

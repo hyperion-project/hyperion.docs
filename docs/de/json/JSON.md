@@ -44,7 +44,7 @@ Die meisten Nachrichten, die du sendest, lösen eine Antwort des folgenden Forma
 
 ## Verbindung
 Hyperion unterstützt derzeit mehrere Verbindungsmechanismen: TCP Socket ("Json Server"), WebSocket und HTTP/S.
-::: tip
+::: tip Tip
 Du kannst Hyperion-Server automatisch erkennen! Siehe [Hyperion erkennen](/de/api/Detect.md)
 :::
 
@@ -63,7 +63,7 @@ Beispielbild mit [Firefox](https://addons.mozilla.org/de/firefox/addon/restclien
 
 </ImageWrap>
 
-::: tip
+::: tip Tip
 Wenn du eine "Keine Autorisierung"-Antwort erhältst, musst du ein [Autorisierungs-Token](/de/json/Authentication.md#token-system) erstellen
 :::
 

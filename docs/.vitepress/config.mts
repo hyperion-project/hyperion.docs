@@ -87,6 +87,10 @@ export default defineConfig({
       description: 'Hyperion Ambient Light documentation',
       themeConfig: {
         siteTitle: '',
+        langMenuLabel: 'Change Language',
+        returnToTopLabel: 'Return to top',
+        sidebarMenuLabel: 'Menu',
+        darkModeSwitchLabel: 'Appearance',
         nav: navbar_EN,
         sidebar: sidebar_EN,
         lastUpdated: {
@@ -121,6 +125,10 @@ export default defineConfig({
       description: 'Hyperion Ambient Light Dokumentation',
       themeConfig: {
         siteTitle: '',
+        langMenuLabel: 'Sprachen',
+        returnToTopLabel: 'Zurück zum Seitenanfang',
+        sidebarMenuLabel: 'Menü',
+        darkModeSwitchLabel: 'Erscheinungsbild',
         nav: navbar_DE,
         sidebar: sidebar_DE,
         lastUpdated: {

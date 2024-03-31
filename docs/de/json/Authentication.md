@@ -84,7 +84,7 @@ Antwort:
     "tan" : 0
 }
 ```
-::: warning
+::: warning Achtung
 Durch das Abmelden werden alle Streaming-Datendienste und Abonnements beendet
 :::
 
