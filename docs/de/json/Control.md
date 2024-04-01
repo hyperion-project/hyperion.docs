@@ -5,7 +5,7 @@ Man kann Hyperion steuern, indem man bestimmte JSON-Nachrichten sendet.
 Die Eigenschaft `tan` wird in diesen Aufrufen unterstützt, aber aus Gründen der Kürze weggelassen.
 :::
 
-## Abschnitte
+## Eingangssteuerungen
 
 ### Farbe einstellen
 Stellt eine Farbe für alle LEDs ein oder gibt ein Muster von LED-Farben vor.
@@ -138,6 +138,32 @@ Wenn du alles löschst, löschst du alle Effekte und Farben, unabhängig davon, 
 Stattdessen empfehlen wir, dass Benutzer eine Liste möglicher Löschziele auf der Grundlage einer Prioritätenliste bereitstellen
 :::
 
+### Auswahl der Quelle
+Quellen werden immer automatisch nach dem Prioritätswert ausgewählt (der niedrigste Wert hat die höchste
+Priorität). Man muss den Prioritätswert der Quelle kennen, die man auswählen möchte. Diese
+Prioritätswerte sind in der Datei [serverinfo Prioritäten](/de/json/ServerInfo.md#prioritaten).
+```json
+// Beispiel: Priorität 50 auf sichtbar setzen
+{
+  "command":"sourceselect",
+  "priority":50
+}
+```
+Wenn die Antwort erfolgreich ist, wechselt der `priorities_autoselect`-Status auf false (siehe [serverinfo Autoselection Mode](/de/json/ServerInfo.md#auswahl-der-prioritaten-auto-manuell)). Du bist jetzt im manuellen Modus, um zurück in den Auto-Modus zu wechseln, sende:
+```json
+{
+  "command":"sourceselect",
+  "auto":true
+}
+```
+Danach wird der `Prioritäten_autoselect`-Status wieder auf `wahr` gesetzt.
+
+::: warning Achtung
+Du kannst nur Prioritäten auswählen, die `active:true` sind!
+:::
+
+## Ausgabesteuerungen
+
 ### Anpassungen
 Anpassungen spiegeln die Farbkalibrierung wider. Man kann alle Eigenschaften von [serverinfo adjustments](/de/json/ServerInfo.md#anpassungen) ändern.
 
@@ -231,6 +257,8 @@ Schaltet den Videomodus um. Mögliche Werte sind: `2D`, `3DSBS` und `3DTAB`.
 }
 ```
 
+## Komponentensteuerung
+
 ### Komponenten steuern
 Einige Komponenten können zur Laufzeit aktiviert und deaktiviert werden. Um den aktuellen Status und die verfügbaren Komponenten zu erhalten, siehe [Serverinfo Komponenten](/de/json/ServerInfo.md#komponenten). Siehe .
 auch: [Komponenten/IDs erklärt](#komponenten-ids-erklart)
@@ -278,31 +306,6 @@ wie Effekt und Farbe, werden verwendet, um den Quellentyp zu bestimmen, wenn die
 | FLATBUFSERVER  |  Flatbuffers Server  |       No       | Alle Bildstream-Quellen vom Flatbuffer-Server                                                                   |
 |  PROTOSERVER   |  Protobuffer Server  |       No       | Alle Bild-Stream-Quellen vom Protobuffer-Server                                                                 |
 
-
-### Auswahl der Quelle
-Quellen werden immer automatisch nach dem Prioritätswert ausgewählt (der niedrigste Wert hat die höchste
-Priorität). Man muss den Prioritätswert der Quelle kennen, die man auswählen möchte. Diese
-Prioritätswerte sind in der Datei [serverinfo Prioritäten](/de/json/ServerInfo.md#prioritaten).
-```json
-// Beispiel: Priorität 50 auf sichtbar setzen
-{
-  "command":"sourceselect",
-  "priority":50
-}
-```
-Wenn die Antwort erfolgreich ist, wechselt der `priorities_autoselect`-Status auf false (siehe [serverinfo Autoselection Mode](/de/json/ServerInfo.md#auswahl-der-prioritaten-auto-manuell)). Du bist jetzt im manuellen Modus, um zurück in den Auto-Modus zu wechseln, sende:
-```json
-{
-  "command":"sourceselect",
-  "auto":true
-}
-```
-Danach wird der `Prioritäten_autoselect`-Status wieder auf `wahr` gesetzt.
-
-::: warning Achtung
-Du kannst nur Prioritäten auswählen, die `active:true` sind!
-:::
-
 ### Steuerungsinstanzen
 Eine Instanz repräsentiert eine LED-Hardware-Instanz. Sie läuft in ihrem eigenen Bereich mit ihren
 eigenen Plugin-Einstellungen, LED-Layout und Kalibrierung. Bevor man eine Instanz auswählt,
@@ -349,6 +352,8 @@ Behalte die Instanzdaten über das Abonnement im Auge, wenn du diesen Vorgang be
 Siehe: [Instanz-Updates](/de/json/Subscribe.md#instanz-updates).
 :::
 
+## Streaming
+
 ### Live-Bild-Stream
 Man kann einen Livebild-Stream anfordern (wenn die aktuelle Quellpriorität dies unterstützt,
 andernfalls erfolgt möglicherweise keine Antwort).
@@ -392,7 +397,7 @@ Stoppe den Stream durch Senden:
 Diese Funktion ist für HTTP/S JSON-RPC nicht verfügbar.
 :::
 
-### Hyperion steuern
+## Hyperion steuern
 Steuere das Hyperion System als Ganzes mit den folgenden subCommand Befehlen:
 
 | subcommand    | Beschreibung |

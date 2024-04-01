@@ -5,7 +5,7 @@ You can control Hyperion by sending specific JSON messages.
 The `tan` property is supported in these calls, but omitted for brevity.
 :::
 
-## Sections
+## Input Controls
 
 ### Set Color
 Set a color for all LEDs or provide a pattern of LED colors.
@@ -139,6 +139,33 @@ Instead, we recommend users provide a list of possible clear targets based on a
 priority list
 :::
 
+### Source Selection
+Sources are always selected automatically by priority value (lowest value is the highest
+priority). You need to know the priority value of the source you want to select -- these
+priority values are available in the [serverinfo
+Priorities](/json/ServerInfo.md#priorities).
+```json
+// Example: Set priority 50 to visible
+{
+  "command":"sourceselect",
+  "priority":50
+}
+```
+If you get a success response, the `priorities_autoselect`-status will switch to false (see [serverinfo Autoselection Mode](/json/ServerInfo.md#priorities-selection-auto-manual)). You are now in manual mode, to switch back to auto mode send:
+```json
+{
+  "command":"sourceselect",
+  "auto":true
+}
+```
+After which, the `priorities_autoselect`-status will return to `true`.
+
+::: warning
+You can only select priorities which are `active:true`!
+:::
+
+## Output Controls
+
 ### Adjustments
 Adjustments reflect the color calibration. You can modify all properties of [serverinfo adjustments](/json/ServerInfo.md#adjustments).
 
@@ -232,6 +259,8 @@ Switch the video mode. Possible values are: `2D`, `3DSBS` and `3DTAB`.
 }
 ```
 
+## Component Controls
+
 ### Control Components
 Some components can be enabled and disabled at runtime. To get the current state and
 available components see [Serverinfo Components](/json/ServerInfo.md#components). See
@@ -280,32 +309,6 @@ such as effect and color, are used to determine the source type when examining t
 | FLATBUFSERVER  |  Flatbuffers Server  |       No       | All image stream sources from Flatbuffers server                              |
 |  PROTOSERVER   |  Protobuffer Server  |       No       | All image stream sources from Protobuffer server                              |
 
-
-### Source Selection
-Sources are always selected automatically by priority value (lowest value is the highest
-priority). You need to know the priority value of the source you want to select -- these
-priority values are available in the [serverinfo
-Priorities](/json/ServerInfo.md#priorities).
-```json
-// Example: Set priority 50 to visible
-{
-  "command":"sourceselect",
-  "priority":50
-}
-```
-If you get a success response, the `priorities_autoselect`-status will switch to false (see [serverinfo Autoselection Mode](/json/ServerInfo.md#priorities-selection-auto-manual)). You are now in manual mode, to switch back to auto mode send:
-```json
-{
-  "command":"sourceselect",
-  "auto":true
-}
-```
-After which, the `priorities_autoselect`-status will return to `true`.
-
-::: warning
-You can only select priorities which are `active:true`!
-:::
-
 ### Control Instances
 An instance represents an LED hardware instance. It runs within its own scope with it's
 own plugin settings, LED layout and calibration. Before selecting you can instance, you
@@ -351,6 +354,8 @@ the instance data via subscription if you need to handle this case.
 See: [Instance updates](/json/Subscribe.md#instance-updates).
 :::
 
+## Streaming Controls
+
 ### Live Image Stream
 You can request a live image stream (if the current source priority supports it,
 otherwise here may be no response).
@@ -394,7 +399,7 @@ Stop the stream by sending:
 This feature is not available for HTTP/S JSON-RPC
 :::
 
-### Control Hyperion
+## Hyperion Controls
 Control the Hyperion system as a whole with the following subcommands;
 
 | subcommand    | Description                                                         |

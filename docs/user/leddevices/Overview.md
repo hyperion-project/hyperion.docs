@@ -1,7 +1,7 @@
 ---
 prev: false
 next: false
-sidebarDepth: 0
+outline: [2, 3]
 ---
 
 # Overview

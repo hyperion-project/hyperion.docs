@@ -5,15 +5,14 @@ Es unterstützt eine Vielzahl von verschiedenen LED-Geräten und Video Erfassung
 
 In einfachen Worten, unsere Software verarbeitet Video Eingangssignale und wandelt diese Signal in Umgebungslicht um.
 
-## Features
-
-- Low CPU load makes it perfect for SoCs like Raspberry Pi
-- Json interface which allows easy integration into scripts
-- A command line utility for testing and integration in automated environment
-- Priority channels are not coupled to a specific led data provider which means that a provider can post led data and leave without the need to maintain a connection to Hyperion.
-- Black border detector and processor
-- A scriptable (Python) effect engine with 39 build-in effects for your inspiration
-- A multi language web interface to configure and remote control Hyperion
+## Eigenschaften
+- Geringe CPU-Last, ideal für SoCs wie Raspberry Pi
+- JSON-Schnittstelle (API) für einfache Integration in Skripte oder andere Anwendungen
+- Kommandozeilenprogramm zum Testen und zur Integration in eine automatisierte Umgebung
+- Prioritätskanäle sind nicht an einen bestimmten Anbieter von LED-Daten gebunden, d.h. ein Anbieter kann LED-Daten hinzufügen und entfernen, ohne eine Verbindung zu Hyperion aufrechterhalten zu müssen.
+- Erkennung von schwarzen Baken
+- Eine Effekt-Engine mit vielen eingebauten Effekten, die zusätzlich eigene Effekte über Python Skripe erlaubt
+- Ein mehrsprachiges Web-Interface zur Konfiguration und Fernsteuerung von Hyperion
 
 ## Sprachen
 - **Verfügbar in mehr als 25 verschiedenen Sprachen** wie Englisch, Deutsch, Französisch, Polnisch, Chinesisch, Japanisch, Russisch, Portugiesisch, Ungarisch, Niederländisch und Spanisch
