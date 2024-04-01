@@ -87,7 +87,7 @@ Are 3 or 4 wire LEDs which can be powered via SPI (Serial Peripheral Interface) 
 
 #### PWM Prerequisites (Controller type RPi PWM/ws281x)
 PWM (Pulse Width Modulation) requires that Hyperion run under the `root` user.\
-In case you run Hyperion as a service: [Change the service user to 'root'](/user/Installation.md#change-the-service-user-to-root)
+In case you run Hyperion as a service: [Change the service user to 'root'](/user/GettingStarted.md#change-the-service-user-to-root)
 
 #### SPI Prerequisites (Controller type group RPi SPI)
 On most systems the SPI (Serial Peripheral Interface) is not enabled per default and requires to be activated.

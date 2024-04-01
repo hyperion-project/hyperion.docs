@@ -5,8 +5,6 @@ Wir verwenden ein JSON-Schema, um eine benutzerfreundliche GUI zu erstellen und 
 Wenn du noch nie JSON-Syntax geschrieben hast, empfehlen wir eine kurze Einführung. [Hier](https://www.digitalocean.com/community/tutorials/an-introduction-to-json) und/oder [hier (fachlich)](https://www.json.org/)
 :::
 
-[[toc]]
-
 ## UI-Elemente
 Jedes UI-Element hat ein bestimmtes Schema. Das Schema ermöglicht es dir, dem Element eine Bezeichnung zu geben und die Benutzereingabe zu überprüfen, indem du z. B. eine Mindest- und eine Höchstzahl für ein Element vom Typ Zahl angibst. Eine Mindestanzahl von Farben, einen Standardwert (erforderlich!) oder sogar das Ein-/Ausblenden eines Elements basierend auf dem Wert eines anderen Elements.
 

@@ -3,9 +3,17 @@
 @import './dark.css';
 
 :root {
-  /* Global conic gradient */
-  --degree: 0deg;
-  --conic-gradient: conic-gradient(from var(--degree), red, orange, yellow, green, blue, indigo, violet, red);
+  /* Global variables */
+  --degree: 45deg;
+  --blur: 30px;
+
+  @media (min-width: 640px) {
+    --blur: 45px;
+  }
+
+  @media (min-width: 960px) {
+    --blur: 55px;
+  }
 
   /* Scrollbar */
   scroll-behavior: smooth;
@@ -39,7 +47,7 @@
 
   /* Hero image background */
   --vp-home-hero-name-color: var(--vp-c-text-1);
-  --vp-home-hero-image-filter: blur(45px);
+  --vp-home-hero-image-filter: blur(var(--blur));
 }
 
 .image-bg {
@@ -61,10 +69,10 @@
 
 @keyframes rotateIt {
   from {
-    filter: blur(45px);
+    filter: blur(var(--blur));
   }
   to {
-    filter: blur(45.1px);
+    filter: blur(calc(var(--blur) + 0.1px));
     --degree: 360deg;
   }
 }
@@ -138,7 +146,7 @@ button.DocSearch-Button {
   content: "";
   position: absolute;
   inset: 0px;
-  background: var(--conic-gradient);
+  background: conic-gradient(from var(--degree), red, orange, yellow, green, blue, indigo, violet, red) !important;;
   filter: blur(17px);
   transform: translate3d(0px,0px,-1px);
   border-radius: inherit;

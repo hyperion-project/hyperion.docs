@@ -5,8 +5,6 @@ We use a JSON schema to create a user-friendly GUI and validate the input to pre
 If you have never written JSON syntax, we recommend a short introduction. [Here](https://www.digitalocean.com/community/tutorials/an-introduction-to-json) and/or [Here (technical)](https://www.json.org/)
 :::
 
-[[toc]]
-
 ## UI elements
 Each UI element has a specific schema. The schema allows you to give the element a label and validate user input by providing for example a minimum and a maximum number for an element of type number. A minimum count of colors, a default value (required!) or even to show/hide an element based on the value of another element.
 

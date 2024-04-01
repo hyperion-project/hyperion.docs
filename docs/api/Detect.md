@@ -1,8 +1,6 @@
 # Detect Hyperion
 Hyperion announces its services on the network, via mDNS and SSDP.
 
-[[toc]]
-
 ## SSDP
 **S**imple**S**ervice**D**iscovery**P**rotocol
 ([SSDP](https://en.wikipedia.org/wiki/Simple_Service_Discovery_Protocol)) is the

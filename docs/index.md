@@ -9,7 +9,7 @@ hero:
     dark: /heroImageDark.svg
     light: /heroImage.svg
   prelink:
-    title: 🚀 New release is available!
+    title: 🚀 New release available!
     link: https://github.com/hyperion-project/hyperion.ng/releases/latest
     target: _blank
   actions:
@@ -18,7 +18,7 @@ hero:
       link: /user/Introduction.md
     - theme: alt
       text: Get started
-      link: /user/Installation.md
+      link: /user/GettingStarted.md
 
 features:
   - title: All about Effects

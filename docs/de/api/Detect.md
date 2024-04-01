@@ -1,8 +1,6 @@
 # Hyperion finden
 Hyperion publiziert seine Dienste im Netzwerk, über mDNS und SSDP.
 
-[[toc]]
-
 ## SSDP
 **S**imple**S**ervice**D**iscovery**P**rotocol
 ([SSDP](https://en.wikipedia.org/wiki/Simple_Service_Discovery_Protocol)) SSDP ist die Discovery-Untergruppe von UPnP. Die Implementierung ist leichter als mDNS, da sie nur einen

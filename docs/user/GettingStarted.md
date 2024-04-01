@@ -1,25 +1,32 @@
-# Installation
+---
+outline: [2, 3]
+---
+
+# Getting Started
 Hyperion supports various platforms for installation, via package or portable .zip.
+The configuration and control of Hyperion is done through a web interface.
 
 ## Prerequisites
 
-### Supported Systems
-  * Raspberry Pi (see also [HyperBian](/user/HyperBian.md))
-  * Debian 10, Ubuntu 20.04, Fedora 37 or higher
-  * macOS
-  * Windows 10
+<table>
+    <thead>
+        <tr>
+            <th>Supported Systems <span style="color: var(--vp-custom-block-warning-text);">&ast;</span></th>
+            <th>Supported Browsers</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Raspberry Pi (see also <a href="/user/HyperBian.html">HyperBian</a>)<br>Debian 10, Ubuntu 20.04, Fedora 37 or higher<br>Mac OS<br>Windows 10</td>
+            <td>Chrome 47+<br>Firefox 43+<br>Opera 34+<br>Safari 9.1+<br>Microsoft Edge 14+</td>
+        </tr>
+        <tr>
+            <td colspan="2" style="background-color:var(--vp-c-bg); font-size: 8pt; color: var(--vp-custom-block-warning-text);">&ast;Please note that some arm devices have limited support in terms of screen capturing</td>
+        </tr>
+    </tbody>
+</table>
 
-**Please note that some arm devices have limited support in terms of screen capturing**
-
-### Supported Browsers
-Hyperion will be configured and controlled through a web interface.
-  * Chrome 47+
-  * Firefox 43+
-  * Opera 34+
-  * Safari 9.1+
-  * Microsoft Edge 14+
-
-## Install Hyperion
+## Install
 
 ### Ubuntu, Debian and friends, Fedora, LibreELEC, macOS, Windows
 Hyperion's project [package repository page](https://releases.hyperion-project.org/) provides you with installation instructions at your finger tip.
@@ -41,7 +48,7 @@ curl -sSL https://releases.hyperion-project.org/install | bash -s -- --ubuntu 'j
 ```
 :::
 
-## Update Hyperion
+## Update
 
 In case Hyperion was installed from the package repository page or an deb/rpm standalone package,
 follow the standard operating system procedures to update the system.
@@ -65,7 +72,7 @@ sudo dnf -y upgrade hyperion
 ### LibreELEC
 See [here](https://hyperion-project.org/forum/index.php?thread/13754-install-update-hyperion-ng-on-libreelec/&pageNo=1).
 
-## Uninstall Hyperion
+## Uninstall
 
 ### Ubuntu, Debian and friends, LibreELEC, Fedora, macOS, Windows
 Hyperion's project [package repository page](https://releases.hyperion-project.org/) provides you with the respective removal instructions
@@ -93,3 +100,9 @@ sudo updateHyperionUser -u root
 sudo updateHyperionUser
 ```
 
+<style>
+    .vp-doc table {
+        display: table;
+        width: 100%;
+    }
+</style>

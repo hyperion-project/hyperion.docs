@@ -91,7 +91,7 @@ Hyperion unterstützt mehrere verschiedene LED-Geräte, die sich in vier Hauptka
 
 #### PWM-Voraussetzungen (Steuerungstyp RPi PWM/ws281x)
 PWM (Pulsweitenmodulation) setzt voraus, dass Hyperion unter dem Benutzer `root` läuft.\
-Falls Sie Hyperion als Dienst ausführen: [Ändern des Benutzers des Dienstes auf 'root'](/de/user/Installation.md#andern-des-benutzers-des-dienstes-auf-root)
+Falls Sie Hyperion als Dienst ausführen: [Ändern des Benutzers des Dienstes auf 'root'](/de/user/GettingStarted.md#andern-des-benutzers-des-dienstes-auf-root)
 
 #### SPI-Voraussetzungen (Steuerungstypgruppe RPi SPI)
 Auf den meisten Systemen ist das SPI (Serial Peripheral Interface) standardmäßig nicht an und muss aktiviert werden.

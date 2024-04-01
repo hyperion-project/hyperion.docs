@@ -6,7 +6,7 @@ export const navbar_DE: any = [
         text: 'Anleitungen',
         items: [
           { text: 'Einführung', link: '/de/user/Introduction.md' },
-          { text: 'Installieren', link: '/de/user/Installation.md' },
+          { text: 'Erste Schritte', link: '/de/user/GettingStarted.md' },
           { text: 'Konfigurieren', link: '/de/user/Configuration.md' },
           { text: 'LED Hardware', link: '/de/user/leddevices/Overview.md' },
           { text: 'HyperBian', link: '/de/user/HyperBian.md' }

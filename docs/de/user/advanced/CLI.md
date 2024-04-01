@@ -2,8 +2,6 @@
 
 Alle mit Hyperion ausgelieferten ausführbaren Dateien haben einige Befehlszeilenargumente/Optionen
 
-[[TOC]]
-
 ## hyperiond
 Das Herzstück von Hyperion
 ``` sh:no-line-numbers

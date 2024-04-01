@@ -1,6 +1,6 @@
 # HyperBian
 Is a ready to use image for your Raspberry Pi. Based on the original Raspberry Pi Foundation image "Raspberry Pi OS Lite". Hyperion is already pre installed. So simply
-1. Download
+1. [Download](https://github.com/Hyperion-Project/HyperBian/releases)
 2. Burn image on SD 
 3. Power on your Pi
 4. Visit with your Browser `http://IpOfYourPi:8090` for configuration
@@ -30,7 +30,7 @@ At installation step 6., select "Edit Settings" and then e.g. provide the WiFi S
  - Password: `ambientlight`
  
 You can choose a different username, but then take care to update Hyperion's preconfigured service later.
-To update the service to the [current service user](/user/Installation.md#change-the-service-user-to-the-current-user)
+To update the service to the [current service user](/user/GettingStarted.md#change-the-service-user-to-the-current-user)
 :::
 
 The configuration will happening during the first boot.

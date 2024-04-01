@@ -1,25 +1,32 @@
-# Installieren
-Für die Installation von Hyperion werden für zahlreiche Plattformen Installationpakete oder zip-archivierte Dateien angeboten.
+---
+outline: [2, 3]
+---
+
+# Erste Schritte
+Hyperion kann über Installationspakete oder Zip-Archive auf zahlreichen Plattformen installiert werden.
+Die Konfiguration und Steuerung von Hyperion erfolgt über den Browser.
 
 ## Voraussetzungen
 
-### Unterstützte Systeme
-  * Raspberry Pi (siehe auch [HyperBian](/de/user/HyperBian.md))
-  * Debian 10, Ubuntu 20.04, Fedora 37 oder neuer
-  * Mac OS
-  * Windows 10
-  
-**Bitte beachten... Einige arm-Geräte bieten nur eine eingeschränkte Unterstützung für die Bildschirmaufnahme**
+<table>
+    <thead>
+        <tr>
+            <th>Unterstützte Systeme <span style="color: var(--vp-custom-block-warning-text);">&ast;</span></th>
+            <th>Unterstützte Browser</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Raspberry Pi (siehe auch <a href="/de/user/HyperBian.html">HyperBian</a>)<br>Debian 10, Ubuntu 20.04, Fedora 37 oder neuer<br>Mac OS<br>Windows 10</td>
+            <td>Chrome 47+<br>Firefox 43+<br>Opera 34+<br>Safari 9.1+<br>Microsoft Edge 14+</td>
+        </tr>
+        <tr>
+            <td colspan="2" style="background-color:var(--vp-c-bg); font-size: 8pt; color: var(--vp-custom-block-warning-text);">&ast;Bitte beachte das einige arm-Geräte nur eine eingeschränkte Unterstützung für die Bildschirmaufnahme bieten</td>
+        </tr>
+    </tbody>
+</table>
 
-### Unterstützte Browser
-Hyperion wird über eine Webschnittstelle konfiguriert und gesteuert.
-  * Chrome 47+
-  * Firefox 43+
-  * Opera 34+
-  * Safari 9.1+
-  * Microsoft Edge 14+
-
-## Hyperion installieren
+## Installieren
 
 ### Ubuntu, Debian und Konsorten, Fedora, LibreELEC, macOS, Windows
 Die Hyperion-Projekt [Paket Repository Seite](https://releases.hyperion-project.org/) bietet Installationsanweisungen auf Knopfdruck.
@@ -41,7 +48,7 @@ curl -sSL https://releases.hyperion-project.org/install | bash -s -- --ubuntu 'j
 ```
 :::
 
-## Hyperion aktualisieren
+## Aktualisieren
 
 Falls Hyperion von der Paket-Repository-Seite oder einem deb/rpm-Standalone-Paket installiert wurde,
 folge dem Standardverfahren des Betriebssystems, um das System zu aktualisieren.
@@ -66,7 +73,7 @@ sudo dnf -y upgrade hyperion
 ### LibreELEC
 Siehe [hier](https://hyperion-project.org/forum/index.php?thread/13754-install-update-hyperion-ng-on-libreelec/&pageNo=1).
 
-## Hyperion deinstallieren
+## Deinstallieren
 
 ### Ubuntu, Debian und Konsorten, LibreELEC, Fedora, macOS, Windows
 Die Hyperion-Projekt [Paket Repository Seite] (https://releases.hyperion-project.org/) bietet entsprechende Anweisungen zur Deinstallation an.
@@ -95,3 +102,9 @@ sudo updateHyperionUser -u root
 sudo updateHyperionUser
 ```
 
+<style>
+    .vp-doc table {
+        display: table;
+        width: 100%;
+    }
+</style>

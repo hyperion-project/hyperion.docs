@@ -1,7 +1,9 @@
+---
+outline: [2, 3]
+---
+
 # Fortgeschritten
 Spezifische Themen mit Details
-
-[[TOC]]
 
 ## LED Layout
 Hyperion weist jeder einzelnen LED eine bestimmte Position im Bild zu. Diese Positionen sind Quadrate und um ein Quadrat zu erzeugen, benötigen Sie 4 Werte (obere Kante, untere Kante, linke Kante, rechte Kante). Diese Kanten spiegeln sich in `hmin`, `hmax` für horizontal und `vmin`, `vmax` für vertikal wider. Sie haben einen Wertebereich von `0.0` bis `1.0`.

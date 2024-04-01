@@ -18,7 +18,7 @@ hero:
       link: /de/user/Introduction.md
     - theme: alt
       text: Los geht's
-      link: /de/user/Installation.md
+      link: /de/user/GettingStarted.md
 
 features:
   - title: Alles über Effekte

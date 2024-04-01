@@ -6,7 +6,7 @@ export const navbar_EN: any = [
         text: 'General',
         items: [
           { text: 'Introduction', link: '/user/Introduction.md' },
-          { text: 'Installation', link: '/user/Installation.md' },
+          { text: 'Getting Started', link: '/user/GettingStarted.md' },
           { text: 'Configuration', link: '/user/Configuration.md' },
           { text: 'LED Hardware', link: '/user/leddevices/Overview.md' },
           { text: 'HyperBian', link: '/user/HyperBian.md' }
