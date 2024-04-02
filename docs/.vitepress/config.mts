@@ -22,6 +22,10 @@ export default defineConfig({
     siteTitle: '',
     notFoundLight: '/notFound.png',
     notFoundDark: '/notFoundDark.png',
+    socialLinks: [
+      { icon: 'github', link: 'https://github.com/hyperion-project/hyperion.ng' },
+      { icon: 'discord', link: 'https://discord.com/invite/XtVTb3HEKS' }
+    ],
     logo: {
       light: '/logo.png',
       dark: '/logoDark.png'

@@ -25,6 +25,7 @@ async function initialize() {
     return;
   }
 
+  // @ts-expect-error
   var publishedDate = latestReleaseInfo.published_at;
   if(typeof publishedDate !== 'undefined') {
     var publishedSince = moment().diff(moment(publishedDate), 'days');
@@ -56,28 +57,6 @@ function fetchLatestReleaseInfo() {
       .catch(error => reject(error));
   });
 };
-
-	// const res = fetch('https://api.github.com/repos/hyperion-project/hyperion.ng/releases/lates', {
-	// 	method: 'GET',
-	// });
-  // console.log(res.status);
-  // .then(res => res.json())
-	// .then(res => {
-  //   try {
-  //     console.log(res.status);
-  //     if(res.length == 0) {
-  //       return;
-  //     }
-  //     var latestReleaseDate = res.published_at;
-  //     if(typeof latestReleaseDate !== 'undefined') {
-  //       console.log(moment().diff(moment(latestReleaseDate), 'days'));
-  //       // if (skipCherryPickVersion.value < releasesCherryPick.value[0].tag_name) {
-  //       // 	newVersionAvailable.value = true;
-  //     }
-  //   } catch {
-  //     newVersionAvailable.value = false;
-  //   }
-  // });
 </script>
 
 <style>
