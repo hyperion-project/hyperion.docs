@@ -1,4 +1,11 @@
-# Server Information
+---
+outline: [2, 3]
+---
+
+# Server & System Information
+	
+## Request Server Information
+
 This is the primary read mechanism of the Hyperion server. This single command provides data about the live state of Hyperion, broken down into a number
 of different parts (described below).
 
@@ -10,7 +17,7 @@ You can request a `serverinfo` response by sending the following command:
 }
 ```
 
-## Parts of a serverinfo response
+## Response Server Information
 
 ### Components
 List of Hyperion components and their current status "enabled" (on/off). You can enable
@@ -275,7 +282,8 @@ You can subscribe to future data updates. Read more about [LEDs Updates](/json/S
 }
 ```
 
-### System & Hyperion
+## Request System Information
+
 It's possible to retrieve basic system information about the Hyperion server and the
 host it runs on. This information is static and won't change during runtime.
 ```json
@@ -284,6 +292,7 @@ host it runs on. This information is static and won't change during runtime.
     "tan" : 1
 }
 ```
+## Response System Information
 You can use the "version" (Hyperion version) string to check application compatibility. We use [Semantic Versioning 2.0.0](https://semver.org/).
 If you need a specific id to re-detect known servers you can use the `id` field which
 provides a unique id and will not change for a given server.

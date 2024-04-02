@@ -1,4 +1,11 @@
-# Server-Informationen
+---
+outline: [2, 3]
+---
+
+# Informationen zu Server & System
+
+## Anfrage Server-Information
+
 Dies ist der primäre Lesemechanismus des Hyperion-Servers. Dieser einzelne Befehl liefert Daten über den Live-Zustand von Hyperion, aufgeschlüsselt in eine Reihe von verschiedenen Bestandteilen (unten beschrieben).
 
 Mit dem folgenden Befehl kann eine `serverinfo`-Antwort angefordert werden:
@@ -9,7 +16,7 @@ Mit dem folgenden Befehl kann eine `serverinfo`-Antwort angefordert werden:
 }
 ```
 
-## Teile einer serverinfo-Antwort
+## Antwort Server-Information
 
 ### Komponenten
 Liste der Hyperion-Komponenten und deren aktueller Status "aktiviert" (an/aus). Die Komponenten kannst du während der Laufzeit aktivieren oder deaktivieren. Die Komponente "ALL" spiegelt Hyperion als Ganzes wider - wenn "ALL" false (aus) ist, kann keine andere Komponente aktiviert werden. Siehe [Steuerungskomponenten](/de/json/Control.md#komponenten-steuern)
@@ -258,7 +265,7 @@ Du kannst zukünftige Daten-Updates abonnieren. Lese mehr über [LEDs Updates](/
 }
 ```
 
-### System & Hyperion
+## Anfrage System-Information
 Es ist möglich, grundlegende Systeminformationen über den Hyperion-Server und den Host, auf dem er läuft, abzurufen. Diese Informationen sind statisch und werden sich während der Laufzeit nicht ändern.
 ```json
 {
@@ -269,6 +276,7 @@ Es ist möglich, grundlegende Systeminformationen über den Hyperion-Server und 
 Du kannst zukünftige Daten-Updates abonnieren. Wir verwenden [Semantic Versioning 2.0.0 (https://semver.org/).
 Wenn du eine bestimmte ID benötigst, um bekannte Server erneut zu erkennen, kannst du das Feld "id" verwenden, das eine eindeutige ID liefert und sich für einen bestimmten Server nicht ändert.
 
+## Antwort System-Information
 ```json
 {
     "hyperion": {
