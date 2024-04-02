@@ -9,7 +9,7 @@ hero:
     dark: /heroImageDark.svg
     light: /heroImage.svg
   prelink:
-    title: 🚀 Eine neue Version ist verfügbar!
+    title: 🚀 Neue Version verfügbar!
     link: https://github.com/hyperion-project/hyperion.ng/releases/latest
     target: _blank
   actions:
