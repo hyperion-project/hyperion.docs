@@ -90,17 +90,47 @@ In nicht-interaktiven (head-less) Umgebungen wird ein Hyperion Service installie
 In den gleichen Fällen, z.B. bei Verwendung von ws281x LEDs, muss Hyperion unter `root laufen.
 Hyperion stellt ein Kommandozeilenprogramm zur Verfügung, mit dem der Benutzer, unter dem der Dienst läuft, gewechselt werden kann.
 
-### Ändern des Benutzers des Dienstes auf 'root'
+### Ändern des Benutzers
+
+**...auf 'root'**
 
 ```sh:no-line-numbers
 sudo updateHyperionUser -u root
 ```
 
-### Ändern des Benutzer des Dienstes auf den aktuellen Benutzer
+**...auf den aktuellen Benutzer**
 
 ```sh:no-line-numbers
 sudo updateHyperionUser
 ```
+
+### Dienst erstellen
+
+Standardmäßig wird in interaktiven Umgebungen mit grafischer Benutzeroberfläche kein Hyperion-Dienst installiert.
+Wenn Hyperion als Systemdienst ausgeführt werden soll, kann der Dienst manuell erstellt werden.
+
+1. Kopiere die Hyperion Servicedatei
+
+``` sh:no-line-numbers
+sudo cp /usr/share/hyperion/service/hyperion.systemd /etc/systemd/system/hyperion@.service
+```
+
+2. Richten den Dienst für den aktuellen Benutzer ein.\
+Wenn es ein anderer Benutzer sein soll, verwende die Option -u.
+
+``` sh:no-line-numbers
+sudo /usr/share/hyperion/scripts/updateHyperionUser.sh
+```
+
+3. Überprüfe, ob der Dienst für den aktuellen Benutzer läuft.\
+Ersetze ${USER} durch den Benutzernamen, wenn der Benutzer zuvor mit der Option -u festgelegt wurde.
+
+``` sh:no-line-numbers
+systemctl status hyperion@${USER}
+```
+
+
+
 
 <style>
     .vp-doc table {

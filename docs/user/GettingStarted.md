@@ -89,15 +89,42 @@ On non-interactive (headless) environments, a Hyperion service is installed runn
 In same cases, e.g. using ws281x LEDs, Hyperion must run under `root`.
 Hyperion provides a command-line utility which allows switching the user running the service.
 
-### Change the service user to 'root'
+### Change the service user
+
+**...to 'root'**
 
 ``` sh:no-line-numbers
 sudo updateHyperionUser -u root
 ```
 
-### Change the service user to the current user
+**...to the current user**
 ``` sh:no-line-numbers
 sudo updateHyperionUser
+```
+
+### Create a service
+
+By default, a Hyperion service is not installed on interactive environments with a Graphical User Interface.
+In case you would like to run Hyperion as a system service, you can create the service manually.
+
+1. Copy Hyperion's service file
+
+``` sh:no-line-numbers
+sudo cp /usr/share/hyperion/service/hyperion.systemd /etc/systemd/system/hyperion@.service
+```
+
+2. Establish the service for the current user.\
+If it should be a different user, use the -u option
+
+``` sh:no-line-numbers
+sudo /usr/share/hyperion/scripts/updateHyperionUser.sh
+```
+
+3. Check that the service is running for your current user.\
+Replace ${USER} with the username set with the -u option before
+
+``` sh:no-line-numbers
+systemctl status hyperion@${USER}
 ```
 
 <style>
