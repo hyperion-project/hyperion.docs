@@ -1,11 +1,15 @@
-# Steuerung
+---
+outline: [2, 3]
+---
+
+# Steuerbefehle
 Man kann Hyperion steuern, indem man bestimmte JSON-Nachrichten sendet.
 
 ::: tip Tip
 Die Eigenschaft `tan` wird in diesen Aufrufen unterstützt, aber aus Gründen der Kürze weggelassen.
 :::
 
-## Eingangssteuerungen
+## Eingangssteuerung
 
 ### Farbe einstellen
 Stellt eine Farbe für alle LEDs ein oder gibt ein Muster von LED-Farben vor.
@@ -138,7 +142,7 @@ Wenn du alles löschst, löschst du alle Effekte und Farben, unabhängig davon, 
 Stattdessen empfehlen wir, dass Benutzer eine Liste möglicher Löschziele auf der Grundlage einer Prioritätenliste bereitstellen
 :::
 
-### Auswahl der Quelle
+### Auswahl einer Quelle
 Quellen werden immer automatisch nach dem Prioritätswert ausgewählt (der niedrigste Wert hat die höchste
 Priorität). Man muss den Prioritätswert der Quelle kennen, die man auswählen möchte. Diese
 Prioritätswerte sind in der Datei [serverinfo Prioritäten](/de/json/ServerInfo.md#prioritaten).
@@ -162,7 +166,7 @@ Danach wird der `Prioritäten_autoselect`-Status wieder auf `wahr` gesetzt.
 Du kannst nur Prioritäten auswählen, die `active:true` sind!
 :::
 
-## Ausgabesteuerungen
+## Ausgabesteuerung
 
 ### Anpassungen
 Anpassungen spiegeln die Farbkalibrierung wider. Man kann alle Eigenschaften von [serverinfo adjustments](/de/json/ServerInfo.md#anpassungen) ändern.
@@ -257,6 +261,49 @@ Schaltet den Videomodus um. Mögliche Werte sind: `2D`, `3DSBS` und `3DTAB`.
 }
 ```
 
+## Streaming
+
+### Live-Bild-Stream
+Man kann einen Livebild-Stream anfordern (wenn die aktuelle Quellpriorität dies unterstützt,
+andernfalls erfolgt möglicherweise keine Antwort).
+```json
+{
+  "command":"ledcolors",
+  "subcommand":"imagestream-start"
+}
+```
+Es werden "ledcolors-imagestream-update"-Meldungen mit einem base64-kodierten Bild empfangen.
+Stoppe den Stream durch Senden:
+```json
+{
+  "command":"ledcolors",
+  "subcommand":"imagestream-stop"
+}
+```
+::: danger HTTP/S
+Diese Funktion ist für HTTP/S JSON-RPC nicht verfügbar.
+:::
+
+### LED-Farb-Live-Stream
+Mit dieser Funktion kann ein Live-LED-Farbstream mit aktuellen Farbwerten in RGB
+ für jede einzelne LED angefordert werden. Die Aktualisierungsrate beträgt 125ms.
+```json
+{
+  "command":"ledcolors",
+  "subcommand":"ledstream-start"
+}
+```
+Du erhältst "ledcolors-ledstream-update"-Meldungen mit einem Array aller LED-Farben.
+Stoppe den Stream durch Senden:
+```json
+{
+  "command":"ledcolors",
+  "subcommand":"ledstream-stop"
+}
+```
+::: danger HTTP/S
+Diese Funktion ist für HTTP/S JSON-RPC nicht verfügbar.
+:::
 ## Komponentensteuerung
 
 ### Komponenten steuern
@@ -285,7 +332,7 @@ auch: [Komponenten/IDs erklärt](#komponenten-ids-erklart)
 Hyperion selbst muss aktiviert sein! Prüfe den Status von "ALL" in der Komponentenliste, bevor du eine andere Komponente änderst!
 :::
 
-### Komponenten/IDs erklärt
+#### Komponenten/IDs erklärt
 Jede Komponente hat eine eindeutige ID. Nicht alle von ihnen können aktiviert/deaktiviert werden - einige von ihnen
 wie Effekt und Farbe, werden verwendet, um den Quellentyp zu bestimmen, wenn die [Prioritätsliste](/de/json/ServerInfo.md#prioritaten) untersucht wird.
 
@@ -306,7 +353,7 @@ wie Effekt und Farbe, werden verwendet, um den Quellentyp zu bestimmen, wenn die
 | FLATBUFSERVER  |  Flatbuffers Server  |       No       | Alle Bildstream-Quellen vom Flatbuffer-Server                                                                   |
 |  PROTOSERVER   |  Protobuffer Server  |       No       | Alle Bild-Stream-Quellen vom Protobuffer-Server                                                                 |
 
-### Steuerungsinstanzen
+### Steuerung Instanzen
 Eine Instanz repräsentiert eine LED-Hardware-Instanz. Sie läuft in ihrem eigenen Bereich mit ihren
 eigenen Plugin-Einstellungen, LED-Layout und Kalibrierung. Bevor man eine Instanz auswählt,
 sollte man zunächst Informationen über die verfügbaren Instanzen von
@@ -328,7 +375,7 @@ sollte man zunächst Informationen über die verfügbaren Instanzen von
 }
 ```
 
-### Handhabung der API-Instanz
+#### Handhabung der API-Instanz
 Bei der Verbindung mit der API wird standardmäßig eine Verbindung zur Instanz `0` hergestellt.
 Man kann nur eine Instanz gleichzeitig innerhalb einer einzigen Verbindung steuern,
 und [Abonnements](/de/json/Subscribe.md#instanz-updates) sind im Kontext der ausgewählten Instanz.
@@ -352,52 +399,7 @@ Behalte die Instanzdaten über das Abonnement im Auge, wenn du diesen Vorgang be
 Siehe: [Instanz-Updates](/de/json/Subscribe.md#instanz-updates).
 :::
 
-## Streaming
-
-### Live-Bild-Stream
-Man kann einen Livebild-Stream anfordern (wenn die aktuelle Quellpriorität dies unterstützt,
-andernfalls erfolgt möglicherweise keine Antwort).
-```json
-{
-  "command":"ledcolors",
-  "subcommand":"imagestream-start"
-}
-```
-Es werden "ledcolors-imagestream-update"-Meldungen mit einem base64-kodierten Bild empfangen.
-Stoppe den Stream durch Senden:
-```json
-{
-  "command":"ledcolors",
-  "subcommand":"imagestream-stop"
-}
-```
-::: danger HTTP/S
-Diese Funktion ist für HTTP/S JSON-RPC nicht verfügbar.
-:::
-
-
-### LED-Farb-Live-Stream
-Mit dieser Funktion kann ein Live-LED-Farbstream mit aktuellen Farbwerten in RGB
- für jede einzelne LED angefordert werden. Die Aktualisierungsrate beträgt 125ms.
-```json
-{
-  "command":"ledcolors",
-  "subcommand":"ledstream-start"
-}
-```
-Du erhältst "ledcolors-ledstream-update"-Meldungen mit einem Array aller LED-Farben.
-Stoppe den Stream durch Senden:
-```json
-{
-  "command":"ledcolors",
-  "subcommand":"ledstream-stop"
-}
-```
-::: danger HTTP/S
-Diese Funktion ist für HTTP/S JSON-RPC nicht verfügbar.
-:::
-
-## Hyperion steuern
+### Hyperion steuern
 Steuere das Hyperion System als Ganzes mit den folgenden subCommand Befehlen:
 
 | subcommand    | Beschreibung |

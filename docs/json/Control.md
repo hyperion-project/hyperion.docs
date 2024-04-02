@@ -1,4 +1,8 @@
-# Control
+---
+outline: [2, 3]
+---
+
+# Controls
 You can control Hyperion by sending specific JSON messages.
 
 ::: tip
@@ -259,6 +263,50 @@ Switch the video mode. Possible values are: `2D`, `3DSBS` and `3DTAB`.
 }
 ```
 
+## Streaming Controls
+
+### Live Image Stream
+You can request a live image stream (if the current source priority supports it,
+otherwise here may be no response).
+```json
+{
+  "command":"ledcolors",
+  "subcommand":"imagestream-start"
+}
+```
+You will receive "ledcolors-imagestream-update" messages with a base64 encoded image.
+Stop the stream by sending:
+```json
+{
+  "command":"ledcolors",
+  "subcommand":"imagestream-stop"
+}
+```
+::: danger HTTP/S
+This feature is not available for HTTP/S JSON-RPC
+:::
+
+### Live LED Color Stream
+You can request a live LED color stream with current color values in RGB for each single
+LED. The update rate is 125ms.
+```json
+{
+  "command":"ledcolors",
+  "subcommand":"ledstream-start"
+}
+```
+You will receive "ledcolors-ledstream-update" messages with an array of all LED colors.
+Stop the stream by sending:
+```json
+{
+  "command":"ledcolors",
+  "subcommand":"ledstream-stop"
+}
+```
+::: danger HTTP/S
+This feature is not available for HTTP/S JSON-RPC
+:::
+
 ## Component Controls
 
 ### Control Components
@@ -288,7 +336,7 @@ also: [Components/IDs explained](#components-ids-explained)
 Hyperion itself needs to be enabled! Check the status of "ALL" in the components list before you change another component!
 :::
 
-### Components/IDs explained
+#### Components/IDs explained
 Each component has a unique id. Not all of them can be enabled/disabled -- some of them,
 such as effect and color, are used to determine the source type when examining the
 [priority list](/json/ServerInfo.md#priorities).
@@ -330,7 +378,7 @@ should first get information about the available instances from [serverinfo](/js
 }
 ```
 
-### API Instance handling
+#### API Instance handling
 On connection to the API you will be connected to instance `0` by default. You can
 control only one instance at the same time within a single connection, and
 [subscriptions](/json/Subscribe.md#instance-updates) are in the context of the selected instance.
@@ -354,52 +402,7 @@ the instance data via subscription if you need to handle this case.
 See: [Instance updates](/json/Subscribe.md#instance-updates).
 :::
 
-## Streaming Controls
-
-### Live Image Stream
-You can request a live image stream (if the current source priority supports it,
-otherwise here may be no response).
-```json
-{
-  "command":"ledcolors",
-  "subcommand":"imagestream-start"
-}
-```
-You will receive "ledcolors-imagestream-update" messages with a base64 encoded image.
-Stop the stream by sending:
-```json
-{
-  "command":"ledcolors",
-  "subcommand":"imagestream-stop"
-}
-```
-::: danger HTTP/S
-This feature is not available for HTTP/S JSON-RPC
-:::
-
-
-### Live LED Color Stream
-You can request a live LED color stream with current color values in RGB for each single
-LED. The update rate is 125ms.
-```json
-{
-  "command":"ledcolors",
-  "subcommand":"ledstream-start"
-}
-```
-You will receive "ledcolors-ledstream-update" messages with an array of all LED colors.
-Stop the stream by sending:
-```json
-{
-  "command":"ledcolors",
-  "subcommand":"ledstream-stop"
-}
-```
-::: danger HTTP/S
-This feature is not available for HTTP/S JSON-RPC
-:::
-
-## Hyperion Controls
+### Hyperion Controls
 Control the Hyperion system as a whole with the following subcommands;
 
 | subcommand    | Description                                                         |
