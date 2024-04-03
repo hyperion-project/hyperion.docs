@@ -12,7 +12,7 @@ hero:
     title: 🚀 New release available!
     link: https://github.com/hyperion-project/hyperion.ng/releases/latest
     target: _blank
-    days: 14
+    days: 30
   actions:
     - theme: brand
       text: What is Hyperion?
