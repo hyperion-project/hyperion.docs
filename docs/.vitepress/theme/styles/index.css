@@ -83,8 +83,12 @@
   padding-left: 0;
 }
 
-button.DocSearch-Button {
+.DocSearch-Button {
   height: inherit;
+  background: var(--vp-c-bg);
+  &:hover {
+    background: var(--vp-c-bg);
+  }
 }
 
 #VPSidebarNav .items {

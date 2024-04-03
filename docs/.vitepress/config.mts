@@ -20,6 +20,7 @@ export default defineConfig({
   lastUpdated: true,
   themeConfig: {
     siteTitle: '',
+    // @ts-expect-error
     notFoundLight: '/notFound.png',
     notFoundDark: '/notFoundDark.png',
     socialLinks: [

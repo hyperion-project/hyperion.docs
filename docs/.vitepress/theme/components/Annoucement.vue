@@ -13,11 +13,12 @@
 
 <script setup lang="ts">
 import { useData } from 'vitepress';
-import { onMounted, ref } from 'vue';
+import { computed, onMounted, ref } from 'vue';
 import moment from 'moment';
 
 const { frontmatter } = useData();
 const newVersionAvailable = ref<boolean>(false);
+const expiringDays = computed<number>(() => +(frontmatter.value.hero.prelink.days || -1))
 
 async function initialize() {
   const latestReleaseInfo = await fetchLatestReleaseInfo();
@@ -29,10 +30,9 @@ async function initialize() {
   var publishedDate = latestReleaseInfo.published_at;
   if(typeof publishedDate !== 'undefined') {
     var publishedSince = moment().diff(moment(publishedDate), 'days');
-    if(publishedSince <= 14) {
+    if(publishedSince <= expiringDays.value) {
       newVersionAvailable.value = true;
     }
-    console.log(publishedSince);
   }
 }
 
@@ -65,6 +65,7 @@ function fetchLatestReleaseInfo() {
   align-items: center;
   font-weight: 600;
   padding: .25rem 1rem .25rem 1rem;
+  margin-bottom: 0.25rem;
   border-radius: 0.5rem;
   background-color: var(--vp-sidebar-bg-color);
 }

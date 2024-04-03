@@ -1,23 +1,17 @@
 <template>
-  <DefaultTheme.Layout>
-    <template #not-found>
-      <div class="not-found">
-        <img v-if="isDark" :src="withBase(theme.notFoundDark)">
-        <img v-else :src="withBase(theme.notFoundLight)">
-      </div>
-      <div class="action">
-        <a class="link" :href="withBase(site.base)">
-          {{ theme.notFound?.linkText }}
-        </a>
-      </div>
-    </template>
-  </DefaultTheme.Layout>
+  <div class="not-found">
+    <img v-if="isDark" :src="withBase(theme.notFoundDark)">
+    <img v-else :src="withBase(theme.notFoundLight)">
+  </div>
+  <div class="action">
+    <a class="link" :href="withBase(site.base)">
+      {{ theme.notFound?.linkText }}
+    </a>
+  </div>
 </template>
 
 <script setup>
 import { withBase, useData } from 'vitepress'
-import DefaultTheme from 'vitepress/theme'
-import { VPImage } from "vitepress/theme"
 const { site, theme, isDark } = useData()
 </script>
 
