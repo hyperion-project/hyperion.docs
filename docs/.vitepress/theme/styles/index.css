@@ -6,6 +6,8 @@
   /* Global conic gradient */
   --conic-gradient: conic-gradient(from 45deg, red, orange, yellow, green, blue, indigo, violet, red);
 
+  --vp-layout-max-width: 1920px;
+
   /* Scrollbar */
   scroll-behavior: smooth;
   scrollbar-width: 4px;
@@ -94,6 +96,10 @@ button.DocSearch-Button {
   &:hover {
     text-decoration: underline;
   }
+}
+
+.VPDoc.has-aside .content-container {
+  max-width: 100% !important;
 }
 
 .item {
