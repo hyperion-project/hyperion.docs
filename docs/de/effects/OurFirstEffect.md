@@ -10,7 +10,7 @@ Ziel dieses Effekts ist es, den allgemeinen Aufbau eines Effekts zu zeigen und d
 
 ### Start
 Zuerst beginnen wir mit der Python-Datei. Erstelle eine neue Datei mit dem Namen `neweffect.py` in deinem `custom-effects`-Ordner. \
-Wir müssen einige Module importieren, `hyperion` und `time` wird immer benötigt. Das Zeitmodul kommt aus Python, wenn du wissen willst, welche Methoden so ein Modul hat, besuche die [Python-Dokumentation](https://docs.python.org/3.5/library/). Was `hyperion` kann, ist bereits unter [Effect Engine API](/de/effects/api.md) erklärt.
+Wir müssen einige Module importieren, `hyperion` und `time` wird immer benötigt. Das Zeitmodul kommt aus Python, wenn du wissen willst, welche Methoden so ein Modul hat, besuche die [Python-Dokumentation](https://docs.python.org/3.5/library/). Was `hyperion` kann, ist bereits unter [Effect Engine API](/de/effects/API.md) erklärt.
 
 ``` python
 # Lass uns unsere Module importieren, damit wir sie verwenden können
@@ -51,7 +51,7 @@ Lass uns darüber sprechen, was wir hier getan haben
 Jetzt solltest du den Effekt "Mein erster eigener Effekt!" in der Effektliste der Remote-Seite sehen. Startet man den Effekt, sollte man bei der Visualisierung so etwas sehen.
 <ImageWrap src="/images/en/owneff_1.jpg" alt="Custom Hyperion Effect" />
 
-Laut dem [Koordinatensystem](http://doc.qt.io/qt-5/coordsys.html#rendering) sind wir bei 2 auf der x-Achse und 5 auf der y-Achse, wie zuvor beschrieben. Perfekt!
+Laut dem [Koordinatensystem](https://doc.qt.io/qt-5/coordsys.html#rendering) sind wir bei 2 auf der x-Achse und 5 auf der y-Achse, wie zuvor beschrieben. Perfekt!
 
 ### Farboption hinzufügen
 Jetzt wollen wir die Farbe des Punktes konfigurierbar machen. \
@@ -141,7 +141,3 @@ while not hyperion.abort():
 
 ### Das Bild leeren
 Fügen wir eine Option hinzu, die das Bild in einem konfigurierbaren Intervall in Sekunden auf Schwarz setzt. Dadurch werden alle Punkte mit Schwarz überschrieben.
-
-::: tip
- Mehr wird bald kommen
-:::

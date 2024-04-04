@@ -2,11 +2,9 @@
 
 Alle mit Hyperion ausgelieferten ausführbaren Dateien haben einige Befehlszeilenargumente/Optionen
 
-[[TOC]]
-
 ## hyperiond
 Das Herzstück von Hyperion
-``` sh
+``` sh:no-line-numbers
 # Zeigt die Version/Build-Datum/Commit von Hyperion an 
 hyperiond --version
 
@@ -26,7 +24,7 @@ hyperiond --export-effects /tmp
 hyperiond --desktop
 ```
 
-::: tip
+::: tip Tip
 Wenn ein Pfadname Leerzeichen enthält, dann umschließe ihn mit `"` . \
 `hyperiond --userdata "/temp/another Dir"`
 :::
@@ -34,7 +32,7 @@ Wenn ein Pfadname Leerzeichen enthält, dann umschließe ihn mit `"` . \
 ## hyperion-remote
 hyperion-remote ist ein Kommandozeilen-Tool, das vorgegebene Argumente in JSON-Befehle übersetzt und diese an den Hyperion JSON-RPC sendet. Es ist ideal für Skripte geeignet. Es unterstützt fast alle Befehle, die Hyperion zur Verfügung stellt.
 
-``` sh
+``` sh:no-line-numbers
 # Eine Liste aller verfügbaren Befehle abrufen
 hyperion-remote -h
 
@@ -63,7 +61,7 @@ hyperion-remote --instance "Mein cooler Instanzname"
 hyperion-remote --instance "Mein cooler Instanzname" -e "Rainbow swirl"
 ```
 
-::: tip
+::: tip Tip
 Hyperion-Remote wird automatisch nach einem Hyperion-Server suchen. So kannst du das sogar auf einem anderen Gerät in deinem lokalen Netzwerk verwenden, ohne eine IP/Port anzugeben.
 :::
 
@@ -88,7 +86,7 @@ Jedes Modul sucht automatisch nach einem Hyperion-Server, wenn die Option `--add
 
 Nachfolgend findest du zur Veranschaulichung die Ausgabe von der Qt Bildschirmerfassungsapp.
 
-``` sh
+``` sh:no-line-numbers
 hyperion-qt --help
 hyperion-qt:
 	Version   : 2.0.16 ((HEAD detached at 2.0.16) (Paulchen-Panther-cb85d2d/a93d79b-1705568419))
@@ -133,7 +131,7 @@ Options:
 ``` 
 
 Beispiel mit einem Aufnahmeintervall von 15 Bildern pro Sekunde (fps)
-```
+```:no-line-numbers
 hyperion-qt -f 15
 ```
 
