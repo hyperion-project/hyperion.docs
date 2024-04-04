@@ -1,13 +1,16 @@
 <!-- Idea from: https://github.com/radix-vue/radix-vue/blob/main/docs/.vitepress/components/Annoucement.vue -->
 
-<template>
+<template>  
   <a
     v-if="frontmatter.hero.prelink && newVersionAvailable"
     :href="frontmatter.hero.prelink.link"
     :target="frontmatter.hero.prelink.target"
     class="annoucement"
   >
-    {{ frontmatter.hero.prelink.title }}
+    {{ frontmatter.hero.prelink.title }}&nbsp;
+    <span class="version_number">
+      v{{ newVersionTag }}
+    </span>
   </a>
 </template>
 
@@ -18,6 +21,7 @@ import moment from 'moment';
 
 const { frontmatter } = useData();
 const newVersionAvailable = ref<boolean>(false);
+const newVersionTag = ref<string>('');
 const expiringDays = computed<number>(() => +(frontmatter.value.hero.prelink.days || -1))
 
 async function initialize() {
@@ -31,6 +35,8 @@ async function initialize() {
   if(typeof publishedDate !== 'undefined') {
     var publishedSince = moment().diff(moment(publishedDate), 'days');
     if(publishedSince <= expiringDays.value) {
+        // @ts-expect-error
+      newVersionTag.value = latestReleaseInfo.tag_name;
       newVersionAvailable.value = true;
     }
   }
@@ -62,11 +68,17 @@ function fetchLatestReleaseInfo() {
 <style>
 .annoucement {
   display: inline-flex;
-  align-items: center;
   font-weight: 600;
-  padding: .25rem 1rem .25rem 1rem;
+  line-height: 100%;
+  padding: .5rem 1rem .5rem 1rem;
   margin-bottom: 0.25rem;
   border-radius: 0.5rem;
   background-color: var(--vp-sidebar-bg-color);
+}
+
+.version_number {
+  vertical-align: top;
+  line-height: 100%;
+  font-size: 8pt;
 }
 </style>
