@@ -2,6 +2,10 @@ import type { HeadConfig } from 'vitepress'
 const BASE_DIR = process.env.BASE_DIR ?? '/'
 
 export const head: HeadConfig[] = [
+  ['meta', {'http-equiv': 'cache-control', content: 'no-cache, no-store, must-revalidate'}],
+  ['meta', {'http-equiv': 'pragma', content: 'no-cache'}],
+  ['meta', {'http-equiv': 'expires', content: '0'}],
+  
   ['link', { rel: 'icon', type: 'image/png', sizes: '16x16', href: BASE_DIR + 'icons/favicon-16x16.png' }],
   ['link', { rel: 'icon', type: 'image/png', sizes: '32x32', href: BASE_DIR + 'icons/favicon-32x32.png' }],
   ['link', { rel: 'icon', type: 'image/png', sizes: '96x96', href: BASE_DIR + 'icons/favicon-96x96.png' }],
