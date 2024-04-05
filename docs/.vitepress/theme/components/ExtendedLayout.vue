@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { useData } from 'vitepress'
 import DefaultTheme from 'vitepress/theme'
-import { nextTick, provide } from 'vue'
+import { nextTick, provide, onMounted } from 'vue'
 import NotFound from './NotFound.vue'
 import Annoucement from './Annoucement.vue'
 
@@ -39,6 +39,27 @@ provide('toggle-appearance', async ({ clientX: x, clientY: y }: MouseEvent) => {
       pseudoElement: `::view-transition-${isDark.value ? 'old' : 'new'}(root)`
     }
   )
+})
+
+async function removeOldServiceWorker() {
+  try {
+    if (window.navigator && navigator.serviceWorker) {
+      navigator.serviceWorker.getRegistrations()
+        .then((registrations) => {
+          for (const registration of registrations) {
+            registration.unregister()
+          }
+        })
+    }
+  }
+  catch (error) {
+    console.error('Failed to remove service worker.')
+    console.error(error)
+  }
+}
+
+onMounted(() => {
+  removeOldServiceWorker();
 })
 </script>
 
