@@ -6,7 +6,9 @@
   /* Global conic gradient */
   --conic-gradient: conic-gradient(from 45deg, red, orange, yellow, green, blue, indigo, violet, red);
 
-  --vp-layout-max-width: 1920px;
+  @media (min-width: 1850px) {
+    --vp-layout-max-width: 1920px;
+  }
 
   /* Scrollbar */
   scroll-behavior: smooth;
@@ -95,10 +97,15 @@
   padding-left: 16px !important;
 }
 
-.vp-doc a {
-  text-decoration: none;
-  &:hover {
-    text-decoration: underline;
+.vp-doc {
+  ul {
+    padding-left: 2rem;
+  }
+  a {
+    text-decoration: none;
+    &:hover {
+      text-decoration: underline;
+    }
   }
 }
 
@@ -147,3 +154,7 @@
 .item .VPFeature:hover:before {
   opacity: 1;
 }
+
+.VPNavBarMenu>a:last-child:hover {
+	color:red !important;
+} 
