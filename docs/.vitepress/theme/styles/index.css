@@ -157,4 +157,10 @@
 
 .VPNavBarMenu>a:last-child:hover {
 	color:red !important;
-} 
+}
+
+.v-popper--theme-tooltip .v-popper__inner {
+  background: var(--vp-sidebar-bg-color);
+  color: var(--vp-c-text-1);
+  border: 1px solid var(--vp-c-text-1);
+}

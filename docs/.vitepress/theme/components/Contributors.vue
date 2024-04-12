@@ -10,7 +10,10 @@
       >
         <img
           :src="avatar_url"
-          v-tooltip="login"
+          v-tooltip='{
+            html: true,
+            content: `<b>${login}</b>`
+          }'
           class="contributor-avatar"
         >
       </a>
@@ -25,6 +28,7 @@ interface GithubUser {
   login: string;
   avatar_url: string;
   html_url: string;
+  type: string;
 }
 
 const data = reactive({
@@ -34,24 +38,43 @@ const data = reactive({
 onMounted(async () => {
   try {
     const pages = [1, 2];
-    const responses = await Promise.all(
+    const responsesNG = await Promise.all(
       pages.map(page => fetch(`https://api.github.com/repos/hyperion-project/hyperion.ng/contributors?per_page=100&page=${page}`))
     );
 
+    const responseDOCS = await fetch('https://api.github.com/repos/hyperion-project/hyperion.docs/contributors?per_page=100');
+
     const users: GithubUser[] = [];
-    for (const response of responses) {
+    for (const response of responsesNG) {
       const data = await response.json();
       users.push(...data);
     }
 
-    data.contributors = users;
+    const data2 = await responseDOCS.json();
+    users.push(...data2);
+
+    data.contributors = removeDuplicatedUsers(users);
   } catch (error) {
     console.error('Error fetching data:', error);
   }
 });
+
+const removeDuplicatedUsers = (users: GithubUser[]): GithubUser[] => {
+  const uniqueUsers: GithubUser[] = [];
+  const userMap: Map<string, boolean> = new Map();
+
+  for (const user of users) {
+    if (!userMap.has(user.login)) {
+      userMap.set(user.login, true);
+      uniqueUsers.push(user);
+    }
+  }
+
+  return uniqueUsers;
+};
 </script>
 
-<style scoped>
+<style>
 .contributors-container {
   display: flex;
   flex-wrap: wrap;

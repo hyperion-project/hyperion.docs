@@ -126,8 +126,9 @@ You can define multiple event/action sets to configure which action should take 
 * **Action**: Action to be applied
 
 ::: details Sample Configuration
-\
+
 <ImageWrap src="/images/en/user_events_scheduled.png" alt="Scheduled Events - Sample" />
+
 :::
 
 ### CEC Events
@@ -139,7 +140,8 @@ You can define multiple event/action sets to configure which action should take 
 * **CEC Event**: CEC event that will trigger an action
 
 ::: details Sample Configuration
-\
+
 <ImageWrap src="/images/en/user_events_cec.png" alt="CEC Events -Sample" />
+
 :::
 
