@@ -1,11 +1,15 @@
 # Introduction
 
+Hi 👋🏽 and welcome to Hyperion! We are the Hyperion Project Team, and we’re super excited to have you here! Let us give you a brief introduction to Hyperion.
+
+## 💡 What is Hyperion?
+
 [Hyperion](https://github.com/hyperion-project/hyperion.ng) is an **open source** (MIT) Bias or Ambient Lighting implementation for **GNU/Linux**, **macOS** and **Windows**, which you might know from TV manufacturers.
 It supports many LED devices and video grabbers.
 
 In simple words, this software dynamically processes input video signal (using for example current video framebuffer), and converts it into signal to steer ambient light (using for example LED strips controlled over USB device).
 
-## Features
+## 🔥 Features
 - Low CPU usage, ideal for SoCs such as Raspberry Pi
 - JSON interface (API) for easy integration into scripts or other applications
 - Command line utility for testing and integration into an automated environment
@@ -14,16 +18,16 @@ In simple words, this software dynamically processes input video signal (using f
 - An effects engine with many built-in effects, including the ability to create custom effects via Python scripting
 - A multi-lingual web interface for configuration and remote control of Hyperion
 
-## Languages
+## 💬 Languages
 - **Available in more than 25 different languages** like English, German, French, Polish, Chinese, Japanese, Russian, Portuguese, Hungarian, Dutch and Spanish
 - [Your help](https://poeditor.com/join/project/Y4F6vHRFjA) is very much appreciated to improve these translations or to translate Hyperion in more languages
 
-## Contributors
+## 🧑‍💻 Contributors
 
-[![](https://contrib.rocks/image?repo=hyperion-project/hyperion.ng&columns=16)](https://github.com/hyperion-project/hyperion.ng/graphs/contributors)
+<Contributors />
 
 This project exists thanks to all the people who contribute.
 
-## License
+## 📝 License
 
 The source is released under the MIT-License (see <https://opensource.org/licenses/MIT>).

@@ -15,6 +15,7 @@
     "vitepress": "latest"
   },
   "dependencies": {
+    "floating-vue": "latest",
     "medium-zoom": "latest",
     "moment": "latest"
   }

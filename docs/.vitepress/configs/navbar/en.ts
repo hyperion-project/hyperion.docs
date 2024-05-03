@@ -64,5 +64,12 @@ export const navbar_EN: any = [
       },
     ]
   },
-  { text: "Forum", link: 'https://hyperion-project.org' }
+  {
+    text: "Forum",
+    link: 'https://hyperion-project.org'
+  },
+  {
+    text: '❤️ Sponsor',
+    link: 'https://www.paypal.me/HyperionAmbi'
+  },
 ]

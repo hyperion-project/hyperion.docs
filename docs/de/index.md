@@ -18,7 +18,7 @@ hero:
       text: Was ist Hyperion?
       link: /de/user/Introduction.md
     - theme: alt
-      text: Los geht's
+      text: 🚀 Los geht's
       link: /de/user/GettingStarted.md
 
 features:
