@@ -1,7 +1,12 @@
-# Server-Informationen
-Dies ist der primäre Lesemechanismus des Hyperion-Servers. Dieser einzelne Befehl liefert Daten über den Live-Zustand von Hyperion, aufgeschlüsselt in eine Reihe von verschiedenen Bestandteilen (unten beschrieben).
+---
+outline: [2, 3]
+---
 
-[[toc]]
+# Informationen zu Server & System
+
+## Anfrage Server-Information
+
+Dies ist der primäre Lesemechanismus des Hyperion-Servers. Dieser einzelne Befehl liefert Daten über den Live-Zustand von Hyperion, aufgeschlüsselt in eine Reihe von verschiedenen Bestandteilen (unten beschrieben).
 
 Mit dem folgenden Befehl kann eine `serverinfo`-Antwort angefordert werden:
 ```json
@@ -11,12 +16,12 @@ Mit dem folgenden Befehl kann eine `serverinfo`-Antwort angefordert werden:
 }
 ```
 
-## Teile einer serverinfo-Antwort
+## Antwort Server-Information
 
 ### Komponenten
-Liste der Hyperion-Komponenten und deren aktueller Status "aktiviert" (an/aus). Die Komponenten kannst du während der Laufzeit aktivieren oder deaktivieren. Die Komponente "ALL" spiegelt Hyperion als Ganzes wider - wenn "ALL" false (aus) ist, kann keine andere Komponente aktiviert werden. Siehe Steuerungskomponenten](/de/json/control#control-components)
+Liste der Hyperion-Komponenten und deren aktueller Status "aktiviert" (an/aus). Die Komponenten kannst du während der Laufzeit aktivieren oder deaktivieren. Die Komponente "ALL" spiegelt Hyperion als Ganzes wider - wenn "ALL" false (aus) ist, kann keine andere Komponente aktiviert werden. Siehe [Steuerungskomponenten](/de/json/Control.md#komponenten-steuern)
 ::: tip Abonnieren
-Man kann zukünftige Datenaktualisierungen abonnieren. Lese mehr über [Komponenten-Updates](/de/json/subscribe#component-updates)
+Man kann zukünftige Datenaktualisierungen abonnieren. Lese mehr über [Komponenten-Updates](/de/json/Subscribe.md#komponenten-updates)
 :::
 
 ```json
@@ -63,9 +68,9 @@ Man kann zukünftige Datenaktualisierungen abonnieren. Lese mehr über [Komponen
 ```
 
 ### Anpassungen
-Anpassungen spiegeln den Wert der zuletzt durchgeführten (nicht-persistenten) Farbanpassung (z. B. Helligkeit) wider. Lese mehr über [control Anpassungen](/de/json/control#adjustments)
+Anpassungen spiegeln den Wert der zuletzt durchgeführten (nicht-persistenten) Farbanpassung (z. B. Helligkeit) wider. Lese mehr über [Steuerung-Anpassungen](/de/json/Control.md#anpassungen)
 ::: tip Abonnieren
-Du kannst zukünftige Daten-Updates abonnieren. Mehr zu [ Anpassungs-Updates](/de/json/subscribe#adjustment-updates)
+Du kannst zukünftige Daten-Updates abonnieren. Mehr zu [Abgleich-Updates](/de/json/Subscribe.md#abgleich-updates)
 :::
 ```json
 {
@@ -97,9 +102,9 @@ Du kannst zukünftige Daten-Updates abonnieren. Mehr zu [ Anpassungs-Updates](/d
 Ein Array von Effekten, wobei jedes Objekt ein benannter Effekt ist.
 Du kannst zwischen benutzererstellten Effekten und vom System bereitgestellten Effekten filtern, indem du die Effektzeichenkette `Datei` überprüfst -- wenn sie mit `:` beginnt, ist es ein vom System bereitgestellter Effekt, während wenn der Pfad mit `/` beginnt, ist es ein vom Benutzer erstellter Effekt.
 
-Siehe auch [Effekt setzen](/de/json/control#set-effect)
+Siehe auch [Effekt setzen](/de/json/Control.md##effekt-auswahlen)
 ::: tip Abonnieren
-Du kannst zukünftige Daten-Updates abonnieren. Lese mehr über [Effect updates](/de/json/subscribe#effects-updates)
+Du kannst zukünftige Daten-Updates abonnieren. Lese mehr über [Effect updates](/de/json/Subscribe.md#aktualisierungen-der-effekte)
 :::
 ```json
 {
@@ -144,18 +149,18 @@ Du kannst zukünftige Daten-Updates abonnieren. Lese mehr über [Effect updates]
 ```
   
 ### LED-Mapping
-Aktiver Modus des LED-Bereich-Mappings. [Siehe Steuerung LED-Mapping](/de/json/control#led-mapping)
+Aktiver Modus des LED-Bereich-Mappings. [Siehe Steuerung LED-Mapping](/de/json/Control.md#led-mapping)
 ::: tip Abonnieren
-Du kannst zukünftige Daten-Updates abonnieren. Lese mehr über [LED-Mapping-Updates](/de/json/subscribe#led-mapping-updates)
+Du kannst zukünftige Daten-Updates abonnieren. Lese mehr über [LED-Mapping-Updates](/de/json/Subscribe.md#aktualisierungen-des-led-mappings)
 :::
 ```json
   "imageToLedMappingType":"multicolor_mean"
 ```
 
 ### Video-Modus
-Der aktuelle Videomodus der Grabber. Kann auf 3DHSBS, 3DVSBS umgeschaltet werden. [Siehe Steuerung Video-Modus](/de/json/control#video-mode)
+Der aktuelle Videomodus der Grabber. Kann auf 3DHSBS, 3DVSBS umgeschaltet werden. [Siehe Steuerung Video-Modus](/de/json/Control.md#video-modus)
 ::: tip Abonnieren
-Du kannst zukünftige Daten-Updates abonnieren. Lese mehr über [Video mode updates](/de/json/subscribe#videomode-updates)
+Du kannst zukünftige Daten-Updates abonnieren. Lese mehr über [Video mode updates](/de/json/Subscribe.md#videomode-aktualisierungen)
 :::
 ```json
   "videomode" : "2D"
@@ -163,9 +168,9 @@ Du kannst zukünftige Daten-Updates abonnieren. Lese mehr über [Video mode upda
 
 ### Prioritäten
 Übersicht über die registrierten/aktiven Quellen. Jedes Objekt ist eine Quelle.
-  * **active**: Wenn "true", ist sie für die manuelle Quellenauswahl auswählbar. [Siehe auch Quellenauswahl](/de/json/control#source-selection)
+  * **active**: Wenn "true", ist sie für die manuelle Quellenauswahl auswählbar. [Siehe auch Quellenauswahl](/de/json/Control.md#auswahl-der-quelle)
   * **visible**: Bei "true" wird diese Quelle angezeigt und an das Led-Gerät gepusht. Die `visible:true`-Quelle ist immer der erste Eintrag!
-  * **componentId**: Ein Schlüssel, der zu einer bestimmten Komponente gehört und die Art der Eingabe angibt. [Siehe verfügbare Komponenten](/de/json/control#components-ids-explained)
+  * **componentId**: Ein Schlüssel, der zu einer bestimmten Komponente gehört und die Art der Eingabe angibt. [Siehe verfügbare Komponenten](/de/json/Control.md#komponenten-ids-erklart)
   * **origin**: Ein benannter externer Setzer dieser Quelle zu Referenzzwecken. Wenn nicht angegeben, ist es `System` (von Hyperion).
   * **owner**: Enthält zusätzliche Informationen in Bezug auf die componentId. Wenn es sich um einen Effekt handelt, wird hier der Effektname angezeigt. Wenn es sich um eine USB-Aufnahme handelt, wird das Aufnahmegerät angezeigt. Wenn es sich um ein Plattform-Capture handelt, erhält man den Namen der Plattform-Capture-Implementierung (z. B. dispmanx/x11/amlogic/...).
   * **priority**: Die Priorität dieser Quelle, eine ganze Zahl zwischen 0 und 255.
@@ -173,7 +178,7 @@ Du kannst zukünftige Daten-Updates abonnieren. Lese mehr über [Video mode upda
   * **duration_ms**: Tatsächliche Dauer in ms, bis diese Priorität automatisch gelöscht wird. Dies wird angezeigt, wenn die Quelle eine Farbe oder ein Effekt ist UND eine bestimmte Dauer höher als `0` eingestellt ist (0 bedeutet unbegrenzt).
 
 ::: tip Abonnieren
-Du kannst zukünftige Daten-Updates abonnieren. Lese mehr über [Prioritäts-Updates](/de/json/subscribe#priority-updates)
+Du kannst zukünftige Daten-Updates abonnieren. Lese mehr über [Prioritäts-Updates](/de/json/Subscribe.md#prioritats-updates)
 :::
 ```json
   "priorities":[
@@ -213,12 +218,12 @@ dann schaltet `priorities_autoselect` auf `false`.
 
 Wenn die manuell ausgewählte Quelle gelöscht/gestoppt/abgeschlossen wird ODER der Benutzer die automatische Auswahl anfordert, schaltet `priorities_autoselect` zurück auf `true`. Dieser Wert wird
 automatisch mit den Prioritätsaktualisierungen aktualisiert (siehe oben).
-Siehe auch Quellenauswahl](/de/json/control#source-selection).
+[Siehe auch Quellenauswahl](/de/json/Control.md#auswahl-der-quelle).
   
 ### Instanz
-Informationen über verfügbare Instanzen und deren Zustand. Jede Instanz repräsentiert ein LED-Gerät. Instanzen können gesteuert werden, siehe: [Instanz steuern](/de/json/control#control-instances).
+Informationen über verfügbare Instanzen und deren Zustand. Jede Instanz repräsentiert ein LED-Gerät. Instanzen können gesteuert werden, siehe: [Instanz steuern](/de/json/Control.md#steuerungsinstanzen).
 ::: tip Abonnieren
-Du kannst zukünftige Daten-Updates abonnieren. Lese mehr über [Instance Updates](/de/json/subscribe#instance-updates)
+Du kannst zukünftige Daten-Updates abonnieren. Lese mehr über [Instanz-Updates](/de/json/Subscribe.md#instanz-updates)
 :::
 ```json
    "instance":[
@@ -238,7 +243,7 @@ Du kannst zukünftige Daten-Updates abonnieren. Lese mehr über [Instance Update
 ### LEDs
 Informationen über das LED-Layout (Image-Mapping-Positionen) und die Anzahl der LEDs.
 ::: tip Abonnieren
-Du kannst zukünftige Daten-Updates abonnieren. Lese mehr über [LEDs Updates](/de/json/subscribe#leds-updates)
+Du kannst zukünftige Daten-Updates abonnieren. Lese mehr über [LEDs Updates](/de/json/Subscribe.md#led-layout-updates)
 :::
 ```json
 {
@@ -260,7 +265,7 @@ Du kannst zukünftige Daten-Updates abonnieren. Lese mehr über [LEDs Updates](/
 }
 ```
 
-### System & Hyperion
+## Anfrage System-Information
 Es ist möglich, grundlegende Systeminformationen über den Hyperion-Server und den Host, auf dem er läuft, abzurufen. Diese Informationen sind statisch und werden sich während der Laufzeit nicht ändern.
 ```json
 {
@@ -271,6 +276,7 @@ Es ist möglich, grundlegende Systeminformationen über den Hyperion-Server und 
 Du kannst zukünftige Daten-Updates abonnieren. Wir verwenden [Semantic Versioning 2.0.0 (https://semver.org/).
 Wenn du eine bestimmte ID benötigst, um bekannte Server erneut zu erkennen, kannst du das Feld "id" verwenden, das eine eindeutige ID liefert und sich für einen bestimmten Server nicht ändert.
 
+## Antwort System-Information
 ```json
 {
     "hyperion": {

@@ -1,0 +1,41 @@
+:root {
+  /* Brand */
+  --vp-c-brand-1: #2b819a;
+  --vp-c-brand-2: #2b819a;
+  --vp-c-brand-3: #4882a7;
+  --vp-c-brand-soft: #a4d5ec;
+
+  /* Background */
+  --vp-c-bg: white;
+  --vp-c-bg-alt: #f6f6f7;
+  --vp-c-bg-elv: white;
+  --vp-c-bg-soft: #f6f6f7;
+
+  --vp-c-default-1: var(--vp-c-gray-1);
+  --vp-c-default-2: var(--vp-c-gray-2);
+  --vp-c-default-3: var(--vp-c-gray-3);
+  --vp-c-default-soft: var(--vp-c-gray-soft);
+
+  /* Sidebar */
+  --vp-sidebar-bg-color: #f6f6f7;
+
+  /* Buttons */
+  --vp-button-brand-bg: #2b819a;
+  --vp-button-brand-border: transparent;
+  --vp-button-brand-text: var(--vp-c-white);
+  --vp-button-brand-hover-border: transparent;
+  --vp-button-brand-hover-text: var(--vp-c-white);
+  --vp-button-brand-hover-bg: #007496;
+  --vp-button-brand-active-border: transparent;
+  --vp-button-brand-active-text: var(--vp-c-white);
+  --vp-button-brand-active-bg: var(--vp-c-brand-1);
+  --vp-button-alt-bg: #484848;
+  --vp-button-alt-text: #f0eeee;
+  --vp-button-alt-hover-bg: #484848;
+  --vp-button-alt-hover-text: #f0eeee;
+
+  /* Borders */
+  --vp-c-border: #c2c2c4;
+  --vp-c-divider: #eaecef;
+  --vp-c-gutter: #eaecef;
+}

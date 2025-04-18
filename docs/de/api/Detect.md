@@ -1,7 +1,5 @@
-# Hyperion entdecken
+# Hyperion finden
 Hyperion publiziert seine Dienste im Netzwerk, über mDNS und SSDP.
-
-[[toc]]
 
 ## SSDP
 **S**imple**S**ervice**D**iscovery**P**rotocol
@@ -50,8 +48,8 @@ Jeder veröffentlichte Eintrag enthält mindestens die folgenden Daten im txt-Fe
 
 ### Test Clients
 Es stehen verschiedene Clients zum Testen zur Verfügung, wie z. B. der
-[avahi-browse](http://manpages.ubuntu.com/manpages/bionic/man1/avahi-browse.1.html) ein Kommandozeilen-Tool für Ubuntu/Debian. Beispiel-Befehl 
-``` bash
+[avahi-browse](https://manpages.ubuntu.com/manpages/bionic/man1/avahi-browse.1.html) ein Kommandozeilen-Tool für Ubuntu/Debian. Beispiel-Befehl 
+``` sh:no-line-numbers
 sudo apt-get install avahi-untils && avahi-browse -r _hyperiond-json._tcp
 ```
 <ImageWrap src="/images/en/avahi-browse.jpg" alt="Searching for Hyperion JSON-API Server with Avahi cli" />

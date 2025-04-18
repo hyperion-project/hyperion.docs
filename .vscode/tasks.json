@@ -6,15 +6,15 @@
         {
             "label": "dev",
             "type": "shell",
-            "command": "yarn",
-            "args": ["docs:dev"],
+            "command": "npm",
+            "args": ["run", "docs:dev"],
             "detail": "vuepress dev content"
         },
         {
             "label": "build",
             "type": "shell",
-            "command": "yarn",
-            "args": ["docs:build"],
+            "command": "npm",
+            "args": ["run", "docs:build"],
             "detail": "vuepress build content"
         }
 

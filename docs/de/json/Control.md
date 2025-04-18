@@ -1,13 +1,15 @@
-# Steuerung
+---
+outline: [2, 3]
+---
+
+# Steuerbefehle
 Man kann Hyperion steuern, indem man bestimmte JSON-Nachrichten sendet.
 
-::: tip
+::: tip Tip
 Die Eigenschaft `tan` wird in diesen Aufrufen unterstützt, aber aus Gründen der Kürze weggelassen.
 :::
 
-[[toc]]
-
-## Abschnitte
+## Eingangssteuerung
 
 ### Farbe einstellen
 Stellt eine Farbe für alle LEDs ein oder gibt ein Muster von LED-Farben vor.
@@ -16,7 +18,7 @@ Stellt eine Farbe für alle LEDs ein oder gibt ein Muster von LED-Farben vor.
 | :---------- | :-----: | :----------: | :------------------------------------------------------------------------------------------------------------------- |
 | color       | Array   | Ja           | Ein Array von R G B Integer-Werten z. B. `[R,G,B]`                                                                   |
 | duration    | Integer | Nein         | Dauer der Farbe in ms. Wenn du keine Dauer angibst, ist sie `0` -> unendlich.                                        |
-| priority    | Integer | Ja           | Wir empfehlen `50`, entsprechend den [Priority Guidelines](/de/api/guidelines#priority_guidelines). Min `2` Max `99` |
+| priority    | Integer | Ja           | Wir empfehlen `50`, entsprechend dem [Prioritätsleitfaden](/de/api/Guidelines.md#prioritatsleitfaden). Min `2` Max `99` |
 | origin      | String  | Ja           | Ein kurzer Name deiner Anwendung, z. B. `Hyperion of App`. Maximale Länge ist `20`, minimale `4`.                    |
 
 ```json
@@ -49,13 +51,13 @@ Stellt eine Farbe für alle LEDs ein oder gibt ein Muster von LED-Farben vor.
 ```
 
 ### Effekt auswählen
-Startet einen Effekt mittels Namen. Die verfügbaren Namen findet man in der [serverinfo effect list](/de/json/ServerInfo.md#effect-list).
+Startet einen Effekt mittels Namen. Die verfügbaren Namen findet man in der [serverinfo Effekt-Liste](/de/json/ServerInfo.md#effekt-liste).
 
 | Eigenschaft | Typ     | Erforderlich | Bemerkung                                                                                                              |
 | :---------- | :-----: | :----------: | :--------------------------------------------------------------------------------------------------------------------- |
 | effect      | Object  | Ja           | Objekt mit zusätzlichen Eigenschaften. z. B. `"name":"EffectName"`.                                                    |
 | duration    | Integer | Nein         | Dauer der Effekte in ms. Wenn du keine Dauer angibst, ist es `0` -> unendlich.                                         |
-| priority    | Integer | Ja           | Wir empfehlen `50`, entsprechend den [Priority Guidelines](/de/api/guidelines#priority_guidelines). Min. `2` Max. `99` |
+| priority    | Integer | Ja           | Wir empfehlen `50`, entsprechend dem [Prioritätsleitfaden](/de/api/Guidelines.md#prioritatsleitfaden). Min. `2` Max. `99` |
 | origin      | String  | Ja           | Ein kurzer Name deiner Anwendung wie `Hyperion Programm`. Maximale Länge ist `20`, min. `4`.                           |
 
 ```json
@@ -104,7 +106,7 @@ Setzt ein einzelnes Bild. Unterstützt alle [Qt5](https://doc.qt.io/qt-5/qimager
 | format      | String  | Ja           | Setze diese Option auf "Auto", damit Hyperion das Bild je nach Dateityp parsed.                                        |
 | name        | String  | Ja           | Der Name des Bildes.                                                                                                  |
 | duration    | Integer | Nein         | Anzeigendauer des Bildes in ms. Wenn du keine Dauer angibst, ist es `0` -> endlos.                                    |
-| priority    | Integer | Ja           | Wir empfehlen `50`, entsprechend den [Priority Guidelines](/de/api/guidelines#priority_guidelines). Min. `2` Max. `99`|
+| priority    | Integer | Ja           | Wir empfehlen `50`, entsprechend dem [Prioritätsleitfaden](/de/api/Guidelines.md#prioritatsleitfaden). Min. `2` Max. `99`|
 | origin      | String  | Ja           | Ein kurzer Name deiner Anwendung wie `Hyperion Programm`. Maximale Länge ist `20`, min. `4`.                          |
 
 ```json
@@ -135,13 +137,39 @@ effect](#set-effect) oder [set image](#set-image).
   "priority":-1
 }
 ```
-::: warning
+::: warning Achtung
 Wenn du alles löschst, löschst du alle Effekte und Farben, unabhängig davon, wer sie eingestellt hat!
 Stattdessen empfehlen wir, dass Benutzer eine Liste möglicher Löschziele auf der Grundlage einer Prioritätenliste bereitstellen
 :::
 
+### Auswahl einer Quelle
+Quellen werden immer automatisch nach dem Prioritätswert ausgewählt (der niedrigste Wert hat die höchste
+Priorität). Man muss den Prioritätswert der Quelle kennen, die man auswählen möchte. Diese
+Prioritätswerte sind in der Datei [serverinfo Prioritäten](/de/json/ServerInfo.md#prioritaten).
+```json
+// Beispiel: Priorität 50 auf sichtbar setzen
+{
+  "command":"sourceselect",
+  "priority":50
+}
+```
+Wenn die Antwort erfolgreich ist, wechselt der `priorities_autoselect`-Status auf false (siehe [serverinfo Autoselection Mode](/de/json/ServerInfo.md#auswahl-der-prioritaten-auto-manuell)). Du bist jetzt im manuellen Modus, um zurück in den Auto-Modus zu wechseln, sende:
+```json
+{
+  "command":"sourceselect",
+  "auto":true
+}
+```
+Danach wird der `Prioritäten_autoselect`-Status wieder auf `wahr` gesetzt.
+
+::: warning Achtung
+Du kannst nur Prioritäten auswählen, die `active:true` sind!
+:::
+
+## Ausgabesteuerung
+
 ### Anpassungen
-Anpassungen spiegeln die Farbkalibrierung wider. Man kann alle Eigenschaften von [serverinfo adjustments](/de/json/serverinfo#adjustments) ändern.
+Anpassungen spiegeln die Farbkalibrierung wider. Man kann alle Eigenschaften von [serverinfo adjustments](/de/json/ServerInfo.md#anpassungen) ändern.
 
 | Eigenschaft            |      Typ       | Erforderlich | Bemerkung                                                                                                        |
 | :--------------------- | :------------: | :----------: | :--------------------------------------------------------------------------------------------------------------- |
@@ -233,124 +261,7 @@ Schaltet den Videomodus um. Mögliche Werte sind: `2D`, `3DSBS` und `3DTAB`.
 }
 ```
 
-### Komponenten steuern
-Einige Komponenten können zur Laufzeit aktiviert und deaktiviert werden. Um den aktuellen Status und die verfügbaren Komponenten zu erhalten, siehe [Serverinfo Komponenten](/de/json/serverinfo#components). Siehe .
-auch: [Komponenten/IDs erklärt](#components-ids-explained)
-
- ```json
-// Beispiel: LEDDEVICE-Komponente deaktivieren
-{
-  "command":"componentstate",
-  "componentstate":{
-    "component":"LEDDEVICE",
-    "state":false
-  }
-}
-// Beispiel: SMOOTHING-Komponente aktivieren
-{
-  "command":"componentstate",
-  "componentstate":{
-    "component":"SMOOTHING",
-    "state":true
-  }
-}
-```
-::: warning
-Hyperion selbst muss aktiviert sein! Prüfe den Status von "ALL" in der Komponentenliste, bevor du eine andere Komponente änderst!
-:::
-
-### Komponenten/IDs erklärt
-Jede Komponente hat eine eindeutige ID. Nicht alle von ihnen können aktiviert/deaktiviert werden - einige von ihnen
-wie Effekt und Farbe, werden verwendet, um den Quellentyp zu bestimmen, wenn die [Prioritätsliste](/de/json/ServerInfo.html#Prioritäten) untersucht wird.
-
-|  ComponentID   |      Component       | Enable/Disable | Beschreibung                                                                                                    |
-| :------------- | :------------------: | :------------: | :-------------------------------------------------------------------------------------------------------------- |
-|   SMOOTHING    |      Smoothing       |      Yes       | Glättungs-Komponente                                                                                            |
-|  BLACKBORDER   | Blackborder detector |      Yes       | Komponente zur Erkennung von schwarzen Balken                                                                   |
-|   FORWARDER    | JSON/Proto forwarder |      Yes       | JSON/Proto-Forwarder-Komponente                                                                                 |
-| BOBLIGHTSERVER |   Boblight server    |      Yes       | Boblight-Server-Komponente                                                                                      |
-|    GRABBER     |   Screen capture     |      Yes       | Bildschirm Erfassungskomponente                                                                                 |
-|      V4L       |  V4L capture device  |      Yes       | USB-Aufnahmegerät-Komponente                                                                                    |
-|    AUDIO       |   Audio capture      |      Yes       | Audio Erfassungskomponente                                                                                      |
-|   LEDDEVICE    |      LED device      |      Yes       | LED-Gerätekomponente startet/stoppt die Ausgabe des konfigurierten LED-Geräts                                   |
-|      ALL       |  SPECIAL: Hyperion   |      Yes       | Aktivieren oder deaktiviere Hyperion. Wiederherstellen/Speichern des letzten Zustands aller anderen Komponenten |
-|     COLOR      |     Solid color      |       No       | Alle Farben, die eingestellt wurden, gehören zu dieser Komponente                                               |
-|     EFFECT     |        Effect        |       No       | Alle Effekte gehören zu dieser Komponente                                                                       |
-|     IMAGE      |     Solid Image      |       No       | Dazu gehören alle Einzel-/Festbilder. NICHT für Streaming                                                       |
-| FLATBUFSERVER  |  Flatbuffers Server  |       No       | Alle Bildstream-Quellen vom Flatbuffer-Server                                                                   |
-|  PROTOSERVER   |  Protobuffer Server  |       No       | Alle Bild-Stream-Quellen vom Protobuffer-Server                                                                 |
-
-
-### Auswahl der Quelle
-Quellen werden immer automatisch nach dem Prioritätswert ausgewählt (der niedrigste Wert hat die höchste
-Priorität). Man muss den Prioritätswert der Quelle kennen, die man auswählen möchte -- diese
-Prioritätswerte sind in der Datei [serverinfo
-Prioritäten](/de/json/serverinfo#priorities).
-```json
-// Beispiel: Priorität 50 auf sichtbar setzen
-{
-  "command":"sourceselect",
-  "priority":50
-}
-```
-Wenn die Antwort erfolgreich ist, wechselt der `priorities_autoselect`-Status auf false (siehe [serverinfo Autoselection Mode](/de/json/serverinfo##priorities-selection-auto-manual)). Du bist jetzt im manuellen Modus, um zurück in den Auto-Modus zu wechseln, sende:
-```json
-{
-  "command":"sourceselect",
-  "auto":true
-}
-```
-Danach wird der `Prioritäten_autoselect`-Status wieder auf `wahr` gesetzt.
-
-::: warning
-Du kannst nur Prioritäten auswählen, die `active:true` sind!
-:::
-
-### Steuerungsinstanzen
-Eine Instanz repräsentiert eine LED-Hardware-Instanz. Sie läuft in ihrem eigenen Bereich mit ihren
-eigenen Plugin-Einstellungen, LED-Layout und Kalibrierung. Bevor man eine Instanz auswählt,
-sollte man zunächst Informationen über die verfügbaren Instanzen von
-[serverinfo](/de/json/serverinfo#instance) erhalten.
-
-```json
-// Befehl zum Starten der Instanz 1
-{
-  "command" : "instance",
-  "subcommand" : "startInstance",
-  "instance" : 1
-}
-
-// Befehl zum Stoppen der Instanz 1
-{
-  "command" : "instance",
-  "subcommand" : "stopInstance",
-  "instance" : 1
-}
-```
-
-### Handhabung der API-Instanz
-Bei der Verbindung mit der API wird standardmäßig eine Verbindung zur Instanz `0` hergestellt.
-Man kann nur eine Instanz gleichzeitig innerhalb einer einzigen Verbindung steuern,
-und [Abonnements](/de/json/subscribe#instance-updates) sind im Kontext der ausgewählten Instanz.
-
-Mit dem folgenden Befehl kann zu einer anderen Instanz gewechselt werden:
-
-```json
-// Zur Instanz 1 wechseln
-{
-  "command" : "instance",
-  "subcommand" : "switchTo",
-  "instance" : 1
-}
-```
-Dies gibt eine erfolgreiche Antwort oder einen Fehler zurück, wenn die Instanz nicht verfügbar ist.
-
-::: warning
-Es ist möglich, dass eine Instanz anhält, während man mit ihr verbunden ist.
-In diesem Fall werden die Verbindungen zu dieser Instanz automatisch auf die Instanz `0` zurückgesetzt.
-Behalte die Instanzdaten über das Abonnement im Auge, wenn du diesen Vorgang behandeln musst.
-Siehe: [Instance updates](/de/json/subscribe#instance-updates).
-:::
+## Streaming
 
 ### Live-Bild-Stream
 Man kann einen Livebild-Stream anfordern (wenn die aktuelle Quellpriorität dies unterstützt,
@@ -373,7 +284,6 @@ Stoppe den Stream durch Senden:
 Diese Funktion ist für HTTP/S JSON-RPC nicht verfügbar.
 :::
 
-
 ### LED-Farb-Live-Stream
 Mit dieser Funktion kann ein Live-LED-Farbstream mit aktuellen Farbwerten in RGB
  für jede einzelne LED angefordert werden. Die Aktualisierungsrate beträgt 125ms.
@@ -393,6 +303,100 @@ Stoppe den Stream durch Senden:
 ```
 ::: danger HTTP/S
 Diese Funktion ist für HTTP/S JSON-RPC nicht verfügbar.
+:::
+## Komponentensteuerung
+
+### Komponenten steuern
+Einige Komponenten können zur Laufzeit aktiviert und deaktiviert werden. Um den aktuellen Status und die verfügbaren Komponenten zu erhalten, siehe [Serverinfo Komponenten](/de/json/ServerInfo.md#komponenten). Siehe .
+auch: [Komponenten/IDs erklärt](#komponenten-ids-erklart)
+
+ ```json
+// Beispiel: LEDDEVICE-Komponente deaktivieren
+{
+  "command":"componentstate",
+  "componentstate":{
+    "component":"LEDDEVICE",
+    "state":false
+  }
+}
+// Beispiel: SMOOTHING-Komponente aktivieren
+{
+  "command":"componentstate",
+  "componentstate":{
+    "component":"SMOOTHING",
+    "state":true
+  }
+}
+```
+::: warning Achtung
+Hyperion selbst muss aktiviert sein! Prüfe den Status von "ALL" in der Komponentenliste, bevor du eine andere Komponente änderst!
+:::
+
+#### Komponenten/IDs erklärt
+Jede Komponente hat eine eindeutige ID. Nicht alle von ihnen können aktiviert/deaktiviert werden - einige von ihnen
+wie Effekt und Farbe, werden verwendet, um den Quellentyp zu bestimmen, wenn die [Prioritätsliste](/de/json/ServerInfo.md#prioritaten) untersucht wird.
+
+|  ComponentID   |      Component       | Enable/Disable | Beschreibung                                                                                                    |
+| :------------- | :------------------: | :------------: | :-------------------------------------------------------------------------------------------------------------- |
+|   SMOOTHING    |      Smoothing       |      Yes       | Glättungs-Komponente                                                                                            |
+|  BLACKBORDER   | Blackborder detector |      Yes       | Komponente zur Erkennung von schwarzen Balken                                                                   |
+|   FORWARDER    | JSON/Proto forwarder |      Yes       | JSON/Proto-Forwarder-Komponente                                                                                 |
+| BOBLIGHTSERVER |   Boblight server    |      Yes       | Boblight-Server-Komponente                                                                                      |
+|    GRABBER     |   Screen capture     |      Yes       | Bildschirm Erfassungskomponente                                                                                 |
+|      V4L       |  V4L capture device  |      Yes       | USB-Aufnahmegerät-Komponente                                                                                    |
+|    AUDIO       |   Audio capture      |      Yes       | Audio Erfassungskomponente                                                                                      |
+|   LEDDEVICE    |      LED device      |      Yes       | LED-Gerätekomponente startet/stoppt die Ausgabe des konfigurierten LED-Geräts                                   |
+|      ALL       |  SPECIAL: Hyperion   |      Yes       | Aktivieren oder deaktiviere Hyperion. Wiederherstellen/Speichern des letzten Zustands aller anderen Komponenten |
+|     COLOR      |     Solid color      |       No       | Alle Farben, die eingestellt wurden, gehören zu dieser Komponente                                               |
+|     EFFECT     |        Effect        |       No       | Alle Effekte gehören zu dieser Komponente                                                                       |
+|     IMAGE      |     Solid Image      |       No       | Dazu gehören alle Einzel-/Festbilder. NICHT für Streaming                                                       |
+| FLATBUFSERVER  |  Flatbuffers Server  |       No       | Alle Bildstream-Quellen vom Flatbuffer-Server                                                                   |
+|  PROTOSERVER   |  Protobuffer Server  |       No       | Alle Bild-Stream-Quellen vom Protobuffer-Server                                                                 |
+
+### Steuerung Instanzen
+Eine Instanz repräsentiert eine LED-Hardware-Instanz. Sie läuft in ihrem eigenen Bereich mit ihren
+eigenen Plugin-Einstellungen, LED-Layout und Kalibrierung. Bevor man eine Instanz auswählt,
+sollte man zunächst Informationen über die verfügbaren Instanzen von
+[serverinfo](/de/json/ServerInfo.md#instanz) erhalten.
+
+```json
+// Befehl zum Starten der Instanz 1
+{
+  "command" : "instance",
+  "subcommand" : "startInstance",
+  "instance" : 1
+}
+
+// Befehl zum Stoppen der Instanz 1
+{
+  "command" : "instance",
+  "subcommand" : "stopInstance",
+  "instance" : 1
+}
+```
+
+#### Handhabung der API-Instanz
+Bei der Verbindung mit der API wird standardmäßig eine Verbindung zur Instanz `0` hergestellt.
+Man kann nur eine Instanz gleichzeitig innerhalb einer einzigen Verbindung steuern,
+und [Abonnements](/de/json/Subscribe.md#instanz-updates) sind im Kontext der ausgewählten Instanz.
+
+Mit dem folgenden Befehl kann zu einer anderen Instanz gewechselt werden:
+
+```json
+// Zur Instanz 1 wechseln
+{
+  "command" : "instance",
+  "subcommand" : "switchTo",
+  "instance" : 1
+}
+```
+Dies gibt eine erfolgreiche Antwort oder einen Fehler zurück, wenn die Instanz nicht verfügbar ist.
+
+::: warning Achtung
+Es ist möglich, dass eine Instanz anhält, während man mit ihr verbunden ist.
+In diesem Fall werden die Verbindungen zu dieser Instanz automatisch auf die Instanz `0` zurückgesetzt.
+Behalte die Instanzdaten über das Abonnement im Auge, wenn du diesen Vorgang behandeln musst.
+Siehe: [Instanz-Updates](/de/json/Subscribe.md#instanz-updates).
 :::
 
 ### Hyperion steuern

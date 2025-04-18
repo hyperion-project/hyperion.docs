@@ -30,7 +30,7 @@ Sichere die die Einstellungen mit "Save" und fahre mit "Yes" fort, um den Imager
  - Kennwort: `ambientlight`
  
 Es kann auch ein anderer Benutzernamen gewählt werden, allerdings muss dann der vorkonfigurierte Dienst von Hyperion später aktualisieren werden-
-Aktualisierung des Dienstes auf den [aktuellen Benutzer](/de/user/Installation.html#andern-des-benutzer-des-dienstes-auf-den-aktuellen-benutzer)
+Aktualisierung des Dienstes auf den [aktuellen Benutzer](/de/user/GettingStarted.md#andern-des-benutzer-des-dienstes-auf-den-aktuellen-benutzer)
 :::
 
 Die Konfiguration wird während des ersten Starts durchgeführt.
@@ -86,7 +86,7 @@ timezone = "Europe/Berlin"
  - Benutzername: `hyperion`
  - Passwort: `ambientlight`
 
-::: tip
+::: tip Tip
   HyperBian wird mit einer englischen Tastatur-Konfiguration ausgeliefert. Dort sind die Zeichen 'y' und 'z' vertauscht. Für den Benutzernamen musst Du also zuerstmal `hzperion` tippen; danach kannst Du das Tataturlayout per `sudo raspi-config` ändern.
 :::
 

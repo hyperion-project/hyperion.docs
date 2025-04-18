@@ -21,7 +21,7 @@ Konfigururiere im WIFI Setup von WLED einen Servicenamen (`mDNS Adresse`) deiner
 ::: details Streaming-Protokoll
 Ab Hyperion 2.0.13 verwendet das Hyperion-WLED-Gerät das Distributed Display Protocol (erfordert WLED v0.11.0+).
 
-Als Alternative wird das UDP-Raw Protokoll ([Einschränkungen](udpraw)) weiterhin unterstützt.
+Als Alternative wird das UDP-Raw Protokoll ([Einschränkungen](/de/user/leddevices/network/udpraw.md)) weiterhin unterstützt.
 :::
 
 ### Spezifische Einstellungen
@@ -56,8 +56,8 @@ Ermöglicht es, WLED nach dem Streaming und der Wiederherstellung des Originalzu
 
 #### Streaming-Protokoll
 
-- [UDP DDP](udpddp)
-- [UDP RAW](udpraw)
+- [UDP DDP](/de/user/leddevices/network/udpddp.md)
+- [UDP RAW](/de/user/leddevices/network/udpraw.md)
 
 #### Deaktivierung der Synchronisierung
 

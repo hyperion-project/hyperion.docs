@@ -10,25 +10,26 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       # Install dependencies
-      - name: Setup node 14
-        uses: actions/setup-node@v2
+      - name: Setup latest Node.js
+        uses: actions/setup-node@v4
         with:
-          node-version: '14'
+          check-latest: true
 
       # Build Docs
       - name: Build docs
         run: |
-          npm install -g yarn
-          yarn install
-          yarn docs:build
+          npm install
+          npm run docs:build
+        env:
+          BASE_DIR: ${{ startsWith(github.repository, 'hyperion-project') && '/' || '/hyperion.docs/' }}
 
       # Deploy to gh-pages
       - name: Deploy to gh-pages
-        uses: peaceiris/actions-gh-pages@v3
+        uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./dist
-          cname: docs.hyperion-project.org
+          cname: ${{ startsWith(github.repository, 'hyperion-project') && 'docs.hyperion-project.org' || '' }}
