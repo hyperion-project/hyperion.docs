@@ -1,90 +1,115 @@
-<!-- Idea from: https://github.com/MitanOmar/timed-docs/blob/main/components/contributors.vue -->
+<script setup lang="ts">
+import { onBeforeMount, computed, ref, Ref, toRefs } from 'vue'
+import { Octokit } from '@octokit/rest'
+import { Endpoints } from '@octokit/types'
+
+const props = defineProps<{ body?: string; author?: string; tag?: string }>()
+const { body, author, tag } = toRefs(props)
+
+const allContributors: Ref<Endpoints['GET /repos/{owner}/{repo}/contributors']['response']['data']> = ref([])
+const octokit = new Octokit()
+
+onBeforeMount(async () => {
+  if (body.value || author.value || tag.value) return
+
+  let page = 1
+  while (true) {
+    const { data: pageContributors } = await octokit.repos.listContributors({
+      owner: 'hyperion-project',
+      repo: 'hyperion.ng',
+      per_page: 100,
+      page,
+    })
+
+    const filterBot = pageContributors.filter(c => !c.login?.includes('[bot]'))
+    allContributors.value = [...allContributors.value, ...filterBot]
+    if (pageContributors.length < 100) break
+    page++
+  }
+})
+
+const notMentioned = computed(() => {
+	return []
+})
+
+const nonExistent = ref<string[]>([])
+
+const parsedContributors = computed(() => {
+  if (!body.value || !author.value) return []
+
+  const list = [...body.value.matchAll(/(?:^|\s|[^\w@])@([a-zA-Z0-9](?:[a-zA-Z0-9-]{0,38}[a-zA-Z0-9])?)(?!\.[a-z]{2,})\b/g)]
+    .map(match => match[1].trim())
+  const uncredited = author.value.includes('[bot]')
+    ? notMentioned.value
+    : [author.value, ...notMentioned.value]
+
+  return [...new Set([...uncredited, ...list])].filter(user => !nonExistent.value.includes(user))
+})
+
+const contributors = computed(() => {
+  if (body.value || author.value || tag.value) {
+    return parsedContributors.value
+  } else {
+    return allContributors.value.map(c => c.login).filter(Boolean)
+  }
+})
+
+function addToNonExistent(user: string) {
+	if (!nonExistent.value.includes(user)) {
+		nonExistent.value.push(user)
+	}
+}
+</script>
 
 <template>
-  <div>
-    <div class="contributors-container">
-      <a
-        v-for="{ login, avatar_url, html_url } of data.contributors"
-        :href="html_url"
-        :target="'_blank'"
+  <div v-if="contributors.length > 0" class="contributors">
+    <h3 v-if="body && author && tag">Contributors</h3>
+    <ul>
+      <li
+        v-for="contributor of contributors"
+        :key="contributor"
       >
-        <img
-          :src="avatar_url"
-          v-tooltip='{
-            html: true,
-            content: `<b>${login}</b>`
-          }'
-          class="contributor-avatar"
+        <a
+          :href="`https://github.com/${contributor}`"
+          :target="'_blank'"
         >
-      </a>
-    </div>
+          <img
+            :src="`https://github.com/${contributor}.png`"
+            v-tooltip='{
+              html: true,
+              content: `<b>${contributor}</b>`
+            }'
+            loading="lazy"
+            class="avatar"
+            @error="addToNonExistent(contributor)"
+          >
+        </a>
+      </li>
+    </ul>
   </div>
 </template>
 
-<script setup lang="ts">
-import { reactive, onMounted } from 'vue';
-
-interface GithubUser {
-  login: string;
-  avatar_url: string;
-  html_url: string;
-  type: string;
-}
-
-const data = reactive({
-  contributors: [] as GithubUser[],
-});
-
-onMounted(async () => {
-  try {
-    const pages = [1, 2];
-    const responsesNG = await Promise.all(
-      pages.map(page => fetch(`https://api.github.com/repos/hyperion-project/hyperion.ng/contributors?per_page=100&page=${page}`))
-    );
-
-    const responseDOCS = await fetch('https://api.github.com/repos/hyperion-project/hyperion.docs/contributors?per_page=100');
-
-    const users: GithubUser[] = [];
-    for (const response of responsesNG) {
-      const data = await response.json();
-      users.push(...data);
-    }
-
-    const data2 = await responseDOCS.json();
-    users.push(...data2);
-
-    data.contributors = removeDuplicatedUsers(users);
-  } catch (error) {
-    console.error('Error fetching data:', error);
-  }
-});
-
-const removeDuplicatedUsers = (users: GithubUser[]): GithubUser[] => {
-  const uniqueUsers: GithubUser[] = [];
-  const userMap: Map<string, boolean> = new Map();
-
-  for (const user of users) {
-    if (!userMap.has(user.login)) {
-      userMap.set(user.login, true);
-      uniqueUsers.push(user);
-    }
-  }
-
-  return uniqueUsers;
-};
-</script>
-
-<style>
-.contributors-container {
+<style scoped>
+.contributors ul {
   display: flex;
+  align-items: center;
   flex-wrap: wrap;
-  grid-gap: .8rem;
-  gap: .8rem;
+  gap: .5rem;
+  list-style-type: none;
+  padding-left: 0;
+
+  li + li {
+    margin-top: 0;
+  }
 }
 
-.contributor-avatar {
-  width: 3rem;
-  height: 3rem;
+.contributors .avatar {
+  width: 2rem;
+  height: 2rem;
+  @media (min-width: 960px) {
+    width: 3rem;
+    height: 3rem;
+  }
   border-radius: 9999px;
   transition: all ease .3s;
   &:hover {

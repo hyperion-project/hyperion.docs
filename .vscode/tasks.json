@@ -8,14 +8,14 @@
             "type": "shell",
             "command": "npm",
             "args": ["run", "docs:dev"],
-            "detail": "vuepress dev content"
+            "detail": "vitepress dev content"
         },
         {
             "label": "build",
             "type": "shell",
             "command": "npm",
             "args": ["run", "docs:build"],
-            "detail": "vuepress build content"
+            "detail": "vitepress build content"
         }
 
     ]

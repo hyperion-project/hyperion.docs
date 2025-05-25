@@ -9,7 +9,7 @@ import 'floating-vue/dist/style.css'
 import './styles/index.css'
 
 export default {
-  ...DefaultTheme,
+  extends: DefaultTheme,
   Layout() {
     return h(ExtendedLayout)
   },

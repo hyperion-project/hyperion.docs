@@ -7,8 +7,10 @@
 // If the subfolder is e.g. 'docs/dist', the env var BASE_DIR should be set to '/docs/dist/'.
 //////////////////////////////////////////////////////////////////////////
 
-import { defineConfig } from 'vitepress'
+import { defineConfig, withBase } from 'vitepress'
 import { head, navbar_EN, navbar_DE, sidebar_EN, sidebar_DE } from './configs'
+import path from 'path'
+import fs from 'fs'
 
 export default defineConfig({
   head: head,
@@ -20,12 +22,23 @@ export default defineConfig({
   lastUpdated: true,
   themeConfig: {
     siteTitle: '',
+    externalLinkIcon: true,
     // @ts-expect-error
     notFoundLight: '/notFound.png',
     notFoundDark: '/notFoundDark.png',
     socialLinks: [
-      { icon: 'github', link: 'https://github.com/hyperion-project/hyperion.docs' },
-      { icon: 'discord', link: 'https://discord.com/invite/XtVTb3HEKS' }
+      {
+        icon: { svg: fs.readFileSync(path.resolve(__dirname, '../public/icons/svg/github.svg'), 'utf8')},
+        link: 'https://github.com/hyperion-project'
+      },
+      {
+        icon: { svg: fs.readFileSync(path.resolve(__dirname, '../public/icons/svg/discord.svg'), 'utf8')},
+        link: 'https://discord.com/invite/XtVTb3HEKS'
+      },
+      {
+        icon: { svg: fs.readFileSync(path.resolve(__dirname, '../public/icons/svg/support.svg'), 'utf8')},
+        link: 'https://www.paypal.me/HyperionAmbi'
+      }
     ],
     logo: {
       light: '/logo.png',
@@ -162,5 +175,14 @@ export default defineConfig({
         }
       }
     },
-  }
+  },
+	transformPageData(pageData) {
+    if (pageData.frontmatter.layout === "home" && Object.keys(pageData.frontmatter.features)?.length) {
+      pageData.frontmatter.features[0].icon = fs.readFileSync(path.resolve(__dirname, '../public/icons/svg/effects.svg'), 'utf8')
+      pageData.frontmatter.features[1].icon = fs.readFileSync(path.resolve(__dirname, '../public/icons/svg/json.svg'), 'utf8')
+      pageData.frontmatter.features[2].icon = fs.readFileSync(path.resolve(__dirname, '../public/icons/svg/forum.svg'), 'utf8')
+      pageData.frontmatter.features[3].icon = fs.readFileSync(path.resolve(__dirname, '../public/icons/svg/github.svg'), 'utf8')
+    }
+	}
 })
+

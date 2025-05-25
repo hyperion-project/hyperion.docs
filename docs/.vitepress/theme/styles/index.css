@@ -5,6 +5,7 @@
 :root {
   /* Global conic gradient */
   --conic-gradient: conic-gradient(from 45deg, red, orange, yellow, green, blue, indigo, violet, red);
+  --linear-gradient: linear-gradient(to right, red, orange, yellow, green, rgb(119, 119, 245), rgb(119, 2, 203), violet, red);
 
   @media (min-width: 1850px) {
     --vp-layout-max-width: 1920px;
@@ -14,9 +15,35 @@
   scroll-behavior: smooth;
   scrollbar-width: 4px;
 
+  /* Badge */
+  --vp-badge-info-border: var(--vp-c-border);
+  --vp-badge-info-text: var(--vp-c-text-1);
+  --vp-badge-info-bg: var(--vp-c-bg-soft);
+
+  --vp-badge-tip-border: var(--vp-c-green-1);
+  --vp-badge-tip-text: var(--vp-c-green-1);
+  --vp-badge-tip-bg: var(--vp-c-bg-soft);
+
+  --vp-badge-warning-border: var(--vp-c-yellow-1);
+  --vp-badge-warning-text: var(--vp-c-yellow-1);
+  --vp-badge-warning-bg: var(--vp-c-bg-soft);
+
+  --vp-badge-danger-border: var(--vp-c-red-1);
+  --vp-badge-danger-text: var(--vp-c-red-1);
+  --vp-badge-danger-bg: var(--vp-c-bg-soft);
+
   /* Custom Blocks */
+  --vp-c-tip-1: var(--vp-c-brand-1);
+  --vp-c-tip-2: var(--vp-c-brand-2);
+  --vp-c-success-1: var(--vp-c-brand-1);
+  --vp-c-success-2: var(--vp-c-brand-2);
+  --vp-c-warning-1: var(--vp-c-brand-1);
+  --vp-c-warning-2: var(--vp-c-brand-2);
+  --vp-c-danger-1: var(--vp-c-brand-1);
+  --vp-c-danger-2: var(--vp-c-brand-2);
+
   --vp-custom-block-info-border: var(--vp-c-border);
-  --vp-custom-block-info-text: var(--vp-c-text-2);
+  --vp-custom-block-info-text: var(--vp-c-text-1);
   --vp-custom-block-info-bg: var(--vp-c-bg-soft);
   --vp-custom-block-info-code-bg: var(--vp-c-bg-soft-down);
 
@@ -36,14 +63,15 @@
   --vp-custom-block-danger-code-bg: var(--vp-c-bg-soft-down);
 
   --vp-custom-block-details-border: var(--vp-custom-block-info-border);
-  --vp-custom-block-details-text: var(--vp-custom-block-info-text);
+  --vp-custom-block-details-text: var(--vp-custom-block-details-text);
   --vp-custom-block-details-bg: var(--vp-custom-block-info-bg);
   --vp-custom-block-details-code-bg: var(--vp-custom-block-details-bg);
 
-  /* Hero image background */
+  /* Hero name */
   --vp-home-hero-name-color: var(--vp-c-text-1);
-  --vp-home-hero-image-filter: blur(30px);
 
+  /* Hero image */
+  --vp-home-hero-image-filter: blur(30px);
   @media (min-width: 960px) {
     --vp-home-hero-image-filter: blur(45px);
   }
@@ -64,20 +92,6 @@
 @keyframes rotateIt {
   from { transform: translate(-50%, -55%) rotate(0deg); }
   to { transform: translate(-50%, -55%) rotate(360deg); }
-}
-
-.text-center {
-  text-align: center;
-}
-
-.sub-text {
-  color: rgb(94, 94, 94);
-  font-size: 90%;
-}
-
-.no-mp {
-  margin: 0 !important;
-  padding: 0 !important;
 }
 
 .link {
@@ -103,8 +117,31 @@
   }
   a {
     text-decoration: none;
-    &:hover {
+    &:not(.VPFeature):hover {
       text-decoration: underline;
+    }
+  }
+  table {
+    display: table;
+    width: 100%;
+  }
+  .VPFeatures {
+    padding: 0;
+    .container {
+      max-width: 100%;
+    }
+  }
+  div[class*='language-'] {
+    margin: 16px 0px;
+    border: 1px solid var(--vp-c-border);
+  }
+  .vp-code-group {
+    border: 1px solid var(--vp-c-border);
+    border-radius: 8px;
+    .tabs,
+    .blocks > div[class*='language-'] {
+      border: none;
+      margin: 0;
     }
   }
 }
@@ -114,7 +151,7 @@
 }
 
 .item {
-  .VPFeature {
+  > .VPFeature {
     position: relative;
     transform-style: preserve-3d;
     background-color: var(--vp-sidebar-bg-color);
@@ -122,16 +159,24 @@
     .icon {
       background-color: var(--vp-sidebar-bg-color);
       margin-bottom: 5px;
+      svg {
+        width: 48px;
+        height: 48px;
+      }
     }
     .box {
+      color: var(--vp-c-text-1);
       align-items: center;
       padding: 16px;
     }
     .title {
+      margin: 0;
+      padding-top: 0;
       font-size: larger;
       font-weight: 1000;
     }
     .details {
+      margin: 0;
       padding-top: 0;
       text-align: center;
     }
@@ -155,12 +200,17 @@
   opacity: 1;
 }
 
-.VPNavBarMenu>a:last-child:hover {
-	color:red !important;
-}
-
 .v-popper--theme-tooltip .v-popper__inner {
   background: var(--vp-sidebar-bg-color);
   color: var(--vp-c-text-1);
   border: 1px solid var(--vp-c-text-1);
+}
+
+.VPSocialLink .supportHeart,
+.VPSocialLink svg {
+  transition: all ease 0.25s;
+  &:hover .supportHeart {
+    stroke: red;
+    transition: all ease 0.25s;
+  }
 }

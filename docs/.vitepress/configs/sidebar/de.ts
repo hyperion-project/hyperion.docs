@@ -103,33 +103,5 @@ export const sidebar_DE: any = {
         { text: "Grafische Benutzeroberfläche", link: '/de/api/Ui.md' }
       ]
     }
-  ],
-  "/de/json/": [
-    {
-      text: 'JSON',
-      items: [
-        { text: "JSON-RPC Einführung", link: '/de/json/JSON.md' },
-        { text: "Server Informationen", link: '/de/json/ServerInfo.md' },
-        { text: "Steuerung", link: '/de/json/Control.md' },
-        { text: "Authentifizierung", link: '/de/json/Authentication.md' },
-        { text: "Abonnement", link: '/de/json/Subscribe.md' }
-      ]
-    },
-    {
-      text: 'Sonstiges',
-      items: [
-        { text: "Hyperion finden", link: '/de/api/Detect.md' },
-        { text: "Leitfaden", link: '/de/api/Guidelines.md' }
-      ]
-    }
-  ],
-  "/de/api/": [
-    {
-      text: 'Gehe zurück zu',
-      items: [
-        { text: "Effekt-Erstellung", link: '/de/effects/Effects.md' },
-        { text: "JSON-RPC Einführung", link: '/de/json/JSON.md' }
-      ]
-    }
   ]
 }
