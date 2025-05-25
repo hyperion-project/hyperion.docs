@@ -29,7 +29,7 @@ The configuration and control of Hyperion is done through a web interface.
 ## Install
 
 ### Ubuntu, Debian and friends, Fedora, LibreELEC, macOS, Windows
-Hyperion's project [package repository page](https://releases.hyperion-project.org/) provides you with installation instructions at your finger tip.
+Hyperion's project [package repository page](https://releases.hyperion-project.org) provides you with installation instructions at your finger tip.
 
 ::: tip A ready made installation image is available for Raspberry Pi users
 Install [HyperBian](/user/HyperBian.md) to get a complete system out of the box.

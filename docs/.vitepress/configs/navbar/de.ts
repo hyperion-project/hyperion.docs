@@ -44,24 +44,14 @@ export const navbar_DE: any = [
   },
   {
     text: 'Json API',
-    items: [
-      {
-        text: 'JSON',
-        items: [
-          { text: "JSON-RPC Einführung", link: '/de/json/JSON.md' },
-          { text: "Server Informationen", link: '/de/json/ServerInfo.md' },
-          { text: "Steuerung", link: '/de/json/Control.md' },
-          { text: "Authentifizierung", link: '/de/json/Authentication.md' },
-          { text: "Abonnement", link: '/de/json/Subscribe.md' }
-        ]
-      },
-      {
-        text: 'Sonstiges',
-        items: [
-          { text: "Hyperion finden", link: '/de/api/Detect.md' },
-          { text: "Leitfaden", link: '/de/api/Guidelines.md' }
-        ]
-      }
-    ]
+    link: 'https://api.hyperion-project.org'
+  },
+  {
+    text: "Forum",
+    link: 'https://hyperion-project.org'
+  },
+  {
+    text: "Changelogs",
+    link:  'changelogs/index.md'
   }
 ]

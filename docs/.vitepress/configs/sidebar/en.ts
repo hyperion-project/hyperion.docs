@@ -103,33 +103,5 @@ export const sidebar_EN: any = {
         { text: "Graphical User Interface", link: '/api/Ui.md' }
       ]
     }
-  ],
-  "/json/": [
-    {
-      text: 'JSON',
-      items: [
-        { text: "JSON RPC Introduction", link: '/json/JSON.md' },
-        { text: "Server Information", link: '/json/ServerInfo.md' },
-        { text: "Control", link: '/json/Control.md' },
-        { text: "Authentication", link: '/json/Authentication.md' },
-        { text: "Subscription", link: '/json/Subscribe.md' }
-      ]
-    },
-    {
-      text: 'Misc',
-      items: [
-        { text: "Detect Hyperion", link: '/api/Detect.md' },
-        { text: "Guidelines", link: '/api/Guidelines.md' }
-      ]
-    }
-  ],
-  "/api/": [
-    {
-      text: 'Go back to',
-      items: [
-        { text: "Effect development", link: '/effects/Effects.md' },
-        { text: "JSON RPC Introduction", link: '/json/JSON.md' }
-      ]
-    }
   ]
 }

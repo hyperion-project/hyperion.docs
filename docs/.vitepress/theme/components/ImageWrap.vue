@@ -1,7 +1,13 @@
 <template>
-  <div class="text-center">
-    <img ref="imgRef" style="display: inline-block" :src="withBase(src)" :alt="alt" />
-    <div class="no-mp sub-text">
+  <div :style="{'text-align': imgAlign ? imgAlign : undefined}" style="margin: 20px">
+    <img
+      ref="imgRef"
+      :style="{'max-width': maxWidth ? maxWidth : undefined}"
+      class="zoomImage"
+      :src="withBase(src)"
+      :alt="alt"
+    />
+    <div class="sub-text">
       <slot>{{alt}}</slot>
     </div>
   </div>
@@ -14,7 +20,9 @@ import mediumZoom from 'medium-zoom'
 
 defineProps({
   src: String,
-  alt: String
+  alt: String,
+  maxWidth: { type: String, default: '100%' },
+  imgAlign: { type: String, default: 'center' }
 })
 
 const imgRef = ref(null)
@@ -24,10 +32,22 @@ onMounted(() => {
 </script>
 
 <style>
+.zoomImage {
+  display: inline-block;
+  margin-bottom: 10px;
+  filter: drop-shadow(0 10px 20px #000000bf);
+}
+
 .medium-zoom-overlay {
   z-index: 30;
 }
+
 .medium-zoom-image {
   z-index: 31;
+}
+
+.sub-text {
+  color: var(--vp-c-text-2);
+  font-size: 90%;
 }
 </style>
