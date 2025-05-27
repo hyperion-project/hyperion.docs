@@ -12,9 +12,13 @@
   },
   "devDependencies": {
     "@types/node": "latest",
-    "vitepress": "latest"
+    "vitepress": "^1.6.3"
   },
   "dependencies": {
+    "@octokit/rest": "latest",
+    "@octokit/types": "latest",
+    "floating-vue": "latest",
+    "markdown-it": "^14.1.0",
     "medium-zoom": "latest",
     "moment": "latest"
   }
