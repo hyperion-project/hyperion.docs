@@ -17,7 +17,6 @@
 <script setup lang="ts">
 import { useData } from 'vitepress';
 import { computed, onMounted, ref } from 'vue';
-import moment from 'moment';
 
 const { frontmatter } = useData();
 const newVersionAvailable = ref<boolean>(false);
@@ -31,11 +30,16 @@ async function initialize() {
   }
 
   // @ts-expect-error
-  var publishedDate = latestReleaseInfo.published_at;
-  if(typeof publishedDate !== 'undefined') {
-    var publishedSince = moment().diff(moment(publishedDate), 'days');
-    if(publishedSince <= expiringDays.value) {
-        // @ts-expect-error
+  const publishedDate = latestReleaseInfo.published_at;
+  if (typeof publishedDate !== 'undefined') {
+    const published = new Date(publishedDate);
+    const now = new Date();
+
+    const millisecondsInDay = 1000 * 60 * 60 * 24;
+    const diffInDays = Math.floor((now.getTime() - published.getTime()) / millisecondsInDay);
+
+    if (diffInDays <= expiringDays.value) {
+      // @ts-expect-error
       newVersionTag.value = latestReleaseInfo.tag_name;
       newVersionAvailable.value = true;
     }
