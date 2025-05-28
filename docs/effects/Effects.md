@@ -1,5 +1,5 @@
 # Effect development
-Hyperion provides a powerful API to write your own effects, along with possible options and user interface to tune them.
+Hyperion provides a powerful framework for developing your own effects, along with options and a user interface for tuning them.
 
 ## Effect Files 
 An effect has 3 different files.

@@ -10,7 +10,7 @@ Ziel dieses Effekts ist es, den allgemeinen Aufbau eines Effekts zu zeigen und d
 
 ### Start
 Zuerst beginnen wir mit der Python-Datei. Erstelle eine neue Datei mit dem Namen `neweffect.py` in deinem `custom-effects`-Ordner. \
-Wir müssen einige Module importieren, `hyperion` und `time` wird immer benötigt. Das Zeitmodul kommt aus Python, wenn du wissen willst, welche Methoden so ein Modul hat, besuche die [Python-Dokumentation](https://docs.python.org/3.5/library/). Was `hyperion` kann, ist bereits unter [Effect Engine API](/de/effects/API.md) erklärt.
+Wir müssen einige Module importieren, `hyperion` und `time` wird immer benötigt. Das Zeitmodul kommt aus Python, wenn du wissen willst, welche Methoden so ein Modul hat, besuche die [Python-Dokumentation](https://docs.python.org/3.5/library/). Was `hyperion` kann, ist bereits unter [Effekt-Engine Entwicklungsframework](/de/effects/Functions.md) erklärt.
 
 ``` python
 # Lass uns unsere Module importieren, damit wir sie verwenden können

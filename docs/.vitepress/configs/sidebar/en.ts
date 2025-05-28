@@ -93,7 +93,7 @@ export const sidebar_EN: any = {
       text: 'Effects',
       items: [
         { text: "Effect development", link: '/effects/Effects.md' },
-        { text: "Effect Engine API", link: '/effects/API.md' },
+        { text: "Development Framework", link: '/effects/Functions.md' },
         { text: "Our first Effect", link: '/effects/OurFirstEffect.md' }
       ]
     },

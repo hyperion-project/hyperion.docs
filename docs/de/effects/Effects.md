@@ -1,5 +1,5 @@
 # Effekt-Erstellung
-Hyperion bietet eine leistungsfähige API, um eigene Effekte zu erstellen, zusammen mit den möglichen Optionen und der Benutzeroberfläche, um diese anzupassen.
+Mit Hyperion steht Ihnen ein leistungsfähiges Framework für die Entwicklung eigener Effekte zur Verfügung. Es bietet die Möglichkeit, Effekte zusammen mit möglichen Optionen und einer optimierten Benutzeroberfläche zu erstellen.
 
 ## Effekt-Dateien 
 Ein Effekt hat 3 verschiedene Dateien.
