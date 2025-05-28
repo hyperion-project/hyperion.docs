@@ -54,3 +54,57 @@ Um neue Benutzer nicht mit Einstellungen zu überfluten, haben wir Stufen gescha
 Willst (oder musst) Du etwas tiefer in die Hyperion Welt eintauchen, ist die Stufe **Fortgeschritten** genau das richtig. **Experte** ist wie die Bezeichnung schon sagt, nur für Experten.
 
 <ImageWrap src="/images/de/user_config_access.jpg" alt="WebUI - Einstellungsstufe" />
+
+## Konfigurationssicherung
+Die Konfigurationsdatenbank von Hyperion kann exportiert und importiert werden. So kann auf Konfigurationen zurückgegriffen oder man kann sie teilen.
+Ab Version 2.1 wird ein komplettes Konfigurationsset abgedeckt, d.h. alle Instanzen sind enthalten.
+
+Export und Import können sowohl über die Browserschnittstelle als auch über die [Befehlszeile](./advanced/CLI.md#hyperiond) angestoßen werden.
+Die Verwendung der Befehlszeile kann hilfreich sein, wenn eine Konfiguration wiederhergestellet werden soll, die Weboberfläche aber nicht verfügbar ist.
+
+::: tip
+Ein Backup der aktuellen Konfiguration wird beim Import im Hyperion-Standardverzeichnis `~/.hyperion/archive` erstellt.
+:::
+
+### Dateischema der Konfigurationsdatei
+
+``` json
+{
+    "global": {
+        "settings": {
+            "global config item1": {...},
+            "global config item2": {...},
+             ...
+        },
+        "uuid": "..."
+    },
+    "instanceIds": [ List of included instance ids ],
+    "instances": [
+        {
+            "enabled": true,
+            "id": 0,
+            "name": "First LED Hardware instance",
+            "settings": {
+              "config item1": {...},
+              "config item2": {...},
+               ...
+            }
+        },
+        {
+            "enabled": true,
+            "id": 1,
+            "name": "2nd instance",
+              "settings": {
+              "config item1": {...},
+              "config item2": {...},
+              ...
+            }
+        }
+    ]
+}
+```
+
+::: info
+Die Elemente "uuid" und "instanceIds" werden beim Import ignoriert.
+:::
+

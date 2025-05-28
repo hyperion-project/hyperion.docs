@@ -22,6 +22,18 @@ hyperiond --export-effects /tmp
 
 # Hyperion im Desktop-Modus ausführen
 hyperiond --desktop
+
+# Hyperion im schreibgeschützten Modus ausführen
+hyperiond --readonlyMode
+
+# Exportiere die aktuelle Konfiguration in das Hyperion Standardverzeichnis ~/.hyperion/archive 
+hyperiond -v --exportConfig ""
+
+# Exportiere die aktuelle Konfiguration in ein Verzeichnis Deiner Wahl; hier das aktuelle Verzeichnis
+hyperiond -v --exportConfig "."
+
+# Importiere eine Konfigurationssicherungsdatei
+hyperiond -v --importConfig ./HyperionBackup_2025-05-28-151224-615_v2.1.json
 ```
 
 ::: tip Tip
