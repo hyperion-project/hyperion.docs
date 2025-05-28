@@ -94,13 +94,8 @@ export const sidebar_DE: any = {
       items: [
         { text: "Effekt-Erstellung", link: '/de/effects/Effects.md' },
         { text: "Entwicklungsframework", link: '/de/effects/Functions.md' },
+        { text: "Benutzeroberfläche", link: '/de/effects/Ui.md' },        
         { text: "Unser erster Effekt", link: '/de/effects/OurFirstEffect.md' }
-      ]
-    },
-    {
-      text: 'Effekt UI',
-      items: [
-        { text: "Grafische Benutzeroberfläche", link: '/de/api/Ui.md' }
       ]
     }
   ]

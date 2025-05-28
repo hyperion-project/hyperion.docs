@@ -31,15 +31,10 @@ export const navbar_EN: any = [
         items: [
           { text: "Effect development", link: '/effects/Effects.md' },
           { text: "Development Framework", link: '/effects/Functions.md' },
+          { text: "Graphical User Interface", link: '/effects/Ui.md' },
           { text: "Our first Effect", link: '/effects/OurFirstEffect.md' }
         ]
-      },
-      {
-        text: 'Effects UI',
-        items: [
-          { text: "Graphical User Interface", link: '/api/Ui.md' }
-        ]
-      },
+      }
     ]
   },
   {

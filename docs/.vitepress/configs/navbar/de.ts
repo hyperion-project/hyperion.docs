@@ -31,6 +31,7 @@ export const navbar_DE: any = [
         items: [
           { text: "Effekt-Erstellung", link: '/de/effects/Effects.md' },
           { text: "Entwicklungsframework", link: '/de/effects/Functions.md' },
+	  { text: "Benutzeroberfläche", link: '/de/effects/Ui.md' },
           { text: "Unser erster Effekt", link: '/de/effects/OurFirstEffect.md' }
         ]
       },

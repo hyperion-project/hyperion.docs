@@ -7,4 +7,4 @@ An effect has 3 different files.
 | :-------------------- | :------------------------------------ | :------------------------------------------------------------------------------------ |
 | neweffect.py          | [Python](https://www.python.org)      | The heart of the effect                                                               |
 | neweffect.json        | [JSON](https://www.json.org)           | Contains options for the python file, which makes it configurable                     |
-| neweffect.schema.json | [JSON Schema](https://json-schema.org) | Creates the options UI and is used to validate user input. [Read more](/api/Ui.md) |
+| neweffect.schema.json | [JSON Schema](https://json-schema.org) | Creates the options UI and is used to validate user input. [Read more](/effects/Ui.md) |
