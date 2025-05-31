@@ -21,8 +21,20 @@ hyperiond --export-effects /tmp
 
 # Run Hyperion in desktop mode
 hyperiond --desktop
-```
 
+# Start Hyperion in read-only mode
+hyperiond --readonlyMode
+
+# Export the current configuration into default Hyperion user directory ~/.hyperion/archive 
+hyperiond -v --exportConfig ""
+
+# Export the current configuration into a directory of your choice; here the current directory
+hyperiond -v --exportConfig "."
+
+# Import a HyperionBackup JSON file
+hyperiond -v --importConfig ./HyperionBackup_2025-05-28-151224-615_v2.1.json
+
+```
 ::: tip
 If a path name contains spaces, surround it with `“` . \
 `hyperiond --userdata "/temp/another Dir"`

@@ -1,6 +1,6 @@
 {
   "name": "hyperion.docs",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "description": "Hyperion Documentation",
   "homepage": "https://www.hyperion-project.org",
   "author": "Hyperion-Project",
@@ -19,7 +19,6 @@
     "@octokit/types": "latest",
     "floating-vue": "latest",
     "markdown-it": "^14.1.0",
-    "medium-zoom": "latest",
-    "moment": "latest"
+    "medium-zoom": "latest"
   }
 }

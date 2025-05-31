@@ -17,6 +17,7 @@ export const sidebar_EN: any = {
               items: [
                 { text: 'APA102', link: '/user/leddevices/spi_pwm/apa102.md' },
                 { text: 'APA104', link: '/user/leddevices/spi_pwm/apa104.md' },
+                { text: 'HD108', link: '/user/leddevices/spi_pwm/hd108.md' },
                 { text: 'LPD6803', link: '/user/leddevices/spi_pwm/lpd6803.md' },
                 { text: 'LPD8806', link: '/user/leddevices/spi_pwm/lpd8806.md' },
                 { text: 'P9813', link: '/user/leddevices/spi_pwm/p9813.md' },
@@ -42,9 +43,19 @@ export const sidebar_EN: any = {
                 { text: 'Paintpack', link: '/user/leddevices/usb/paintpack.md' },
                 { text: 'RawHID', link: '/user/leddevices/usb/rawhid.md' },
                 { text: 'SEDU', link: '/user/leddevices/usb/sedu.md' },
+                { text: 'Skydimo', link: '/user/leddevices/usb/skydimo.md' },                
                 { text: 'TPM2', link: '/user/leddevices/usb/tpm2.md' }
               ]
             },
+            {
+              text: 'FTDI',
+              collapsed: true,
+              items: [
+                { text: 'APA102', link: '/user/leddevices/ftdi/apa102.md' },
+                { text: 'SK6812', link: '/user/leddevices/fdti/sk6812.md' },
+                { text: 'WS2812', link: '/user/leddevices/ftdi/ws2812.md' }
+              ]
+            },            
             {
               text: 'Network',
               collapsed: true,
@@ -52,6 +63,7 @@ export const sidebar_EN: any = {
                 { text: 'AtmoOrb', link: '/user/leddevices/network/atmoorb.md' },
                 { text: 'Cololight', link: '/user/leddevices/network/cololight.md' },
                 { text: 'FadeCandy', link: '/user/leddevices/network/fadecandy.md' },
+                { text: 'HomeAssistant', link: '/user/leddevices/network/homeassistant.md' },
                 { text: 'Nanoleaf', link: '/user/leddevices/network/nanoleaf.md' },
                 { text: 'Philips Hue', link: '/user/leddevices/network/philipshue.md' },
                 { text: 'Razer Chroma', link: '/user/leddevices/network/razer.md' },
@@ -93,14 +105,9 @@ export const sidebar_EN: any = {
       text: 'Effects',
       items: [
         { text: "Effect development", link: '/effects/Effects.md' },
-        { text: "Effect Engine API", link: '/effects/API.md' },
+        { text: "Development Framework", link: '/effects/Functions.md' },
+        { text: "Graphical User Interface", link: '/effects/Ui.md' },
         { text: "Our first Effect", link: '/effects/OurFirstEffect.md' }
-      ]
-    },
-    {
-      text: 'Effects UI',
-      items: [
-        { text: "Graphical User Interface", link: '/api/Ui.md' }
       ]
     }
   ]

@@ -1,13 +1,13 @@
-# Effekt-Engine-API
-Alle verfügbaren Funktionen zur Verwendung.
+# Effekt-Engine Entwicklungsframework
+Eine Liste aller verfügbaren Funktionen des Hyperion-Moduls.
 
-## API Übersicht
-| Function                          | Retuns  | Comment  |
+## Übersicht Funktionen
+| Funktion                          | Retuns  | Comment  |
 | :-------------------------------- | :-----  | :------- |
 | hyperion.ledCount                 | Integer | Get the current LED count from the LED layout |
 | hyperion.latchTime                | Integer | Get the current active latchtime in ms. |
-| hyperion.imageWidth()             | Integer | Get the current image width, calculate positions for elements at the [coordinate system](https://doc.qt.io/qt-5/coordsys.html#rendering)  |
-| hyperion.imageHeight()            | Integer | Get the current image height,calculate positions for elements at the [coordinate system](https://doc.qt.io/qt-5/coordsys.html#rendering) |
+| hyperion.imageWidth()             | Integer | Get the current image width, calculate positions for elements at the [coordinate system](https://doc.qt.io/qt-6/coordsys.html#rendering)  |
+| hyperion.imageHeight()            | Integer | Get the current image height,calculate positions for elements at the [coordinate system](https://doc.qt.io/qt-6/coordsys.html#rendering) |
 | hyperion.imageCRotate()           | -       | Rotates the coordinate system at the center (0,0) by the given angle. See [hyperion.imageCRotate()](#hyperion-imagecrotate) |
 | hyperion.imageCOffset()           | -       | Add a offset to the coordinate system. See [hyperion.imageCOffset()](#hyperion-imagecoffset) |
 | hyperion.imageCShear()            | -       | Shear the coordinate system. See [hyperion.imageCShear()](#hyperion-imagecshear) |
@@ -72,7 +72,7 @@ Schneidet das Koordinatensystem in der Vertikalen und Horizontalen. Mehr Informa
 | sv       | Integer    | Vertical pixels to shear. |
 
 ### hyperion.imageConicalGradient()
-Zeichnet einen konischen Farbverlauf auf das Bild, alle Argumente sind erforderlich. Füge die Parameter in der Reihenfolge der Zeilen unten hinzu. Kurze Erläuterung zu conical gradient in den QT Docs: [Conical Gradient](https://doc.qt.io/qt-5/qconicalgradient.html#details) \
+Zeichnet einen konischen Farbverlauf auf das Bild, alle Argumente sind erforderlich. Füge die Parameter in der Reihenfolge der Zeilen unten hinzu. Kurze Erläuterung zu conical gradient in den QT Docs: [Conical Gradient](https://doc.qt.io/qt-6/qconicalgradient.html#details) \
 `hyperion.imageConicalGradient(startX, startY, width, height, centerX, centerY, angle, bytearray)`
 | Argument  | Type       | Comment |
 | :-------- | :--------- | :----------------------------------------------------- |
@@ -91,7 +91,7 @@ Zeichnet einen konischen Farbverlauf auf das Bild, alle Argumente sind erforderl
 
 ### hyperion.imageRadialGradient()
 Zeichnet einen radialen Farbverlauf auf das Bild. Füge die Parameter in der unten angegebenen Reihenfolge hinzu. Alle Argumente sind erforderlich.
-Kurze Beschreibung bei QT Docs: [Radial Gradient](https://doc.qt.io/qt-5/qradialgradient.html#details) \
+Kurze Beschreibung bei QT Docs: [Radial Gradient](https://doc.qt.io/qt-6/qradialgradient.html#details) \
 `hyperion.imageRadialGradient(startX, startY, width, height, centerX, centerY, radius, focalX, focalY, focalRadius, bytearray, spread)`
 | Argument  | Type       |  Comment  |
 | :-------- | :--------- | :----------------------------------------------------- |
@@ -106,7 +106,7 @@ Kurze Beschreibung bei QT Docs: [Radial Gradient](https://doc.qt.io/qt-5/qradial
 | focalY    | Integer    | Defines the focal point at the y-axis |
 |focalRadius| Integer    | Defines the radius of the focal point |
 | bytearray | ByteArray  | bytearray of (position,red,green,blue,position,red,green,blue,...). Could be repeated as often you need it, all values have ranges from 0 to 255. The position is a point where the red green blue values are assigned <br/> **Example:** `bytearray([0,255,0,0,255,0,255,0])` - this is a gradient which starts at 0 with color 255,0,0 and ends at position 255 with color 0,255,0. The colors in between are interpolation, so this example is a color shift from red to green. |
-| spread    | Integer    | Defines the spread method outside the gradient. Available spread modes are: <br/> `0` -> The area is filled with the closest stop color <br/> `1` -> The gradient is reflected outside the gradient area <br/> `2` -> The gradient is repeated outside the gradient area <br/> Please note that outside means _inside_ the rectangle but outside of the gradient start and end points, so if these points are the same, you don't see the spread mode. A picture to the spread modes can you find here: [Spread modes](https://doc.qt.io/qt-5/qradialgradient.html#details) |
+| spread    | Integer    | Defines the spread method outside the gradient. Available spread modes are: <br/> `0` -> The area is filled with the closest stop color <br/> `1` -> The gradient is reflected outside the gradient area <br/> `2` -> The gradient is repeated outside the gradient area <br/> Please note that outside means _inside_ the rectangle but outside of the gradient start and end points, so if these points are the same, you don't see the spread mode. A picture to the spread modes can you find here: [Spread modes](https://doc.qt.io/qt-6/qradialgradient.html#details) |
 
 ::: tip Kürzere Versionen von hyperion.imageRadialGradient()
  - `hyperion.imageRadialGradient(startX, startY, width, height, centerX, centerY, radius, bytearray, spread)` -> focalX, focalY, focalRadius erhalten ihre Werte aus centerX, centerY und radius
@@ -117,7 +117,7 @@ Kurze Beschreibung bei QT Docs: [Radial Gradient](https://doc.qt.io/qt-5/qradial
 
 ### hyperion.imageLinearGradient()
 Zeichnet einen linearen Farbverlauf auf das Bild. Füge die Parameter in der unten angegebenen Reihenfolge hinzu. Alle Argumente sind erforderlich.
-Kurze Beschreibung bei QT Docs: [Linear Gradient](https://doc.qt.io/qt-5/qlineargradient.html#details) \
+Kurze Beschreibung bei QT Docs: [Linear Gradient](https://doc.qt.io/qt-6/qlineargradient.html#details) \
 `hyperion.imageLinearGradient(startRX, startRY, width, height, startX, startY, endX, endY, bytearray, spread)`
 | Argument  | Type       |  Comment  |
 | :-------- | :--------- | :----------------------------------------------------- |
@@ -130,7 +130,7 @@ Kurze Beschreibung bei QT Docs: [Linear Gradient](https://doc.qt.io/qt-5/qlinear
 | endX      | Integer    | Defines the end at the x-axis for the gradient. |
 | endY      | Integer    | Defines the end at the y-axis for the gradient. |
 | bytearray | ByteArray  | bytearray of (position,red,green,blue,alpha,position,red,green,blue,alpha,...). Could be repeated as often you need it, all values have ranges from 0 to 255. The position is a point where the red green blue values are assigned. <br/> **Example:** `bytearray([0,255,0,0,255,255,0,255,0,127])` this is a gradient which starts at 0 with color 255,0,0 and alpha 255 and ends at position 255 with color 0,255,0 and alpha 127. The colors in between are interpolation, so this example is a color shift from red to green. |
-| spread    | Integer    | Defines the spread method outside the gradient. Available spread modes are: <br/> `0` -> The area is filled with the closest stop color <br/> `1` -> The gradient is reflected outside the gradient area <br/> `2` -> The gradient is repeated outside the gradient area <br/> Please note that outside means _inside_ the rectangle but outside of the gradient start and end points, so if these points are the same, you don't see the spread mode. A picture to the spread modes can you find here: [Spread modes](https://doc.qt.io/qt-5/qlineargradient.html#details) |
+| spread    | Integer    | Defines the spread method outside the gradient. Available spread modes are: <br/> `0` -> The area is filled with the closest stop color <br/> `1` -> The gradient is reflected outside the gradient area <br/> `2` -> The gradient is repeated outside the gradient area <br/> Please note that outside means _inside_ the rectangle but outside of the gradient start and end points, so if these points are the same, you don't see the spread mode. A picture to the spread modes can you find here: [Spread modes](https://doc.qt.io/qt-6/qlineargradient.html#details) |
 
 ::: tip Kürzere Versionen von hyperion.imageLinearGradient()
 `hyperion.imageLinearGradient(startX, startY, endX, endY, bytearray, spread)` -> Das Rechteck, das den Farbverlauf enthält, ist standardmäßig das gesamte Bild
