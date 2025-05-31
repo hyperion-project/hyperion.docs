@@ -53,6 +53,6 @@ export const navbar_DE: any = [
   },
   {
     text: "Changelogs",
-    link:  'changelogs/index.md'
+    link:  '/de/changelogs/index.md'
   }
 ]
