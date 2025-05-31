@@ -147,7 +147,28 @@ Plug and play. The following controllers are supported.
 * [Paintpack](/user/leddevices/usb/paintpack.md)
 * [RawHID](/user/leddevices/usb/rawhid.md)
 * [SEDU](/user/leddevices/usb/sedu.md)
+* [Skydimo](/user/leddevices/usb/skydimo.md)
 * [TPM2](/user/leddevices/usb/tpm2.md)
+
+### FTDI
+
+FTDI chips are common USB-to-Serial/SPI/other interface converters, and are widely available on various breakout boards.  
+Currently, the following LED types are supported: **APA102**, **SK6812**, and **WS2812**.
+
+#### Wiring
+
+Connect the FTDI device's pins to the LED strip as follows:
+
+##### [APA102](/user/leddevices/spi_pwm/apa102.md)
+
+- **AD0** → CLOCK
+- **AD1** → DATA
+- **AD3** → CS (active low) — can optionally be used to control the OE (Output Enable) pin of a logic level shifter.
+
+##### [SK6812](/user/leddevices/spi_pwm/sk6812.md) or [WS2812](/user/leddevices/spi_pwm/ws2812b.md)
+
+- **AD1** → DATA
+- **AD3** → CS (active low) — can optionally be used to control the OE (Output Enable) pin of a logic level shifter.
 
 ### Network
 Everything that is reachable over network.
@@ -155,6 +176,7 @@ Everything that is reachable over network.
 * [AtmoOrb](/user/leddevices/network/atmoorb.md)
 * [Cololight](/user/leddevices/network/cololight.md)
 * [FadeCandy](/user/leddevices/network/fadecandy.md)
+* [Home Assistant](/user/leddevices/network/homeassistant.md)
 * [Nanoleaf](/user/leddevices/network/nanoleaf.md)
 * [Philips Hue](/user/leddevices/network/philipshue.md)
 * [Razer Chroma](/user/leddevices/network/razer.md)

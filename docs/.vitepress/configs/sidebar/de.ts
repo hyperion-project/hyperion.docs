@@ -41,10 +41,20 @@ export const sidebar_DE: any = {
                 { text: 'Multi-Lightpack', link: '/de/user/leddevices/usb/multilightpack.md' },
                 { text: 'Paintpack', link: '/de/user/leddevices/usb/paintpack.md' },
                 { text: 'RawHID', link: '/de/user/leddevices/usb/rawhid.md' },
+                { text: 'Skydimo', link: '/de/user/leddevices/usb/skydimo.md' },                
                 { text: 'SEDU', link: '/de/user/leddevices/usb/sedu.md' },
                 { text: 'TPM2', link: '/de/user/leddevices/usb/tpm2.md' }
               ]
             },
+            {
+              text: 'FTDI',
+              collapsed: true,
+              items: [
+                { text: 'APA102', link: '/de/user/leddevices/ftdi/apa102.md' },
+                { text: 'SK6812', link: '/de/user/leddevices/fdti/sk6812.md' },
+                { text: 'WS2812', link: '/de/user/leddevices/ftdi/ws2812.md' }
+              ]
+            },            
             {
               text: 'Netzwerk',
               collapsed: true,
@@ -52,9 +62,11 @@ export const sidebar_DE: any = {
                 { text: 'AtmoOrb', link: '/de/user/leddevices/network/atmoorb.md' },
                 { text: 'Cololight', link: '/de/user/leddevices/network/cololight.md' },
                 { text: 'FadeCandy', link: '/de/user/leddevices/network/fadecandy.md' },
+                { text: 'HomeAssistant', link: '/de/user/leddevices/network/homeassistant.md' },                
                 { text: 'Nanoleaf', link: '/de/user/leddevices/network/nanoleaf.md' },
                 { text: 'Philips Hue', link: '/de/user/leddevices/network/philipshue.md' },
                 { text: 'Razer Chroma', link: '/de/user/leddevices/network/razer.md' },
+               
                 { text: 'Tinkerforge', link: '/de/user/leddevices/network/tinkerforge.md' },
                 { text: 'TPM2.NET', link: '/de/user/leddevices/network/tpm2net.md' },
                 { text: 'UDP ArtNet', link: '/de/user/leddevices/network/udpartnet.md' },

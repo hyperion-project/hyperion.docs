@@ -42,9 +42,19 @@ export const sidebar_EN: any = {
                 { text: 'Paintpack', link: '/user/leddevices/usb/paintpack.md' },
                 { text: 'RawHID', link: '/user/leddevices/usb/rawhid.md' },
                 { text: 'SEDU', link: '/user/leddevices/usb/sedu.md' },
+                { text: 'Skydimo', link: '/user/leddevices/usb/skydimo.md' },                
                 { text: 'TPM2', link: '/user/leddevices/usb/tpm2.md' }
               ]
             },
+            {
+              text: 'FTDI',
+              collapsed: true,
+              items: [
+                { text: 'APA102', link: '/user/leddevices/ftdi/apa102.md' },
+                { text: 'SK6812', link: '/user/leddevices/fdti/sk6812.md' },
+                { text: 'WS2812', link: '/user/leddevices/ftdi/ws2812.md' }
+              ]
+            },            
             {
               text: 'Network',
               collapsed: true,
@@ -52,6 +62,7 @@ export const sidebar_EN: any = {
                 { text: 'AtmoOrb', link: '/user/leddevices/network/atmoorb.md' },
                 { text: 'Cololight', link: '/user/leddevices/network/cololight.md' },
                 { text: 'FadeCandy', link: '/user/leddevices/network/fadecandy.md' },
+                { text: 'HomeAssistant', link: '/user/leddevices/network/homeassistant.md' },
                 { text: 'Nanoleaf', link: '/user/leddevices/network/nanoleaf.md' },
                 { text: 'Philips Hue', link: '/user/leddevices/network/philipshue.md' },
                 { text: 'Razer Chroma', link: '/user/leddevices/network/razer.md' },
