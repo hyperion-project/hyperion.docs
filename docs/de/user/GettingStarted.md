@@ -17,7 +17,7 @@ Die Konfiguration und Steuerung von Hyperion erfolgt über den Browser.
     </thead>
     <tbody>
         <tr>
-            <td>Raspberry Pi (siehe auch <a href="/de/user/HyperBian.html">HyperBian</a>)<br>Debian 10, Ubuntu 20.04, Fedora 37 oder neuer<br>Mac OS<br>Windows 10</td>
+            <td>Raspberry Pi (siehe auch <a href="/de/user/HyperBian.html">HyperBian</a>)<br>Debian 10, Ubuntu 22.04, Fedora 42 oder neuer<br>Mac OS<br>Windows 10</td>
             <td>Chrome 47+<br>Firefox 43+<br>Opera 34+<br>Safari 9.1+<br>Microsoft Edge 14+</td>
         </tr>
         <tr>
@@ -71,7 +71,7 @@ sudo dnf -y upgrade hyperion
 ```
 
 ### LibreELEC
-Siehe [hier](https://hyperion-project.org/forum/index.php?thread/13754-install-update-hyperion-ng-on-libreelec/&pageNo=1).
+Siehe [hier](https://releases.hyperion-project.org/#easy).
 
 ## Deinstallieren
 
