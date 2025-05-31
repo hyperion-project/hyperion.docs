@@ -17,6 +17,7 @@ export const sidebar_EN: any = {
               items: [
                 { text: 'APA102', link: '/user/leddevices/spi_pwm/apa102.md' },
                 { text: 'APA104', link: '/user/leddevices/spi_pwm/apa104.md' },
+                { text: 'HD108', link: '/user/leddevices/spi_pwm/hd108.md' },
                 { text: 'LPD6803', link: '/user/leddevices/spi_pwm/lpd6803.md' },
                 { text: 'LPD8806', link: '/user/leddevices/spi_pwm/lpd8806.md' },
                 { text: 'P9813', link: '/user/leddevices/spi_pwm/p9813.md' },

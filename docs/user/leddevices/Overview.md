@@ -76,6 +76,7 @@ Are 3 or 4 wire LEDs which can be powered via SPI (Serial Peripheral Interface) 
 
 * [APA102](/user/leddevices/spi_pwm/apa102.md)
 * [APA104](/user/leddevices/spi_pwm/apa104.md)
+* [HD108](/user/leddevices/spi_pwm/hd108.md)
 * [LPD6803](/user/leddevices/spi_pwm/lpd6803.md)
 * [LPD8806](/user/leddevices/spi_pwm/lpd8806.md)
 * [P9813](/user/leddevices/spi_pwm/p9813.md)
