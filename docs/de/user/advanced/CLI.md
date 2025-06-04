@@ -14,7 +14,7 @@ hyperiond --resetPassword
 # Überschreibe den Pfad für die Benutzerdaten (der standardmäßig auf dein Home-Verzeichnis eingestellt ist)
 hyperiond --userdata /temp/anotherDir
 
-# Log-Level temporär überschreiben: hyperiond -s für silent -v für verbose und -d für debug
+# Log-Level temporär überschreiben: hyperiond -s für "Silent" -v für "Info" und -d für "Debug"
 hyperiond -d
 
 # Effekte in ein Verzeichnis exportieren
@@ -27,13 +27,13 @@ hyperiond --desktop
 hyperiond --readonlyMode
 
 # Exportiere die aktuelle Konfiguration in das Hyperion Standardverzeichnis ~/.hyperion/archive 
-hyperiond -v --exportConfig ""
+hyperiond -i --exportConfig ""
 
 # Exportiere die aktuelle Konfiguration in ein Verzeichnis Deiner Wahl; hier das aktuelle Verzeichnis
-hyperiond -v --exportConfig "."
+hyperiond -i --exportConfig "."
 
 # Importiere eine Konfigurationssicherungsdatei
-hyperiond -v --importConfig ./HyperionBackup_2025-05-28-151224-615_v2.1.json
+hyperiond -i --importConfig ./HyperionBackup_2025-05-28-151224-615_v2.1.json
 ```
 
 ::: tip Tip
