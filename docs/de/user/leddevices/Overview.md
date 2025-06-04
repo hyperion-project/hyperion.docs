@@ -79,6 +79,7 @@ Hyperion unterstützt mehrere verschiedene LED-Geräte, die sich in vier Hauptka
 
 * [APA102](/de/user/leddevices/spi_pwm/apa102.md)
 * [APA104](/de/user/leddevices/spi_pwm/apa104.md)
+* [HD108](/de/user/leddevices/spi_pwm/hd108.md)
 * [LPD6803](/de/user/leddevices/spi_pwm/lpd6803.md)
 * [LPD8806](/de/user/leddevices/spi_pwm/lpd8806.md)
 * [P9813](/de/user/leddevices/spi_pwm/p9813.md)
@@ -156,7 +157,28 @@ Plug and Play. Die folgenden Controller werden unterstützt.
 * [Paintpack](/de/user/leddevices/usb/paintpack.md)
 * [RawHID](/de/user/leddevices/usb/rawhid.md)
 * [SEDU](/de/user/leddevices/usb/sedu.md)
+* [Skydimo](/de/user/leddevices/usb/skydimo.md)
 * [TPM2](/de/user/leddevices/usb/tpm2.md)
+
+### FTDI
+
+FTDI-Chips sind gängige USB-zu-Seriell/SPI-Interfaces und in vielen Breakout-Board-Varianten erhältlich.
+Aktuell werden die folgenden LED-Typen unterstützt: **APA102**, **SK6812** und **WS2812**.
+
+#### Verdrahtung
+
+Verbinde die Pins des FTDI-Controllers mit dem LED-Streifen wie folgt:
+
+##### [APA102](/user/leddevices/spi_pwm/apa102.md)
+
+- **AD0** → CLOCK
+- **AD1** → DATA
+- **AD3** → CS (aktiv low) — kann optional verwendet werden, um den OE (Output Enable)-Pin eines Pegelwandlers zu steuern.
+
+##### [SK6812](/user/leddevices/spi_pwm/sk6812.md) oder [WS2812](/user/leddevices/spi_pwm/ws2812b.md)
+
+- **AD1** → DATA
+- **AD3** → CS (aktiv low) — kann optional verwendet werden, um den OE (Output Enable)-Pin eines Pegelwandlers zu steuern.
 
 ### Netzwerk
 Alles, was über das Netzwerk erreichbar ist.
@@ -164,6 +186,7 @@ Alles, was über das Netzwerk erreichbar ist.
 * [AtmoOrb](/de/user/leddevices/network/atmoorb.md)
 * [Cololight](/de/user/leddevices/network/cololight.md)
 * [FadeCandy](/de/user/leddevices/network/fadecandy.md)
+* [Home Assistant](/user/leddevices/network/homeassistant.md)
 * [Nanoleaf](/de/user/leddevices/network/nanoleaf.md)
 * [Philips Hue](/de/user/leddevices/network/philipshue.md)
 * [Razer Chroma](/de/user/leddevices/network/razer.md)

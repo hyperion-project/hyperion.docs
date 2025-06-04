@@ -54,3 +54,57 @@ It's easy! Checkout: [POEditor](https://poeditor.com/join/project/Y4F6vHRFjA)
 Settings level prevents a option flooding for new users. While the **Default** level is for beginners and has the lowest amount of options the **Advanced** is for people that want to or need to dive a little deeper. **Expert** is for experts, you shouldn't need it that often.
 
 <ImageWrap src="/images/en/user_config_access.jpg" alt="Hyperion Web Configuration - Settings level" />
+
+## Configuration backup 
+Hyperion's configuration database can be exported and imported allowing you to fall back or share configurations.
+From version 2.1 onwards a complete configuration set is covered, i.e. all instances are included.
+
+Export and import can be triggered via the browser interface, as well as via the [command line interface](./advanced/CLI.md#hyperiond).
+Using the CLI might be helpfull, if you would like to restore a configuration and the Web interface is not available.
+
+::: tip
+During import, a backup of the current configuration is done into Hyperion's default directory `~/.hyperion/archive)`.
+:::
+
+### Configuration file schema
+
+``` json
+{
+    "global": {
+        "settings": {
+            "global config item1": {...},
+            "global config item2": {...},
+             ...
+        },
+        "uuid": "..."
+    },
+    "instanceIds": [ List of included instance ids ],
+    "instances": [
+        {
+            "enabled": true,
+            "id": 0,
+            "name": "First LED Hardware instance",
+            "settings": {
+              "config item1": {...},
+              "config item2": {...},
+               ...
+            }
+        },
+        {
+            "enabled": true,
+            "id": 1,
+            "name": "2nd instance",
+              "settings": {
+              "config item1": {...},
+              "config item2": {...},
+              ...
+            }
+        }
+    ]
+}
+```
+
+::: info
+The elements "uuid" and "instanceIds" are ignored during import.
+:::
+

@@ -10,7 +10,7 @@ Target of this effect is to show the general structure of an effect, make you co
 
 ### Start
 First, we start with the python file. Create a new file called `neweffect.py` in your `custom-effects` folder. \
-We need to import some modules, `hyperion` and `time` is always required. The time module comes from Python, if you want to know, what methods such a module has, visit the [Python documentation](https://docs.python.org/3.5/library/). What `hyperion` can do, is already explained at [Effect Engine API](/effects/API.md).
+We need to import some modules, `hyperion` and `time` is always required. The time module comes from Python, if you want to know, what methods such a module has, visit the [Python documentation](https://docs.python.org/3.5/library/). What `hyperion` can do, is already explained at [Effect Engine Development Framework](/effects/Functions.md).
 
 ``` python
 # Let's import our modules, so we can use them
