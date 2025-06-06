@@ -13,7 +13,7 @@ hyperiond --resetPassword
 # Overwrite the path for user data (which defaults to your home directory)
 hyperiond --userdata /temp/anotherDir
 
-# Overwrite log level temporarily: hyperiond -s for silent -v for verbose and -d for debug
+# Overwrite log level temporarily: hyperiond -s for "Silent" -i for "Info" and -d for "Debug"
 hyperiond -d
 
 # Export effects to directory
@@ -26,13 +26,13 @@ hyperiond --desktop
 hyperiond --readonlyMode
 
 # Export the current configuration into default Hyperion user directory ~/.hyperion/archive 
-hyperiond -v --exportConfig ""
+hyperiond -i --exportConfig ""
 
 # Export the current configuration into a directory of your choice; here the current directory
-hyperiond -v --exportConfig "."
+hyperiond -i --exportConfig "."
 
 # Import a HyperionBackup JSON file
-hyperiond -v --importConfig ./HyperionBackup_2025-05-28-151224-615_v2.1.json
+hyperiond -i --importConfig ./HyperionBackup_2025-05-28-151224-615_v2.1.json
 
 ```
 ::: tip
