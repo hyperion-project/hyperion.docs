@@ -1,5 +1,6 @@
 name: Documentation CI Build
 on:
+  workflow_dispatch:
   push:
     branches-ignore:
       - 'gh-pages'
