@@ -16,7 +16,7 @@ hero:
   actions:
     - theme: brand
       text: 🚀 Get started
-      link: /user/GettingStarted.md
+      link: /user/gettingstarted/Overview.md
     - theme: alt
       text: What is Hyperion?
       link: /user/Introduction.md

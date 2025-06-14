@@ -2,7 +2,7 @@
 outline: [2, 3]
 ---
 
-# Overview
+# Getting Started
 Hyperion supports various platforms for installation, via package or portable .zip.
 The configuration and control of Hyperion is done through a web interface.
 
