@@ -4,7 +4,20 @@ export const sidebar_EN: any = {
       text: 'General',
       items: [
         { text: 'Introduction', link: '/user/Introduction.md' },
-        { text: 'Getting Started', link: '/user/GettingStarted.md' },
+        {
+          text: 'Getting Started',
+          items: [
+            { text: 'Overview', link: '/user/gettingstarted/Overview.md' },
+            { text: 'Install/Uninstall',
+              collapsed: true,
+              items: [
+                { text: 'Linux', link: '/user/gettingstarted/Linux.md' },
+                { text: 'Windows', link: '/user/gettingstarted/Windows.md' },
+                { text: 'macOS', link: '/user/gettingstarted/macOS.md' }
+              ]
+            }
+          ]
+        },
         { text: 'Configuration', link: '/user/Configuration.md' },
         {
           text: 'LED Hardware',

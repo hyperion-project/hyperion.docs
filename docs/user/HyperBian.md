@@ -30,7 +30,7 @@ At installation step 6., select "Edit Settings" and then e.g. provide the WiFi S
  - Password: `ambientlight`
  
 You can choose a different username, but then take care to update Hyperion's preconfigured service later.
-To update the service to the [current service user](/user/GettingStarted.md#change-the-service-user-to-the-current-user)
+To update the service to the [current service user](/user/gettingstarted/Overview.html#change-the-service-user)
 :::
 
 The configuration will happening during the first boot.
