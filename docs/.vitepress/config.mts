@@ -7,7 +7,8 @@
 // If the subfolder is e.g. 'docs/dist', the env var BASE_DIR should be set to '/docs/dist/'.
 //////////////////////////////////////////////////////////////////////////
 
-import { defineConfig, withBase } from 'vitepress'
+import { defineConfig } from 'vitepress'
+import tabsPlugin from '@red-asuka/vitepress-plugin-tabs'
 import { head, navbar_EN, navbar_DE, sidebar_EN, sidebar_DE } from './configs'
 import path from 'path'
 import fs from 'fs'
@@ -20,6 +21,11 @@ export default defineConfig({
   titleTemplate: ":title · Hyperion documentation",
   description: "Hyperion Ambient Light documentation",
   lastUpdated: true,
+  markdown: {
+    config: (md) => {
+      tabsPlugin(md)
+    },
+  },
   themeConfig: {
     siteTitle: '',
     externalLinkIcon: true,
