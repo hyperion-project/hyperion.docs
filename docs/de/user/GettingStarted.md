@@ -129,9 +129,6 @@ Ersetze ${USER} durch den Benutzernamen, wenn der Benutzer zuvor mit der Option 
 systemctl status hyperion@${USER}
 ```
 
-
-
-
 <style>
     .vp-doc table {
         display: table;

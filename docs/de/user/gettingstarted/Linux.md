@@ -2,22 +2,23 @@
 outline: [2, 3]
 ---
 
-# Hyperion on Linux
+# Hyperion unter Linux
 
-## <div class="icon-text"><div class="icon-color icon-24" v-html="easy"/>Easy Install</div>
+## <div class="icon-text"><div class="icon-color icon-24" v-html="easy"/>Easy Install (Einfach)</div>
 
-If you want to get started quickly and easily, you can install Hyperion with our one-line [easy install script](https://github.com/hyperion-project/hyperion.releases-ci/blob/main/install.sh). This script will automatically set up our repository, add our GPG key to your system and install the Hyperion package. The supported and tested systems are currently Ubuntu, Debian and Fedora.
+Wenn du schnell und einfach unter Linux loslegen möchtest, kannst du Hyperion mit unserem [Easy-Install-Skript](https://github.com/hyperion-project/hyperion.releases-ci/blob/main/install.sh) über die Konsole installieren. Es richtet automatisch unser Repository ein, fügt unseren GPG-Schlüssel zu deinem System hinzu und installiert das Hyperion-Paket. Derzeit wird Ubuntu, Debian und Fedora unterstützt.
 
-::: tip Stable/Nightly releases
-In addition to the standard stable releases, there are also nightly releases available. To install a nightly release, select the “Nightly release” tab and copy the corresponding command.
-<p style="color: var(--vp-custom-block-warning-text);">The Nightly variant may contain newer features/bugfixes etc. and is rebuilt every night (if something has changed). Use at your own risk.</p>
+::: tip Stabile oder tägliche (Nightly) Version?
+Neben der stabilen Version gibt es auch tägliche Versionen sogenannte "Nightly release". Wenn du ein Nightly release installieren willst, wähle einfach die Registerkarte "Nightly release" aus.
+<p style="color: var(--vp-custom-block-warning-text);">Ein Nightly release kann neuere Funktionen, Fehlerbehebungen etc. enthalten und wird jede Nacht neu erstellt (wenn sich etwas geändert hat). Die Verwendung erfolgt auf eigene Gefahr.</p>
+
 :::
 
-To install, copy the command, paste it into your terminal, and hit Enter to begin the installation process.
+Kopiere einfach den Befehl, füge ihn in deine Konsole ein und drücke die Eingabetaste, um den Installationsvorgang zu starten.
 
 ::: code-group
 
-``` sh:no-line-numbers [Stable release]
+``` sh:no-line-numbers [Stabile Version]
 curl -sSL https://releases.hyperion-project.org/install | bash
 ```
 
@@ -27,40 +28,39 @@ curl -sSL https://releases.hyperion-project.org/install | bash -s -- --nightly
 
 :::
 
-::: details Other distributions based on Ubuntu or Debian
+::: details Andere Distributionen basierend auf Ubuntu oder Debian
 
-The same easy installation script can be used, but the underlying distribution codename needs to be provided by an additional option
+Das gleiche einfache Installationsskript kann verwendet werden, aber der Codename der zugrunde liegenden Distribution muss durch eine zusätzliche Option angegeben werden
 
-  `--ubuntu` _codebase name_ or `--debian` _codebase name_
+  `--ubuntu` _codebase name_ oder `--debian` _codebase name_
 
-Sample for Pop!_OS 22.04 LTS or Mint 21.2 Victoria (which are based on Ubuntu 'jammy')
+Beispiel für Pop!_OS 22.04 LTS oder Mint 21.2 Victoria (die auf Ubuntu 'jammy' basieren)
 
-``` sh:no-line-numbers
+```sh:no-line-numbers
 curl -sSL https://releases.hyperion-project.org/install | bash -s -- --ubuntu 'jammy'
 ```
-
 :::
 
-## <div class="icon-text"><div class="icon-color icon-24" v-html="advanced"/>Advanced Instruction</div>
+## <div class="icon-text"><div class="icon-color icon-24" v-html="advanced"/>Schritt-für-Schritt (Erweitert)</div>
 
-With the advanced instructions below, you can use your package manager to install Hyperion directly. The supported and tested systems are currently Ubuntu, Debian and Fedora.
+Die Schritt-für-Schritt Anleitungen zeigen dir, wie du Hyperion mit deinem Paketmanager installierst. Derzeit wird Ubuntu, Debian und Fedora unterstützt.
 
-### Ubuntu, Debian and friends
+### Ubuntu, Debian und Konsorten
 
 :::::: tabs :cache-lifetime="0" :options="{ useUrlFragment: false, disableScrollBehavior: true }"
-::::: tab name="Installing"
+::::: tab name="Installieren"
 
-Add necessary packages for the installation:
+1. Installiere die Basis-Pakete:
 ``` sh:no-line-numbers
 sudo apt-get update && sudo apt-get install wget gpg apt-transport-https lsb-release
 ```
 
-Add Hyperion’s official GPG key:
+2. Füge den offiziellen Schlüssel von Hyperion hinzu:
 ``` sh:no-line-numbers
 wget -qO- https://releases.hyperion-project.org/hyperion.pub.key | sudo gpg --dearmor -o /usr/share/keyrings/hyperion.pub.gpg
 ```
 
-Add Hyperion-Project to your APT sources:
+3. Zeige deinen Paketmanager wo er Hyperion findet:
 ::: code-group
 ``` sh:no-line-numbers [Stable release]
 echo "deb [signed-by=/usr/share/keyrings/hyperion.pub.gpg] https://apt.releases.hyperion-project.org/ $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/hyperion.list
@@ -71,28 +71,28 @@ echo "deb [signed-by=/usr/share/keyrings/hyperion.pub.gpg] https://nightly.apt.r
 ```
 :::
 
-Update your local package index and install Hyperion:
+4. Installiere Hyperion:
 ``` sh:no-line-numbers
 sudo apt-get update && sudo apt-get install hyperion
 ```
 
 :::::
-::::: tab name="Updating"
+::::: tab name="Aktualisieren"
 
-Install Hyperion again:
+1. Installiere Hyperion erneut:
 ``` sh:no-line-numbers
 sudo apt-get install hyperion
 ```
 
 :::::
-::::: tab name="Uninstalling"
+::::: tab name="Entfernen"
 
-Uninstall Hyperion:
+1. Entferne Hyperion :
 ``` sh:no-line-numbers
 sudo apt-get --purge autoremove hyperion
 ```
 
-Remove the Hyperion-Project APT source from your system:
+2. Entferne unsere Adresse aus deinen Paketmanager:
 ``` sh:no-line-numbers
 sudo rm /usr/share/keyrings/hyperion.pub.gpg /etc/apt/sources.list.d/hyperion*.list
 ```
@@ -103,14 +103,14 @@ sudo rm /usr/share/keyrings/hyperion.pub.gpg /etc/apt/sources.list.d/hyperion*.l
 ### Fedora
 
 :::::: tabs :cache-lifetime="0" :options="{ useUrlFragment: false, disableScrollBehavior: true }"
-::::: tab name="Installing"
+::::: tab name="Installieren"
 
-1. Add the required DNF plugin for installation:
+1. Installiere das Basis-Paket:
 ``` sh:no-line-numbers
 sudo dnf -y install dnf-plugins-core
 ```
 
-2. Add the Hyperion Project repository to the system:
+2. Zeige deinen Paketmanager wo er Hyperion findet:
 
 ::: code-group
 
@@ -124,28 +124,28 @@ sudo dnf -y config-manager --add-repo https://nightly.dnf.releases.hyperion-proj
 
 :::
 
-3. Install Hyperion:
+3. Installiere Hyperion:
 ``` sh:no-line-numbers
 sudo dnf -y install hyperion
 ```
 
 :::::
-::::: tab name="Updating"
+::::: tab name="Aktualisieren"
 
-Update Hyperion:
+1. Hyperion aktualisieren:
 ``` sh:no-line-numbers
 sudo dnf -y upgrade hyperion
 ```
 
 :::::
-::::: tab name="Uninstalling"
+::::: tab name="Entfernen"
 
-Uninstall Hyperion:
+1. Entferne Hyperion :
 ``` sh:no-line-numbers
 sudo dnf -y remove hyperion
 ```
 
-Remove the Hyperion-Project APT source from your system:
+2. Entferne unsere Adresse aus deinen Paketmanager:
 ``` sh:no-line-numbers
 sudo rm /etc/yum.repos.d/hyperion.repo
 ```

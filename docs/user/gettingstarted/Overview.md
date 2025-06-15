@@ -3,8 +3,7 @@ outline: [2, 3]
 ---
 
 # Getting Started
-Hyperion supports various platforms for installation, via package or portable .zip.
-The configuration and control of Hyperion is done through a web interface.
+Hyperion supports various platforms for installation. The configuration and control of Hyperion is done through a web interface.
 
 ## Prerequisites
 
@@ -17,7 +16,7 @@ The configuration and control of Hyperion is done through a web interface.
     </thead>
     <tbody>
         <tr>
-            <td>Raspberry Pi (see also <a href="/user/HyperBian.html">HyperBian</a>)<br>Debian 10, Ubuntu 22.04, Fedora 42 or higher<br>Mac OS<br>Windows 11</td>
+            <td>Raspberry Pi (see also <a href="/user/HyperBian.html">HyperBian</a>)<br>Debian 11, Ubuntu 22.04, Fedora 39 or higher<br>Mac OS (Intel or Apple Silicon)<br>Windows 11</td>
             <td>Chrome 47+<br>Firefox 43+<br>Opera 34+<br>Safari 9.1+<br>Microsoft Edge 14+</td>
         </tr>
         <tr>
@@ -26,7 +25,7 @@ The configuration and control of Hyperion is done through a web interface.
     </tbody>
 </table>
 
-## Installation/Update
+## Installation
 
 We offer you simple installation instructions for the following operating systems so that you can get Hyperion up and running more quickly. \
 If you've got any more questions about installing Hyperion, just ask us in [our forum](https://hyperion-project.org).

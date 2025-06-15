@@ -8,7 +8,7 @@ export const sidebar_EN: any = {
           text: 'Getting Started',
           items: [
             { text: 'Overview', link: '/user/gettingstarted/Overview.md' },
-            { text: 'Install/Uninstall',
+            { text: 'Installation',
               collapsed: true,
               items: [
                 { text: 'Linux', link: '/user/gettingstarted/Linux.md' },
