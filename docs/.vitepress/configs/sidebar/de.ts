@@ -4,7 +4,20 @@ export const sidebar_DE: any = {
       text: 'Allgemein',
       items: [
         { text: 'Einführung', link: '/de/user/Introduction.md' },
-        { text: 'Erste Schritte', link: '/de/user/GettingStarted.md' },
+        {
+          text: 'Erste Schritte',
+          items: [
+            { text: 'Übersicht', link: '/de/user/gettingstarted/Overview.md' },
+            { text: 'Installieren',
+              collapsed: true,
+              items: [
+                { text: 'Linux', link: '/de/user/gettingstarted/Linux.md' },
+                { text: 'Windows', link: '/de/user/gettingstarted/Windows.md' },
+                { text: 'macOS', link: '/de/user/gettingstarted/macOS.md' }
+              ]
+            }
+          ]
+        },
         { text: 'Konfigurieren', link: '/de/user/Configuration.md' },
         {
           text: 'LED Hardware',
