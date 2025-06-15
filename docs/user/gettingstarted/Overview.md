@@ -27,8 +27,8 @@ Hyperion supports various platforms for installation. The configuration and cont
 
 ## Installation
 
-We offer you simple installation instructions for the following operating systems so that you can get Hyperion up and running more quickly. \
-If you've got any more questions about installing Hyperion, just ask us in [our forum](https://hyperion-project.org).
+To help you get Hyperion up and running more quickly, we offer simple installation instructions for the following operating systems. \
+If you have any further questions about installing Hyperion, please ask us us in [our forum](https://hyperion-project.org).
 
 <VPFeatures :features="operation_systems"/>
 
@@ -43,9 +43,6 @@ If you've got any more questions about installing Hyperion, just ask us in [our 
 ::: warning Your operating system is not listed?
 You can build Hyperion for your system yourself from the [source code](https://github.com/hyperion-project/hyperion.ng/blob/master/doc/development/CompileHowto.md) or follow [this link](https://github.com/hyperion-project/hyperion.ng/issues/new/choose) to submit a feature request.
 :::
-
-## LibreELEC
-See [here](https://hyperion-project.org/forum/index.php?thread/13754-install-update-hyperion-ng-on-libreelec/&pageNo=1).
 
 ## Hyperion User Data
 Hyperion stores user configuration data and customised effects inside the executing user's home directory (folder `.hyperion`).
@@ -107,7 +104,7 @@ import RaspberryPi from '/icons/svg/raspberry.svg?raw'
 const operation_systems: Feature[] = [
   {
     title: 'Linux',
-    details: 'Instructions for installing Hyperion under Ubuntu, Debian and friends or Fedora',
+    details: 'Instructions for installing Hyperion under Ubuntu, Debian & friends, LibreElec or Fedora',
     link: '/user/gettingstarted/Linux.md',
     icon: Linux
   },

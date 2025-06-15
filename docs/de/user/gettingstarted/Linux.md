@@ -41,6 +41,27 @@ curl -sSL https://releases.hyperion-project.org/install | bash -s -- --ubuntu 'j
 ```
 :::
 
+::: details LibreELEC
+
+Das gleiche einfache Installationsskript kann verwendet werden, aber besondere Aufmerksamkeit ist erforderlich, wenn eine Version aktualisiert werden soll.
+
+Wenn Du ein Upgrade durchführen möchtest, sind die folgenden zwei Schritte erforderlich, da LibreELEC keine Pakete oder damit verbundene Upgrades unterstützt:
+
+1. Entfernen die aktuelle Version mit dem folgenden Befehl:
+
+``` sh:no-line-numbers
+curl -sSL https://releases.hyperion-project.org/install | bash -s -- --remove
+```
+
+2. Installiere die neueste Version, siehe oben.
+
+:::
+
+::: tip
+Deine Konfigurationsdatenbank wird nicht gelöscht, wenn Du die aktuelle Version entfernst.
+Es ist jedoch ratsam, die Konfiguration zu exportieren und eine [Konfigurationssicherung](../Configuration.md#configuration-backup) durchzuführen.
+:::
+
 ## <div class="icon-text"><div class="icon-color icon-24" v-html="advanced"/>Schritt-für-Schritt (Erweitert)</div>
 
 Die Schritt-für-Schritt Anleitungen zeigen dir, wie du Hyperion mit deinem Paketmanager installierst. Derzeit werden Ubuntu, Debian und Fedora unterstützt.
