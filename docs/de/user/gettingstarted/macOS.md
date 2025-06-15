@@ -14,6 +14,6 @@ outline: [3]
 4. Ziehen das Hyperion Symbol in den Programmordner und führen Hyperion aus.
 
 <ImageWrap src="/images/en/macos_installer.png" imgAlign='left' />
-<ImageWrap src="/images/en/macos_webui.png" imgAlign='left' />
+<ImageWrap src="/images/de/macos_webui.png" imgAlign='left' />
 
 Das ist alles.
