@@ -6,7 +6,7 @@ outline: [2, 3]
 
 ## <div class="icon-text"><div class="icon-color icon-24" v-html="easy"/>Easy Install (Einfach)</div>
 
-Wenn du schnell und einfach unter Linux loslegen möchtest, kannst du Hyperion mit unserem [Easy-Install-Skript](https://github.com/hyperion-project/hyperion.releases-ci/blob/main/install.sh) über die Konsole installieren. Es richtet automatisch unser Repository ein, fügt unseren GPG-Schlüssel zu deinem System hinzu und installiert das Hyperion-Paket. Derzeit wird Ubuntu, Debian und Fedora unterstützt.
+Wenn du schnell und einfach unter Linux loslegen möchtest, kannst du Hyperion mit unserem [Easy-Install-Skript](https://github.com/hyperion-project/hyperion.releases-ci/blob/main/install.sh) über die Konsole installieren. Es richtet automatisch unser Repository ein, fügt unseren GPG-Schlüssel zu deinem System hinzu und installiert das Hyperion-Paket. Derzeit werden Ubuntu, Debian und Fedora unterstützt.
 
 ::: tip Stabile oder tägliche (Nightly) Version?
 Neben der stabilen Version gibt es auch tägliche Versionen sogenannte "Nightly release". Wenn du ein Nightly release installieren willst, wähle einfach die Registerkarte "Nightly release" aus.
@@ -43,7 +43,7 @@ curl -sSL https://releases.hyperion-project.org/install | bash -s -- --ubuntu 'j
 
 ## <div class="icon-text"><div class="icon-color icon-24" v-html="advanced"/>Schritt-für-Schritt (Erweitert)</div>
 
-Die Schritt-für-Schritt Anleitungen zeigen dir, wie du Hyperion mit deinem Paketmanager installierst. Derzeit wird Ubuntu, Debian und Fedora unterstützt.
+Die Schritt-für-Schritt Anleitungen zeigen dir, wie du Hyperion mit deinem Paketmanager installierst. Derzeit werden Ubuntu, Debian und Fedora unterstützt.
 
 ### Ubuntu, Debian und Konsorten
 

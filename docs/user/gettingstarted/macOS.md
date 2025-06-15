@@ -13,7 +13,8 @@ outline: [3]
 3. Open it.
 4. Drag Hyperion into your Applications folder & run it.
 
-<ImageWrap src="/images/en/macos_installer.png" imgAlign='left' />
+<ImageWrap src="/images/en/macos_installer1.png" imgAlign='left' />
+<ImageWrap src="/images/en/macos_installer2.png" imgAlign='left' />
 <ImageWrap src="/images/en/macos_webui.png" imgAlign='left' />
 
 That's it.
