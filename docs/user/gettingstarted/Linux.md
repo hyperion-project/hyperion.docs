@@ -41,7 +41,7 @@ curl -sSL https://releases.hyperion-project.org/install | bash -s -- --ubuntu 'j
 
 :::
 
-::: details LibreELEC
+::: details <div class="icon-text">LibreELEC<div class="icon-color icon-16" v-html="libreelec"/></div>
 
 The same easy installation script can be used, but special attention is required when upgrading a version.
 
@@ -179,6 +179,7 @@ sudo rm /etc/yum.repos.d/hyperion.repo
 import nightly from '/icons/svg/nightly.svg?raw'
 import easy from '/icons/svg/easy.svg?raw'
 import advanced from '/icons/svg/advanced.svg?raw'
+import libreelec from '/icons/svg/libreelec.svg?raw'
 </script>
 
 <style>
