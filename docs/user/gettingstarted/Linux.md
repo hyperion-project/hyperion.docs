@@ -133,6 +133,10 @@ sudo dnf -y install dnf-plugins-core
 
 2. Add the Hyperion Project repository to the system:
 
+:::: info <i/>
+
+Fedora 40 or earlier (DNF 4):
+
 ::: code-group
 
 ``` sh:no-line-numbers [Stable release]
@@ -145,7 +149,23 @@ sudo dnf -y config-manager --add-repo https://nightly.dnf.releases.hyperion-proj
 
 :::
 
-3. Install Hyperion:
+Fedora 41 or later (DNF 5):
+
+::: code-group
+
+``` sh:no-line-numbers [Stable release]
+sudo dnf -y config-manager addrepo --from-repofile=https://dnf.releases.hyperion-project.org/fedora/hyperion.repo
+```
+
+``` sh:no-line-numbers [ <div class="icon-text">Nightly release<div class="icon-color icon-16" v-html="nightly"/></div> ]
+sudo dnf -y config-manager addrepo --from-repofile=https://nightly.dnf.releases.hyperion-project.org/fedora/hyperion.repo
+```
+
+:::
+
+::::
+
+1. Install Hyperion:
 ``` sh:no-line-numbers
 sudo dnf -y install hyperion
 ```
