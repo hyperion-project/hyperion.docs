@@ -11,7 +11,6 @@ Wenn du schnell und einfach unter Linux loslegen möchtest, kannst du Hyperion m
 ::: tip Stabile oder tägliche (Nightly) Version?
 Neben der stabilen Version gibt es auch tägliche Versionen sogenannte "Nightly release". Wenn du ein Nightly release installieren willst, wähle einfach die Registerkarte "Nightly release" aus.
 <p style="color: var(--vp-custom-block-warning-text);">Ein Nightly release kann neuere Funktionen, Fehlerbehebungen etc. enthalten und wird jede Nacht neu erstellt (wenn sich etwas geändert hat). Die Verwendung erfolgt auf eigene Gefahr.</p>
-
 :::
 
 Kopiere einfach den Befehl, füge ihn in deine Konsole ein und drücke die Eingabetaste, um den Installationsvorgang zu starten.
@@ -24,6 +23,10 @@ curl -sSL https://releases.hyperion-project.org/install | bash
 
 ``` sh:no-line-numbers [ <div class="icon-text">Nightly release<div class="icon-color icon-16" v-html="nightly"/></div> ]
 curl -sSL https://releases.hyperion-project.org/install | bash -s -- --nightly
+```
+
+``` sh:no-line-numbers [ <div class="icon-text">Deinstallieren<div class="icon-color icon-16" v-html="uninstall"/></div> ]
+curl -sSL https://releases.hyperion-project.org/install | bash -s -- --remove
 ```
 
 :::
@@ -41,17 +44,13 @@ curl -sSL https://releases.hyperion-project.org/install | bash -s -- --ubuntu 'j
 ```
 :::
 
-::: details LibreELEC
+::: details <div class="icon-text">LibreELEC<div class="icon-color icon-16" v-html="libreelec"/></div>
 
 Das gleiche einfache Installationsskript kann verwendet werden, aber besondere Aufmerksamkeit ist erforderlich, wenn eine Version aktualisiert werden soll.
 
 Wenn Du ein Upgrade durchführen möchtest, sind die folgenden zwei Schritte erforderlich, da LibreELEC keine Pakete oder damit verbundene Upgrades unterstützt:
 
-1. Entfernen die aktuelle Version mit dem folgenden Befehl:
-
-``` sh:no-line-numbers
-curl -sSL https://releases.hyperion-project.org/install | bash -s -- --remove
-```
+1. Entfernen die aktuelle Version mit dem 'Deinstallieren' Befehl, siehe oben:
 
 2. Installiere die neueste Version, siehe oben.
 
@@ -197,8 +196,10 @@ sudo rm /etc/yum.repos.d/hyperion.repo
 
 <script lang="ts" setup>
 import nightly from '/icons/svg/nightly.svg?raw'
+import uninstall from '/icons/svg/uninstall.svg?raw'
 import easy from '/icons/svg/easy.svg?raw'
 import advanced from '/icons/svg/advanced.svg?raw'
+import libreelec from '/icons/svg/libreelec.svg?raw'
 </script>
 
 <style>

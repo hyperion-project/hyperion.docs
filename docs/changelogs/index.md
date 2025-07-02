@@ -13,6 +13,6 @@ import ChangelogList from '@theme/components/ChangelogList.vue'
 
 # Changelogs
 
-Changelogs of all Hyperion releases, which are also available [on GitHub](https://github.com/hyperion-project/hyperion.ng/releases).
+Changelogs of all stable Hyperion releases, which are also available [on GitHub](https://github.com/hyperion-project/hyperion.ng/releases).
 
 <ChangelogList />

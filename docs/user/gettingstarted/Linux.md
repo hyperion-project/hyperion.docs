@@ -13,7 +13,7 @@ In addition to the standard stable releases, there are also nightly releases ava
 <p style="color: var(--vp-custom-block-warning-text);">The Nightly variant may contain newer features/bugfixes etc. and is rebuilt every night (if something has changed). Use at your own risk.</p>
 :::
 
-To install, copy the command, paste it into your terminal, and hit Enter to begin the installation process.
+To install/uninstall, copy the command, paste it into your terminal, and hit Enter to begin the installation process.
 
 ::: code-group
 
@@ -23,6 +23,10 @@ curl -sSL https://releases.hyperion-project.org/install | bash
 
 ``` sh:no-line-numbers [ <div class="icon-text">Nightly release<div class="icon-color icon-16" v-html="nightly"/></div> ]
 curl -sSL https://releases.hyperion-project.org/install | bash -s -- --nightly
+```
+
+``` sh:no-line-numbers [ <div class="icon-text">Uninstall<div class="icon-color icon-16" v-html="uninstall"/></div> ]
+curl -sSL https://releases.hyperion-project.org/install | bash -s -- --remove
 ```
 
 :::
@@ -47,11 +51,7 @@ The same easy installation script can be used, but special attention is required
 
 If you wish to upgrade, the following two steps are required, as LibreELEC does not support packages or related upgrades:
 
-1. Remove the current version using the following command:
-
-``` sh:no-line-numbers
-curl -sSL https://releases.hyperion-project.org/install | bash -s -- --remove
-```
+1. Remove the current version using the 'Uninstall' command above.
 
 2. Install the latest version, see above.
 
@@ -197,6 +197,7 @@ sudo rm /etc/yum.repos.d/hyperion.repo
 
 <script lang="ts" setup>
 import nightly from '/icons/svg/nightly.svg?raw'
+import uninstall from '/icons/svg/uninstall.svg?raw'
 import easy from '/icons/svg/easy.svg?raw'
 import advanced from '/icons/svg/advanced.svg?raw'
 import libreelec from '/icons/svg/libreelec.svg?raw'

@@ -1,7 +1,12 @@
 <script setup lang="ts">
 import MarkdownIt from 'markdown-it'
+import MarkdownItGitHubAlerts from 'markdown-it-github-alerts'
 import { data as changelogs } from '../data/changelogs.data.mts'
 import Contributors from './Contributors.vue'
+
+import 'markdown-it-github-alerts/styles/github-colors-light.css'
+import 'markdown-it-github-alerts/styles/github-colors-dark-media.css'
+import 'markdown-it-github-alerts/styles/github-base.css'
 
 const dateFormatter = new Intl.DateTimeFormat('en', {
   dateStyle: 'medium',
@@ -10,7 +15,7 @@ const dateFormatter = new Intl.DateTimeFormat('en', {
 
 <template>
   <div
-    v-for="(release, index) of changelogs"
+    v-for="(release, index) of changelogs.filter(release => release.tag_name !== 'nightly')"
     :key="release.tag_name"
   >
     <h2 :id="index === 0 ? 'latest' : release.tag_name">
@@ -29,7 +34,7 @@ const dateFormatter = new Intl.DateTimeFormat('en', {
     <time :datetime="release.published_at!">
       {{ dateFormatter.format(new Date(release.published_at!)) }}
     </time>
-    <div v-html="MarkdownIt().render(release.body ?? 'No changelog provided.')" />
+    <div v-html="MarkdownIt().use(MarkdownItGitHubAlerts).render(release.body ?? 'No changelog provided.')" />
     <Contributors
       :body="release.body!"
       :author="release.author.login"
