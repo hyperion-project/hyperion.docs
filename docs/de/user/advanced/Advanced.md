@@ -90,7 +90,7 @@ Während das Bearbeiten dieser Einstellungen in einem lokalen Texteditor etwas u
 
 Du kannst die Werte frei bearbeiten, eine Vorschau auf der rechten Seite anzeigen, indem du auf **Aktualisiere Vorschau** klickst. Wenn du mit den Änderungen zufrieden bist, vergiss nicht zu speichern.
 
-## Schwarzbalken-Erkennung
+## Schwarzbalken-Erkennung {#blackbar-detection}
 Der Unterschied zwischen den verfügbaren Modi für die Schwarzbalkenerkennung wird hier dargestellt.
 
   * **Default:** 3 Scan-Linien in jeder Richtung (X Y) - schnellste Erkennung
