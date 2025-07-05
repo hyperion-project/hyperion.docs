@@ -9,7 +9,7 @@ outline: [3]
 1. Kaufe dir einen Mac. ;)
 2. Downloade dir die:
     - [Stabile Version - Intel (x64) or Apple Silicon (arm64)](https://github.com/hyperion-project/hyperion.ng/releases/latest)
-    - [Nightly Version - Intel (x64) or Apple Silicon (arm64)](https://github.com/hyperion-project/hyperion.ng/releases/releases/tag/nightly)
+    - [Nightly Version - Intel (x64) or Apple Silicon (arm64)](https://github.com/hyperion-project/hyperion.ng/releases/tag/nightly)
 3. Öffne den Installer.
 4. Ziehe das Hyperion Symbol in den Programmordner und führe Hyperion aus.
 

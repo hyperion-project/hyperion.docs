@@ -8,7 +8,7 @@ outline: [3]
 
 1. Downloade dir die:
     - [Stabile Version - x64 oder arm64](https://github.com/hyperion-project/hyperion.ng/releases/latest)
-    - [Nightly Version - x64 oder arm64](https://github.com/hyperion-project/hyperion.ng/releases/releases/tag/nightly)
+    - [Nightly Version - x64 oder arm64](https://github.com/hyperion-project/hyperion.ng/releases/tag/nightly)
 2. Starte das Hyperion Setup.
 3. Lass das Setup Hyperion nach der Installation starten oder starte selber (Startmenü).
 4. <span style="display: inline-flex; gap: .3rem; align-items: center;">Nach dem starten von Hyperion solltest du folgendes Symbol in der Taskleiste finden. <img src="/icons/head/favicon-32x32.png" alt="Hyperion installer"></span>
