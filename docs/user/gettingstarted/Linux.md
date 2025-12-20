@@ -31,29 +31,54 @@ curl -sSL https://releases.hyperion-project.org/install | bash -s -- --remove
 
 :::
 
-::: details Other distributions based on Ubuntu or Debian
+::: details <span class="icon-text">Other distributions based on Ubuntu or Debian</span>
 
 The same easy installation script can be used, but the underlying distribution codename needs to be provided by an additional option
 
   `--ubuntu` _codebase name_ or `--debian` _codebase name_
 
-Sample for Pop!_OS 22.04 LTS or Mint 21.2 Victoria (which are based on Ubuntu 'jammy')
+Samples for Pop!_OS 22.04 LTS or Mint 21.2 Victoria (which are based on Ubuntu 'jammy')
 
-``` sh:no-line-numbers
+::: code-group
+
+``` sh:no-line-numbers [Stable release]
 curl -sSL https://releases.hyperion-project.org/install | bash -s -- --ubuntu 'jammy'
+```
+
+``` sh:no-line-numbers [ <div class="icon-text">Nightly release<div class="icon-color icon-16" v-html="nightly"/></div> ]
+curl -sSL https://releases.hyperion-project.org/install | bash -s -- --ubuntu 'jammy' --nightly
+```
+
+``` sh:no-line-numbers [ <div class="icon-text">Uninstall<div class="icon-color icon-16" v-html="uninstall"/></div> ]
+curl -sSL https://releases.hyperion-project.org/install | bash -s -- --ubuntu 'jammy' --remove
 ```
 
 :::
 
-::: details <div class="icon-text">LibreELEC<div class="icon-color icon-16" v-html="libreelec"/></div>
+::: details <span class="icon-text">LibreELEC<div class="icon-color icon-16" v-html="libreelec"/></span>
 
 The same easy installation script can be used, but special attention is required when upgrading a version.
 
 If you wish to upgrade, the following two steps are required, as LibreELEC does not support packages or related upgrades:
 
-1. Remove the current version using the 'Uninstall' command above.
+1. Remove the current version
 
-2. Install the latest version, see above.
+``` sh:no-line-numbers [ <div class="icon-text">Uninstall<div class="icon-color icon-16" v-html="uninstall"/></div> ]
+curl -sSL https://releases.hyperion-project.org/install | bash -s -- --remove
+```
+
+
+2. Install the latest version
+
+::: code-group
+
+``` sh:no-line-numbers [Stable release]
+curl -sSL https://releases.hyperion-project.org/install | bash
+```
+
+``` sh:no-line-numbers [ <div class="icon-text">Nightly release<div class="icon-color icon-16" v-html="nightly"/></div> ]
+curl -sSL https://releases.hyperion-project.org/install | bash -s -- --nightly
+```
 
 :::
 
@@ -252,7 +277,7 @@ import libreelec from '/icons/svg/libreelec.svg?raw'
 }
 
 .icon-text {
-  display: flex;
+  display: inline-flex;
   justify-content: flex-start;
   gap: .5rem;
   align-items: center;
