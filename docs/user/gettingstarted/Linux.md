@@ -33,9 +33,10 @@ curl -sSL https://releases.hyperion-project.org/install | bash -s -- --remove
 
 ::: details <span class="icon-text">Other distributions based on Ubuntu or Debian</span>
 
-The same easy installation script can be used, but the underlying distribution codename needs to be provided by an additional option
+The same easy installation script can be used, but the underlying distribution codename needs to be provided by an additional option.
+[Overview of codenames supported](https://github.com/hyperion-project/hyperion.releases-ci/blob/main/debian/distributions)
 
-  `--ubuntu` _codebase name_ or `--debian` _codebase name_
+  `--ubuntu` _codename_ or `--debian` _codename_
 
 Samples for Pop!_OS 22.04 LTS or Mint 21.2 Victoria (which are based on Ubuntu 'jammy')
 
