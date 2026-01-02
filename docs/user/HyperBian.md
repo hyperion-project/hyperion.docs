@@ -12,83 +12,126 @@ Is a ready to use image for your Raspberry Pi. Based on the original Raspberry P
 
 ## Installation
   1. Download the ready-made [HyperBian Image](https://github.com/Hyperion-Project/HyperBian/releases)
-  2. Install the [Raspberry Pi Imager](https://www.raspberrypi.com/documentation/computers/getting-started.html#raspberry-pi-imager) in support of burning the image to an SD card.
-  3. Start the Pi Imager
-  4. As operating system choose "Custom OS" and provide the downloaded HyperBian-XXXX package
-  5. Choose your target storage, i.e. your SD-Card
-  6. Click "Next" and select "No" for no extra customization
-  7. The HyperBian image should be written to the SD Card
-  8. Put the SD-Card into your Raspberry Pi and start up the system
+  2. Download your preferred tool in support of burning the image to an SD card
 
-### WiFi, timezone & ssh access
-In case you want to use WiFi with your Raspberry Pi or update the timezone or other OS related configuration, you can use the Pi Imager OS customisation screen.
-At installation step 6., select "Edit Settings" and then e.g. provide the WiFi SSID, password and country.
-"Save" the settings and proceed with "Yes" to start the imaging process.
+:::::: tabs :cache-lifetime="0" :options="{ useUrlFragment: false, disableScrollBehavior: true }"
+::::: tab name="Pi Imager"
+  3. Install the [Raspberry Pi Imager](https://www.raspberrypi.com/documentation/computers/getting-started.html#raspberry-pi-imager) 
+  4. Start the Pi Imager
+  5. Select your Raspberry Pi device + Click "Next" to continue
+  6. As operating system choose "Use Custom" at the bottom of the list
+  7. Select the downloaded HyperBian image file, click "Open" and "Next" to continue
+  8. Choose your storage device, i.e. your SD-Card and click "Next" to continue
+  9. Click "Write" to begin writing the image to the SD card
+  10. Wait until the image is written to the SD card
 
-::: tip Use HyperBian's default user (and password), if asked for
- - User: `hyperion`
- - Password: `ambientlight`
- 
-You can choose a different username, but then take care to update Hyperion's preconfigured service later.
-To update the service to the [current service user](/user/gettingstarted/Overview.html#change-the-service-user)
-:::
+:::::
+::::: tab name="Etcher"
 
-The configuration will happening during the first boot.
+  3. Install [balenaEtcher](https://www.balena.io/etcher/)
+  4. Start Etcher.
+  5. Select "Flash from file" and choose the downloaded HyperBian image file.
+  6. Select "Target" and choose your SD card.
+  7. Click "Flash!" to begin writing the image.
+  8. Wait until the image is written to the SD card
+:::::
 
-::: details Alternative way
+::::: tab name="Windows"
+  On Windows, you can also use the `win32diskimager`.
 
-In case you are not using PI Imager or do not want providing the details via the Customisation screen,
-you can also setup addition details via file.
+  3. Install and start [Win32 Disk Imager](https://sourceforge.net/projects/win32diskimager/).
+  4. Select the downloaded HyperBian image file.
+  5. Select your SD card device.
+  6. Click "Write" to burn the image to the SD card.
+:::::
+::::::
 
-Create a file named `custom.toml`.
-Customise the file with the setup you are looking for. Comment out element not to be changed.
+When the SD-Card was prepared sucessfully, you can optionally prepare additional configuration files.
+> [!IMPORTANT]
+> Save the configuration file(s) in the boot partition of your SD-Card.
+The configuration will then happen during the first boot.
 
-Store the file in the SD-Card boot portition.
+:::::: details Prepare a WiFi Configuration
 
-**Sample - custom.toml**
+This tool helps you generate a WiFi configuration file for your HyperBian installation.
+Simply enter your network details below and click "Generate Config" to create a customized configuration file.
 
-``` toml:no-line-numbers
-# Required:
-config_version = 1
+<WifiConfigGenerator />
 
-[system]
-hostname = "HyperBian"
+#### How to Use
 
-[user]
-name = "hyperion"
-# The password can be encrypted or plain. To encrypt, we can use "openssl passwd -5 raspberry"
-password = "ambientlight"
-password_encrypted = false
+1. Enter your network details:
+   - **SSID**: Your WiFi network name
+   - **Password**: Your WiFi password
+   - **Country**: Your two-letter country code (e.g., DE, US, GB, FR)
 
-[ssh]
-# ssh_import_id = "gh:user" # import public keys from github
-enabled = false
-password_authentication = true
-# We can also seed the ssh public keys configured for the default user:
-# authorized_keys = [ "ssh-rsa ... user@host", ... ]
+2. Click "Save WiFi Config" to save your customized `network-config` configuration file.
 
-[wlan]
-ssid = "myWifi"
-password = "myWifiPassword"
-password_encrypted = false
-hidden = false
-# The country is written to /etc/default/crda
-# Reference: https://wireless.wiki.kernel.org/en/developers/Regulatory
-country = "DE"
+3. The generated configuration file will be saved in your downloads folder
 
-[locale]
-keymap = "de"
-timezone = "Europe/Berlin"
+4. Copy the `network-config` file into the boot partition of your HyperBian SD-Card.
+
+#### What is the network-config file?
+
+The `network-config` file is used by HyperBian during the first boot to configure your Raspberry Pi's WiFi connection. By placing this file in the boot partition before the first startup, your device will automatically connect to your WiFi network.
+
+:::: details Manual Configuration
+
+If you prefer to manually edit the configuration file, you can use the following template:
+
+```yaml
+####################################################################################
+## Configure your initial HyperBian Wifi connectivity to your needs below.
+## Uncomment and edit the relevant sections as needed.
+##
+## If you have additional needs refer to the cloud-init documentation 
+## and the netplan reference for full details:
+##
+## https://netplan.io/reference
+## https://cloudinit.readthedocs.io/en/latest/topics/network-config.html
+## https://cloudinit.readthedocs.io/en/latest/topics/network-config-format-v2.html
+####################################################################################
+
+network:
+  version: 2 
+  wifis:
+    wlan0:
+      dhcp4: true
+      optional: true
+      access-points:
+        "YOUR_SSID":
+          password: "YOUR_PASSWORD"
+      regulatory-domain: YOUR_COUNTRY_CODE
 ```
+
+Replace `YOUR_SSID`, `YOUR_PASSWORD`, and `YOUR_COUNTRY_CODE` with your actual values.
+::::
+
+:::: tip
+For a list of country codes, refer to the [ISO 3166-1 alpha-2 standard](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2).
+::::
+
+::::::
+
+::: details Prepare a System configuration file
 :::
 
 
-#### Default SSH LOGIN
+-> Now, put the SD-Card into your Raspberry Pi and start up the system
+
+### Default Configuration
+... unless changed by custom configuration files
+
+::: tip HyperBian's default user and password
  - User: `hyperion`
  - Password: `ambientlight`
- 
+:::
+
 ::: tip
 HyperBian is shipped with an English keyboard configured. If you do not own an English keyboard some keys might be found at a different place.
-For the first time login, type as you would have an English keyboard; after logging in successfully you can update to your keyboard layout via `sudo raspi-config`.
+For the first time login, type as you would have an English keyboard.
 :::
 
+::: tip
+After logging in successfully you can update any configuration via `sudo raspi-config` too.
+:::

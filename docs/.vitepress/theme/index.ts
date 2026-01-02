@@ -5,6 +5,7 @@ import ExtendedLayout from './components/ExtendedLayout.vue'
 import ImageWrap from './components/ImageWrap.vue'
 import Contributors from './components/Contributors.vue'
 import FloatingVue from 'floating-vue'
+import WifiConfigGenerator from './components/WifiConfigGenerator.vue'
 
 import 'floating-vue/dist/style.css'
 import '@red-asuka/vitepress-plugin-tabs/dist/style.css'
@@ -21,5 +22,6 @@ export default {
     app.component('ImageWrap', ImageWrap)
     app.component('Contributors', Contributors)
     app.use(FloatingVue)
+    app.component('WifiConfigGenerator', WifiConfigGenerator)    
   }
 }
