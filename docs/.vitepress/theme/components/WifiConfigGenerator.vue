@@ -34,19 +34,14 @@
       
       <div class="form-group">
         <label for="country">Country Code:</label>
-        <input 
-          type="text" 
-          id="country" 
-          v-model="country" 
-          placeholder="e.g., DE, US, GB"
-          pattern="[A-Z]{2}"
-          title="Two uppercase letters (e.g., DE, US, GB)"
-          maxlength="2"
-          required
-        />
+        <select id="country" v-model="country" required>
+          <option v-for="c in countries" :key="c.code" :value="c.code">
+            {{ c.name }} ({{ c.code }})
+          </option>
+        </select>
       </div>
       
-      <button type="submit" class="generate-btn">Save WiFi Config</button>
+      <button type="submit" class="generate-btn">Save Configuration</button>
     </form>
     
   </div>
@@ -54,6 +49,7 @@
 
 <script setup>
 import { ref } from 'vue'
+import { countries } from '../data/countries'
 
 const ssid = ref('')
 const password = ref('')
@@ -64,7 +60,11 @@ const togglePasswordVisibility = () => {
   showPassword.value = !showPassword.value;
 };
 
-const configTemplate = `####################################################################################
+const generateConfig = () => {
+  // Escape special characters for YAML
+  const escape = (str) => str.replaceAll('\\', '\\\\').replaceAll('"', String.raw`\"`);
+
+  const template = `####################################################################################
 ## Configure your initial HyperBian WiFi connectivity to your needs below.
 ## Uncomment and edit the relevant sections as needed.
 ##
@@ -83,21 +83,11 @@ network:
       dhcp4: true
       optional: true
       access-points:
-        "SSID":
-          password: "PASSWORD"
-      regulatory-domain: COUNTRY`
+        "${escape(ssid.value)}":
+          password: "${escape(password.value)}"
+      regulatory-domain: ${country.value.toUpperCase()}`;
 
-const generateConfig = () => {
-  // Escape special characters for YAML
-  const escape = (str) => str.replace(/\\/g, '\\\\').replace(/"/g, '\\"');
-
-  // Replace placeholders with user input (escaped for YAML)  
-  const config = configTemplate
-    .replace('"SSID"', `"${escape(ssid.value)}"`)
-    .replace('"PASSWORD"', `"${escape(password.value)}"`)
-    .replace('COUNTRY', country.value.toUpperCase());
-
-  const blob = new Blob([config], { type: 'application/octet-stream' });
+  const blob = new Blob([template], { type: 'application/octet-stream' });
   const link = document.createElement('a');
   link.href = URL.createObjectURL(blob);
   link.download = 'network-config';

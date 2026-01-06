@@ -22,6 +22,7 @@
     "floating-vue": "latest",
     "markdown-it": "^14.1.0",
     "markdown-it-github-alerts": "^1.0.0",
-    "medium-zoom": "latest"
+    "medium-zoom": "latest",
+    "sha512crypt-node": "^1.0.2"
   }
 }
