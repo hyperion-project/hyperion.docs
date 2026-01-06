@@ -1,22 +1,22 @@
 <template>
   <div class="system-config-generator">
-    <h2>System Configuration Generator</h2>
-    <p>Generate a customized system configuration for your HyperBian system.</p>
+    <h2>{{ texts.title }}</h2>
+    <p>{{ texts.description }}</p>
 
     <form @submit.prevent="generateConfig" class="config-form">
       <div class="form-group">
-        <label for="username">Username:</label>
-        <input type="text" id="username" v-model="config.username" placeholder="e.g., hyperion">
+        <label for="username">{{ texts.usernameLabel }}:</label>
+        <input type="text" id="username" v-model="config.username" :placeholder="texts.usernamePlaceholder">
       </div>
 
       <div class="form-group">
-        <label for="password">Password:</label>
+        <label for="password">{{ texts.passwordLabel }}:</label>
         <div class="password-wrapper">
           <input 
             :type="showPassword ? 'text' : 'password'" 
             id="password" 
             v-model="config.password" 
-            placeholder="Enter the user's password"
+            :placeholder="texts.passwordPlaceholder"
           />
           <span @click="togglePasswordVisibility" class="password-toggle-icon">
             <svg v-if="showPassword" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"></path><line x1="1" y1="1" x2="23" y2="23"></line></svg>
@@ -26,13 +26,13 @@
       </div>
 
       <div class="form-group">
-        <label for="hostname">Hostname:</label>
-        <input type="text" id="hostname" v-model="config.hostname" placeholder="e.g., hyperbian">
+        <label for="hostname">{{ texts.hostnameLabel }}:</label>
+        <input type="text" id="hostname" v-model="config.hostname" :placeholder="texts.hostnamePlaceholder">
       </div>
 
       <div class="form-group checkbox-group">
         <input type="checkbox" id="use_timezone" v-model="useTimezone">
-        <label for="use_timezone">Set Timezone</label>
+        <label for="use_timezone">{{ texts.setTimezoneLabel }}</label>
         <div v-if="useTimezone" class="sub-form-group">
           <select id="timezone" v-model="config.timezone">
             <option v-for="tz in timezones" :key="tz" :value="tz">
@@ -44,41 +44,91 @@
 
       <div class="form-group checkbox-group">
         <input type="checkbox" id="use_locale" v-model="useLocale">
-        <label for="use_locale">Set Locale</label>
+        <label for="use_locale">{{ texts.setLocaleLabel }}</label>
         <div v-if="useLocale" class="sub-form-group">
-          <input type="text" id="locale" v-model="config.locale" placeholder="e.g., de_DE.UTF-8">
+          <select id="locale" v-model="config.locale">
+            <option v-for="loc in locales" :key="loc" :value="loc">
+              {{ loc }}
+            </option>
+          </select>
         </div>
       </div>
 
       <div class="form-group checkbox-group">
         <input type="checkbox" id="use_keyboard" v-model="useKeyboard">
-        <label for="use_keyboard">Set Keyboard Layout</label>
+        <label for="use_keyboard">{{ texts.setKeyboardLayoutLabel }}</label>
         <div v-if="useKeyboard" class="sub-form-group">
-          <input type="text" id="keyboard_layout" v-model="config.keyboard_layout" placeholder="e.g., de">
+          <select id="keyboard_layout" v-model="config.keyboard_layout">
+            <option v-for="layout in keyboardLayouts" :key="layout" :value="layout">
+              {{ layout }}
+            </option>
+          </select>
         </div>
       </div>
 
       <div class="form-group checkbox-group">
         <input type="checkbox" id="enable_spi" v-model="config.enable_spi">
-        <label for="enable_spi">Enable SPI Interface</label>
+        <label for="enable_spi">{{ texts.enableSpiLabel }}</label>
       </div>
 
       <div class="form-group checkbox-group">
         <input type="checkbox" id="enable_ssh" v-model="config.enable_ssh">
-        <label for="enable_ssh">Enable SSH Access</label>
+        <label for="enable_ssh">{{ texts.enableSshLabel }}</label>
       </div>      
 
       <div>
-      <button type="submit" class="generate-btn">Save Configuration</button>
+      <button type="submit" class="generate-btn">{{ texts.buttonText }}</button>
       </div>
     </form>
   </div>
 </template>
 
 <script setup>
-import { ref, reactive } from 'vue';
+import { ref, reactive, computed } from 'vue';
+import { useData } from 'vitepress';
 import { sha512crypt } from 'sha512crypt-node';
 import { timezones } from '../data/timezones';
+import { locales } from '../data/locales';
+import { keyboardLayouts } from '../data/keyboardLayouts';
+
+const { lang } = useData();
+
+const texts = computed(() => {
+  if (lang.value.startsWith('de')) {
+    return {
+      title: 'Systemkonfigurationsgenerator',
+      description: 'Erstelle eine angepasste Systemkonfiguration für dein HyperBian-System.',
+      usernameLabel: 'Benutzername',
+      usernamePlaceholder: 'z.B. hyperion',
+      passwordLabel: 'Passwort',
+      passwordPlaceholder: 'Gib das Passwort des Benutzers ein',
+      hostnameLabel: 'Hostname',
+      hostnamePlaceholder: 'z.B. hyperbian',
+      setTimezoneLabel: 'Zeitzone festlegen',
+      setLocaleLabel: 'Locale festlegen',
+      setKeyboardLayoutLabel: 'Tastaturlayout festlegen',
+      enableSpiLabel: 'SPI-Schnittstelle aktivieren',
+      enableSshLabel: 'SSH-Zugang aktivieren',
+      buttonText: 'Konfiguration speichern'
+    };
+  }
+  return {
+    title: 'System Configuration Generator',
+    description: 'Generate a customized system configuration for your HyperBian system.',
+    usernameLabel: 'Username',
+    usernamePlaceholder: 'e.g., hyperion',
+    passwordLabel: 'Password',
+    passwordPlaceholder: "Enter the user's password",
+    hostnameLabel: 'Hostname',
+    hostnamePlaceholder: 'e.g., hyperbian',
+    setTimezoneLabel: 'Set Timezone',
+    setLocaleLabel: 'Set Locale',
+    setKeyboardLayoutLabel: 'Set Keyboard Layout',
+    enableSpiLabel: 'Enable SPI Interface',
+    enableSshLabel: 'Enable SSH Access',
+    buttonText: 'Save Configuration'
+  };
+});
 
 const config = reactive({
   username: 'hyperion',
@@ -260,7 +310,8 @@ h2 {
 }
 
 .form-group input[type="text"],
-.form-group input[type="password"] {
+.form-group input[type="password"],
+.form-group select {
   padding: 0.75rem 1rem;
   border: 1px solid var(--vp-c-divider);
   border-radius: 4px;
@@ -270,7 +321,8 @@ h2 {
   width: 100%;
 }
 
-.form-group input:focus {
+.form-group input:focus,
+.form-group select:focus {
   outline: none;
   border-color: var(--vp-c-brand-1);
 }

@@ -1,28 +1,28 @@
 <template>
   <div class="wifi-config-generator">
-    <h2>WiFi Configuration Generator</h2>
-    <p>Generate a customized WiFi configuration for your HyperBian system.</p>
+    <h2>{{ texts.title }}</h2>
+    <p>{{ texts.description }}</p>
     
     <form @submit.prevent="generateConfig" class="config-form">
       <div class="form-group">
-        <label for="ssid">SSID (Network Name):</label>
+        <label for="ssid">{{ texts.ssidLabel }}:</label>
         <input 
           type="text" 
           id="ssid" 
           v-model="ssid" 
-          placeholder="Enter your WiFi network name"
+          :placeholder="texts.ssidPlaceholder"
           required
         />
       </div>
       
       <div class="form-group">
-        <label for="password">Password:</label>
+        <label for="password">{{ texts.passwordLabel }}:</label>
         <div class="password-wrapper">
           <input 
             :type="showPassword ? 'text' : 'password'" 
             id="password" 
             v-model="password" 
-            placeholder="Enter your WiFi password"
+            :placeholder="texts.passwordPlaceholder"
             required
           />
           <span @click="togglePasswordVisibility" class="password-toggle-icon">
@@ -33,7 +33,7 @@
       </div>
       
       <div class="form-group">
-        <label for="country">Country Code:</label>
+        <label for="country">{{ texts.countryLabel }}:</label>
         <select id="country" v-model="country" required>
           <option v-for="c in countries" :key="c.code" :value="c.code">
             {{ c.name }} ({{ c.code }})
@@ -41,15 +41,43 @@
         </select>
       </div>
       
-      <button type="submit" class="generate-btn">Save Configuration</button>
+      <button type="submit" class="generate-btn">{{ texts.buttonText }}</button>
     </form>
     
   </div>
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
+import { useData } from 'vitepress'
 import { countries } from '../data/countries'
+
+const { lang } = useData()
+
+const texts = computed(() => {
+  if (lang.value.startsWith('de')) {
+    return {
+      title: 'WLAN-Konfigurationsgenerator',
+      description: 'Erstelle eine angepasste WLAN-Konfiguration für dein HyperBian-System.',
+      ssidLabel: 'SSID (Netzwerkname)',
+      ssidPlaceholder: 'Gib deinen WLAN-Netzwerknamen ein',
+      passwordLabel: 'Passwort',
+      passwordPlaceholder: 'Gib dein WLAN-Passwort ein',
+      countryLabel: 'Ländercode',
+      buttonText: 'Konfiguration speichern'
+    }
+  }
+  return {
+    title: 'WiFi Configuration Generator',
+    description: 'Generate a customized WiFi configuration for your HyperBian system.',
+    ssidLabel: 'SSID (Network Name)',
+    ssidPlaceholder: 'Enter your WiFi network name',
+    passwordLabel: 'Password',
+    passwordPlaceholder: 'Enter your WiFi password',
+    countryLabel: 'Country Code',
+    buttonText: 'Save Configuration'
+  }
+})
 
 const ssid = ref('')
 const password = ref('')
@@ -145,10 +173,10 @@ network:
   color: var(--vp-c-text-1);
 }
 
-.form-group input {
+.form-group input,
+.form-group select {
   width: 100%;
   padding: 10px;
-  padding-right: 40px; /* Make space for the icon */
   border: 1px solid var(--vp-c-divider);
   border-radius: 4px;
   font-size: 14px;
@@ -157,7 +185,12 @@ network:
   box-sizing: border-box;
 }
 
-.form-group input:focus {
+.form-group input {
+  padding-right: 40px; /* Make space for the icon */
+}
+
+.form-group input:focus,
+.form-group select:focus {
   outline: none;
   border-color: var(--vp-c-brand-1);
 }
