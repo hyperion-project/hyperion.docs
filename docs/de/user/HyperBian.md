@@ -45,7 +45,10 @@ Ist ein gebrauchsfertiges Image für deinen Raspberry Pi und basiert auf dem ori
 :::::
 ::::::
 
-Wenn die SD-Karte erfolgreich vorbereitet wurde, kannst du optional zusätzliche Konfigurationsdateien vorbereiten.
+Wenn die SD-Karte erfolgreich vorbereitet wurde, kannst du optional zusätzliche Konfigurationsdateien mit den unten stehenden Assistenten vorbereiten.
+
+Alternativ kannst du die mit dem Image gelieferten Konfigurationsdateien bearbeiten. Der Abschnitt "Manuelle Konfiguration" der nachfolgenden WLAN- und Systemkonfigurationsanleitung unterstützt dich bei der Aktualisierung der Konfiguration.
+
 > [!IMPORTANT]
 > Speichere die Konfigurationsdatei(en) in der Boot-Partition deiner SD-Karte.
 Die Konfiguration wird dann während des ersten Starts durchgeführt.

@@ -45,7 +45,9 @@ Is a ready to use image for your Raspberry Pi. Based on the original Raspberry P
 :::::
 ::::::
 
-When the SD-Card was prepared sucessfully, you can optionally prepare additional configuration files.
+When the SD-Card was prepared successfully, you can optionally prepare additional configuration files via the configuration wizards below.
+
+Alternatively, you can edit the default ones provided along with the image. The Manual Configuration section of the Wifi- and System Configuration guide below supports you with the details on how to edit the content.
 > [!IMPORTANT]
 > Save the configuration file(s) in the boot partition of your SD-Card.
 The configuration will then happen during the first boot.
