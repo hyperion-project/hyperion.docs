@@ -1,80 +1,103 @@
 # HyperBian
-Is a ready to use image for your Raspberry Pi. Based on the original Raspberry Pi Foundation image "Raspberry Pi OS Lite". Hyperion is already pre installed. So simply
-1. [Download](https://github.com/Hyperion-Project/HyperBian/releases)
-2. Burn image on SD 
-3. Power on your Pi
-4. Visit with your Browser `http://IpOfYourPi:8090` for configuration
+HyperBian is a set of ready-to-use images for Raspberry Pi.
+
+It's based on the original Raspberry Pi Foundation's image, "Raspberry Pi OS Lite," previously called Raspbian. Thus, Hyperion and Raspbian form HyperBian.
+
+Here is a high-level overview of the installation process:
+1. [Download](https://github.com/Hyperion-Project/HyperBian/releases) the HyperBian image for your Raspberry Pi.
+2. Write the image to a microSD card from a PC.
+3. Optionally, customize your Raspberry Pi's Wi-Fi network or system settings, like language or time zone.
+4. Insert the SD card and power on your Pi.
+5. In a web browser, navigate to `http://IP.OfYour.RPi:8090` to access the Hyperion web interface.
 
 ## Requirements
-  * SD card with at least 4GB size
   * Raspberry Pi
-  * Linux/Mac/Windows + SD card read/writer
+  * PC running Linux, macOS, or Windows
+  * microSD or SD card reader
+      * For SD card readers, use a [microSD-to-SD adapter](https://en.wikipedia.org/wiki/SD_card#Adapters)
+  * microSD card with minimum 4 GB capacity
+  
+## Installation Instructions
+  1. Download the appropriate [HyperBian image](https://github.com/Hyperion-Project/HyperBian/releases) for your Raspberry Pi [hardware](https://www.raspberrypi.com/documentation/computers/raspberry-pi.html).
+  
+     If using Raspberry Pi 1, 2 or Zero v1, download the asset with `armhf` in the filename.\
+     For all other versions of Raspberry Pi, download the file with `arm64`.
 
-## Installation
-  1. Download the ready-made [HyperBian Image](https://github.com/Hyperion-Project/HyperBian/releases)
-  2. Download your preferred tool in support of burning the image to an SD card
+  2. Extract the `.zip` file. You should now have a `.img` file.
+
+  3. Download and install your preferred tool for writing images to SD cards. The following instructions will cover these tools:
 
 :::::: tabs :cache-lifetime="0" :options="{ useUrlFragment: false, disableScrollBehavior: true }"
-::::: tab name="Pi Imager"
-  3. Install the [Raspberry Pi Imager](https://www.raspberrypi.com/documentation/computers/getting-started.html#raspberry-pi-imager).
-  4. Start the Pi Imager.
-  5. Select your Raspberry Pi device + Click "Next" to continue.
-  6. As operating system choose "Use Custom" at the bottom of the list.
-  7. Select the downloaded HyperBian image file, click "Open" and "Next" to continue.
-  8. Choose your storage device, i.e. your SD-Card and click "Next" to continue.
-  9. Click "Write" to begin writing the image to the SD card.
+::::: tab name="Raspberry Pi Imager"
+  4. Download and install the [Raspberry Pi Imager](https://www.raspberrypi.com/documentation/computers/getting-started.html#raspberry-pi-imager).
+  5. Start `Raspberry Pi Imager`.
+  6. At the Device step, select your Raspberry Pi device.
+  7. At the OS step, select `Use custom` at the bottom of the list.
+  8. Select the extracted HyperBian `.img` file.
+  9. At the Storage step, select your microSD card.
+  10. At the Writing step, confirm the installation details, and click the "Write" button to begin writing the image to the SD card.
+  11. Wait until the image is written to the SD card.
+
+:::::
+::::: tab name="balenaEtcher"
+  4. Download and install [balenaEtcher](https://www.balena.io/etcher/).
+  5. Start balenaEtcher.
+  6. Click the `Flash from file` button. 
+  7. Select the extracted HyperBian `.img` file.
+  8. Click the `Select "Target` button, and choose your SD card.
+  9.  Click the `Flash!` button to begin writing the image to the SD card.
   10. Wait until the image is written to the SD card.
-
-:::::
-::::: tab name="Etcher"
-
-  3. Install [balenaEtcher](https://www.balena.io/etcher/).
-  4. Start Etcher.
-  5. Select "Flash from file" and choose the downloaded HyperBian image file.
-  6. Select "Target" and choose your SD card.
-  7. Click "Flash!" to begin writing the image.
-  8. Wait until the image is written to the SD card
 :::::
 
-::::: tab name="Windows"
-  3. Install [Win32 Disk Imager](https://sourceforge.net/projects/win32diskimager/).
-  4. Start Win32 Disk Imager.
-  5. Select the downloaded HyperBian image file.
-  6. Select your SD card device.
-  7. Click "Write" to burn the image to the SD card.
+::::: tab name="Win32 Disk Imager"
+  4. Download and install [Win32 Disk Imager](https://sourceforge.net/projects/win32diskimager/).
+  5. Start Win32DiskImager.
+  6. In the Image File section, click the blue folder icon and select the extracted HyperBian `.img` file.
+  7. In the Device section, select the drive letter corresponding to your SD card device.
+  8. Click the `Write` button to write the image to the SD card.
+  9.  Wait until the image is written to the SD card.
 :::::
 ::::::
 
-When the SD-Card was prepared successfully, you can optionally prepare additional configuration files via the configuration wizards below.
+After the HyperBian image is written to the SD card successfully, you can optionally customize the Raspberry Pi configuration.
 
-Alternatively, you can edit the default ones provided along with the image. The Manual Configuration section of the Wifi- and System Configuration guide below supports you with the details on how to edit the content.
+1. Before first boot, prepare Wi-Fi and/or System configuration files.
+2. After first boot, run the `raspi-config` command from the CLI.
+
+### Configuration Files
+Wi-Fi and System configuration files can be generated using the wizard tools below or by directly editing the configuration files already provided by the image.
+
 > [!IMPORTANT]
-> Save the configuration file(s) in the boot partition of your SD-Card.
-The configuration will then happen during the first boot.
+> Save the configuration file(s) in the boot partition of your SD card. The configuration will then take place after the first boot.
 
-:::::: details Prepare a WiFi Configuration
-
-This tool helps you generate a WiFi configuration file for your HyperBian installation.
-Simply enter your network details below and click "Generate Config" to create a customized configuration file.
+:::::: details Prepare a Wi-Fi configuration file
 
 <WifiConfigGenerator />
 
-#### How to Use
+#### How to Use the WiFi Configuration Generator
 
 1. Enter your network details:
-   - **SSID**: Your WiFi network name
-   - **Password**: Your WiFi password
-   - **Country**: Your two-letter country code (e.g., DE, US, GB, FR)
+   - **SSID**: Your Wi-Fi network name
+   - **Password**: Your Wi-Fi password
+   - **Country**: Your two-letter country code, e.g., DE, US, GB, FR.
 
-2. Click "Save Configuration" to save your customized `network-config` file.
+      :::: tip
+      For a list of country codes, refer to the [ISO 3166-1 alpha-2 standard](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2).
+      ::::
 
-3. The generated configuration file will be saved in your downloads folder
+2. Click the `Save Configuration` button to save your customized `network-config` file.
 
-4. Copy the `network-config` file into the boot partition of your HyperBian SD-Card.
+      - If your browser asks where to save the file, select the destination folder. Otherwise, it will be saved to the default location, e.g., the `Downloads` folder.
 
-#### What is the network-config file?
+3. Copy the `network-config` file into the `boot` partition of your HyperBian SD card.
 
-The `network-config` file is used by HyperBian during the first boot to configure your Raspberry Pi's WiFi connection. By placing this file in the boot partition before the first startup, your device will automatically connect to your WiFi network.
+#### What is the `network-config` file?
+
+The `network-config` file is used by HyperBian during the first boot to configure your Raspberry Pi's Wi-Fi connection. By placing this file in the boot partition before the first startup, your device will automatically connect to your Wi-Fi network.
+
+This wizard tool helps you generate a Wi-Fi configuration file for your HyperBian installation.
+
+Simply enter your network details below, and click "Generate Config" to create a customized configuration file.
 
 :::: details Manual Configuration
 
@@ -108,51 +131,61 @@ network:
 Replace `YOUR_SSID`, `YOUR_PASSWORD`, and `YOUR_COUNTRY_CODE` with your actual values.
 ::::
 
-:::: tip
-For a list of country codes, refer to the [ISO 3166-1 alpha-2 standard](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2).
-::::
-
 ::::::
 
-:::::: details Prepare a System configuration
+:::::: details Prepare a System configuration file
 
-This tool helps you generate a system configuration file for your HyperBian installation.
-Simply enter your system details below and click "Generate Config" to create a customized configuration file.
+This wizard tool helps you generate a system configuration file for your HyperBian installation.
+
+Simply enter your system details below, and click "Generate Config" to create a customized configuration file.
 
 <SystemConfigGenerator />
 
-#### How to Use
+#### How to Use the System Configuration Generator
 
 1. Fill out the form with your desired system settings:
- - **Username / Password**
- - **Hostname**
- - **Timezone**: - Timezones must be valid IANA time zone identifiers
- - **Locale**: must follow glibc locale naming and be supported by the system
- - **Keyboard layout**: Layouts must be valid XKB layout names 
- - **SPI**: Enable/Disable the SPI interface
- - **SSH**: Enable/Disable SSH access
-2. Click "Save Configuration" to save your customized `user-data` file.
-3. The generated configuration file will be saved in your downloads folder
-4. Copy the `user-data` file into the boot partition of your HyperBian SD-Card.
+    - **Username**
+
+    - **Password**
+
+    - **Hostname**: If your network supports [mDNS](https://www.raspberrypi.com/documentation/computers/remote-access.html#resolve-raspberrypi-local-with-mdns), also known as Bonjour or Avahi, then the hostname can be used to access your Hyperion web interface, i.e., `http://hostname.local:8090`.
+
+    - When you tick the checkbox for the following three settings, a dropdown menu will appear. Select your desired option from the dropdown menu.
+
+        - **Set Timezone**: Timezones must be valid [IANA time zone identifiers](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List).
+
+        - **Set Locale**: Locale must follow [glibc locale naming](https://github.com/bminor/glibc/blob/master/localedata/SUPPORTED) and be supported by the system.
+
+        - **Set Keyboard layout**: Layouts must be valid XKB layout names.
+
+    - **Enable SPI Interface**: Enable or disable the SPI interface. Enable if your LEDs communicate using the Raspberry Pi's [SPI pins](https://www.raspberrypi.com/documentation/computers/raspberry-pi.html#alternative-functions) in the GPIO.
+
+    - **Enable SSH Access**: Enable or disable SSH access. Enable if you want remote access to the CLI, e.g., to [change the service user](https://docs.hyperion-project.org/user/gettingstarted/Overview.html#change-the-service-user) to use WS281x LEDs with the Raspberry Pi's [PWM pins](https://www.raspberrypi.com/documentation/computers/raspberry-pi.html#alternative-functions) in the GPIO.
+
+2. Click `Save Configuration` to save your customized `user-data` file.
+
+    - If your browser asks where to save the file, select the destination folder. Otherwise, it will be saved to the default location, e.g., the `Downloads` folder.
+
+3. Copy the `user-data` file into the `boot` partition of your HyperBian SD card.
 
 
-#### What is the user-data file?
+#### What is the `user-data` file?
 
 The `user_data` file is used by HyperBian during the first boot to configure your Raspberry Pi's setup. By placing this file in the boot partition, you can pre-configure settings like username, password, hostname, and more.
 
 :::: details Manual Configuration
 
-If you prefer to manually edit the configuration file, you can use the following template. Replace the placeholder or sample values with your desired configuration. You might need to uncomment selections to get them to work.
-Note: You must generate an encryted password, e.g. via `openssl passwd -6 "YOUR_PASSWORD"` and replace YOUR_HYPERION_USERNAME_PASSWORD_ENCRYPTED by output.
+If you prefer to manually edit the configuration file, you can use the following template.
+
+Replace the placeholder or sample values with your desired configuration. You might need to uncomment selections to get them to work.
 
 ```yaml
 ## template: jinja
 #cloud-config
 
-# This is the user-data configuration file for cloud-init. By default this sets
-# up an initial user called "ubuntu" with password "ubuntu", which must be
-# changed at first login. However, many additional actions can be initiated on
-# first boot from this file. The cloud-init documentation has more details:
+# This is the user-data configuration file for cloud-init.
+# Many additional actions can be initiated on first boot from this file.
+# The cloud-init documentation has more details:
 #
 # https://cloudinit.readthedocs.io/
 #
@@ -205,9 +238,9 @@ rpi:
   interfaces:
     spi: true
 
-###############################
-### DO NOT CHANGE THE BELOW ###
-###############################
+####################################################
+### DO NOT CHANGE THE BELOW BESIDES THE PASSWORD ###
+####################################################
 
 users:
 - name: {{ HYPERION_USER }}
@@ -234,30 +267,39 @@ runcmd:
 {% endif %}
 ```
 > [!NOTE]
-> The `passwd` field requires a SHA-512 encrypted password hash. The generator tool handles this for you.
+> The `passwd` field requires a SHA-512 encrypted password hash, e.g. run `openssl passwd -6 "YOUR_PASSWORD"` and replace `YOUR_HYPERION_USERNAME_PASSWORD_ENCRYPTED` with the output.
 
 ::::
 ::::::
 
--> Now, put the SD-Card into your Raspberry Pi and start up the system.
+-> Now, put the SD card into your Raspberry Pi and start up the system.
 
 ::: info
-The Raspberry Pi might boot in between while configurating the system.
+The Raspberry Pi may reboot several times while configuring the system.
 :::
+
+#### Running the `raspi-config` command
+
+::: tip Customizing configuration after first boot
+If you want to customize the Raspberry Pi's configuration without using the above configuration files, you can still update its configuration via the `sudo raspi-config` [command](https://www.raspberrypi.com/documentation/computers/configuration.html).
+:::
+
+This method may require a specialized HDMI adapter or cable, which is not always available to all users. Therefore, it is recommended to use the configuration files as described in the previous section for simplicity.
 
 ### Default Configuration
-... unless changed by custom configuration files
 
-::: tip HyperBian's default user and password
+::: tip HyperBian's default username, password, and hostname
  - User: `hyperion`
  - Password: `ambientlight`
+ - Hostname: `hyperbian`
 :::
 
-::: tip
-HyperBian is shipped with an English keyboard configured. If you do not own an English keyboard some keys might be found at a different place.
-For the first time login, type as you would have an English keyboard.
+::: tip Default keyboard language and layout
+HyperBian ships with an English keyboard by default. If using a non-English keyboard, some keys might be found in different places.
+When logging in for the first time, type as though you have an English keyboard.
 :::
 
-::: tip
-After logging in successfully you can update any configuration via `sudo raspi-config` too.
-:::
+If your network supports mDNS, navigate to [http://hyperbian.local:8090](http://hyperbian.local:8090). Otherwise, use the [IP address](https://www.raspberrypi.com/documentation/computers/remote-access.html#ip-address) of your Raspberry Pi.
+
+Proceed to the next section for details on Advanced setup in Hyperion.
+
